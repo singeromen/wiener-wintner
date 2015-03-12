@@ -1,0 +1,511 @@
+%
+% Niniejszy plik stanowi przyk≥ad formatowania pracy magisterskiej na
+% Wydziale MIM UW.  Szkielet uøytych poleceÒ moøna wykorzystywaÊ do
+% woli, np. formatujac wlasna prace.
+%
+% Zawartosc merytoryczna stanowi oryginalnosiagniecie
+% naukowosciowe Marcina Wolinskiego.  Wszelkie prawa zastrzeøone.
+%
+% Copyright (c) 2001 by Marcin WoliÒski <M.Wolinski@gust.org.pl>
+% Poprawki spowodowane zmianami przepisÛw - Marcin Szczuka, 1.10.2004
+% Poprawki spowodowane zmianami przepisow i ujednolicenie 
+% - Seweryn Kar≥owicz, 05.05.2006
+% dodaj opcjÍ [licencjacka] dla pracy licencjackiej
+\documentclass{pracamgr}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=3.5cm, bottom=3.5cm, headsep=1.2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{ mathrsfs }
+\usepackage{ amssymb }
+\usepackage{amsthm}
+\usepackage{etoolbox}
+\usepackage{ dsfont }
+\usepackage{ hyperref }
+
+%Jesli uzywasz kodowania polskich znakow ISO-8859-2 nastepna linia powinna byc 
+%odkomentowana
+%\usepackage[latin2]{inputenc}
+%Jesli uzywasz kodowania polskich znakow CP-1250 to ta linia powinna byc 
+%odkomentowana
+\usepackage[cp1250]{inputenc}
+
+% Dane magistranta:
+
+\author{Adam åpiewak}
+
+\nralbumu{132528}
+
+\title{Generalizations of Wiener-Wintner ergodic theorem}
+
+\tytulang{Rozszerzenia twierdzenia ergodycznego Wienera-Wintnera}
+
+%kierunek: Matematyka, Informatyka, ...
+\kierunek{Matematyka}
+
+% informatyka - nie okreslamy zakresu (opcja zakomentowana)
+% matematyka - zakres moze pozostac nieokreslony,
+% a jesli ma byc okreslony dla pracy mgr,
+% to przyjmuje jedna z wartosci:
+% {metod matematycznych w finansach}
+% {metod matematycznych w ubezpieczeniach}
+% {matematyki stosowanej}
+% {nauczania matematyki}
+% Dla pracy licencjackiej mamy natomiast
+% mozliwosc wpisania takiej wartosci zakresu:
+% {Jednoczesnych Studiow Ekonomiczno--Matematycznych}
+
+% \zakres{Tu wpisac, jesli trzeba, jedna z opcji podanych wyzej}
+
+% Praca wykonana pod kierunkiem:
+% (podaÊ tytu≥/stopieÒ imiÍ i nazwisko opiekuna
+% Instytut
+% ew. Wydzia≥ ew. Uczelnia (jeøeli nie MIM UW))
+\opiekun{prof. dra hab. inø. Wojciecha Bartoszka\\
+  Katedra Rachunku PrawdopodobieÒstwa i Biomatematyki\\
+  }
+
+% miesiπc i~rok:
+\date{Maj 2015}
+
+%PodaÊ dziedzinÍ wg klasyfikacji Socrates-Erasmus:
+\dziedzina{ 
+%11.0 Matematyka, Informatyka:\\ 
+11.1 Matematyka\\ 
+%11.2 Statystyka\\ 
+%11.3 Informatyka\\ 
+%11.4 Sztuczna inteligencja\\ 
+%11.5 Nauki aktuarialne\\
+%11.9 Inne nauki matematyczne i informatyczne
+}
+
+%Klasyfikacja tematyczna wedlug AMS (matematyka) lub ACM (informatyka)
+\klasyfikacja{37 Dynamical systems and ergodic theory\\
+  37A Ergodic theory\\
+  37A30 Ergodic theorems, spectral theory, Markov operators}
+
+% S≥owa kluczowe:
+\keywords{teoria ergodyczna}
+
+% Tu jest dobre miejsce na Twoje w≥asne makra i~úrodowiska:
+\newtheoremstyle{dotless}{}{}{}{}{\bfseries}{}{ }{}
+\newtheoremstyle{withspace}{}{}{}{}{\bfseries}{ }{ }{}
+\newtheoremstyle{colon}{0}{}{}{}{\bfseries}{:}{ }{}
+
+\newtheoremstyle{mytheorem}%                % Name
+  {}%                                     % Space above
+  {}%                                     % Space below
+  {\itshape}%                             % Body font
+  {}%                                     % Indent amount
+  {\bfseries}%                            % Theorem head font
+  {}%                                    % Punctuation after theorem head
+  {\newline}%                                    % Space after theorem head, ' ', or \newline
+  {}%                                     % Theorem head spec (can be left empty, meaning `normal')
+
+\theoremstyle{mytheorem}
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{lem}{Lemma}[chapter]
+\newtheorem{col}{Corollary}[chapter]
+
+\theoremstyle{withspace}
+\newtheorem{df}{Definition}[chapter]
+\newtheorem{prop}{Proposition}[chapter]
+\newtheorem{ex}{Example}[chapter]
+
+\theoremstyle{dotless}
+\newtheorem*{rem}{Remark}
+
+
+\theoremstyle{colon}
+\newtheorem*{pf}{Proof}
+
+\AfterEndEnvironment{thm}{\noindent\ignorespaces}
+\AfterEndEnvironment{lem}{\noindent\ignorespaces}
+\AfterEndEnvironment{df}{\noindent\ignorespaces}
+\AfterEndEnvironment{prop}{\noindent\ignorespaces}
+\AfterEndEnvironment{ex}{\noindent\ignorespaces}
+\AfterEndEnvironment{rem}{\noindent\ignorespaces}
+\AfterEndEnvironment{pf}{\noindent\ignorespaces}
+
+% koniec definicji
+
+\begin{document}
+\maketitle
+
+%tu idzie streszczenie na strone poczatkowa
+\begin{abstract}
+  W pracy przedstawiono klasyczne twierdzenie ergodyczne Wienera-Wintnera wraz z licznymi rozszerzeniami.
+\end{abstract}
+
+\tableofcontents
+%\listoffigures
+%\listoftables
+
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+Twierdzenie ergodycznie Wienera-Wintnera jest bardzo waøne. Bardzo bardzo waøne.
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% coding: latin-2
+%%% End:
+
+
+
+
+
+
+\chapter{Preliminaries}\label{r:prel}
+In this chapter we introduce basic notations, concepts and theorems from measure theory, topology and functional analysis which will be used through the thesis. We omit most of the proofs.\\ \\
+By $\mathbb{N}$ we will denote set of positive natural numbers, by $\mathbb{N}_0$ - set of natural numbers together with zero, by $\mathbb{Z}$ - set of integers, by $\mathbb{R}$ - set of real numbers, by $\mathbb{C}$ - set of complex numbers and by $\mathbb{T}=\mathbb{S}^1=\left\{ \lambda \in \mathbb{C}: |\lambda|=1 \right\}$ - circle on a complex plane (1-dimensional torus).
+
+
+
+\section{Measure theory}
+
+complex measure and integral?!\\
+finite and $\sigma$-finite measure spaces\\
+miara Lebesgue'a m\\
+miary produktowe\\
+twierdzenie fubiniego\\
+a.e. convergence\\
+lebesgue's dominated convergence theorem\\
+spaces $\mathcal{L}^1(\mu)$ and $L^1(\mu)$\\
+absolute continuity and Radon-Nikodym theorem\\
+
+\begin{df}
+Let $X$ be nonempty set. Family of sets $\mathcal{A} \subset 2^X$ is called $\sigma$\textbf{-field} (or $\sigma$\textbf{-algebra}), when the following conditions hold:
+\begin{enumerate}[(i)]
+\item $\emptyset \in \mathcal{A},$
+\item $A \in \mathcal{A} \Longrightarrow A' \in \mathcal{A}$,
+\item $A_n \in \mathcal{A} \text{ for } n \in \mathbb{N}_0 \Longrightarrow \bigcup \limits_{n=0}^{\infty} A_n \in \mathcal{A}$.
+\end{enumerate}
+Pair $(X, \mathcal{A})$ is called a \textbf{measurable space}. Set $A \in \mathcal{A}$ is called a \textbf{measurable set}.
+\end{df}
+
+\begin{df}
+Let $(X,\mathcal{A})$ be a measurable space. Function $\mu : \mathcal{A} \rightarrow [0, +\infty]$ is called a \textbf{(non-negative) measure} if it satifises the following properties:
+\begin{enumerate}[(i)]
+\item $\mu(\emptyset) = 0$,
+\item $\mu\left( \bigcup \limits_{n=0}^{\infty} A_n \right) = \sum \limits_{n=0}^{\infty} \mu (A_n)$ for any countable collection of measurable sets $A_n \in \mathcal{A},\ n \in \mathbb{N}_0$.
+\end{enumerate}
+Triple $(X, \mathcal{A}, \mu)$ is called a \textbf{measure space}.
+\end{df}
+
+\begin{df}
+Let $(X, \mathcal{A})$ and $(Y, \mathcal{C})$ be measurable spaces. A map $T: X \rightarrow Y$ is called a \textbf{measurable map} if it satisfies $T^{-1}(C) \in \mathcal{A} \text{ for all } C \in \mathcal{C}$.
+\end{df}
+
+\begin{df}
+Let $(X, \mathcal{A}, \mu)$ be a measure space. An element $x \in X$ is called an \textbf{atom} (of the measure $\mu$) if $\mu(\{ x\})>0$. The measure $\mu$ is called \textbf{continuous} if it has no atoms, i.e. $\underset{x \in X}{\forall}\ \mu(\{ x\})=0$.
+\end{df}
+
+\begin{rem} Note that a finite measure $\mu$ can have only countably many atoms. To see that observe that for $\varepsilon >0$ a set $A_{\varepsilon}:=\{x \in X: \mu(\{x\}) > \epsilon \}$ must have at most $\frac{\mu(X)}{\varepsilon}$ elements (otherwise we wolud have $\mu(X) > \frac{\mu(X)}{\varepsilon} \cdot \varepsilon = \mu(X)$), hence must be finite. This shows that the set of atoms $A = \bigcup \limits_{n=1}^{\infty} A_{\frac{1}{n}}$ must be countable. Also, there is $\sum \limits_{x \in A} \mu(\{ x\}) \leq \mu(X) < \infty.$
+\end{rem}
+
+
+\section{Topology}
+topological space\\
+metric space\\
+continuous map\\
+compact space, complete metric space\\
+Urysohn lemma\\
+Borel measures\\
+
+
+
+\section{Functional analysis}
+dual space\\
+Riesz theorem (Hilbert spaces)\\
+Banach and Hilbert conjugate\\
+Riesz-Markov theorem\\
+
+In the following we will always assume that vector spaces are taken over field $\mathbb{C}$.
+
+\begin{df}
+Let $E$ be a vector space. We say that a function $\| \cdot \| : E \rightarrow [0, \infty)$ is a \textbf{norm}, if for all $x,y \in E$ the following conditions are satisfied:
+\begin{enumerate}[(i)]
+\item $\|x\| = 0 \Leftrightarrow x=0$,
+\item $\|\lambda x \| = |\lambda| \| x \|$ for all $\lambda \in \mathbb{C}$,
+\item $\|x + y\| \leq \|x\| + \|y\|$.
+\end{enumerate}
+Vector space $E$ equipped with a norm is called a \textbf{normed space}.
+\end{df}
+
+\begin{rem} Note that a norm gives rise to a metric on $E$ by $d(x,y) = \| x - y\|$. This metric generates a topology on $E$ which is considered as a standard topology on $E$. Convergence in this metric is called convergence in norm (or strong convergence) and is sometimes denoted by $x_n \stackrel{\| \cdot \|}{\longrightarrow} x$ or $x_n \stackrel{E}{\longrightarrow} x$.
+\end{rem}
+
+\begin{df}
+Let $E$ be a normed space. If $E$ is complete as a metric space, then $E$ is called a \textbf{Banach space}.
+\end{df}
+
+\begin{ex}[$\mathscr{L}^p$ and $L^p$ spaces]$\\$
+Let $(X, \mathcal{A}, \mu)$ be a measure space. For $1\leq p < \infty$ consider the vector space \[\mathscr{L}^p(X, \mathcal{A}, \mu) := \left\{ f:X \rightarrow \mathbb{C};\ f \text{ is measurable and } \int \limits_{X} |f|^p d\mu < \infty \right\}.\]
+Define an equivalence relation $\sim$ on $\mathscr{L}^p(X, \mathcal{A}, \mu)$ by $f \sim g$ if $f = g\ \mu$ a.e. Let
+\[ L^p(X, \mathcal{A}, \mu) := \mathscr{L}^p(X, \mathcal{A}, \mu) / \sim. \]
+Spaces $L^p(X, \mathcal{A}, \mu)$ are considered with norm $\|f\|_{L^p(X, \mathcal{A}, \mu)} :=  \left( \int \limits_{X} |f|^p d\mu \right) ^ {\frac{1}{p}}$ with which they become Banach spaces. Usually we will abbreviate $L^p(X, \mathcal{A}, \mu)$ to $L^p(\mu)$ or $L^p$ and $\|\cdot\|_{L^p(X, \mathcal{A}, \mu)}$ to $\| \cdot \|_{L^p(\mu)}$ or $\|\cdot\|_p$.
+\end{ex}
+
+\begin{ex}[Space $C(X)$]\label{ex:lp}$\\$
+Let $X$ be a compact metric space. Denote by $C(X)$ set of all complex valued continuous functions on $X$. $C(X)$ is a Banach space with norm $\|f\|_{\text{sup}} = \|f\|_{\infty} := \sup \limits_{x \in X} |f(x)|,\ f \in C(X)$. Suppose that there is a finite Borel nonegative measure $\mu$ on $X$. Any function $f \in C(X)$ is bounded, hence integrable with any power $p \in [1, \infty)$, which means that $C(X) \subset \mathscr{L}^p(\mu)$ and $C(X)$ can be embedded into $L^p(\mu)$. Therefore, space $C(X)$ can be naturally seen as a linear subspace of space $L^p(\mu)$ (with identification of functions equal $\mu$ a.e.).
+\end{ex}
+
+\begin{prop}
+Let $X$ be a compact metric space and $\mu$ be a finite nonegative Borel measure on $X$. Then $C(X)$ is dense in $L^p(\mu)$ (in $L^p(\mu)$ norm) for every $p \in [1, \infty)$.
+\end{prop}
+\begin{pf} CZY DOW”D?
+\end{pf}
+
+
+\begin{df}
+Let $H$ be a vector space. A function $\langle \cdot,\cdot \rangle:H \times H \rightarrow \mathbb{C}$ is called a \textbf{inner product} if for all $x,y,z \in H$ the following conditions are satisified:
+\begin{enumerate}[(i)]
+\item $\langle x,x\rangle > 0 \text{ for }x \neq 0$,
+\item $\langle x+y, z \rangle = \langle x, z \rangle + \langle y, z \rangle$,
+\item $\langle \lambda x, y \rangle = \lambda \langle x, y \rangle \text{ for all } \lambda \in \mathbb{C}$,
+\item $\langle x, y \rangle = \overline{\langle y, x \rangle}$.
+\end{enumerate}
+Vector space $H$ with inner product is called \textbf{inner product space}.
+\end{df}
+
+\begin{rem} Inner product space is a normed space with a norm $\|x\| := \sqrt{\langle x, x \rangle}$.
+\end{rem}
+
+\begin{df}Inner product space $H$ which is a Banach space is called a \textbf{Hilbert space}.
+\end{df}
+
+\begin{ex}[Space $L^2(\mu)$]$\\$
+Let $(X, \mathcal{A}, \mu)$ be a measure space. The space $L^2(\mu)$ with inner product $\langle f,g\rangle := \int \limits_{X} f \overline{g} d\mu$ is a Hilbert space. Note that the inner product norm coincides with norm $\| \cdot \|_{L^2(\mu)}$ from Example \ref{ex:lp}.
+\end{ex}
+
+\begin{prop}[CauchyñSchwarz inequality]$\\$
+Let $H$ be an inner product space. The following inequality holds for all $x,y \in H$:
+\[ |\langle x, y \rangle | \leq \|x\| \|y\|. \]
+\end{prop}
+
+\begin{rem} Cauchy-Schwarz inequality implies that inner product is a continous map in each variable.
+\end{rem}
+
+\begin{df}
+Let $H$ be an inner product space. Two vectors $x, y \in H$ are said to be \textbf{orthogonal} if $\langle x, y \rangle = 0$. For a set $H_0 \subset H$ the \textbf{orthogonal complement} is a set $h_0^{\bot}:=\left\{ x \in H: \underset{h \in H_0}{\forall}\ \langle h, x \rangle = 0 \right\}$.
+\end{df}
+
+\begin{rem} If $H_0$ is a linear subspace of H, then $H_0^{\bot}$ is a closed linear subspace of H. Closedness of $H_0^{\bot}$ is a consequence of continuity of inner product.
+\end{rem}
+
+\begin{df}
+Let $E, F$ be normed spaces. A linear transformation $U: E \rightarrow F$ is called a \textbf{bounded linear operator} if there exists $M > 0$ such that $\underset{x \in E}{\forall}\ \|Ux\| \leq M\|x\|$. Constant $\|U\| := \sup \limits_{\|x\| \leq 1} \|Ux\|$ is called a \textbf{operator norm} of U. If $\| U \| \leq 1$ then $U$ is called a \textbf{contraction}. If $\underset{x \in E}{\forall}\ \|Ux\| = \|x\|$ then $U$ is called an \textbf{isometry}. Note that an isometry is always a contraction.
+\end{df}
+
+\begin{rem} Linear operator $U: E \rightarrow F$ between normed spaces is continuous if and only if it's bounded. Space $L(E,F)$ of all bounded linear operators with the operator norm is a normed space. $L(E,F)$ is a Banach space if and only if $F$ is a Banach space.
+\end{rem}
+
+\begin{df}
+Let $E$ be a normed space and let $U:E \rightarrow E$ be a bounded linear operator. Number $\lambda \in \mathbb{C}$ is called an \textbf{eigenvalue} if there is a vector $x \in E,\ x \neq 0$ such that $Ux = \lambda x$. Any such vector $x$ is called an \textbf{eigenvector} (associated with $\lambda$). The closed linear subspace $H_{\lambda} = \left\{ x \in H: Ux = \lambda x \right\}$ is called an \textbf{eigenspace} (of $\lambda$).
+\end{df}
+
+\begin{thm}[Orthogonal Projection Theorem èR”D£O!]
+Let $H_0$ be a closed linear subspace of a Hilbert space $H$. Then
+\[ H = H_0 \oplus H_0^{\bot}, \]
+i.e. for every $x \in H$ there are unique $x_0 \in H_0,\ x_1 \in H_0^{\bot}$ such that $x = x_0 + x_1$. Moreover, transformation $P: H \rightarrow H$ given by $P(x)=x_0$ is a bounded linear operator with $\| P \| \leq 1$ and $P \circ P =P$. Operator $P$ is called an \textbf{orthogonal projection} on subspace $H_0$.
+\end{thm}
+We will now introduce basic facts from spectral theory for isometries on Hilbert spaces.
+
+\begin{rem}Let $H$ be a complex inner product space. Then bounded linear operator $U:H \rightarrow H$ is an isometry if and only if $\underset{x,y \in H}{\forall}\ \langle Ux, Uy\rangle = \langle x, y \rangle$.
+\end{rem} 
+
+\begin{df}
+Sequence $(r_n)_{n \in \mathbb{Z}}$ of complex numbers is called \textbf{positive definite} if for every sequence $(a_n)_{n \in \mathbb{N}_0}$ of complex numbers and every $N \in \mathbb{N}_0$ we have $\sum \limits_{n,m=0}^N r_{n-m}a_n \overline{a_m} \geq 0$.
+\end{df}
+
+\begin{prop} \label{p:posdef}
+Let $U:H \rightarrow H$ be an isometry on Hilbert space $H$. For a vector $x \in H$ define $r_n := \langle U^n x, x \rangle$ for $n \geq 0$ and $r_n := \overline{r_{-n}} = \langle x, U^n x \rangle$ for $n<0$. The sequence $(r_n)_{n \in \mathbb{Z}}$ is positive definite.
+\end{prop}
+\begin{pf} Note first that for $n \geq m$ we have $r_{n-m} = \langle U^{n-m}x, x \rangle = \langle U^n x, U^m x \rangle$ (since $U$ is an isometry) and for $n < m$ we also have $r_{n-m} = \overline{r_{m-n}} = \overline{\langle U^{m-n} x, x \rangle} = \overline{\langle U^m x, U^n x \rangle} = \langle U^n x, U^m x \rangle$. Compute now
+\begin{equation} \label{e:posdef}
+\begin{split}
+\sum \limits_{n,m=0}^N r_{n-m}a_n \overline{a_m} =  \sum \limits_{n,m=0}^N \langle U^n x, U^m x \rangle a_n \overline{a_m} = \sum \limits_{n,m=0}^N \langle a_n U^n x, a_m U^m x \rangle = \\
+= \sum \limits_{n=0}^N \langle a_n U^n x, \sum \limits_{m=0}^N a_m U^m x \rangle = \langle \sum \limits_{n=0}^N  a_n U^n x, \sum \limits_{m=0}^N a_m U^m x \rangle = \| \sum \limits_{n=0}^N  a_n U^n x \|^2 \geq 0.
+\end{split}
+\end{equation}
+\begin{flushright}
+$\square$
+\end{flushright}
+\end{pf}
+
+\begin{thm}[Herglotz's theorem {\cite[thm. 2.3]{lemanczyk}}]
+Let $(r_n)_{n \in \mathbb{Z}}$ be positive definite sequence. There exists unique non-negative finite Borel measure $\sigma$ on $\mathbb{T}$ such that
+\begin{equation} \label{e:spectral}
+r_n = \int \limits_{\mathbb{T}} z^n d\sigma (z)\ \text{ for all } n\in \mathbb{Z}.
+\end{equation}
+Conversly, for every non-negative finite Borel measure $\sigma$ on $\mathbb{T}$, sequence $r_n$ defined by \eqref{e:spectral} is positive definite.
+\end{thm}
+
+\begin{df} Let $\sigma$ be a non-negiative finite Borel measure on $\mathbb{T}$. Then yhe number
+\[ \hat{\sigma}(n):=  \int \limits_{\mathbb{T}} z^n d\sigma (z),\ n \in \mathbb{Z}\]
+is called the \textbf{n-th Fourier coefficient} of the measure $\sigma$. Note that the sequence $\hat{\sigma}(n),\ n \in \mathbb{Z}$ is positive definite and $\hat{\sigma}(-n) = \overline{\hat{\sigma}(n)}$ for every $n \in \mathbb{Z}$.
+\end{df}
+
+\begin{col}[Spectral measure]
+Let $U:H \rightarrow H$ be an isometry on Hilbert space $H$. For every vector $x \in H$ there exists unique non-negative finite Borel measure $\sigma_x$ on $\mathbb{T}$ such that
+\[ \langle U^n x, x \rangle = \int \limits_{\mathbb{T}} z^n d\sigma_x (z)\ \text{  and  }\ \langle x, U^n x \rangle = \int \limits_{\mathbb{T}} z^{-n} d\sigma_x (z)\ \text{  for all } n\in \mathbb{N}_0. \]
+The measure $\sigma_x$ is called a \textbf{spectral measure} of an element $x$.
+\end{col}
+
+\begin{prop}\label{p:spectreq}
+Let $U:H \rightarrow H$ be an isometry on Hilbert space $H$. For every $x \in H$ and finite sequence $(a_n)_{n=0}^N$ of complex numbers the following equality holds:
+\[ \| \sum \limits_{n=0}^N a_n U^n x \|^2 = \int \limits_{\mathbb{T}} | \sum \limits_{n=0}^N a_n  z^n |^2 d\sigma_x(z) = \|\sum \limits_{n=0}^N a_n z^n \|_{L^2(\mathbb{T}, \mathcal{B}(\mathbb{T}), \sigma_x)}^2. \]
+\end{prop}
+\begin{pf} For sequence $(r_n)_{n \in \mathbb{Z}}$ like in Proposition \ref{p:posdef}, we have by equalities \eqref{e:posdef} and \eqref{e:spectral}
+\[ \|\sum \limits_{n=0}^N a_n U^n x \|^2 = \sum \limits_{n,m=0}^N r_{n-m}a_n \overline{a_m} = \sum \limits_{n,m=0}^N  a_n \overline{a_m}  \int \limits_{\mathbb{T}} z^{n-m} d\sigma_x (z) = \sum \limits_{n,m=0}^N  a_n \overline{a_m}  \int \limits_{\mathbb{T}} z^n\overline{z^m} d\sigma_x (z) =\]
+\[ = \sum \limits_{n=0}^N a_n \int \limits_{\mathbb{T}} z^n (\sum \limits_{m=0}^N \overline{a_m z^m}) d\sigma_x(z) = \int \limits_{\mathbb{T}} \sum \limits_{n=0}^N a_n  z^n (\sum \limits_{m=0}^N \overline{a_m z^m}) d\sigma_x(z) = \int \limits_{\mathbb{T}} | \sum \limits_{n=0}^N a_n  z^n |^2 d\sigma_x(z).\]
+\begin{flushright}
+$\square$
+\end{flushright}
+\end{pf}
+In order to prove Wiener's Criterion of Continuity, we need the following lemma (also due to Wiener):
+
+\begin{lem}[Wiener, {\cite[lemma 1.16]{lemanczyk}}]
+Let $\sigma$ be finite non-negative Borel measure on $\mathbb{T}$. Denote by $\{a_1, a_2, ... \}$ a set of all atoms of measure $\sigma$. Then
+\[ \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} | \hat{\sigma} (n) |^2 = \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} | \hat{\sigma} (-n) |^2 = \sum \limits_{m \geq 1} \sigma(\{ a_m \})^2. \]
+\end{lem}
+\begin{pf}
+\end{pf}
+After establishing von Neumann's Ergodic Theorem in next chapter, we will be able to prove another important lemma about spectral measures.
+
+
+
+
+
+
+
+\chapter{Introduction to ergodic theory}\label{r:erg}
+
+\section{Measurable dynamical systems}
+measure preserving system\\
+ergodic system and equivalences (at least invariant functions are constant)\\
+Birkhoff theorem (for measure preserving systems) and note about using $L^1$ and $\mathscr{L}^1$\\
+system $(\mathbb{T}, \mathcal{B}(\mathbb{T}), m, R_{\lambda})$\\
+product systems\\
+product of m.p.s. systems is m.p.s\\
+Koopman operator - isometry, properties of eigenvalues and eigenfunctions\\
+
+
+
+\section{Topological dynamical systems}
+
+
+
+
+\section{von Neumann's Ergodic Theorem}
+In this section we state and proof von Neumann's (Mean) Ergodic Theorem, which can be seen as a first operator theoretic type ergodic theorem.
+
+\begin{thm}[von Neumann's Ergodic Theorem {\cite[thm. 1.3.1]{weber}}]\label{t:neumann}
+Let $U:H \rightarrow H$ be a contraction on a complex Hilbert space $H$. Then for every $f \in H$ there is a convergence
+\[ \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} U^n f = Pf, \]
+where $P:H \rightarrow H$ is a orthogonal projection on a closed subspace of U-invariant vectors $H_U = \left\{ g\in H: Ug = g \right\}$. Moreover, there is
+\[ H=H_U \oplus H_0, \]
+where $H_0 = \overline{\left\{ g - Ug: g \in H \right\}}$.
+\end{thm}
+\begin{pf} DOW”D!
+\end{pf}
+Note that this proof doesn't require use of spectral theory, although there is a simpler proof for unitary $U$ using spectral theorem (ODWO£ANIE DO RUDINA!). In the following lemma we will inverse this relationship and make use of von Neumann's theorem in spectral theory.
+
+\begin{lem}\label{l:spectr}
+Let $U:H\rightarrow H$ be an isometry on Hilbert space $H$ and take $f \in H$. Then $\sigma_f (\{\lambda\}) = \|P_{\lambda}f\|^2,$ where $\sigma_f$ denotes spectral measure of $f$ and $P_{\lambda}$ is an orthogonal projection to the $H_{\lambda}$ - the eigenspace of $\lambda \in \mathbb{T}$.
+\end{lem}
+\begin{pf} Note that operator is $V:H \rightarrow H$ given by $V:=\overline{\lambda}U$ is also an isometry, since $\langle Vf, Vg \rangle = \langle \overline{\lambda}Uf, \overline{\lambda}Ug \rangle= \overline{\lambda} \lambda \langle Uf, Ug \rangle = |\lambda|^2 \langle f, g \rangle = \langle f, g \rangle$. By von Neumann's Theorem we have that \[\frac{1}{N} \sum \limits_{n=0}^{N-1} \overline{\lambda}^n U^n f = \frac{1}{N} \sum \limits_{n=0}^{N-1} V^n f \longrightarrow Qf,\] where $Q$ is an orthogonal projection on a subspace $\left\{ f \in H: Vf = f \right\} = \left\{ f \in H: \overline{\lambda}Uf = f \right\} = \left\{ f \in H: Uf = \lambda f \right\} = H_{\lambda}$, so $Q = P_{\lambda}$. No we have 
+\begin{equation}\label{e:norm}
+\|\frac{1}{N} \sum \limits_{n=0}^{N-1} \overline{\lambda}^n U^n f \|^2 \rightarrow \|P_{\lambda} f \|^2,
+\end{equation}
+but from Proposition \ref{p:spectreq} we have also 
+\begin{equation} \label{e:int}
+\|\frac{1}{N} \sum \limits_{n=0}^{N-1} \overline{\lambda}^n U^n f \|^2 = \int \limits_{\mathbb{T}}  | \frac{1}{N} \sum \limits_{n=0}^{N-1} \overline{\lambda}^n z^n |^2 d\sigma_f (z) = \int \limits_{\mathbb{T}}  | \frac{1}{N} \sum \limits_{n=0}^{N-1}  \left(\frac{z}{\lambda}\right)^n |^2 d\sigma_f (z).
+\end{equation}
+Note that for every $z \in \mathbb{T}$ we have $\frac{1}{N} \sum \limits_{n=0}^{N-1}  \left(\frac{z}{\lambda}\right)^n \rightarrow \mathds{1}_{\{\lambda\}}(z)$, hence $| \frac{1}{N} \sum \limits_{n=0}^{N-1}  \left(\frac{z}{\lambda}\right)^n |^2 \rightarrow | \mathds{1}_{\{\lambda\}}(z) |^2 = \mathds{1}_{\{\lambda\}}(z)$. Since $| \frac{1}{N} \sum \limits_{n=0}^{N-1}  \left(\frac{z}{\lambda}\right)^n |^2 \leq \left( \frac{1}{N} \sum \limits_{n=0}^{N-1}  |\frac{z}{\lambda}|^n \right)^2 = 1$, we can make use of Lebesgue's Dominated Convergence Theorem and obtain
+\begin{equation}\label{e:measure}
+ \int \limits_{\mathbb{T}}  | \frac{1}{N} \sum \limits_{n=0}^{N-1}  \left(\frac{z}{\lambda}\right)^n |^2 d\sigma_f (z) \longrightarrow \int \limits_{\mathbb{T}} \mathds{1}_{\{\lambda\}}(z) d\sigma_f (z) = \sigma_f (\{ \lambda \}).
+\end{equation}
+Puting together \eqref{e:norm}, \eqref{e:int} and \eqref{e:measure} finishes the proof. $\square$
+\end{pf}
+Note that this lemma connects notions of spectral measure and eigenfunctions.
+
+
+
+
+
+
+
+
+
+\chapter{Wiener-Wintner theorems for deterministic transformations}\label{r:det}
+In this chapter we introduce and prove pointwise Wiener-Wintner type theorems. We start with stating classical Wiener-Wintner theorem, which is a modification of Birkhoff's Ergodic Theorem. It was originally stated by Wiener and Wintner in 1941 (\cite{ww}).
+
+\begin{thm}[Wiener-Wintner ergodic theorem, {\cite[thm. 2.3]{assani}}]\label{t:ww}
+Let $(X, \mathcal{A}, \mu, T)$ be an ergodic dynamical system and fix function $f \in \mathscr{L}^1(\mu)$. There exists a measurable set $X_f$ of full measure $(\mu(X_f)=1)$ such that for each $x \in X_f$ the averages
+\begin{equation} \label{ww}
+\frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x)
+\end{equation}
+converge for all $\lambda \in \mathbb{T}$.
+\end{thm}
+
+\begin{rem}
+Note that for a fixed $\lambda \in \mathbb{T}$ it is easy to achieve a.e. converengce in \eqref{ww}. Take a product system $(X \times \mathbb{T}, \mathcal{A} \otimes \mathcal{B}(\mathbb{T}), \mu \otimes m, T \times R_{\lambda})$ and observe that it is measure preserving since both $(X, \mathcal{A}, \mu, T)$ and $(\mathbb{T}, \mathcal{B}(\mathbb{T}), m, R_{\lambda})$ are measure preserving. Define a function $g:X \times \mathbb{T} \rightarrow \mathbb{C}$ by $g(x, \omega)=\omega f(x)$. We have $g \in \mathscr{L}^1(\mu \otimes m)$ since, by Fubini's Theorem,
+\[ \int \limits_{X \times \mathbb{T}} |g(x, \omega)| d\mu \otimes m (x, \omega) = \int \limits_{X \times \mathbb{T}} |\omega||f(x)| d\mu \otimes m (x, \omega) = \int \limits_{X \times \mathbb{T}} |f(x)| d\mu \otimes m (x, \omega) = \]
+\[ =  \int \limits_{X} |f(x)| d\mu(x) < \infty.\]
+By Birkhoff's Ergodic Theorem the averages
+\[ \frac{1}{N} \sum \limits_{n=0}^{N-1} g(T^n x, R_{\lambda}^n \omega) =\frac{1}{N} \sum \limits_{n=0}^{N-1} g(T^n x, \lambda^n \omega) = \frac{1}{N} \sum \limits_{n=0}^{N-1} \omega \lambda^n f(T^n x)  \]
+converge for $\mu \otimes m$ almost all pairs $(x, \omega)$ and (since $\omega \neq 0$) also
+\[ \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \]
+converge $\mu \otimes m$ a.e. The last limit is independent from $\omega$, so this implies $\mu$ a.e. convergence of sequence \eqref{ww}. Further, for a countable subset $C \subset \mathbb{T}$, we can find a set $X_f$ such that \eqref{ww} is convergent for all $x \in X_f$ and $\lambda \in C$ (it is enough to take for $X_f$ an intersection of countably many sets of full measure on which we have convergence for fixed $\lambda \in C$). This shows that the difficulty in Wiener-Wintner theorem is obtaining a set of full measure on which convergence will hold for all (uncountably many) $\lambda \in \mathbb{T}$.
+\end{rem}
+Three proofs of this theorem can be found in \cite{assani}. We present one of them, which main ingredient is itself a generalization of Wiener-Wintner theorem - its uniform version due to J. Bourgain.
+
+\section{Bourgain's uniform Wiener-Wintner theorem}
+In order to state the theorem, we need to introduce the notion of Kronecker factor.
+
+\begin{df}[Kronecker factor]$\\$
+Let $(X, \mathcal{A}, \mu, T)$ be an ergodic measure preserving system and let $U_T : L^2(\mu) \rightarrow L^2(\mu)$ be its Koopman operator on $L^2(\mu)$. \textbf{Kronecker factor} $\mathcal{K} \subset L^2(\mu)$ is a closure (in $L^2(\mu)$) of a linear subspace spanned by eigenfunctions of $U_T$, that is
+\[\mathcal{K} := \overline{\text{span}} \left\{ f \in L^2(\mu): f \circ T = \lambda f \text{ for some }\lambda \in \mathbb{C} \right\}.\]
+\end{df}
+
+\begin{thm}[Bourgain's uniform Wiener-Wintner theorem {\cite[thm. 2.4]{assani}}]\label{t:bourgain}
+Let $(X, \mathcal{A}, \mu, T)$ be an ergodic dynamical system and $f \in \mathcal{K}^{\bot}$. Then for $\mu$ a.e. $x \in X$ we have
+\[ \lim \limits_{N \rightarrow \infty}\  \sup \limits_{\lambda \in \mathbb{T}}\ \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \right| = 0. \]
+\end{thm}
+\noindent For the proof of this theorem we need two following lemma's:
+\begin{lem}[{\cite[prop. 2.2]{assani}}]
+Let $(X, \mathcal{A}, \mu, T)$ be an ergodic dynamical system. A function $f \in L^2(\mu)$ belongs to $\mathcal{K}^{\bot}$ if and only if its spectral measure $\sigma_f$ is continous.
+\end{lem}
+\begin{pf}
+\end{pf}
+
+\chapter{Ergodic theory for operators}\label{r:ergop}
+
+\chapter{Wiener-Wintner theorem for operator semigroups}\label{r:wwop}
+
+\begin{thebibliography}{99}
+\addcontentsline{toc}{chapter}{Bibliography}
+
+\bibitem[Rudin]{rudin} Walter Rudin, \textit{Analiza funkcjonalna}, Wydawnictwo Naukowe PWN, 20??
+
+\bibitem[Assani]{assani} I. Assani,  \textit{Wiener Wintner Ergodic Theorems}, World Scientific, River Edge (2003)
+
+\bibitem[Weber]{weber} M. Weber, \textit{Dynamical Systems and Processes}, EMS Publishing House (2009)
+
+\bibitem[Bellow]{bellow} A. Bellow, V. Losert, \textit{The weighted pointwise ergodic theorem and the individual ergodic theorem along subsequences}, TAMS, vol. 288, no 1 (1985), p. 307 - 345.
+
+\bibitem[Schreiber14]{schreiber14} M. Schreiber, \textit{Topological Wiener - Wintner theorems for amenable operator semigroups}, ETDS  (2014).
+
+\bibitem[Schreiber13]{schreiber13} M. Schreiber, \textit{Uniform families of ergodic operator nets},  Semigroup Forum (2013)
+
+\bibitem[WW]{ww} N. Wiener, A. Wintner, \textit{Harmonic Analysis and Ergodic Theory}, American Journal of Mathematics, Vol. 63, No. 2 (Apr., 1941), pp. 415-426
+
+\bibitem[Eisner et al]{eisner} T. Eisner, B. Farkas, M. Haase, R. Nagel, \textit{Operator Theoretic Aspects of
+Ergodic Theory}, Graduate Texts in Mathematics, Springer, to appear, \url{http://www.fan.uni-wuppertal.de/fileadmin/mathe/reine_mathematik/funktionalanalysis/farkas/GTM-master-v82.pdf}
+
+\bibitem[LemaÒczyk]{lemanczyk} M. LemaÒczyk, \textit{Teoria spektralna dla ergodykÛw}, 2010, script, \url{http://www-users.mat.umk.pl/~mlem/files/Teoria_spektralna_dla_ergodykow.pdf}
+\end{thebibliography}
+\end{document}

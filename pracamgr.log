@@ -1,0 +1,14 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdftex 2013.10.6)  3 MAR 2015 16:37
+entering extended mode
+**C:/Users/Singer/Desktop/mgr/pracamgr.cls
+(C:/Users/Singer/Desktop/mgr/pracamgr.cls
+! Undefined control sequence.
+l.8 \NeedsTeXFormat
+                   {LaTeX2e}
+? 
+! Emergency stop.
+l.8 \NeedsTeXFormat
+                   {LaTeX2e}
+End of file on the terminal!
+
+!  ==> Fatal error occurred, no output PDF file produced!
