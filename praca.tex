@@ -24,6 +24,7 @@
 \usepackage{etoolbox}
 \usepackage{ dsfont }
 \usepackage{ hyperref }
+\usepackage{mathtools}
 
 %Jesli uzywasz kodowania polskich znakow ISO-8859-2 nastepna linia powinna byc 
 %odkomentowana
@@ -217,6 +218,7 @@ Borel measures\\
 
 
 \section{Functional analysis}
+convergence of geometric series on crircle\\
 dual space\\
 Riesz theorem (Hilbert spaces)\\
 Banach and Hilbert conjugate\\
@@ -289,10 +291,10 @@ Let $H$ be an inner product space. The following inequality holds for all $x,y \
 \end{rem}
 
 \begin{df}
-Let $H$ be an inner product space. Two vectors $x, y \in H$ are said to be \textbf{orthogonal} if $\langle x, y \rangle = 0$. For a set $H_0 \subset H$ the \textbf{orthogonal complement} is a set $h_0^{\bot}:=\left\{ x \in H: \underset{h \in H_0}{\forall}\ \langle h, x \rangle = 0 \right\}$.
+Let $H$ be an inner product space. Two vectors $x, y \in H$ are said to be \textbf{orthogonal} if $\langle x, y \rangle = 0$. We denote that fact by $x \bot y$. For a set $H_0 \subset H$ its \textbf{orthogonal complement} is a set $H_0^{\bot}:=\left\{ x \in H: \underset{h \in H_0}{\forall}\ \langle h, x \rangle = 0 \right\}$.
 \end{df}
 
-\begin{rem} If $H_0$ is a linear subspace of H, then $H_0^{\bot}$ is a closed linear subspace of H. Closedness of $H_0^{\bot}$ is a consequence of continuity of inner product.
+\begin{rem} If $H_0$ is a linear subspace of H, then $H_0^{\bot}$ is a closed linear subspace of H. Closedness of $H_0^{\bot}$ is a consequence of continuity of the inner product.
 \end{rem}
 
 \begin{df}
@@ -343,7 +345,7 @@ r_n = \int \limits_{\mathbb{T}} z^n d\sigma (z)\ \text{ for all } n\in \mathbb{Z
 Conversly, for every non-negative finite Borel measure $\sigma$ on $\mathbb{T}$, sequence $r_n$ defined by \eqref{e:spectral} is positive definite.
 \end{thm}
 
-\begin{df} Let $\sigma$ be a non-negiative finite Borel measure on $\mathbb{T}$. Then yhe number
+\begin{df} Let $\sigma$ be a non-negiative finite Borel measure on $\mathbb{T}$. Then the number
 \[ \hat{\sigma}(n):=  \int \limits_{\mathbb{T}} z^n d\sigma (z),\ n \in \mathbb{Z}\]
 is called the \textbf{n-th Fourier coefficient} of the measure $\sigma$. Note that the sequence $\hat{\sigma}(n),\ n \in \mathbb{Z}$ is positive definite and $\hat{\sigma}(-n) = \overline{\hat{\sigma}(n)}$ for every $n \in \mathbb{Z}$.
 \end{df}
@@ -368,11 +370,30 @@ $\square$
 In order to prove Wiener's Criterion of Continuity, we need the following lemma (also due to Wiener):
 
 \begin{lem}[Wiener, {\cite[lemma 1.16]{lemanczyk}}]
-Let $\sigma$ be finite non-negative Borel measure on $\mathbb{T}$. Denote by $\{a_1, a_2, ... \}$ a set of all atoms of measure $\sigma$. Then
+Let $\sigma$ be a finite non-negative Borel measure on $\mathbb{T}$. Denote by $\{a_1, a_2, ... \}$ a set of all atoms of measure $\sigma$. Then
 \[ \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} | \hat{\sigma} (n) |^2 = \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} | \hat{\sigma} (-n) |^2 = \sum \limits_{m \geq 1} \sigma(\{ a_m \})^2. \]
 \end{lem}
-\begin{pf}
+\begin{pf} Note first, that since $\hat{\sigma} (n) = \overline{\hat{\sigma}(-n)}$, limits $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} | \hat{\sigma} (n) |^2$ and $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} | \hat{\sigma} (-n) |^2$ must be equal if they exists. Note further, that since measure $\sigma$ is finite, series $\sum \limits_{m \geq 1} \sigma(\{ a_m \})^2$ must be convergent (we know that $\sum \limits_{m \geq 1} \sigma(\{ a_m \}) < \infty$ and only for finitely many $m \in \mathbb{N}$ there can be $\sigma(\{ a_m \}) \geq 1$). Observe that by Fubini's Theorem we have
+\[ |\hat{\sigma} (n) |^2 = \hat{\sigma}(n) \overline{\hat{\sigma}(n)} = \int \limits_{\mathbb{T}} z^n d\sigma (z) \overline{ \int \limits_{\mathbb{T}} w^n d\sigma (w)} = \int \limits_{\mathbb{T}} z^n \left( \int \limits_{\mathbb{T}} \overline{w}^n d\sigma (w) \right) d\sigma (z) = \]
+\[= \int \limits_{\mathbb{T} \times \mathbb{T}} (z \overline{w})^n d\sigma \otimes \sigma (z, w),\]
+and further
+\begin{equation}\label{e:fourier}
+\frac{1}{N} \sum \limits_{n=0}^{N-1} | \hat{\sigma} (n) |^2 = \int \limits_{\mathbb{T}^2} \frac{1}{N} \sum \limits_{n=0}^{N-1} (z \overline{w})^n d\sigma \otimes \sigma (z, w).
+\end{equation}
+For $z, w \in \mathbb{T}$ we have also $z\overline{w} \in \mathbb{T}$ and $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} (z \overline{w})^n = \mathds{1}_{\{ (z,w) \in \mathbb{T}^2 :\ z\overline{w} = 1\}} (z, w) = \mathds{1}_{\Delta} (z,w),$ where $\Delta = \{ (z,w) \in \mathbb{T}^2:\ z = w \}$. Since $ | \frac{1}{N} \sum \limits_{n=0}^{N-1} (z \overline{w})^n |\leq \frac{1}{N} \sum \limits_{n=0}^{N-1} | (z \overline{w})^n| = 1$, we have by Lebesgue Dominated Convergence Theorem
+\begin{equation}\label{e:delta}
+\lim \limits_{N \rightarrow \infty} \int \limits_{\mathbb{T}^2} \frac{1}{N} \sum \limits_{n=0}^{N-1} (z \overline{w})^n d\sigma \otimes \sigma (z, w) = \int \limits_{\mathbb{T}^2} \mathds{1}_{\Delta} (z,w) d\sigma \otimes \sigma (z,w).
+\end{equation}
+By Fubini's Theorem we have
+\[ \int \limits_{\mathbb{T}^2} \mathds{1}_{\Delta} (z,w) d\sigma \otimes \sigma (z,w) = \int \limits_{\mathbb{T}} \left( \int \limits_{\mathbb{T}} \mathds{1}_{\Delta} (z,w) d\sigma(w) \right) d\sigma(z)
+= \int \limits_{\mathbb{T}} \left( \int \limits_{\mathbb{T}} \mathds{1}_{\{z\}} (w) d\sigma(w) \right) d\sigma(z) = \]
+\[ = \int \limits_{\mathbb{T}} \sigma(\{ z\}) d\sigma (z) = \int \limits_{\bigcup \limits_{m \geq 1} \{ a_m \}} \sigma(\{ z\}) d\sigma (z) = \sum \limits_{m \geq 1} \sigma(\{ a_m \})^2, \]
+what combined with \eqref{e:fourier} and \eqref{e:delta} completes the proof. $\square$
 \end{pf}
+\begin{col}[Wiener's Criterion of Continuity]\label{c:wiener}
+Non-negative finite Borel measure $\sigma$ on $\mathbb{T}$ is continuous if and only if $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} | \hat{\sigma} (n) |^2 =\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} | \hat{\sigma} (-n) |^2 = 0.\ \square$
+\end{col}
+
 After establishing von Neumann's Ergodic Theorem in next chapter, we will be able to prove another important lemma about spectral measures.
 
 
@@ -400,12 +421,12 @@ Koopman operator - isometry, properties of eigenvalues and eigenfunctions\\
 
 
 \section{von Neumann's Ergodic Theorem}
-In this section we state and proof von Neumann's (Mean) Ergodic Theorem, which can be seen as a first operator theoretic type ergodic theorem.
+In this section we state and prove von Neumann's (Mean) Ergodic Theorem, which can be seen as a first operator theoretic type ergodic theorem.
 
 \begin{thm}[von Neumann's Ergodic Theorem {\cite[thm. 1.3.1]{weber}}]\label{t:neumann}
 Let $U:H \rightarrow H$ be a contraction on a complex Hilbert space $H$. Then for every $f \in H$ there is a convergence
 \[ \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} U^n f = Pf, \]
-where $P:H \rightarrow H$ is a orthogonal projection on a closed subspace of U-invariant vectors $H_U = \left\{ g\in H: Ug = g \right\}$. Moreover, there is
+where $P:H \rightarrow H$ is an orthogonal projection to a closed subspace of $U$-invariant vectors $H_U = \left\{ g\in H: Ug = g \right\}$. Moreover, there is
 \[ H=H_U \oplus H_0, \]
 where $H_0 = \overline{\left\{ g - Ug: g \in H \right\}}$.
 \end{thm}
@@ -428,7 +449,7 @@ Note that for every $z \in \mathbb{T}$ we have $\frac{1}{N} \sum \limits_{n=0}^{
 \begin{equation}\label{e:measure}
  \int \limits_{\mathbb{T}}  | \frac{1}{N} \sum \limits_{n=0}^{N-1}  \left(\frac{z}{\lambda}\right)^n |^2 d\sigma_f (z) \longrightarrow \int \limits_{\mathbb{T}} \mathds{1}_{\{\lambda\}}(z) d\sigma_f (z) = \sigma_f (\{ \lambda \}).
 \end{equation}
-Puting together \eqref{e:norm}, \eqref{e:int} and \eqref{e:measure} finishes the proof. $\square$
+Putting together \eqref{e:norm}, \eqref{e:int} and \eqref{e:measure} finishes the proof. $\square$
 \end{pf}
 Note that this lemma connects notions of spectral measure and eigenfunctions.
 
@@ -441,6 +462,9 @@ Note that this lemma connects notions of spectral measure and eigenfunctions.
 
 
 \chapter{Wiener-Wintner theorems for deterministic transformations}\label{r:det}
+
+why take $f$ only from $\mathcal{K}^{\bot}$ in Bourgain\\
+
 In this chapter we introduce and prove pointwise Wiener-Wintner type theorems. We start with stating classical Wiener-Wintner theorem, which is a modification of Birkhoff's Ergodic Theorem. It was originally stated by Wiener and Wintner in 1941 (\cite{ww}).
 
 \begin{thm}[Wiener-Wintner ergodic theorem, {\cite[thm. 2.3]{assani}}]\label{t:ww}
@@ -467,7 +491,7 @@ Three proofs of this theorem can be found in \cite{assani}. We present one of th
 In order to state the theorem, we need to introduce the notion of Kronecker factor.
 
 \begin{df}[Kronecker factor]$\\$
-Let $(X, \mathcal{A}, \mu, T)$ be an ergodic measure preserving system and let $U_T : L^2(\mu) \rightarrow L^2(\mu)$ be its Koopman operator on $L^2(\mu)$. \textbf{Kronecker factor} $\mathcal{K} \subset L^2(\mu)$ is a closure (in $L^2(\mu)$) of a linear subspace spanned by eigenfunctions of $U_T$, that is
+Let $(X, \mathcal{A}, \mu, T)$ be a measure preserving system and let $U_T : L^2(\mu) \rightarrow L^2(\mu)$ be its Koopman operator on $L^2(\mu)$. \textbf{Kronecker factor} $\mathcal{K} \subset L^2(\mu)$ is a closure (in $L^2(\mu)$) of a linear subspace spanned by eigenfunctions of $U_T$, i.e.
 \[\mathcal{K} := \overline{\text{span}} \left\{ f \in L^2(\mu): f \circ T = \lambda f \text{ for some }\lambda \in \mathbb{C} \right\}.\]
 \end{df}
 
@@ -477,10 +501,22 @@ Let $(X, \mathcal{A}, \mu, T)$ be an ergodic dynamical system and $f \in \mathca
 \end{thm}
 \noindent For the proof of this theorem we need two following lemma's:
 \begin{lem}[{\cite[prop. 2.2]{assani}}]
-Let $(X, \mathcal{A}, \mu, T)$ be an ergodic dynamical system. A function $f \in L^2(\mu)$ belongs to $\mathcal{K}^{\bot}$ if and only if its spectral measure $\sigma_f$ is continous.
+Let $(X, \mathcal{A}, \mu, T)$ be a measure preserving dynamical system. A function $f \in L^2(\mu)$ belongs to $\mathcal{K}^{\bot}$ if and only if its spectral measure $\sigma_f$ is continous.
 \end{lem}
-\begin{pf}
+\begin{pf} Fix $f \in \mathcal{K}^{\bot}$. Since for every $\lambda \in \mathbb{T}$ for its eigenspace $H_{\lambda}$ we have $H_{\lambda} \subset \mathcal{K}$ and $f$ is orthogonal to $\mathcal{K}$, $f$ must be also orthogonal to $H_{\lambda}$. If $P_{\lambda}$ is an orthogonal projection to $H_{\lambda}$, then we have $P_{\lambda} f =0$. By Lemma \ref{l:spectr} we have $\sigma_f(\{ \lambda \}) = \| P_{\lambda} f \|^2$ for all $\lambda \in \mathbb{T}$, so $\sigma_f (\{ \lambda \})=0$ for all $\lambda \in \mathbb{T}$ and the measure $\sigma_f$ is continuous. Conversly, fix $f \in L^2 (\mu)$ and assume that $\sigma_f$ is continuous. Then again by Lemma \ref{l:spectr} we have $\| P_{\lambda} f \| =0$, hence $f \in H_{\lambda}^{\bot}$ for every $\lambda \in \mathbb{T}$, so $f$ is orthogonal to every eigenfunction of the operator $U_T$. We have (by linearity of the inner product) that $f$ is orthogonal also to $\text{span}\left\{ f \in L^2(\mu): f \circ T = \lambda f \text{ for some }\lambda \in \mathbb{C} \right\}$ and finally (by continuity of the inner product) $f \in \mathcal{K}^{\bot}$. $\square$
 \end{pf}
+
+\begin{lem}[Van der Corput inequality, {\cite[thm. 1.7.1]{weber}}]
+Let $H$ be a complex Hilbert space. For every finite sequence $x_0, x_1, ..., x_{N-1} \in H$ and integer $R \in \{0,1,...,N-1\}$ the following inequality holds:
+\begin{multline*}
+\| \frac{1}{N} \sum \limits_{n=0}^{N-1} x_n \|^2 \leq \\
+\leq \frac{N+R}{N(R+1)}\left( \frac{1}{N} \sum \limits_{n=0}^{N-1} \|x_n \|^2 + \frac{1}{N(R+1)}\sum \limits_{c=1}^{R} (R-c+1) \sum \limits_{j=0}^{N-c-1} (\langle x_{j+c}, x_j \rangle + \langle x_j, x_{j+c} \rangle) \right).
+\end{multline*}
+If $H=\mathbb{C}$, this ineqaulity becomes
+\begin{equation*}
+| \frac{1}{N} \sum \limits_{n=0}^{N-1} x_n |^2 \leq \frac{N+R}{N(R+1)}\left( \frac{1}{N} \sum \limits_{n=0}^{N-1} |x_n |^2 + \frac{2}{N(R+1)}\sum \limits_{c=1}^{R} (R-c+1) \Re \left( \sum \limits_{j=0}^{N-c-1} x_j \overline{x_{j+c}} \right) \right).
+\end{equation*}
+\end{lem}
 
 \chapter{Ergodic theory for operators}\label{r:ergop}
 
