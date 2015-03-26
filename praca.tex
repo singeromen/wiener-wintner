@@ -33,6 +33,8 @@
 %odkomentowana
 \usepackage[cp1250]{inputenc}
 
+
+
 % Dane magistranta:
 
 \author{Adam åpiewak}
@@ -108,7 +110,7 @@
 \theoremstyle{mytheorem}
 \newtheorem{thm}{Theorem}[chapter]
 \newtheorem{lem}{Lemma}[chapter]
-\newtheorem{col}{Corollary}[chapter]
+\newtheorem{cor}{Corollary}[chapter]
 
 \theoremstyle{withspace}
 \newtheorem{df}{Definition}[chapter]
@@ -131,6 +133,7 @@
 \AfterEndEnvironment{pf}{\noindent\ignorespaces}
 
 % koniec definicji
+
 
 \begin{document}
 \maketitle
@@ -218,6 +221,7 @@ Borel measures\\
 
 
 \section{Functional analysis}
+remove $\hat{\sigma}(-n)$?\\
 convergence of geometric series on crircle\\
 dual space\\
 Riesz theorem (Hilbert spaces)\\
@@ -308,7 +312,7 @@ Let $E, F$ be normed spaces. A linear transformation $U: E \rightarrow F$ is cal
 Let $E$ be a normed space and let $U:E \rightarrow E$ be a bounded linear operator. Number $\lambda \in \mathbb{C}$ is called an \textbf{eigenvalue} if there is a vector $x \in E,\ x \neq 0$ such that $Ux = \lambda x$. Any such vector $x$ is called an \textbf{eigenvector} (associated with $\lambda$). The closed linear subspace $H_{\lambda} = \left\{ x \in H: Ux = \lambda x \right\}$ is called an \textbf{eigenspace} (of $\lambda$).
 \end{df}
 
-\begin{thm}[Orthogonal Projection Theorem èR”D£O!]
+\begin{thm}[Orthogonal Projection Theorem {\cite[lemma 12.4]{rudin}}]\label{t:orthproj}
 Let $H_0$ be a closed linear subspace of a Hilbert space $H$. Then
 \[ H = H_0 \oplus H_0^{\bot}, \]
 i.e. for every $x \in H$ there are unique $x_0 \in H_0,\ x_1 \in H_0^{\bot}$ such that $x = x_0 + x_1$. Moreover, transformation $P: H \rightarrow H$ given by $P(x)=x_0$ is a bounded linear operator with $\| P \| \leq 1$ and $P \circ P =P$. Operator $P$ is called an \textbf{orthogonal projection} on subspace $H_0$.
@@ -350,11 +354,11 @@ Conversly, for every non-negative finite Borel measure $\sigma$ on $\mathbb{T}$,
 is called the \textbf{n-th Fourier coefficient} of the measure $\sigma$. Note that the sequence $\hat{\sigma}(n),\ n \in \mathbb{Z}$ is positive definite and $\hat{\sigma}(-n) = \overline{\hat{\sigma}(n)}$ for every $n \in \mathbb{Z}$.
 \end{df}
 
-\begin{col}[Spectral measure]
+\begin{cor}[Spectral measure]
 Let $U:H \rightarrow H$ be an isometry on Hilbert space $H$. For every vector $x \in H$ there exists unique non-negative finite Borel measure $\sigma_x$ on $\mathbb{T}$ such that
 \[ \langle U^n x, x \rangle = \int \limits_{\mathbb{T}} z^n d\sigma_x (z)\ \text{  and  }\ \langle x, U^n x \rangle = \int \limits_{\mathbb{T}} z^{-n} d\sigma_x (z)\ \text{  for all } n\in \mathbb{N}_0. \]
 The measure $\sigma_x$ is called a \textbf{spectral measure} of an element $x$.
-\end{col}
+\end{cor}
 
 \begin{prop}\label{p:spectreq}
 Let $U:H \rightarrow H$ be an isometry on Hilbert space $H$. For every $x \in H$ and finite sequence $(a_n)_{n=0}^N$ of complex numbers the following equality holds:
@@ -390,10 +394,26 @@ By Fubini's Theorem we have
 \[ = \int \limits_{\mathbb{T}} \sigma(\{ z\}) d\sigma (z) = \int \limits_{\bigcup \limits_{m \geq 1} \{ a_m \}} \sigma(\{ z\}) d\sigma (z) = \sum \limits_{m \geq 1} \sigma(\{ a_m \})^2, \]
 what combined with \eqref{e:fourier} and \eqref{e:delta} completes the proof. $\square$
 \end{pf}
-\begin{col}[Wiener's Criterion of Continuity]\label{c:wiener}
+\begin{cor}[Wiener's Criterion of Continuity]\label{c:wiener}
 Non-negative finite Borel measure $\sigma$ on $\mathbb{T}$ is continuous if and only if $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} | \hat{\sigma} (n) |^2 =\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} | \hat{\sigma} (-n) |^2 = 0.\ \square$
-\end{col}
-
+\end{cor}
+\begin{rem}Recall the following inequality: for any $y_1, ..., y_N \in \mathbb{R}$ we have
+\begin{equation}\label{e:squares}
+( \sum \limits_{k=1}^N y_k )^2 \leq N \sum \limits_{k=1}^N y_k^2.
+\end{equation}
+It can be seen by the following computation:
+\[N \sum \limits_{k=1}^N  y_k ^2 -  (\sum \limits_{k=1}^N  y_k )^2 = N \sum \limits_{k=1}^N  y_k ^2 - (\sum \limits_{k=1}^N y_k^2 + 2 \sum \limits_{1 \leq i < j \leq N} y_iy_j) = \]
+\[ =(N-1) \sum \limits_{k=1}^N  y_k ^2 - 2 \sum \limits_{1 \leq i < j \leq N} y_iy_j = \sum \limits_{1 \leq i < j \leq N} ( y_i - y_j)^2 \geq 0. \]
+\end{rem}
+From \eqref{e:squares} we can obtain another
+\begin{cor}\label{c:wiener_nosquares}
+If non-negative finite Borel measure $\sigma$ on $\mathbb{T}$ is continuous, then $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} | \hat{\sigma} (n) | = 0$.
+\end{cor}
+\begin{pf}
+By Corollary \ref{c:wiener} we have $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} | \hat{\sigma} (n) |^2 = 0$ and by \eqref{e:squares} we have
+\[ \left( \frac{1}{N} \sum \limits_{n=0}^{N-1} | \hat{\sigma} (n) | \right)^2 \leq \frac{1}{N^2} \left( N \sum \limits_{n=0}^{N-1} | \hat{\sigma} (n) |^2 \right) =\frac{1}{N} \sum \limits_{n=0}^{N-1} | \hat{\sigma} (n) |^2 \stackrel{N \rightarrow \infty}{\longrightarrow} 0. \]
+By the continuity of function $\mathbb{R} \ni x \mapsto x^2 \in \mathbb{R}$ we have also $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} | \hat{\sigma} (n) | = 0.\ \square$
+\end{pf}
 After establishing von Neumann's Ergodic Theorem in next chapter, we will be able to prove another important lemma about spectral measures.
 
 
@@ -432,7 +452,7 @@ where $H_0 = \overline{\left\{ g - Ug: g \in H \right\}}$.
 \end{thm}
 \begin{pf} DOW”D!
 \end{pf}
-Note that this proof doesn't require use of spectral theory, although there is a simpler proof for unitary $U$ using spectral theorem (ODWO£ANIE DO RUDINA!). In the following lemma we will inverse this relationship and make use of von Neumann's theorem in spectral theory.
+Note that this proof doesn't require use of spectral theory, although there is a simpler proof for unitary $U$ using spectral theorem (\cite[thm. 12.44]{rudin}). In the following lemma we will inverse this relationship and make use of von Neumann's theorem in spectral theory.
 
 \begin{lem}\label{l:spectr}
 Let $U:H\rightarrow H$ be an isometry on Hilbert space $H$ and take $f \in H$. Then $\sigma_f (\{\lambda\}) = \|P_{\lambda}f\|^2,$ where $\sigma_f$ denotes spectral measure of $f$ and $P_{\lambda}$ is an orthogonal projection to the $H_{\lambda}$ - the eigenspace of $\lambda \in \mathbb{T}$.
@@ -499,14 +519,14 @@ Let $(X, \mathcal{A}, \mu, T)$ be a measure preserving system and let $U_T : L^2
 Let $(X, \mathcal{A}, \mu, T)$ be an ergodic dynamical system and $f \in \mathcal{K}^{\bot}$. Then for $\mu$ a.e. $x \in X$ we have
 \[ \lim \limits_{N \rightarrow \infty}\  \sup \limits_{\lambda \in \mathbb{T}}\ \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \right| = 0. \]
 \end{thm}
-\noindent For the proof of this theorem we need two following lemma's:
-\begin{lem}[{\cite[prop. 2.2]{assani}}]
+\noindent For the proof of this theorem we'll need two following lemma's:
+\begin{lem}[{\cite[prop. 2.2]{assani}}]\label{l:kronecker_spectral}
 Let $(X, \mathcal{A}, \mu, T)$ be a measure preserving dynamical system. A function $f \in L^2(\mu)$ belongs to $\mathcal{K}^{\bot}$ if and only if its spectral measure $\sigma_f$ is continous.
 \end{lem}
 \begin{pf} Fix $f \in \mathcal{K}^{\bot}$. Since for every $\lambda \in \mathbb{T}$ for its eigenspace $H_{\lambda}$ we have $H_{\lambda} \subset \mathcal{K}$ and $f$ is orthogonal to $\mathcal{K}$, $f$ must be also orthogonal to $H_{\lambda}$. If $P_{\lambda}$ is an orthogonal projection to $H_{\lambda}$, then we have $P_{\lambda} f =0$. By Lemma \ref{l:spectr} we have $\sigma_f(\{ \lambda \}) = \| P_{\lambda} f \|^2$ for all $\lambda \in \mathbb{T}$, so $\sigma_f (\{ \lambda \})=0$ for all $\lambda \in \mathbb{T}$ and the measure $\sigma_f$ is continuous. Conversly, fix $f \in L^2 (\mu)$ and assume that $\sigma_f$ is continuous. Then again by Lemma \ref{l:spectr} we have $\| P_{\lambda} f \| =0$, hence $f \in H_{\lambda}^{\bot}$ for every $\lambda \in \mathbb{T}$, so $f$ is orthogonal to every eigenfunction of the operator $U_T$. We have (by linearity of the inner product) that $f$ is orthogonal also to $\text{span}\left\{ f \in L^2(\mu): f \circ T = \lambda f \text{ for some }\lambda \in \mathbb{C} \right\}$ and finally (by continuity of the inner product) $f \in \mathcal{K}^{\bot}$. $\square$
 \end{pf}
 
-\begin{lem}[Van der Corput inequality, {\cite[thm. 1.7.1]{weber}}]
+\begin{lem}[Van der Corput inequality, {\cite[thm. 1.7.1]{weber}}]\label{t:vdc}
 Let $H$ be a complex Hilbert space. For every finite sequence $x_0, x_1, ..., x_{N-1} \in H$ and integer $R \in \{0,1,...,N-1\}$ the following inequality holds:
 \begin{multline*}
 \| \frac{1}{N} \sum \limits_{n=0}^{N-1} x_n \|^2 \leq \\
@@ -517,6 +537,114 @@ If $H=\mathbb{C}$, this ineqaulity becomes
 | \frac{1}{N} \sum \limits_{n=0}^{N-1} x_n |^2 \leq \frac{N+R}{N(R+1)}\left( \frac{1}{N} \sum \limits_{n=0}^{N-1} |x_n |^2 + \frac{2}{N(R+1)}\sum \limits_{c=1}^{R} (R-c+1) \Re \left( \sum \limits_{j=0}^{N-c-1} x_j \overline{x_{j+c}} \right) \right).
 \end{equation*}
 \end{lem}
+\begin{pf} Let's make a convention that $x_n:=0$ for $n<0$ and $n \geq N$. Observe that
+\begin{equation}\label{e:vdc1}
+\begin{gathered} \sum \limits_{k=-R}^{N-1} \sum \limits_{r=0}^R x_{k+r} = (x_0) + (x_0 + x_1) + (x_0 + x_1 + x_2) + ... + (x_0 + x_1 + ... + x_{R}) +\\ + (x_1 + x_2 + ... + x_{R+1})
++... + (x_{N-R-1} + x_{N-R} + ... + x_{N-1}) +\\ + (x_{N-R} + x_{N-R+1} + ... x_{N-1}) + ... + (x_{N-2} + x_{N-1})
++ (x_{N-1}) = (R+1) \sum \limits_{n=0}^{N-1} x_n.
+\end{gathered}
+\end{equation}
+Using \eqref{e:vdc1} together with inequality \eqref{e:squares} for $y_k = \| \frac{1}{R+1} \sum \limits_{r=0}^R x_{k+r} \|,\ -R \leq k \leq N-1$ we obtain
+\[ \| \sum \limits_{n=0}^{N-1} x_n \| = \| \sum \limits_{k=-R}^{N-1} \frac{1}{R+1} \sum \limits_{r=0}^R x_{k+r} \| \leq  \sum \limits_{k=-R}^{N-1} \| \frac{1}{R+1} \sum \limits_{r=0}^R x_{k+r} \| \leq \]
+\[ \leq (N+R)^{\frac{1}{2}} (\sum \limits_{k=-R}^{N-1} \| \frac{1}{R+1} \sum \limits_{r=0}^R x_{k+r} \|^2)^{\frac{1}{2}}\]
+and further
+\begin{equation}\label{e:vdc2}
+ \| \frac{1}{N} \sum \limits_{n=0}^{N-1} x_n \|^2 \leq \frac{N+R}{N^2} (\sum \limits_{k=-R}^{N-1} \| \frac{1}{R+1} \sum \limits_{r=0}^R x_{k+r} \|^2) = \frac{N+R}{N^2 (R+1)^2} (\sum \limits_{k=-R}^{N-1} \| \sum \limits_{r=0}^R x_{k+r} \|^2).
+\end{equation}
+Let's write $[x,y]:=\langle x , y \rangle + \langle y, x \rangle$. Now we have (using argument from \eqref{e:vdc1})
+\begin{equation}\label{e:vdc3}
+\begin{gathered}
+\sum \limits_{k=-R}^{N-1} \| \sum \limits_{r=0}^R x_{k+r} \|^2 = \sum \limits_{k=-R}^{N-1} \langle \sum \limits_{r=0}^R x_{k+r}, \sum \limits_{r=0}^R x_{k+r} \rangle =  \sum \limits_{k=-R}^{N-1} \sum \limits_{s=0}^R \sum \limits_{r=0}^R \langle x_{k+s}, x_{k+r} \rangle =\\
+=  \sum \limits_{k=-R}^{N-1} \left( \sum \limits_{r=0}^R \|x_{k+r}\|^2 + \sum\limits_{0 \leq s < r \leq R} ( \langle x_{k+s}, x_{k+r} \rangle + \langle x_{k+r}, x_{k+s}\rangle ) \right) = \\
+= (R+1) \sum \limits_{n=0}^{N-1} \|x_n\|^2 + \sum \limits_{k=-R}^{N-1}\ \sum\limits_{0 \leq s < r \leq R} [x_{k+r}, x_{k+s}].
+\end{gathered}
+\end{equation}
+Since we've made a convetion that $x_n=0$ for $n<0$ and $n \geq N$, we have that $[x_{k+r}, x_{k+s}]=0$ for $k+s<0$ or $k+s > N-1$ or $k+r<0$ or $k+r>N-1$. It implies that it's enough to take the last summation in \eqref{e:vdc3} over triples $k,s,r$ with $s<r$ such that $0 \leq k+s \leq N-1\ \wedge\ 0 \leq k+r \leq N-1$, which is equivalent to $-s \leq k \leq N-s-1\ \wedge\ -r \leq k \leq N-r-1$ which is again (since $s<r$) equivalent to $-s \leq k \leq N-r-1$, so we have
+\begin{equation*}
+\begin{gathered}
+\sum \limits_{k=-R}^{N-1}\ \sum\limits_{0 \leq s < r \leq R} [x_{k+r}, x_{k+s}] = \sum\limits_{0 \leq s < r \leq R}\ \sum \limits_{k=-R}^{N-1} [x_{k+r}, x_{k+s}] = \sum\limits_{0 \leq s < r \leq R}\ \sum \limits_{k=-s}^{N-r-1} [x_{k+r}, x_{k+s}] = \\
+\stackrel{j:=k+s}{=} \sum\limits_{0 \leq s < r \leq R}\ \sum\limits_{j=0}^{N-(r-s)-1} [x_{j+(r-s)},x_j].
+\end{gathered}
+\end{equation*}
+Note that the inner sum depends now only on the difference $r-s$, so by noting that $r-s = c$ for exactly $(R-c+1)$ pairs $r,s$ such that $0 \leq s < r \leq R$ (where $1\leq c \leq R$) we may contiunue to obtain
+\begin{equation}\label{e:vdc4}
+\sum \limits_{k=-R}^{N-1}\ \sum\limits_{0 \leq s < r \leq R} [x_{k+r}, x_{k+s}]\ \stackrel{c:=r-s}{=}\ \sum \limits_{c=1}^{R} (R-c+1) \sum \limits_{j=0}^{N-c-1} [x_{j+c}, x_j].
+\end{equation}
+Combinig together \eqref{e:vdc2}, \eqref{e:vdc3} and \eqref{e:vdc4} we get to the conclusion
+\[ \| \frac{1}{N} \sum \limits_{n=0}^{N-1} x_n \|^2 \leq \frac{N+R}{N^2 (R+1)^2} (\sum \limits_{k=-R}^{N-1} \| \sum \limits_{r=0}^R x_{k+r} \|^2) \]
+\[  = \frac{N+R}{N^2 (R+1)^2} \left( (R+1) \sum \limits_{n=0}^{N-1} \|x_n\|^2 + \sum \limits_{k=-R}^{N-1}\ \sum\limits_{0 \leq s < r \leq R} [x_{k+r}, x_{k+s}] \right) = \]
+\[=  \frac{N+R}{N^2 (R+1)^2} \left( (R+1) \sum \limits_{n=0}^{N-1} \|x_n\|^2 + \sum \limits_{c=1}^{R} (R-c+1) \sum \limits_{j=0}^{N-c-1} [x_{j+c}, x_j] \right) =  \]
+\[ = \frac{N+R}{N(R+1)} \left( \frac{1}{N} \sum \limits_{n=0}^{N-1} \|x_n\|^2 + \frac{1}{N(R+1)} \sum \limits_{c=1}^{R} (R-c+1) \sum \limits_{j=0}^{N-c-1} (\langle x_{j+c}, x_j \rangle + \langle x_j, x_{j+c} \rangle) \right).\]
+Inequality for $H=\mathbb{C}$ is immediate by observing that
+\[ \langle x_{j+c}, x_j \rangle + \langle x_j, x_{j+c} \rangle = x_{j+c}\overline{x_{j}} + x_j \overline{x_{j+c}} = 2\Re (x_j \overline{x_{j+c}}) \]
+and using the linearity of the real part of complex number.\ $\square$
+\end{pf}
+We will now make use of Van der Corput's inequality for $H=\mathbb{C}$ to obtain another inequality:
+\begin{cor}[{\cite[cor. 2.1]{assani}}]\label{c:vdcsup}
+For every finite sequence $u_0, u_1, ..., u_{N-1} \in \mathbb{C}$ and integer $R \in \{0,1,...,N-1\}$ the following inequality holds:
+\[ \sup \limits_{\lambda \in \mathbb{T}} \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n u_n \right|^2 \leq \frac{2}{N(R+1)}\sum \limits_{n=0}^{N-1}|u_n|^2 + \frac{4}{R+1} \sum \limits_{r=1}^{R} \left| \frac{1}{N} \sum \limits_{n=0}^{N-r-1} u_n \overline{u_{n+r}} \right|.\]
+\end{cor}
+\begin{pf}Fix $\lambda \in \mathbb{T}$ and use Lemma \ref{t:vdc} with $x_n := \lambda^n u_n$  to obtain
+\begin{equation*}
+\begin{gathered}
+ \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n u_n \right|^2 \leq \\
+\leq \frac{N+R}{N(R+1)}\left( \frac{1}{N} \sum \limits_{n=0}^{N-1} |\lambda^n u_n |^2 + \frac{2}{N(R+1)}\sum \limits_{c=1}^{R} (R-c+1) \Re \left( \sum \limits_{j=0}^{N-c-1} \lambda^j u_j \overline{\lambda^{j+c } u_{j+c}} \right) \right) \leq \\
+\leq \frac{2N}{N(R+1)}\left( \frac{1}{N} \sum \limits_{n=0}^{N-1} |u_n |^2 + \frac{2(R+1)}{N(R+1)}\sum \limits_{c=1}^{R}\Re \left( \sum \limits_{j=0}^{N-c-1} \lambda^j \lambda^{-j-c} u_j \overline{u_{j+c}} \right) \right) \leq \\
+\leq \frac{2}{N(R+1)}\sum \limits_{n=0}^{N-1}|u_n|^2 + \frac{4}{N(R+1)} \sum \limits_{c=1}^{R} \left| \lambda^{-c} \sum \limits_{j=0}^{N-c-1} u_j \overline{u_{j+c}} \right| = \\
+= \frac{2}{N(R+1)}\sum \limits_{n=0}^{N-1}|u_n|^2 + \frac{4}{R+1} \sum \limits_{r=1}^{R} \left| \frac{1}{N} \sum \limits_{n=0}^{N-r-1} u_n \overline{u_{n+r}} \right|.
+\end{gathered}
+\end{equation*}
+Since the right-hand side of the above inequality is independent from $\lambda$, we can take supremum over $\lambda \in \mathbb{T}$ to finish the proof.\ $\square$
+\end{pf}
+Now we are ready to give the proof of the Bourgain's uniform Wiener-Wintner theorem.
+\begin{pf} (of the Theorem \ref{t:bourgain})\\
+Let's fix $f \in \mathcal{K}^{\bot}, x \in X$ and consider the sequence $u_n := f(T^n x)$. From Corollary \ref{c:vdcsup} we have
+\[ \sup \limits_{\lambda \in \mathbb{T}} \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \right|^2 \leq \frac{2}{N(R+1)}\sum \limits_{n=0}^{N-1}|f(T^n x)|^2 + \frac{4}{R+1} \sum \limits_{r=1}^{R} \left| \frac{1}{N} \sum \limits_{n=0}^{N-r-1} f(T^n x) \overline{f(T^{n+r} x )} \right|\]
+for every $N \in \mathbb{N}, R\leq N-1$. By Birkhoff's Ergodic Theorem (èR”D£O!) (note that $f \in L^2(\mu) \Rightarrow |f| \in L^1(\mu)$) we have
+\begin{equation}\label{e:bourgain_main}
+\begin{gathered}
+ \limsup \limits_{N \rightarrow \infty} \sup \limits_{\lambda \in \mathbb{T}} \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \right|^2 \leq \\
+ \frac{2}{R+1} \limsup \limits_{N \rightarrow \infty} \frac{1}{N}\sum \limits_{n=0}^{N-1}|f(T^n x)|^2 + \frac{4}{R+1} \sum \limits_{r=1}^{R} \left| \limsup \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-r-1} f(T^n x) \overline{f(T^{n+r} x )} \right| = \\
+ = \frac{2}{R+1} \int \limits_{X} |f|^2 d\mu + \frac{4}{R+1} \sum \limits_{r=1}^{R} \left| \int \limits_{X} f \overline{f \circ T^r} d\mu \right| = \\
+ = \frac{2}{R+1} \int \limits_{X} |f|^2 d\mu + \frac{4}{R+1} \sum \limits_{r=1}^{R} \left| \langle f, U_T^r f \rangle \right|=  \frac{2}{R+1} \int \limits_{X} |f|^2 d\mu + \frac{4}{R+1} \sum \limits_{r=1}^{R} \left| \hat{\sigma_f}(r) \right|,
+\end{gathered}
+\end{equation}
+which is valid for every $R \in \mathbb{N}$. By Lemma \ref{l:kronecker_spectral} we know that the measue $\sigma_f$ is continuous, so by Wiener's Criterion of Continuity (Corollary \ref{c:wiener_nosquares}) we have
+\[\lim \limits_{R \rightarrow \infty} \frac{1}{R+1} \sum \limits_{r=1}^{R} \left| \hat{\sigma_f}(r) \right| = \lim \limits_{R \rightarrow \infty} \frac{R}{R+1} \frac{1}{R} \sum \limits_{r=0}^{R-1} | \hat{\sigma_f} (r) | + \lim \limits_{R \rightarrow \infty} \frac{1}{R+1} (\hat{\sigma_f}(R) - \hat{\sigma_f}(0))  = \]
+\[ = \lim \limits_{R \rightarrow \infty} \frac{R}{R+1} \cdot \lim \limits_{R \rightarrow \infty} \frac{1}{R} \sum \limits_{r=0}^{R-1} | \hat{\sigma_f} (r) | = \lim \limits_{R \rightarrow \infty} \frac{1}{R} \sum \limits_{r=0}^{R-1} | \hat{\sigma_f} (r) | = 0, \]
+since by Cauchy-Schwarz inequality $| \hat{\sigma_f}(R) | = | \langle U^R_T f, f \rangle | = \leq \|U^R_Tf \|_2 \|f\|_2 = \|f\|_2^2$. By taking $\lim \limits_{R \rightarrow \infty}$ on both sides of \eqref{e:bourgain_main} (left side is independent from $R$) we get
+\[  \limsup \limits_{N \rightarrow \infty} \sup \limits_{\lambda \in \mathbb{T}} \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \right|^2 \leq \lim \limits_{R \rightarrow \infty} \frac{2}{R+1} \int \limits_{X} |f|^2 d\mu + \lim \limits_{R \rightarrow \infty} \frac{4}{R+1} \sum \limits_{r=1}^{R} \left| \hat{\sigma_f}(r) \right|  = 0.\ \square\]
+\end{pf}
+
+\section{Proof of Wiener-Wintner Ergodic Theorem}
+In this section we will prove Wiener-Wintner Ergodic Theorem using Theorem \ref{t:bourgain}. In order to do that we need another lemma.
+\begin{lem}[{\cite[lemma 21.7]{eisner}}]
+Let $(X, \mathcal{A}, \mu, T)$ be an ergodic dynamical system and take $f, f_1, f_2, ... \in L^1(\mu)$ such that $f_n \stackrel{L^1(\mu)}{\longrightarrow} f$. Let $(a_n)_{n \in \mathbb{N}_0}$ be a bounded sequence in $\mathbb{C}$. Suppose that for every $j \in \mathbb{N}$ the limit
+\[\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f_j (T^n x) \]
+exists $\mu$ a.e.. Then also the limit
+\[ \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f (T^n x)\]
+exists $\mu$ a.e..
+\end{lem}
+\begin{pf}
+Take $x \in X$ such that the limits $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} |f_j(T^nx)|$, $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} |(f-f_j)(T^nx)|$, $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f_j (T^n x)=:b_j$ exists. By Birkhoff Ergodic Theorem (èR”D£O!) ($f-f_j \in L^1(\mu)$) and the assumptions of the lemma, there is a set of full measure for which these limits exists (just take countable intersection of full measure sets on which there is convergence). Note that $b_j$ is dependent on $x$. Since $f_n \stackrel{L^1(\mu)}{\longrightarrow} f$, $(\|f_j\|_1)_{j \in \mathbb{N}}$ is bounded. Take $K=\sup \limits_{j \in \mathbb{N}} \|f_j\|_1$ and $M=\sup \limits_{n \in \mathbb{N}_0} |a_n|$. We have
+\[ |b_j| = \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f_j (T^n x) \leq \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} MK = MK, \]
+so sequence $(b_j)_{j \in \mathbb{N}}$ is also bounded, hence it has convergent subsequence $(b_{j_m})_{m \in \mathbb{N}}$ with $\lim \limits_{m \rightarrow \infty} b_{j_m} =:b$. Fix $\varepsilon > 0$ and take $m \in \mathbb{N}$ large enough to have $|b_{j_m}-b| < \frac{\varepsilon}{2}$ and $\|f - f_{j_m}\|_1 < \frac{\varepsilon}{2M}$. Now we have
+\[ \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f (T^n x) - b\right| \leq \left|\frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f(T^n x) - a_n f_{j_m}(T^nx) \right| + \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f_{j_m} (T^n x) - b_{j_m}\right| + |b_{j_m}-b| <\]
+\[ < \frac{1}{N} \sum \limits_{n=0}^{N-1} M |f - f_{j_m}|(T^n x) + \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f_{j_m} (T^n x) - b_{j_m}\right| + \frac{\varepsilon}{2}, \]
+hence
+\[ \limsup \limits_{N \rightarrow \infty} \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f (T^n x) - b\right| < \]
+\[ \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} M |f - f_{j_m}|(T^n x) + \lim \limits_{N \rightarrow \infty} \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f_{j_m} (T^n x) - b_{j_m}\right| + \frac{\varepsilon}{2} < \]
+\[ < M \|f-f_{j_m}\|_1 + 0 + \frac{\varepsilon}{2} = M \cdot \frac{\varepsilon}{2M} + \frac{\varepsilon}{2} = \varepsilon. \]
+Finally, since $\varepsilon > 0$ was arbitrary, we've got
+\[ \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f (T^n x) = b, \]
+what completes the proof.\ $\square$
+\end{pf}
+\begin{pf}(of the Theorem \ref{t:ww})\\
+First let's take $f \in L^2(\mu)$ being an eigenvalue of the Koopman operator $U_T$. We have
+\end{pf}
+
+
+
 
 \chapter{Ergodic theory for operators}\label{r:ergop}
 
