@@ -494,6 +494,13 @@ Let $(X, \mathcal{A}, \mu, T)$ be an ergodic dynamical system and fix function $
 \end{equation}
 converge for all $\lambda \in \mathbb{T}$.
 \end{thm}
+It will be useful for us to use the following
+\begin{df}[Wiener-Wintner property, {\cite[def. 2.7]{assani}}]$\\$
+Let $(X, \mathcal{A}, \mu, T)$ be a measurable dynamical system. A function $f\in L^1(\mu)$ is said to satisfy the Wiener-Wintner property if there exists a set $X_f$ of full measure such that for each $x \in X_f$ the limit
+\[ \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \]
+exists for all $\lambda \in \mathbb{T}$.
+\end{df}
+Using the notion of Wiener-Wintner property, the Theorem \ref{t:ww} can be restated as follows:\textit{ if $(X, \mathcal{A}, \mu, T)$ is a ergodic dynamical system, then every $f \in L^1(\mu)$ has a Wiener-Wintner property.}
 
 \begin{rem}
 Note that for a fixed $\lambda \in \mathbb{T}$ it is easy to achieve a.e. converengce in \eqref{ww}. Take a product system $(X \times \mathbb{T}, \mathcal{A} \otimes \mathcal{B}(\mathbb{T}), \mu \otimes m, T \times R_{\lambda})$ and observe that it is measure preserving since both $(X, \mathcal{A}, \mu, T)$ and $(\mathbb{T}, \mathcal{B}(\mathbb{T}), m, R_{\lambda})$ are measure preserving. Define a function $g:X \times \mathbb{T} \rightarrow \mathbb{C}$ by $g(x, \omega)=\omega f(x)$. We have $g \in \mathscr{L}^1(\mu \otimes m)$ since, by Fubini's Theorem,
@@ -510,15 +517,17 @@ Three proofs of this theorem can be found in \cite{assani}. We present one of th
 \section{Bourgain's uniform Wiener-Wintner theorem}
 In order to state the theorem, we need to introduce the notion of Kronecker factor.
 
-\begin{df}[Kronecker factor]$\\$
+\begin{df}[Kronecker factor, {\cite[def. 2.5]{assani}}]$\\$
 Let $(X, \mathcal{A}, \mu, T)$ be a measure preserving system and let $U_T : L^2(\mu) \rightarrow L^2(\mu)$ be its Koopman operator on $L^2(\mu)$. \textbf{Kronecker factor} $\mathcal{K} \subset L^2(\mu)$ is a closure (in $L^2(\mu)$) of a linear subspace spanned by eigenfunctions of $U_T$, i.e.
 \[\mathcal{K} := \overline{\text{span}} \left\{ f \in L^2(\mu): f \circ T = \lambda f \text{ for some }\lambda \in \mathbb{C} \right\}.\]
+The closure is taken in $L^2(\mu)$ norm.
 \end{df}
 
 \begin{thm}[Bourgain's uniform Wiener-Wintner theorem {\cite[thm. 2.4]{assani}}]\label{t:bourgain}
 Let $(X, \mathcal{A}, \mu, T)$ be an ergodic dynamical system and $f \in \mathcal{K}^{\bot}$. Then for $\mu$ a.e. $x \in X$ we have
 \[ \lim \limits_{N \rightarrow \infty}\  \sup \limits_{\lambda \in \mathbb{T}}\ \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \right| = 0. \]
 \end{thm}
+
 \noindent For the proof of this theorem we'll need two following lemma's:
 \begin{lem}[{\cite[prop. 2.2]{assani}}]\label{l:kronecker_spectral}
 Let $(X, \mathcal{A}, \mu, T)$ be a measure preserving dynamical system. A function $f \in L^2(\mu)$ belongs to $\mathcal{K}^{\bot}$ if and only if its spectral measure $\sigma_f$ is continous.
@@ -617,16 +626,15 @@ since by Cauchy-Schwarz inequality $| \hat{\sigma_f}(R) | = | \langle U^R_T f, f
 \end{pf}
 
 \section{Proof of Wiener-Wintner Ergodic Theorem}
-In this section we will prove Wiener-Wintner Ergodic Theorem using Theorem \ref{t:bourgain}. In order to do that we need another lemma.
-\begin{lem}[{\cite[lemma 21.7]{eisner}}]
-Let $(X, \mathcal{A}, \mu, T)$ be an ergodic dynamical system and take $f, f_1, f_2, ... \in L^1(\mu)$ such that $f_n \stackrel{L^1(\mu)}{\longrightarrow} f$. Let $(a_n)_{n \in \mathbb{N}_0}$ be a bounded sequence in $\mathbb{C}$. Suppose that for every $j \in \mathbb{N}$ the limit
+In this section we will prove the Wiener-Wintner Ergodic Theorem using Theorem \ref{t:bourgain}. In order to do that we need another lemma.
+\begin{lem}[{\cite[lemma 21.7]{eisner}}]\label{l:eisner}
+Let $(X, \mathcal{A}, \mu, T)$ be an ergodic dynamical system and take $f, f_1, f_2, ... \in L^1(\mu)$ such that $f_n \stackrel{L^1(\mu)}{\longrightarrow} f$. There exists a set $X_0 \in \mathcal{A}$ of full measure, such that for $x \in X_0$ the following property holds: if $(a_n)_{n \in \mathbb{N}_0}$ is a bounded sequence in $\mathbb{C}$ and the limit
 \[\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f_j (T^n x) \]
-exists $\mu$ a.e.. Then also the limit
-\[ \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f (T^n x)\]
-exists $\mu$ a.e..
+exists for every $j \in \mathbb{N}$, then also exists the limit
+\[ \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f (T^n x).\]
 \end{lem}
 \begin{pf}
-Take $x \in X$ such that the limits $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} |f_j(T^nx)|$, $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} |(f-f_j)(T^nx)|$, $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f_j (T^n x)=:b_j$ exists. By Birkhoff Ergodic Theorem (RÓD£O!) ($f-f_j \in L^1(\mu)$) and the assumptions of the lemma, there is a set of full measure for which these limits exists (just take countable intersection of full measure sets on which there is convergence). Note that $b_j$ is dependent on $x$. Since $f_n \stackrel{L^1(\mu)}{\longrightarrow} f$, $(\|f_j\|_1)_{j \in \mathbb{N}}$ is bounded. Take $K=\sup \limits_{j \in \mathbb{N}} \|f_j\|_1$ and $M=\sup \limits_{n \in \mathbb{N}_0} |a_n|$. We have
+Take as $X_0$ the set of all $x \in X$ such that the limits $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} |f_j(T^nx)|$ and $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} |(f-f_j)(T^nx)|$ exists. By Birkhoff Ergodic Theorem (RÓD£O!) ($f-f_j \in L^1(\mu)$) we have that $\mu(X_0)=1$ (as a countable intersection of full measure sets on which there is convergence). Take a bounded sequence $(a_n)_{n \in \mathbb{N}_0}$ in $\mathbb{C}$ and suppose that $x \in X_0$ is such that the limit $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f_j (T^n x) =: b_j$ exists. Since $f_n \stackrel{L^1(\mu)}{\longrightarrow} f$, $(\|f_j\|_1)_{j \in \mathbb{N}}$ is bounded. Take $K=\sup \limits_{j \in \mathbb{N}} \|f_j\|_1$ and $M=\sup \limits_{n \in \mathbb{N}_0} |a_n|$. We have
 \[ |b_j| = \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f_j (T^n x) \leq \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} MK = MK, \]
 so sequence $(b_j)_{j \in \mathbb{N}}$ is also bounded, hence it has convergent subsequence $(b_{j_m})_{m \in \mathbb{N}}$ with $\lim \limits_{m \rightarrow \infty} b_{j_m} =:b$. Fix $\varepsilon > 0$ and take $m \in \mathbb{N}$ large enough to have $|b_{j_m}-b| < \frac{\varepsilon}{2}$ and $\|f - f_{j_m}\|_1 < \frac{\varepsilon}{2M}$. Now we have
 \[ \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f (T^n x) - b\right| \leq \left|\frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f(T^n x) - a_n f_{j_m}(T^nx) \right| + \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f_{j_m} (T^n x) - b_{j_m}\right| + |b_{j_m}-b| <\]
@@ -639,10 +647,18 @@ Finally, since $\varepsilon > 0$ was arbitrary, we've got
 \[ \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f (T^n x) = b, \]
 what completes the proof.\ $\square$
 \end{pf}
-\begin{pf}(of the Theorem \ref{t:ww})\\
-First let's take $f \in L^2(\mu)$ being an eigenvalue of the Koopman operator $U_T$. We have
-\end{pf}
 
+\begin{cor}\label{c:wwprop-limit} Let $(X, \mathcal{A}, \mu, T)$ be an ergodic dynamical system and take $f, f_1, f_2, ... \in L^1(\mu)$ such that $f_n \stackrel{L^1(\mu)}{\longrightarrow} f$. If every $f_n$ has the Wiener-Wintner property, then $f$ also has the Wiener-Wintner property. 
+\end{cor}
+\begin{pf} Let $X_0$ be the set from Lemma \ref{l:eisner} and for $j \in \mathbb{N}$ let $X_j \in \mathcal{A}$ be such that $\mu(X_j)=1$ and for $x \in X_j$ the limit $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f_j(T^n x)$ exists for all $\lambda \in \mathbb{T}$. Take a set $A:=X_0 \cap \bigcap \limits_{j=1}^{\infty} X_j$ and note that $\mu(A)=1$. Fix $\lambda \in \mathbb{T}$ and $x \in A$. For $j \in \mathbb{N}$ we have $x \in X_j$, so the limit $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f_j(T^n x)$ exists for all $j \in \mathbb{N}$. Moreover we have $x \in X_0$, hence the limit $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x)$ also exists for all $\lambda \in \mathbb{T}$ (by the Lemma \ref{l:eisner} with $a_n:=\lambda^n$ (note that $|\lambda^n| \leq 1$)).\ $\square$
+\end{pf}
+\begin{pf}(of the Theorem \ref{t:ww})\\
+First let's take $f \in L^2(\mu)$ being an eigenvalue of the Koopman operator $U_T$, i.e. suppose that there exists $\omega \in \mathbb{T}$ such that $f \circ T = \omega f\ \mu$-a.e. For almost all $x \in X$ and all $\lambda \in \mathbb{T}$ we have
+\[ \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) = \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n \omega^n f(x) = f(x) \frac{1}{N} \sum \limits_{n=0}^{N-1} (\lambda\omega)^n\ \overset{N \rightarrow \infty}{\longrightarrow} f(x) \mathds{1}_{\{1\}} (\lambda\omega), \]
+so $f$ has the Wiener-Wintner property. Take now $f$ of the form $f = \alpha_1 f_1 + \alpha_2 f_2 + ... + \alpha_m f_m,$ where $m \in \mathbb{N}$, $\alpha_1, ..., \alpha_m \in \mathbb{C}$ and $f_1, ..., f_m$ have the Wiener-Wiener property.  Since
+\[ \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) = \sum \limits_{j=1}^m \alpha_j \left( \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f_j(T^n x) \right), \]
+the limit $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) $ exists for each $x \in X_{f_1} \cap X_{f_2} \cap ... \cap X_{f_m}$, so $f$ has the Wiener-Wintner property (the set of all functions having Wiener-Wintner property forms a linear subspace of $L^1(\mu)$). Further, Corollary \ref{c:wwprop-limit} shows that the set of all functions having Wiener-Wintner property is in fact a closed subspace of $L^1(\mu)$. Since we already know that eigenfunctions has the Wiener-Wiener property, then also every $f$ from the Kronecker Factor $\mathcal{K}$ must have the Wiener-Wintner property (since if $L^2(\mu) \ni f_j \overset{L^2(\mu)}{\longrightarrow} f \in L^2(\mu)$ then also $ f_j \overset{L^1(\mu)}{\longrightarrow} f$, so $\mathcal{K} \subset \overline{\text{span}}^{L^1(\mu)} \left\{ f \in L^2(\mu): f \circ T = \lambda f \text{ for some }\lambda \in \mathbb{C} \right\}$ ). Observe further, that Theorem \ref{t:bourgain} implies that every $f \in \mathcal{K}^{\bot}$ also have the Wiener-Wintner property (pointwise convergence for every $\lambda \in \mathbb{T}$ is weaker notion than uniform convergence for $\lambda \in \mathbb{T}$) . By the Orthogonal Projection Theorem we have $L^2(\mu) = \mathcal{K} \oplus \mathcal{K}^{\bot}$, so since both $\mathcal{K}$ and $\mathcal{K}^{\bot}$ have the Wiener-Wintner property and the property is additive, the whole $L^2(\mu)$ has the Wiener-Wintner property. We finish the proof by the closedness of functions with the Wiener-Wintner property in $L^1(\mu)$ and fact that $L^2(\mu)$ is dense in $L^1(\mu).\ \square$ 
+\end{pf}
 
 
 
