@@ -107,14 +107,29 @@
   {\newline}%                                    % Space after theorem head, ' ', or \newline
   {}%                                     % Theorem head spec (can be left empty, meaning `normal')
 
+
+\newtheoremstyle{fact}%                % Name
+  {}%                                     % Space above
+  {}%                                     % Space below
+  {\itshape}%                             % Body font
+  {}%                                     % Indent amount
+  {\bfseries}%                            % Theorem head font
+  {}%                                    % Punctuation after theorem head
+  { }%                                    % Space after theorem head, ' ', or \newline
+  {}%                                     % Theorem head spec (can be left empty, meaning `normal')
+
+
 \theoremstyle{mytheorem}
 \newtheorem{thm}{Theorem}[chapter]
 \newtheorem{lem}{Lemma}[chapter]
 \newtheorem{cor}{Corollary}[chapter]
+\newtheorem{prop}{Proposition}[chapter]
+
+\theoremstyle{fact}
+\newtheorem{f}{Fact}[chapter]
 
 \theoremstyle{withspace}
 \newtheorem{df}{Definition}[chapter]
-\newtheorem{prop}{Proposition}[chapter]
 \newtheorem{ex}{Example}[chapter]
 
 \theoremstyle{dotless}
@@ -131,6 +146,7 @@
 \AfterEndEnvironment{ex}{\noindent\ignorespaces}
 \AfterEndEnvironment{rem}{\noindent\ignorespaces}
 \AfterEndEnvironment{pf}{\noindent\ignorespaces}
+\AfterEndEnvironment{f}{\noindent\ignorespaces}
 
 % koniec definicji
 
@@ -169,34 +185,12 @@ By $\mathbb{N}$ we will denote set of positive natural numbers, by $\mathbb{N}_0
 
 \section{Measure theory}
 
-complex measure and integral?!\\
-finite and $\sigma$-finite measure spaces\\
-miara Lebesgue'a m\\
-miary produktowe\\
-twierdzenie fubiniego\\
-a.e. convergence\\
-lebesgue's dominated convergence theorem\\
-spaces $\mathcal{L}^1(\mu)$ and $L^1(\mu)$\\
 absolute continuity and Radon-Nikodym theorem\\
 
-\begin{df}
-Let $X$ be nonempty set. Family of sets $\mathcal{A} \subset 2^X$ is called $\sigma$\textbf{-field} (or $\sigma$\textbf{-algebra}), when the following conditions hold:
-\begin{enumerate}[(i)]
-\item $\emptyset \in \mathcal{A},$
-\item $A \in \mathcal{A} \Longrightarrow A' \in \mathcal{A}$,
-\item $A_n \in \mathcal{A} \text{ for } n \in \mathbb{N}_0 \Longrightarrow \bigcup \limits_{n=0}^{\infty} A_n \in \mathcal{A}$.
-\end{enumerate}
-Pair $(X, \mathcal{A})$ is called a \textbf{measurable space}. Set $A \in \mathcal{A}$ is called a \textbf{measurable set}.
-\end{df}
+By $(X, \mathcal{A}, \mu)$ we will denote a measure space, where $X$ is a nonempty set, $\mathcal{A}$ is a $\sigma$-field (or $\sigma$-algebra) of subsets of $X$ and $\mu$ is a (non-negative) measure on the measurable space $(X, \mathcal{A})$. Sets $A \in \mathcal{A}$ are called measurable sets. Measure $\mu$ is called finite if $\mu(X) < \infty$ and $\sigma$-finite if there is a countable collection of measurable sets $\{ A_n \}_{n=1}^{\infty}$ with $\mu(A_n)<\infty$ for each $n \in \mathbb{N}$, such that $X = \bigcup \limits_{n=1}^{\infty} A_n$. If measure $\mu$ is $\sigma$-finite, then the sets $\{ A_n \}_{n=1}^{\infty}$ can be taken to be pairwise disjoint. If $\mu(X)=1$ then the measure $\mu$ is called a probability measure and $(X, \mathcal{A}, \mu)$ is called a probability space. For a finite measure $\mu$, a set $A \in \mathcal{A}$ is said to have a full measure if $\mu(A) = \mu (X)$. We will often use the following simple
 
-\begin{df}
-Let $(X,\mathcal{A})$ be a measurable space. Function $\mu : \mathcal{A} \rightarrow [0, +\infty]$ is called a \textbf{(non-negative) measure} if it satifises the following properties:
-\begin{enumerate}[(i)]
-\item $\mu(\emptyset) = 0$,
-\item $\mu\left( \bigcup \limits_{n=0}^{\infty} A_n \right) = \sum \limits_{n=0}^{\infty} \mu (A_n)$ for any countable collection of measurable sets $A_n \in \mathcal{A},\ n \in \mathbb{N}_0$.
-\end{enumerate}
-Triple $(X, \mathcal{A}, \mu)$ is called a \textbf{measure space}.
-\end{df}
+\begin{f} Let $(X, \mathcal{A}, \mu)$ be a measure space with a finite measure. If each measurable set $A_n, n \in \mathbb{N}$ has a full measure, then their intesection $\bigcap \limits_{n=1}^{\infty} A_n$ also has a full measure.
+\end{f}
 
 \begin{df}
 Let $(X, \mathcal{A})$ and $(Y, \mathcal{C})$ be measurable spaces. A map $T: X \rightarrow Y$ is called a \textbf{measurable map} if it satisfies $T^{-1}(C) \in \mathcal{A} \text{ for all } C \in \mathcal{C}$.
@@ -208,7 +202,28 @@ Let $(X, \mathcal{A}, \mu)$ be a measure space. An element $x \in X$ is called a
 
 \begin{rem} Note that a finite measure $\mu$ can have only countably many atoms. To see that observe that for $\varepsilon >0$ a set $A_{\varepsilon}:=\{x \in X: \mu(\{x\}) > \epsilon \}$ must have at most $\frac{\mu(X)}{\varepsilon}$ elements (otherwise we wolud have $\mu(X) > \frac{\mu(X)}{\varepsilon} \cdot \varepsilon = \mu(X)$), hence must be finite. This shows that the set of atoms $A = \bigcup \limits_{n=1}^{\infty} A_{\frac{1}{n}}$ must be countable. Also, there is $\sum \limits_{x \in A} \mu(\{ x\}) \leq \mu(X) < \infty.$
 \end{rem}
-
+If $X$ is a topological space, then by $\mathcal{B}(X)$ we will denote it's Borel $\sigma$-field, i.e. the smallest $\sigma$-field containing all open subsets of $X$. Note that if $X$ and $Y$ are topological spaces and $T:X \rightarrow Y$ is continuous, then T is also measurable (with respect to Borel $\sigma$-fields on $X$ and $Y$). Measure on a measurable space $(X, \mathcal{B}(X))$ is called a Borel measure. On spaces $\mathbb{R}^n, n \in \mathbb{N}$ (with a standard topology) there is a natural Borel measure, which is a unique measure $m$ with property $m([a_1, b_1]\times [a_2, b_2] \times ... \times [a_n, b_n]) = (b_1 - a_1)(b_2 - a_2)...(b_n - a_n)$ for $a_1\leq b_1,a_1\leq b_2, ..., a_n\leq b_n$. This measure $m$ is called a Lebesgue measure and it's $\sigma$-finite. On $\mathbb{T}$ (with a standard topology) there exists a unique measure such that measure of any arc is its length. This measure is finite a its normalization will be also called a Lebesgue measure and will be denoted by $m$ ($m(\mathbb{T})=1$ and length of arc $A$ is equal to $2\pi m(A)$).\\ \\
+Let $T, S: X \rightarrow Y$ be a measurable maps between measurable spaces $(X, \mathcal{A})$ and $(Y, \mathcal{C})$. We will use abreviations $\{ T \in A \}:= \{x \in X: Tx \in A \}$, $\{ T=S \} := \{x \in X: Tx = Sx \}$ and $\{ T \neq S \} := \{x \in X: Tx \neq Sx \}$. Note that these set are measurable. We will say that some property holds for ($\mu$) almost all $x \in X$, if there is a measurable set $A$ such that this property holds for every $x \in A$ and $\mu(X \backslash A) = 0$. We will say that map $T$ is equal to $S$ $\mu$ almost everywhere ($\mu$-a.e.) if $Tx = Sx$ for almost all $x \in X$, i.e. $\mu(T \neq S):=\mu(\{T \neq S\})=0$.\\ \\
+We say that function $f:X \rightarrow \mathbb{R}^n$ or $f:X \rightarrow \mathbb{C}^n$ is a Borel function (or simply a measurable function) if it is measurable with respect to the Borel $\sigma$-field $\mathcal{B}(\mathbb{R}^n)$ or $\mathcal{B}(\mathbb{C}^n)$, where we consider the standard topology on $\mathbb{R}^n$ or $\mathbb{C}^n$. Let $(f_n)_{n \in \mathbb{N}}$ be  a sequence of measurable complex valued functions on $X$. We say that the sequence $(f_n)_{n \in \mathbb{N}}$ converges $\mu$ almost everywhere to a measurable function $f: X \rightarrow \mathbb{C}$ if for almost all $x \in X$ there is $\lim \limits_{n \rightarrow \infty} f_n(x) = f(x)$. The following important theorem says when a.e. convergence implies convergence of integrals.
+\begin{thm}[Lebesgue Dominated Convergence Theorem]
+Let $(X, \mathcal{A}, \mu)$ be a measure space and let $f, f_1, f_2, ...$ be a sequence of measurable complex valued functions on $X$ with $f_n \stackrel{n \rightarrow \infty}{\longrightarrow} f\ \mu$-a.e. Suppose further, that there is a finitely integrable function $g: X \rightarrow [0, \infty)$ with $|f_n| \leq g\ \mu$-a.e. for every $n \in \mathbb{N}$. Then functions $f, f_1, f_2, ...$ are also finitely integrable and
+\[ \lim \limits_{n \rightarrow \infty} \int \limits_{X} f_n d\mu = \int \limits_{X} f d\mu. \]
+\end{thm}
+Given two measure spaces $(X, \mathcal{A}, \mu)$ and $(Y, \mathcal{C}, \nu)$ there is a natural measurable structure on the product $X \times Y$. We define product $\sigma$-field $\mathcal{A} \otimes \mathcal{C}$ of the subsets of $X \times Y$ as the smallest $\sigma$-field containing all measurable rectangles $A\times C, A\in \mathcal{A}, C \in \mathcal{C}$, i.e. $\mathcal{A} \otimes \mathcal{C}:= \sigma( \{A \times C:  A\in \mathcal{A}, C \in \mathcal{C}\})$. Moreover, if both measures $\mu$ and $\nu$ are $\sigma$-finite, then there exists unique measure $\mu \otimes \nu$ on the measurable space $(X \times Y, \mathcal{A} \otimes \mathcal{C})$ with the property $\mu \otimes \nu (A \times C) = \mu(A)\nu(C)$ for all $A \in \mathcal{A}, C \in \mathcal{C}$. The measure $\mu \otimes \nu$ is called a product measure. Fubini's theorem establishes connection between integral with respect to the product measure and iterated integrals with respect to the measures $\mu$ and $\nu$ separately.
+\begin{thm}[Fubini's Theorem]
+Let $(X, \mathcal{A}, \mu)$ and $(Y, \mathcal{C}, \nu)$ be measure spaces with $\sigma$-finite measures. Let $f:X\times Y \rightarrow \mathbb{C}$ be measurable with respect to the product $\sigma$-field $\mathcal{A} \otimes \mathcal{C}$ and suppose that at least one of the following integrals is finite:
+\[ \int \limits_{X \times Y} |f|d\mu \otimes \nu,\ \int \limits_{X} \left( \int \limits_{Y} |f(x,y)| d\nu(y) \right) d\mu(x),\ \int \limits_{Y} \left( \int \limits_{X} |f(x,y)| d\mu(x) \right) d\nu(y).\]
+Then for $\mu$-almost all $x \in X$ the function $f(x, \cdot) : Y \rightarrow \mathbb{C}$ is $\nu$-finitely integrable and for $\nu$-almost all $y \in Y$ the function $f(\cdot, y) :X \rightarrow \mathbb{C}$ is $\mu$-finitely integrable. Moreover function $X \ni x \mapsto \int \limits_{Y} f(x, y) d\nu(y) \in \mathbb{C}$ is $\mu$-finitely integrable and function $Y \ni y \mapsto \int \limits_{Y} f(x, y) d\mu(x) \in \mathbb{C}$ is $\nu$-finitely integrable. The following equality holds:
+\[ \int \limits_{X \times Y} fd\mu \otimes \nu = \int \limits_{X} \left( \int \limits_{Y} f(x,y) d\nu(y) \right) d\mu(x) = \int \limits_{Y} \left( \int \limits_{X} f(x,y) d\mu(x) \right) d\nu(y).\]
+\end{thm}
+\begin{rem} Note that functions $X \ni x \mapsto \int \limits_{Y} f(x, y) d\nu(y) \in \mathbb{C}$ and $Y \ni y \mapsto \int \limits_{Y} f(x, y) d\mu(x) \in \mathbb{C}$ may be defined properly for every $x \in X$ and $y \in Y$, although they are definied $\mu$- and $\nu$-almost everywhere, which is enough to properly define their integrals.
+\end{rem}
+There is also version of Fubini's Theorem for non-negative functions. In this case the integrals do not need to be finite.
+\begin{thm}[Fubini's Theorem for non-negative functions]
+Let $(X, \mathcal{A}, \mu)$ and $(Y, \mathcal{C}, \nu)$ be measure spaces with $\sigma$-finite measures. Let $f:X\times Y \rightarrow [0, \infty)$ be measurable with respect to the product $\sigma$-field $\mathcal{A} \otimes \mathcal{C}$. Then  function $X \ni x \mapsto \int \limits_{Y} f(x, y) d\nu(y) \in \mathbb{C}$ is $\mathcal{A}$-measurable and function $Y \ni y \mapsto \int \limits_{Y} f(x, y) d\mu(x) \in \mathbb{C}$ is $\mathcal{C}$-measurable and the following equality holds:
+\[ \int \limits_{X \times Y} fd\mu \otimes \nu = \int \limits_{X} \left( \int \limits_{Y} f(x,y) d\nu(y) \right) d\mu(x) = \int \limits_{Y} \left( \int \limits_{X} f(x,y) d\mu(x) \right) d\nu(y).\]
+\end{thm}
+\begin{rem} Note that these integrals may be infinite and if at least one of them is infinite, then all of them are. \end{rem}
 
 \section{Topology}
 topological space\\
@@ -221,6 +236,7 @@ Borel measures\\
 
 
 \section{Functional analysis}
+$\mathscr{L}^{\infty}$ and $L^{\infty}$\\
 remove $\hat{\sigma}(-n)$?\\
 convergence of geometric series on crircle\\
 dual space\\
@@ -228,24 +244,7 @@ Riesz theorem (Hilbert spaces)\\
 Banach and Hilbert conjugate\\
 Riesz-Markov theorem\\
 
-In the following we will always assume that vector spaces are taken over field $\mathbb{C}$.
-
-\begin{df}
-Let $E$ be a vector space. We say that a function $\| \cdot \| : E \rightarrow [0, \infty)$ is a \textbf{norm}, if for all $x,y \in E$ the following conditions are satisfied:
-\begin{enumerate}[(i)]
-\item $\|x\| = 0 \Leftrightarrow x=0$,
-\item $\|\lambda x \| = |\lambda| \| x \|$ for all $\lambda \in \mathbb{C}$,
-\item $\|x + y\| \leq \|x\| + \|y\|$.
-\end{enumerate}
-Vector space $E$ equipped with a norm is called a \textbf{normed space}.
-\end{df}
-
-\begin{rem} Note that a norm gives rise to a metric on $E$ by $d(x,y) = \| x - y\|$. This metric generates a topology on $E$ which is considered as a standard topology on $E$. Convergence in this metric is called convergence in norm (or strong convergence) and is sometimes denoted by $x_n \stackrel{\| \cdot \|}{\longrightarrow} x$ or $x_n \stackrel{E}{\longrightarrow} x$.
-\end{rem}
-
-\begin{df}
-Let $E$ be a normed space. If $E$ is complete as a metric space, then $E$ is called a \textbf{Banach space}.
-\end{df}
+We will always assume that vector spaces are taken over field $\mathbb{C}$. By $\| \cdot \|$ we will denote a norm of a normed space. We will give now standard examples of Banach spaces (i.e. complete normed space) with their properties which will be useful for us later.
 
 \begin{ex}[$\mathscr{L}^p$ and $L^p$ spaces]$\\$
 Let $(X, \mathcal{A}, \mu)$ be a measure space. For $1\leq p < \infty$ consider the vector space \[\mathscr{L}^p(X, \mathcal{A}, \mu) := \left\{ f:X \rightarrow \mathbb{C};\ f \text{ is measurable and } \int \limits_{X} |f|^p d\mu < \infty \right\}.\]
@@ -263,24 +262,7 @@ Let $X$ be a compact metric space and $\mu$ be a finite nonegative Borel measure
 \end{prop}
 \begin{pf} CZY DOWÓD?
 \end{pf}
-
-
-\begin{df}
-Let $H$ be a vector space. A function $\langle \cdot,\cdot \rangle:H \times H \rightarrow \mathbb{C}$ is called a \textbf{inner product} if for all $x,y,z \in H$ the following conditions are satisified:
-\begin{enumerate}[(i)]
-\item $\langle x,x\rangle > 0 \text{ for }x \neq 0$,
-\item $\langle x+y, z \rangle = \langle x, z \rangle + \langle y, z \rangle$,
-\item $\langle \lambda x, y \rangle = \lambda \langle x, y \rangle \text{ for all } \lambda \in \mathbb{C}$,
-\item $\langle x, y \rangle = \overline{\langle y, x \rangle}$.
-\end{enumerate}
-Vector space $H$ with inner product is called \textbf{inner product space}.
-\end{df}
-
-\begin{rem} Inner product space is a normed space with a norm $\|x\| := \sqrt{\langle x, x \rangle}$.
-\end{rem}
-
-\begin{df}Inner product space $H$ which is a Banach space is called a \textbf{Hilbert space}.
-\end{df}
+By $\langle \cdot,\cdot \rangle$ we will denote inner product on a inner product space. Inner product space is also a normed space with a norm $\|x\| := \sqrt{\langle x, x \rangle}$. If inner product space is complete with this norm, we call it a Hilbert space.
 
 \begin{ex}[Space $L^2(\mu)$]$\\$
 Let $(X, \mathcal{A}, \mu)$ be a measure space. The space $L^2(\mu)$ with inner product $\langle f,g\rangle := \int \limits_{X} f \overline{g} d\mu$ is a Hilbert space. Note that the inner product norm coincides with norm $\| \cdot \|_{L^2(\mu)}$ from Example \ref{ex:lp}.
@@ -291,8 +273,8 @@ Let $H$ be an inner product space. The following inequality holds for all $x,y \
 \[ |\langle x, y \rangle | \leq \|x\| \|y\|. \]
 \end{prop}
 
-\begin{rem} Cauchy-Schwarz inequality implies that inner product is a continous map in each variable.
-\end{rem}
+%\begin{rem} Cauchy-Schwarz inequality implies that inner product is a continous map in each variable.
+%\end{rem}
 
 \begin{df}
 Let $H$ be an inner product space. Two vectors $x, y \in H$ are said to be \textbf{orthogonal} if $\langle x, y \rangle = 0$. We denote that fact by $x \bot y$. For a set $H_0 \subset H$ its \textbf{orthogonal complement} is a set $H_0^{\bot}:=\left\{ x \in H: \underset{h \in H_0}{\forall}\ \langle h, x \rangle = 0 \right\}$.
@@ -309,7 +291,7 @@ Let $E, F$ be normed spaces. A linear transformation $U: E \rightarrow F$ is cal
 \end{rem}
 
 \begin{df}
-Let $E$ be a normed space and let $U:E \rightarrow E$ be a bounded linear operator. Number $\lambda \in \mathbb{C}$ is called an \textbf{eigenvalue} if there is a vector $x \in E,\ x \neq 0$ such that $Ux = \lambda x$. Any such vector $x$ is called an \textbf{eigenvector} (associated with $\lambda$). The closed linear subspace $H_{\lambda} = \left\{ x \in H: Ux = \lambda x \right\}$ is called an \textbf{eigenspace} (of $\lambda$).
+Let $E$ be a normed space and let $U:E \rightarrow E$ be a bounded linear operator. Number $\lambda \in \mathbb{C}$ is called an \textbf{eigenvalue} if there is a vector $x \in E,\ x \neq 0$ such that $Ux = \lambda x$. Any such vector $x$ is called an \textbf{eigenvector} (associated with $\lambda$). We denote the set of all eigenvalues of $U$ by $\sigma(U)$. The closed linear subspace $H_{\lambda} = \left\{ x \in H: Ux = \lambda x \right\}$ is called an \textbf{eigenspace} (of $\lambda$).
 \end{df}
 
 \begin{thm}[Orthogonal Projection Theorem {\cite[lemma 12.4]{rudin}}]\label{t:orthproj}
@@ -424,24 +406,92 @@ After establishing von Neumann's Ergodic Theorem in next chapter, we will be abl
 
 \chapter{Introduction to ergodic theory}\label{r:erg}
 
+This chapter includes short introduction to the ergodic theory. We give basic concepts and facts. The presentation is based on \cite{einsiedler}.
+
 \section{Measurable dynamical systems}
-measure preserving system\\
-ergodic system and equivalences (at least invariant functions are constant)\\
 Birkhoff theorem (for measure preserving systems) and note about using $L^1$ and $\mathscr{L}^1$\\
 system $(\mathbb{T}, \mathcal{B}(\mathbb{T}), m, R_{\lambda})$\\
-product systems\\
-product of m.p.s. systems is m.p.s\\
-Koopman operator - isometry, properties of eigenvalues and eigenfunctions\\
 
+The main object in ergodic theory is a measure preserving system. In the first part of the thesis we will consider only discrete time dynamical systems arising from single transformation.
 
+\begin{df}[Measure preserving system]$\\$
+Let $(X, \mathcal{A}, \mu)$ be a probability space. A measurable map $T: X \rightarrow X$ is called \textbf{measure preserving} (or \textbf{$\mu$-invariant}) if
+\[ \underset{A \in \mathcal{A}}{\forall}\ \mu(T^{-1} A) = \mu(A).\]
+In this case the measure $\mu$ is called \textbf{$T$-invariant} and $(X, \mathcal{A}, \mu, T)$ is called a \textbf{measure preserving (dynamical) system}.
+\end{df}
+\begin{rem} Sometimes it is enough to consider measurable dynamical system $(X, \mathcal{A}, \mu, T)$ without the assumption $\mu(T^{-1} A) = \mu(A)$ for $A \in \mathcal{A}$, only with measurability of $T$ (or with assumption $\mu(A) \neq 0 \Longrightarrow \mu(T^{-1}A) \neq 0$). We will always assume that transformation is measure preserving. We assume also (for the sake of simplicity) that measure is already normalized ($\mu(X)=1$), but the theory is valid also for finite measures. Part of the theory can be established for $\sigma$-finite measures.
+\end{rem}
+\begin{f}[{\cite[lemma 2.6]{einsiedler}}]\label{f:intinv}$\\$
+Let $(X, \mathcal{A}, \mu)$ be a probability space. A measurable map $T: X \rightarrow X$ is measure preserving if and only if for every $f \in \mathscr{L}^{\infty}(\mu)$ we have
+\begin{equation}\label{e:intinv}
+\int \limits_{X} f(x) d\mu (x) = \int \limits_{X} f( Tx) d\mu (x).
+\end{equation}
+Moreover, if $T$ is measure preserving, then \eqref{e:intinv} holds for all $f \in \mathscr{L}^1(\mu)$.
+\end{f}
+For two measure preserving preserving systems it is natural to consider their product:
+\begin{f} Let $(X, \mathcal{A}, \mu, T)$ and $(Y, \mathcal{C}, \nu, S)$ be measure preserving systems. Then the system $(X \times Y, \mathcal{A} \otimes \mathcal{C}, \mu \otimes \nu, T \times S)$ with $T \times S (x, y) := (Tx, Sy)$ is also a measure preserving system which is called a \textbf{product system} of $(X, \mathcal{A}, \mu, T)$ and $(Y, \mathcal{C}, \nu, S)$.
+\end{f}
+We will give now definition of the Koopman Operator, which gives the crucial possibility of using functional analysis in ergodic theory.
 
+\begin{df}[Koopman Operator on $L^p(\mu)$]$\\$
+Let $(X, \mathcal{A}, \mu, T)$ be a measure preserving system. For $1 \leq p < \infty$ we definie the \textbf{Koopman Operator on $L^p(\mu)$} (induced by $T$) as $U_T : L^p(\mu) \rightarrow L^p(\mu)$ given by
+\[ U_T f := f \circ T.\]
+\end{df}
+\begin{rem} Note that since $f \in L^p(\mu)$ is formally a equivalence class of functions equal almost everywhere, it doesn't make sense to consider the superposition $f \circ T (x) := f(Tx)$ for a fixed point $x \in X$. On the other hand, note that if for $f, g \in \mathscr{L}^p(\mu)$ we have $f=g$ almost everywhere, then also $f \circ T = g \circ T$ almost everywhere. Indeed, we have $\mu (\{ f \circ T \neq g \circ T\}) = \mu ( \{ x \in X: f(Tx) \neq g(Tx) \} ) = \mu (T^{-1}(\{f \neq g\})) = \mu (\{ f \neq g\}) =0,$ since $T$ is measure preserving. This shows that the equivalence class of $f \circ T$ is uniquely determined by the equivalence class of $f$, so it makes sense to define $f \circ T$ for $f \in L^p(\mu)$. Note further, that for $f \in L^p(\mu)$ we have by \ref{e:intinv}
+\[ \int \limits_X | f \circ T |^p d\mu =  \int \limits_X | f |^p \circ T d\mu = \int \limits_X | f |^p d\mu < \infty, \]
+so Koopman Operator is well defined.
+\end{rem}
+
+\begin{f}
+For a measure preserving system $(X, \mathcal{A}, \mu, T)$, its Koopman Operator $U_T : L^p(\mu) \rightarrow L^p(\mu), 1 \leq p <\infty$ is an isometry. In particular, for $p=2$ we have $\langle U_T f, U_T g \rangle = \langle f, g \rangle$ for $f, g \in L^2(\mu)$.
+\end{f}
+The most important class of measure preserving systems are ergodic dynamical systems.
+\begin{df}
+The measure preserving system $(X, \mathcal{A}, \mu, T)$ is called an \textbf{ergodic dynamical system} if
+\[ \underset{A \in \mathcal{A}}{\forall}\ [T^{-1} A = A \Longrightarrow \mu(A) \in \{0,1\}]. \]
+In the above situation, the transformation $T$ and the measure $\mu$ are also called \textbf{ergodic}.
+\end{df}\\
+Set $A \in \mathcal{A}$ with $T^{-1}A = A$ is called a \textbf{$T$-invariant set} (or simply invariant set). Thus, the ergodicity of the system means that only null sets (sets of zero measure) and full measure sets can be invariant. We will give now a useful characterization of ergodicity.
+
+\begin{prop}\label{p:erginv}
+The measure preserving system $(X, \mathcal{A}, \mu, T)$ is ergodic if and only if for some (every) $p \in [1, \infty)$ we have that 
+\[ \underset{f \in L^p(\mu)}{\forall} [f \circ T = f\ \mu\text{-a.e.} \Longrightarrow f \text{ is equal to a constant function } \mu \text{-a.e.}]. \]
+\end{prop}\\
+Using the above characterization, we will give some spectral properties of Koopman Operator on $L^2(\mu)$.
+
+\begin{prop} Let $(X, \mathcal{A}, \mu, T)$ be a measure preserving system and $U_T : L^2(\mu) \rightarrow L^2(\mu)$ its Koopman Operator on $L^2(\mu)$. Then
+\begin{enumerate}[(1)]
+\item $\sigma(U_T) \subset \mathbb{T}$,
+\item If $T$ is ergodic then for every eigenfunction $f \in L^2(\mu)$ of $U_T$ we have $|f| = \text{const}\ \mu$-a.e.,
+\item If $T$ is ergodic then for every eigenvalue $\lambda \in \sigma(U_T)$ its eigenspace is one-dimensional.
+\end{enumerate}
+\end{prop}
+\begin{pf}
+\begin{enumerate}[(1)]
+\item Suppose that for $f \in L^2(\mu), f \neq 0, \lambda \in \mathbb{C}$ we have $U_T f = \lambda f$. Since $U_T$ is an isometry we have $\|f\|_2 = \|U_T f\|_2 = \| \lambda f \|_2 = |\lambda| \|f\|_2$. Since $f \neq 0 \Rightarrow \| f \|_2 \neq 0$, we get $|\lambda| = 1$, so $\lambda \in \mathbb{T}$.
+\item Suppose that $U_T f = \lambda f$. By (1) we have $| \lambda | = 1$, so $|f| \circ T = | f \circ T | = |U_T f| = |\lambda f| = |\lambda| |f| = |f|$, so $|f|$ is $T$-invariant. $T$ is ergodic, hence by Proposition \ref{p:erginv} $|f| = \text{const}\ \mu$-a.e.
+\item Take $f,g \in H_{\lambda}$ and assume that $f \neq 0.$ By (2) we have $|f| = \text{const}\ \mu$-a.e., hence there must be also $|f| \neq 0\ \mu$-a.e. and further $f \neq 0\ \mu$-a.e. Since also $|g| = \text{const}\ \mu$-a.e., we have $\frac{|g|}{|f|} = \text{const}\ \mu-$a.e., so $\frac{g}{f} \in L^2(\mu)$. Now we have $U_T (\frac{g}{f}) = \frac{g}{f} \circ T = \frac{g \circ T}{f \circ T} = \frac{\lambda g}{\lambda f} = \frac{g}{f}$. $T$ is ergodic, so there exists $\alpha \in \mathbb{C}$ such that $\frac{g}{f} = \alpha\ \mu-$a.e., so $g = \alpha f$, hence $H_{\lambda}$ is one-dimensional.\ $\square$
+\end{enumerate}
+\end{pf}
+One of the main interests of the ergodic theory is the asymptotic behavior of ergodic averages $\frac{1}{N} \sum \limits_{n=0}^{N-1} f(T^n x)$. The main and classical result in this field is the celebrated Birkhoff's Ergodic Theorem.
+
+\begin{thm}[Birkhoff's Ergodic Theorem {\cite[thm. 2.30]{einsiedler}}]\label{t:birkhoff}
+Let $(X, \mathcal{A}, \mu, T)$ be a measure preserving system. If $f \in \mathscr{L}^1(\mu)$, then
+\[ \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} f(T^n x) = f^*(x),\ \mu \text{-a.e. and in } L^1(\mu),\]
+where $f^* \in \mathscr{L}^1(\mu)$ is a $T$-invariant function with
+\[ \int \limits_{X} f^* d\mu = \int \limits_{X} f d\mu.\]
+If $T$ is ergodic, then
+\[ f^*(x) = \int \limits_{X} f d\mu\ \mu \text{-a.e.} \]
+\end{thm}
+\begin{rem} Birkhoff's Ergodic Theorem is often stated for $f \in L^1(\mu)$ instead of $f \in \mathscr{L}^1(\mu)$, although it requires evaluation of the function on the orbit of a point $x \in X$. In this situation we understand it as follows: for every function in $\mathscr{L}^1(\mu)$ from the equivalence class $f \in L^1(\mu)$ there is a almost sure convergence. Some of the further pointwise ergodic theorems will be also stated in this fashion.
+\end{rem}
 \section{Topological dynamical systems}
 
 
 
 
 \section{von Neumann's Ergodic Theorem}
-In this section we state and prove von Neumann's (Mean) Ergodic Theorem, which can be seen as a first operator theoretic type ergodic theorem.
+In this section we state von Neumann's (Mean) Ergodic Theorem, which can be seen as a first operator theoretic type ergodic theorem.
 
 \begin{thm}[von Neumann's Ergodic Theorem {\cite[thm. 1.3.1]{weber}}]\label{t:neumann}
 Let $U:H \rightarrow H$ be a contraction on a complex Hilbert space $H$. Then for every $f \in H$ there is a convergence
@@ -450,14 +500,19 @@ where $P:H \rightarrow H$ is an orthogonal projection to a closed subspace of $U
 \[ H=H_U \oplus H_0, \]
 where $H_0 = \overline{\left\{ g - Ug: g \in H \right\}}$.
 \end{thm}
-\begin{pf} DOWÓD!
+
+\begin{cor}\label{c:spectr_proj}
+Let $U:H\rightarrow H$ be an isometry on a Hilbert space $H$ and take $f \in H, \lambda \in \mathbb{T}$. Then $\lim \limits_{N \rightarrow \infty}\frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n U^n f = P_{\overline{\lambda}} f$, where $P_{\lambda}$ is an orthogonal projection to the $H_{\lambda}$ - the eigenspace of $\lambda \in \mathbb{T}$.
+\end{cor}
+\begin{pf}
+Note that operator is $V:H \rightarrow H$ given by $V:=\lambda U$ is also an isometry, since $\langle Vf, Vg \rangle = \langle \lambda Uf, \lambda Ug \rangle=  \lambda\overline{\lambda} \langle Uf, Ug \rangle = |\lambda|^2 \langle f, g \rangle = \langle f, g \rangle$. By von Neumann's Theorem we have that \[\frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n U^n f = \frac{1}{N} \sum \limits_{n=0}^{N-1} V^n f \longrightarrow Qf,\] where $Q$ is an orthogonal projection on a subspace $\left\{ f \in H: Vf = f \right\} = \left\{ f \in H: \lambda Uf = f \right\} = \left\{ f \in H: Uf = \overline{\lambda} f \right\} = H_{\overline{\lambda}}$, so $Q = P_{\overline{\lambda}}.\ \square$
 \end{pf}
-Note that this proof doesn't require use of spectral theory, although there is a simpler proof for unitary $U$ using spectral theorem (\cite[thm. 12.44]{rudin}). In the following lemma we will inverse this relationship and make use of von Neumann's theorem in spectral theory.
+[Note that this proof doesn't require use of spectral theory, although there is a simpler proof for unitary $U$ using spectral theorem (\cite[thm. 12.44]{rudin}). In the following lemma we will inverse this relationship and make use of von Neumann's theorem in spectral theory.]
 
 \begin{lem}\label{l:spectr}
-Let $U:H\rightarrow H$ be an isometry on Hilbert space $H$ and take $f \in H$. Then $\sigma_f (\{\lambda\}) = \|P_{\lambda}f\|^2,$ where $\sigma_f$ denotes spectral measure of $f$ and $P_{\lambda}$ is an orthogonal projection to the $H_{\lambda}$ - the eigenspace of $\lambda \in \mathbb{T}$.
+Let $U:H\rightarrow H$ be an isometry on Hilbert space $H$ and take $f \in H$. Then $\sigma_f (\{\lambda\}) = \|P_{\lambda}f\|^2,$ where $\sigma_f$ denotes spectral measure of $f$.
 \end{lem}
-\begin{pf} Note that operator is $V:H \rightarrow H$ given by $V:=\overline{\lambda}U$ is also an isometry, since $\langle Vf, Vg \rangle = \langle \overline{\lambda}Uf, \overline{\lambda}Ug \rangle= \overline{\lambda} \lambda \langle Uf, Ug \rangle = |\lambda|^2 \langle f, g \rangle = \langle f, g \rangle$. By von Neumann's Theorem we have that \[\frac{1}{N} \sum \limits_{n=0}^{N-1} \overline{\lambda}^n U^n f = \frac{1}{N} \sum \limits_{n=0}^{N-1} V^n f \longrightarrow Qf,\] where $Q$ is an orthogonal projection on a subspace $\left\{ f \in H: Vf = f \right\} = \left\{ f \in H: \overline{\lambda}Uf = f \right\} = \left\{ f \in H: Uf = \lambda f \right\} = H_{\lambda}$, so $Q = P_{\lambda}$. No we have 
+\begin{pf}  From Corollary \ref{c:spectr_proj} we have 
 \begin{equation}\label{e:norm}
 \|\frac{1}{N} \sum \limits_{n=0}^{N-1} \overline{\lambda}^n U^n f \|^2 \rightarrow \|P_{\lambda} f \|^2,
 \end{equation}
@@ -483,8 +538,6 @@ Note that this lemma connects notions of spectral measure and eigenfunctions.
 
 \chapter{Wiener-Wintner theorems for deterministic transformations}\label{r:det}
 
-why take $f$ only from $\mathcal{K}^{\bot}$ in Bourgain\\
-
 In this chapter we introduce and prove pointwise Wiener-Wintner type theorems. We start with stating classical Wiener-Wintner theorem, which is a modification of Birkhoff's Ergodic Theorem. It was originally stated by Wiener and Wintner in 1941 (\cite{ww}).
 
 \begin{thm}[Wiener-Wintner ergodic theorem, {\cite[thm. 2.3]{assani}}]\label{t:ww}
@@ -508,11 +561,11 @@ Note that for a fixed $\lambda \in \mathbb{T}$ it is easy to achieve a.e. conver
 \[ =  \int \limits_{X} |f(x)| d\mu(x) < \infty.\]
 By Birkhoff's Ergodic Theorem the averages
 \[ \frac{1}{N} \sum \limits_{n=0}^{N-1} g(T^n x, R_{\lambda}^n \omega) =\frac{1}{N} \sum \limits_{n=0}^{N-1} g(T^n x, \lambda^n \omega) = \frac{1}{N} \sum \limits_{n=0}^{N-1} \omega \lambda^n f(T^n x)  \]
-converge for $\mu \otimes m$ almost all pairs $(x, \omega)$ and (since $\omega \neq 0$) also
+converge for $\mu \otimes m$ almost all pairs $(x, \omega) \in X \times \mathbb{T}$ and (since $\omega \neq 0$) also
 \[ \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \]
 converge $\mu \otimes m$ a.e. The last limit is independent from $\omega$, so this implies $\mu$ a.e. convergence of sequence \eqref{ww}. Further, for a countable subset $C \subset \mathbb{T}$, we can find a set $X_f$ such that \eqref{ww} is convergent for all $x \in X_f$ and $\lambda \in C$ (it is enough to take for $X_f$ an intersection of countably many sets of full measure on which we have convergence for fixed $\lambda \in C$). This shows that the difficulty in Wiener-Wintner theorem is obtaining a set of full measure on which convergence will hold for all (uncountably many) $\lambda \in \mathbb{T}$.
 \end{rem}
-Three proofs of this theorem can be found in \cite{assani}. We present one of them, which main ingredient is itself a generalization of Wiener-Wintner theorem - its uniform version due to J. Bourgain.
+Three proofs of this theorem can be found in \cite{assani}. We present one of them, which main ingredient is itself a generalization of Wiener-Wintner theorem - its uniform version due to J. Bourgain. Our proofs are taken from \cite{assani}, although they are slightly modified in a way which doesn't require the assumption of separability of the space $L^2(\mu)$.
 
 \section{Bourgain's uniform Wiener-Wintner theorem}
 In order to state the theorem, we need to introduce the notion of Kronecker factor.
@@ -624,6 +677,27 @@ which is valid for every $R \in \mathbb{N}$. By Lemma \ref{l:kronecker_spectral}
 since by Cauchy-Schwarz inequality $| \hat{\sigma_f}(R) | = | \langle U^R_T f, f \rangle | = \leq \|U^R_Tf \|_2 \|f\|_2 = \|f\|_2^2$. By taking $\lim \limits_{R \rightarrow \infty}$ on both sides of \eqref{e:bourgain_main} (left side is independent from $R$) we get
 \[  \limsup \limits_{N \rightarrow \infty} \sup \limits_{\lambda \in \mathbb{T}} \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \right|^2 \leq \lim \limits_{R \rightarrow \infty} \frac{2}{R+1} \int \limits_{X} |f|^2 d\mu + \lim \limits_{R \rightarrow \infty} \frac{4}{R+1} \sum \limits_{r=1}^{R} \left| \hat{\sigma_f}(r) \right|  = 0.\ \square\]
 \end{pf}
+It is worth noticing that Bourgain's uniform Wiener-Wintner Theorem can be strengthened to the equivalence:
+
+\begin{prop}[{\cite[Theorem 1.12]{assani_survey}}]
+Let $(X, \mathcal{A}, \mu, T)$ be a measure preserving dynamical system and take $f \in L^2(\mu)$. If \[\lim \limits_{N \rightarrow \infty}\  \sup \limits_{\lambda \in \mathbb{T}}\ \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \right| = 0\ \mu \text{-a.e.},\] then $f \in \mathcal{K}^{\bot}$.
+\end{prop}
+\begin{pf} Take $f \in L^2(\mu)$ and assume that $\lim \limits_{N \rightarrow \infty}\  \sup \limits_{\lambda \in \mathbb{T}}\ \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \right| = 0\ \mu \text{-a.e.}$. Then for every $\lambda \in \mathbb{T}$ we have
+\[ 0 \leq \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \right| \leq \sup \limits_{\lambda \in \mathbb{T}}\ \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \right| \stackrel{N \rightarrow \infty}{\longrightarrow} 0\ \mu \text{-a.e.},  \]
+so $\frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \stackrel{N \rightarrow \infty}{\longrightarrow} 0\ \mu \text{-a.e.}$ On the other hand, by Corollary \ref{c:spectr_proj} there is $\frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \stackrel{L^2(\mu)}{\longrightarrow} P_{\overline{\lambda}} f.$ $L^2(\mu)$ and $\mu$-a.e. limits are $\mu$-a.e. equal if they both exists, so we have $P_{\overline{\lambda}} f=0$. Since $\lambda \in \mathbb{T}$ was arbitrary, $f$ must be orthogonal to every eigenfunction of $U_T$, so $f \in \mathcal{K}^{\bot}$.\ $\square$
+\end{pf}
+
+%\begin{pf} LE! Note first that we also we have $\lim \limits_{N \rightarrow \infty}\  \left(\sup \limits_{\lambda \in \mathbb{T}}\ \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \right| \right)^2 = 0\ \mu$-a.e. and further $\lim \limits_{N \rightarrow \infty}\  \sup \limits_{\lambda \in \mathbb{T}}\ \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \right|^2 = 0\ \mu$-a.e..  Fix $\lambda \in \mathbb{T}$. We have
+%\[ 0 \leq \|\frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f \circ T^n\|^2_2 = \int \limits_{X } | \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f (T^n x) |^2 d\mu(x) \leq \int \limits_{X } \sup \limits_{\lambda \in \mathbb{T}} | \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f (T^n x) |^2 d\mu(x).\]
+%Since
+%\[ \sup \limits_{\lambda \in \mathbb{T}} | \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f (T^n x) |^2 \leq \sup \limits_{\lambda \in \mathbb{T}} \Big(  \frac{1}{N} \sum \limits_{n=0}^{N-1} |f (T^n x) | \Big)^2 = \Big(  \frac{1}{N} \sum \limits_{n=0}^{N-1} |f (T^n x) | \Big)^2 \]
+%and ($T$ is measure preserving)
+%\[ \int \limits_{X} \Big(  \frac{1}{N} \sum \limits_{n=0}^{N-1} |f (T^n x) | \Big)^2 d\mu(x) = \| \frac{1}{N} \sum \limits_{n=0}^{N-1}  |f| \circ T^n \|^2_2 \leq \frac{1}{N} \sum \limits_{n=0}^{N-1} \| |f| \circ T^n\|^2_2 = \|f\|^2_2 < \infty,  \]
+%we can use Lebesgue Dominated Convergence Theorem and obtain
+%\[ \lim \limits_{N \rightarrow \infty} \|\frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f \circ T^n\|^2_2 \leq \lim \limits_{N \rightarrow \infty} \int \limits_{X } \sup \limits_{\lambda \in \mathbb{T}} | \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f (T^n x) |^2 d\mu(x) =\]
+%\[ = \int \limits_{X } \lim \limits_{N \rightarrow \infty} \sup \limits_{\lambda \in \mathbb{T}} | \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f (T^n x) |^2 d\mu(x) = 0,\]
+%so $\frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f \circ T^n \overset{L^2(\mu)}{\longrightarrow} 0$. On the other hand, by Corollary \ref{c:spectr_proj} we have $\frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f \circ T^n \overset{L^2(\mu)}{\longrightarrow} P_{\overline{\lambda}} f,$ so $P_{\overline{\lambda}} f = 0$. Since $\lambda \in \mathbb{T}$ was arbitrary, we get $P_{\lambda} f = 0$ for all $\lambda \in \mathbb{T}$. By Lemma \ref{l:spectr} we have $\sigma_f(\{ \lambda \}) = 0$ for all $\lambda \in \mathbb{T}$, so the spectral measure $\sigma_f$ is continuous and by Lemma \ref{l:kronecker_spectral} $f \in \mathcal{K}^{\bot}.\ \square$
+%\end{pf}
 
 \section{Proof of Wiener-Wintner Ergodic Theorem}
 In this section we will prove the Wiener-Wintner Ergodic Theorem using Theorem \ref{t:bourgain}. In order to do that we need another lemma.
@@ -669,13 +743,22 @@ the limit $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N
 \begin{thebibliography}{99}
 \addcontentsline{toc}{chapter}{Bibliography}
 
-\bibitem[Rudin]{rudin} Walter Rudin, \textit{Analiza funkcjonalna}, Wydawnictwo Naukowe PWN, 20??
-
 \bibitem[Assani]{assani} I. Assani,  \textit{Wiener Wintner Ergodic Theorems}, World Scientific, River Edge (2003)
+
+\bibitem[Assani, Presser]{assani_survey} I. Assani, Kimberly Presser, \textit{A Survey of the Return Times Theorem}, arXiv:1209.0856, \url{http://arxiv.org/abs/1209.0856}
+
+\bibitem[Bellow]{bellow} A. Bellow, V. Losert, \textit{The weighted pointwise ergodic theorem and the individual ergodic theorem along subsequences}, TAMS, vol. 288, no 1 (1985), p. 307 - 345.
 
 \bibitem[Weber]{weber} M. Weber, \textit{Dynamical Systems and Processes}, EMS Publishing House (2009)
 
-\bibitem[Bellow]{bellow} A. Bellow, V. Losert, \textit{The weighted pointwise ergodic theorem and the individual ergodic theorem along subsequences}, TAMS, vol. 288, no 1 (1985), p. 307 - 345.
+\bibitem[Einsiedler, Ward]{einsiedler} Manfred Einsiedler, Thomas Ward, \textit{Ergodic Theory with a view towards Number Theory}, Springer, Graduate Texts in Mathematics, Vol. 259
+
+\bibitem[Eisner et al]{eisner} T. Eisner, B. Farkas, M. Haase, R. Nagel, \textit{Operator Theoretic Aspects of
+Ergodic Theory}, Graduate Texts in Mathematics, Springer, to appear, \url{http://www.fan.uni-wuppertal.de/fileadmin/mathe/reine_mathematik/funktionalanalysis/farkas/GTM-master-v82.pdf}
+
+\bibitem[Lemañczyk]{lemanczyk} M. Lemañczyk, \textit{Teoria spektralna dla ergodyków}, 2010, script, \url{http://www-users.mat.umk.pl/~mlem/files/Teoria_spektralna_dla_ergodykow.pdf}
+
+\bibitem[Rudin]{rudin} Walter Rudin, \textit{Analiza funkcjonalna}, Wydawnictwo Naukowe PWN, second edition, 2012
 
 \bibitem[Schreiber14]{schreiber14} M. Schreiber, \textit{Topological Wiener - Wintner theorems for amenable operator semigroups}, ETDS  (2014).
 
@@ -683,9 +766,10 @@ the limit $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N
 
 \bibitem[WW]{ww} N. Wiener, A. Wintner, \textit{Harmonic Analysis and Ergodic Theory}, American Journal of Mathematics, Vol. 63, No. 2 (Apr., 1941), pp. 415-426
 
-\bibitem[Eisner et al]{eisner} T. Eisner, B. Farkas, M. Haase, R. Nagel, \textit{Operator Theoretic Aspects of
-Ergodic Theory}, Graduate Texts in Mathematics, Springer, to appear, \url{http://www.fan.uni-wuppertal.de/fileadmin/mathe/reine_mathematik/funktionalanalysis/farkas/GTM-master-v82.pdf}
 
-\bibitem[Lemañczyk]{lemanczyk} M. Lemañczyk, \textit{Teoria spektralna dla ergodyków}, 2010, script, \url{http://www-users.mat.umk.pl/~mlem/files/Teoria_spektralna_dla_ergodykow.pdf}
+
+
+
+
 \end{thebibliography}
 \end{document}
