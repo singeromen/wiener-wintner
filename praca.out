@@ -1,8 +1,8 @@
 \BOOKMARK [0][-]{chapter*.2}{Introduction}{}% 1
 \BOOKMARK [0][-]{chapter.1}{Preliminaries}{}% 2
 \BOOKMARK [1][-]{section.1.1}{Measure theory}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.2}{Topology}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.3}{Functional analysis}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.2}{Functional analysis}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.3}{Spectral theory for isometries}{chapter.1}% 5
 \BOOKMARK [0][-]{chapter.2}{Introduction to ergodic theory}{}% 6
 \BOOKMARK [1][-]{section.2.1}{Measurable dynamical systems}{chapter.2}% 7
 \BOOKMARK [1][-]{section.2.2}{Topological dynamical systems}{chapter.2}% 8
@@ -10,6 +10,7 @@
 \BOOKMARK [0][-]{chapter.3}{Wiener-Wintner theorems for deterministic transformations}{}% 10
 \BOOKMARK [1][-]{section.3.1}{Bourgain's uniform Wiener-Wintner theorem}{chapter.3}% 11
 \BOOKMARK [1][-]{section.3.2}{Proof of Wiener-Wintner Ergodic Theorem}{chapter.3}% 12
-\BOOKMARK [0][-]{chapter.4}{Ergodic theory for operators}{}% 13
-\BOOKMARK [0][-]{chapter.5}{Wiener-Wintner theorem for operator semigroups}{}% 14
-\BOOKMARK [0][-]{chapter*.3}{Bibliography}{}% 15
+\BOOKMARK [1][-]{section.3.3}{Uniform topological Wiener-Wintner theorem}{chapter.3}% 13
+\BOOKMARK [0][-]{chapter.4}{Ergodic theory for operators}{}% 14
+\BOOKMARK [0][-]{chapter.5}{Wiener-Wintner theorem for operator semigroups}{}% 15
+\BOOKMARK [0][-]{chapter*.3}{Bibliography}{}% 16

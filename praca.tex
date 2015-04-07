@@ -185,9 +185,10 @@ By $\mathbb{N}$ we will denote set of positive natural numbers, by $\mathbb{N}_0
 
 \section{Measure theory}
 
+regular measure\\
 absolute continuity and Radon-Nikodym theorem\\
 
-By $(X, \mathcal{A}, \mu)$ we will denote a measure space, where $X$ is a nonempty set, $\mathcal{A}$ is a $\sigma$-field (or $\sigma$-algebra) of subsets of $X$ and $\mu$ is a (non-negative) measure on the measurable space $(X, \mathcal{A})$. Sets $A \in \mathcal{A}$ are called measurable sets. Measure $\mu$ is called finite if $\mu(X) < \infty$ and $\sigma$-finite if there is a countable collection of measurable sets $\{ A_n \}_{n=1}^{\infty}$ with $\mu(A_n)<\infty$ for each $n \in \mathbb{N}$, such that $X = \bigcup \limits_{n=1}^{\infty} A_n$. If measure $\mu$ is $\sigma$-finite, then the sets $\{ A_n \}_{n=1}^{\infty}$ can be taken to be pairwise disjoint. If $\mu(X)=1$ then the measure $\mu$ is called a probability measure and $(X, \mathcal{A}, \mu)$ is called a probability space. For a finite measure $\mu$, a set $A \in \mathcal{A}$ is said to have a full measure if $\mu(A) = \mu (X)$. We will often use the following simple
+By $(X, \mathcal{A}, \mu)$ we will denote a measure space, where $X$ is a nonempty set, $\mathcal{A}$ is a $\sigma$-field (or $\sigma$-algebra) of subsets of $X$ and $\mu$ is a measure on the measurable space $(X, \mathcal{A})$. By term 'measure' we will always mean non-negative measure. When we will wish measure $\mu$ to have complex values we will introduce it as a 'complex measure $\mu$'. Sets $A \in \mathcal{A}$ are called measurable sets. Measure $\mu$ is called finite if $\mu(X) < \infty$ and $\sigma$-finite if there is a countable collection of measurable sets $\{ A_n \}_{n=1}^{\infty}$ with $\mu(A_n)<\infty$ for each $n \in \mathbb{N}$, such that $X = \bigcup \limits_{n=1}^{\infty} A_n$. If measure $\mu$ is $\sigma$-finite, then the sets $\{ A_n \}_{n=1}^{\infty}$ can be taken to be pairwise disjoint. If $\mu(X)=1$ then the measure $\mu$ is called a probability measure and $(X, \mathcal{A}, \mu)$ is called a probability space. For a finite measure $\mu$, a set $A \in \mathcal{A}$ is said to have a full measure if $\mu(A) = \mu (X)$. We will often use the following simple
 
 \begin{f} Let $(X, \mathcal{A}, \mu)$ be a measure space with a finite measure. If each measurable set $A_n, n \in \mathbb{N}$ has a full measure, then their intesection $\bigcap \limits_{n=1}^{\infty} A_n$ also has a full measure.
 \end{f}
@@ -202,7 +203,7 @@ Let $(X, \mathcal{A}, \mu)$ be a measure space. An element $x \in X$ is called a
 
 \begin{rem} Note that a finite measure $\mu$ can have only countably many atoms. To see that observe that for $\varepsilon >0$ a set $A_{\varepsilon}:=\{x \in X: \mu(\{x\}) > \epsilon \}$ must have at most $\frac{\mu(X)}{\varepsilon}$ elements (otherwise we wolud have $\mu(X) > \frac{\mu(X)}{\varepsilon} \cdot \varepsilon = \mu(X)$), hence must be finite. This shows that the set of atoms $A = \bigcup \limits_{n=1}^{\infty} A_{\frac{1}{n}}$ must be countable. Also, there is $\sum \limits_{x \in A} \mu(\{ x\}) \leq \mu(X) < \infty.$
 \end{rem}
-If $X$ is a topological space, then by $\mathcal{B}(X)$ we will denote it's Borel $\sigma$-field, i.e. the smallest $\sigma$-field containing all open subsets of $X$. Note that if $X$ and $Y$ are topological spaces and $T:X \rightarrow Y$ is continuous, then T is also measurable (with respect to Borel $\sigma$-fields on $X$ and $Y$). Measure on a measurable space $(X, \mathcal{B}(X))$ is called a Borel measure. On spaces $\mathbb{R}^n, n \in \mathbb{N}$ (with a standard topology) there is a natural Borel measure, which is a unique measure $m$ with property $m([a_1, b_1]\times [a_2, b_2] \times ... \times [a_n, b_n]) = (b_1 - a_1)(b_2 - a_2)...(b_n - a_n)$ for $a_1\leq b_1,a_1\leq b_2, ..., a_n\leq b_n$. This measure $m$ is called a Lebesgue measure and it's $\sigma$-finite. On $\mathbb{T}$ (with a standard topology) there exists a unique measure such that measure of any arc is its length. This measure is finite a its normalization will be also called a Lebesgue measure and will be denoted by $m$ ($m(\mathbb{T})=1$ and length of arc $A$ is equal to $2\pi m(A)$).\\ \\
+If $X$ is a topological space, then by $\mathcal{B}(X)$ we will denote it's Borel $\sigma$-field, i.e. the smallest $\sigma$-field containing all open subsets of $X$. Note that if $X$ and $Y$ are topological spaces and $T:X \rightarrow Y$ is continuous, then T is also measurable (with respect to Borel $\sigma$-fields on $X$ and $Y$). Measure on a measurable space $(X, \mathcal{B}(X))$ is called a Borel measure. On spaces $\mathbb{R}^n, n \in \mathbb{N}$ (with a standard topology) there is a natural Borel measure, which is a unique measure $m$ with property $m([a_1, b_1]\times [a_2, b_2] \times ... \times [a_n, b_n]) = (b_1 - a_1)(b_2 - a_2)...(b_n - a_n)$ for $a_1\leq b_1,a_1\leq b_2, ..., a_n\leq b_n$. This measure $m$ is called a Lebesgue measure and it's $\sigma$-finite. On $\mathbb{T}$ (with a standard topology) there exists a unique measure such that measure of any arc is its length. This measure is finite and its normalization will be also called a Lebesgue measure and will be denoted by $m$ ($m(\mathbb{T})=1$ and length of arc $A$ is equal to $2\pi m(A)$).\\ \\
 Let $T, S: X \rightarrow Y$ be a measurable maps between measurable spaces $(X, \mathcal{A})$ and $(Y, \mathcal{C})$. We will use abreviations $\{ T \in A \}:= \{x \in X: Tx \in A \}$, $\{ T=S \} := \{x \in X: Tx = Sx \}$ and $\{ T \neq S \} := \{x \in X: Tx \neq Sx \}$. Note that these set are measurable. We will say that some property holds for ($\mu$) almost all $x \in X$, if there is a measurable set $A$ such that this property holds for every $x \in A$ and $\mu(X \backslash A) = 0$. We will say that map $T$ is equal to $S$ $\mu$ almost everywhere ($\mu$-a.e.) if $Tx = Sx$ for almost all $x \in X$, i.e. $\mu(T \neq S):=\mu(\{T \neq S\})=0$.\\ \\
 We say that function $f:X \rightarrow \mathbb{R}^n$ or $f:X \rightarrow \mathbb{C}^n$ is a Borel function (or simply a measurable function) if it is measurable with respect to the Borel $\sigma$-field $\mathcal{B}(\mathbb{R}^n)$ or $\mathcal{B}(\mathbb{C}^n)$, where we consider the standard topology on $\mathbb{R}^n$ or $\mathbb{C}^n$. Let $(f_n)_{n \in \mathbb{N}}$ be  a sequence of measurable complex valued functions on $X$. We say that the sequence $(f_n)_{n \in \mathbb{N}}$ converges $\mu$ almost everywhere to a measurable function $f: X \rightarrow \mathbb{C}$ if for almost all $x \in X$ there is $\lim \limits_{n \rightarrow \infty} f_n(x) = f(x)$. The following important theorem says when a.e. convergence implies convergence of integrals.
 \begin{thm}[Lebesgue Dominated Convergence Theorem]
@@ -216,7 +217,7 @@ Let $(X, \mathcal{A}, \mu)$ and $(Y, \mathcal{C}, \nu)$ be measure spaces with $
 Then for $\mu$-almost all $x \in X$ the function $f(x, \cdot) : Y \rightarrow \mathbb{C}$ is $\nu$-finitely integrable and for $\nu$-almost all $y \in Y$ the function $f(\cdot, y) :X \rightarrow \mathbb{C}$ is $\mu$-finitely integrable. Moreover function $X \ni x \mapsto \int \limits_{Y} f(x, y) d\nu(y) \in \mathbb{C}$ is $\mu$-finitely integrable and function $Y \ni y \mapsto \int \limits_{Y} f(x, y) d\mu(x) \in \mathbb{C}$ is $\nu$-finitely integrable. The following equality holds:
 \[ \int \limits_{X \times Y} fd\mu \otimes \nu = \int \limits_{X} \left( \int \limits_{Y} f(x,y) d\nu(y) \right) d\mu(x) = \int \limits_{Y} \left( \int \limits_{X} f(x,y) d\mu(x) \right) d\nu(y).\]
 \end{thm}
-\begin{rem} Note that functions $X \ni x \mapsto \int \limits_{Y} f(x, y) d\nu(y) \in \mathbb{C}$ and $Y \ni y \mapsto \int \limits_{Y} f(x, y) d\mu(x) \in \mathbb{C}$ may be defined properly for every $x \in X$ and $y \in Y$, although they are definied $\mu$- and $\nu$-almost everywhere, which is enough to properly define their integrals.
+\begin{rem} Note that functions $X \ni x \mapsto \int \limits_{Y} f(x, y) d\nu(y) \in \mathbb{C}$ and $Y \ni y \mapsto \int \limits_{Y} f(x, y) d\mu(x) \in \mathbb{C}$ may not be defined properly for every $x \in X$ and $y \in Y$, although they are definied $\mu$- and $\nu$-almost everywhere, which is enough to properly define their integrals.
 \end{rem}
 There is also version of Fubini's Theorem for non-negative functions. In this case the integrals do not need to be finite.
 \begin{thm}[Fubini's Theorem for non-negative functions]
@@ -225,24 +226,27 @@ Let $(X, \mathcal{A}, \mu)$ and $(Y, \mathcal{C}, \nu)$ be measure spaces with $
 \end{thm}
 \begin{rem} Note that these integrals may be infinite and if at least one of them is infinite, then all of them are. \end{rem}
 
-\section{Topology}
-topological space\\
-metric space\\
-continuous map\\
-compact space, complete metric space\\
-Urysohn lemma\\
-Borel measures\\
+\begin{df}
+Let $X$ be a compact topological space and let $\mu$ be a finite, non-negative Borel measure on $X$. We say that $\mu$ is \textbf{regular} if
+\begin{enumerate}[(i)]
+\item for every $A \in \mathcal{B}(X)$ there is $\mu(A) = \inf\{\mu(U): A \subset U, U \text{ is open} \}$,
+\item for every $A \in \mathcal{B}(X)$ there is $\mu(A) = \sup\{\mu(K): K \subset A, K \text{ is compact} \}$.
+\end{enumerate}
+\end{df}
 
-
+\begin{df}
+Let $\mu$ be a complex measure on a measurable space $(X, \mathcal{A})$. We define its total variation measure $| \mu|$ as a non-negative measure on  $(X, \mathcal{A})$ given by
+\[ |\mu| (A) := \sup \{ \sum \limits_{j=1}^{\infty} |\mu (E_j ) | : E_1, E_2, ... \text{ are pairwise disjoint and } \bigcup \limits_{j=1}^{\infty} E_j = A \}. \]
+\end{df}
+$| \mu |$ is always a finite measure (note that a complex measure, unlike the non-negative or signed measure, cannot attain values $+\infty$ or $- \infty$ by definition). For every $A \in \mathcal{A}$ there is $| \mu(A) | \leq |\mu|(A)$ and $| \mu(A) | = |\mu|(A)$ does not hold in general. We say that complex Borel measure is regular if its total variatnion measure is regular.
 
 \section{Functional analysis}
-$\mathscr{L}^{\infty}$ and $L^{\infty}$\\
+remove "finite" from complex measure?\\
+$\mathscr{L}^{\infty}$ and $L^{\infty}$?\\
 remove $\hat{\sigma}(-n)$?\\
 convergence of geometric series on crircle\\
-dual space\\
 Riesz theorem (Hilbert spaces)\\
 Banach and Hilbert conjugate\\
-Riesz-Markov theorem\\
 
 We will always assume that vector spaces are taken over field $\mathbb{C}$. By $\| \cdot \|$ we will denote a norm of a normed space. We will give now standard examples of Banach spaces (i.e. complete normed space) with their properties which will be useful for us later.
 
@@ -253,15 +257,17 @@ Define an equivalence relation $\sim$ on $\mathscr{L}^p(X, \mathcal{A}, \mu)$ by
 Spaces $L^p(X, \mathcal{A}, \mu)$ are considered with norm $\|f\|_{L^p(X, \mathcal{A}, \mu)} :=  \left( \int \limits_{X} |f|^p d\mu \right) ^ {\frac{1}{p}}$ with which they become Banach spaces. Usually we will abbreviate $L^p(X, \mathcal{A}, \mu)$ to $L^p(\mu)$ or $L^p$ and $\|\cdot\|_{L^p(X, \mathcal{A}, \mu)}$ to $\| \cdot \|_{L^p(\mu)}$ or $\|\cdot\|_p$.
 \end{ex}
 
+\begin{prop}
+Let $(X, \mathcal{A}, \mu)$ be a measure space with a finite measure. Then for $1 \leq p < q < \infty$ we have $\mathscr{L}^q (\mu) \subset \mathscr{L}^p(\mu)$ and $L^q(\mu)$ is dense in $L^p(\mu)$ (in $L^p$ norm).
+\end{prop}
+
 \begin{ex}[Space $C(X)$]\label{ex:lp}$\\$
-Let $X$ be a compact metric space. Denote by $C(X)$ set of all complex valued continuous functions on $X$. $C(X)$ is a Banach space with norm $\|f\|_{\text{sup}} = \|f\|_{\infty} := \sup \limits_{x \in X} |f(x)|,\ f \in C(X)$. Suppose that there is a finite Borel nonegative measure $\mu$ on $X$. Any function $f \in C(X)$ is bounded, hence integrable with any power $p \in [1, \infty)$, which means that $C(X) \subset \mathscr{L}^p(\mu)$ and $C(X)$ can be embedded into $L^p(\mu)$. Therefore, space $C(X)$ can be naturally seen as a linear subspace of space $L^p(\mu)$ (with identification of functions equal $\mu$ a.e.).
+Let $X$ be a compact topological space (we assume that comapct spaces are Hausdorff by definition). Denote by $C(X)$ set of all complex valued continuous functions on $X$. $C(X)$ is a Banach space with norm $\|f\|_{\text{sup}} = \|f\|_{\infty} := \sup \limits_{x \in X} |f(x)|,\ f \in C(X)$. $C(X)$ is separable if and only if $X$ is metrizable (\cite[thm. 4.7]{eisner}). Suppose that there is a finite Borel nonegative measure $\mu$ on $X$. Any function $f \in C(X)$ is bounded, hence integrable with any power $p \in [1, \infty)$, which means that $C(X) \subset \mathscr{L}^p(\mu)$ and $C(X)$ can be embedded into $L^p(X, \mathcal{B}(X), \mu)$. Therefore, space $C(X)$ can be naturally seen as a linear subspace of space $L^p(\mu)$ (with identification of functions equal $\mu$ a.e.).
 \end{ex}
 
 \begin{prop}
-Let $X$ be a compact metric space and $\mu$ be a finite nonegative Borel measure on $X$. Then $C(X)$ is dense in $L^p(\mu)$ (in $L^p(\mu)$ norm) for every $p \in [1, \infty)$.
+Let $X$ be a compact topological space and $\mu$ be a finite nonegative Borel measure on $X$. Then $C(X)$ is dense in $L^p(\mu)$ (in $L^p$ norm) for every $p \in [1, \infty)$.
 \end{prop}
-\begin{pf} CZY DOWÓD?
-\end{pf}
 By $\langle \cdot,\cdot \rangle$ we will denote inner product on a inner product space. Inner product space is also a normed space with a norm $\|x\| := \sqrt{\langle x, x \rangle}$. If inner product space is complete with this norm, we call it a Hilbert space.
 
 \begin{ex}[Space $L^2(\mu)$]$\\$
@@ -299,6 +305,54 @@ Let $H_0$ be a closed linear subspace of a Hilbert space $H$. Then
 \[ H = H_0 \oplus H_0^{\bot}, \]
 i.e. for every $x \in H$ there are unique $x_0 \in H_0,\ x_1 \in H_0^{\bot}$ such that $x = x_0 + x_1$. Moreover, transformation $P: H \rightarrow H$ given by $P(x)=x_0$ is a bounded linear operator with $\| P \| \leq 1$ and $P \circ P =P$. Operator $P$ is called an \textbf{orthogonal projection} on subspace $H_0$.
 \end{thm}
+For a normed space $E$ we denote by $E^*$ its dual space, i.e. normed space of all continuous linear functionals $\Lambda: E \rightarrow \mathbb{C}$ with the operator norm. We can consider weak topology on $E$, i.e. the coarsest topology such that each $\Lambda \in E^*$ is continuous and weak$^*$ topology on $E^*$, i.e. the coarsest topology such that for each $x \in E$ evaluation $E^* \ni \Lambda \mapsto \Lambda x \in \mathbb{C}$ is continuous. $E$ with weak topology and $E^*$ with weak$^*$ topology are locally convex topological vector spaces, although they do not need to be metrizable.
+
+\begin{thm}[Banach-Alaouglu theorem {\cite[thm. 3.15]{rudin}}]
+Closed unit ball $\overline{B}(0,1) \subset E^*$ in a dual space of a normed space $E$ is weak$^*$ compact.
+\end{thm}
+
+\begin{thm}[{\cite[thm. 3.16]{rudin}}]
+Let $K$ be a weak$^*$ compact subset of a dual space $E^*$ of a separable normed space $E$. Then the weak$^*$ topology is metrizable on $K$.
+\end{thm}
+We say that $\Lambda \in E^*$ is a weak$^*$ limit of a sequence $(\Lambda_n)_{n \in \mathbb{N}}, \Lambda_ \in E^*$ if $\Lambda_n$ converges to $\Lambda$ in weak$^*$ topology, what is equivalent to the condition
+\[ \underset{x \in E}{\forall}\ \Lambda_n x \rightarrow \Lambda x.\]
+We note this by $\Lambda_n \overset{^{*}w}{\longrightarrow} \Lambda$. Immediate corollary from above theorems is the following:
+\begin{cor}
+Closed unit ball $\overline{B}(0,1) \subset E^*$ in a dual space of a separable normed space $E$ is weak$^*$ sequentially compact, i.e. for every sequence $(\Lambda_n)_{n \in \mathbb{N}}, \Lambda \in\overline{B}(0,1)$ there is a subsequence $(\Lambda_{n_k})_{k \in \mathbb{N}}$ and $\Lambda \in \overline{B}(0,1)$ with $\Lambda_{n_k} \overset{^{*}w}{\longrightarrow} \Lambda$.
+\end{cor}
+
+\begin{df}
+Let $V$ be a vector space and take $A \subset V$. Point $x \in A$ is said to be an \textbf{extremal point} of $A$ if $x$ is not a middle point of any interval with ends in $A$, i.e. if $x = \alpha y + (1-\alpha)z$ for some $y,z \in A, \alpha \in (0,1)$ then $y=z=x$. We denote set of all extreme points of $A$ by $Ext(A)$.
+\end{df}
+
+\begin{thm}[Krein-Milman theorem{\cite[thm. 3.23]{rudin}}]
+Let $E$ be a locally convex topological vector space. If $K$ is a nonempty, compact and convex subset of $E$, then $K = \overline{co}(Ext(K))$, where $co(A)$ stands for a convex hull of a set $A \subset E$.
+\end{thm}
+
+\begin{cor}
+Let $K$ be a weak$^*$ compact subset of a dual space of a normed space $E$. Then $K=\overline{co}^{^{*}w}(Ext(K))$, where $\overline{A}^{^{*}w}$ stands for closure of set $A \subset E^*$ in the weak$^*$ topology.
+\end{cor}
+\noindent We will characterize now space $C(X)^*$ of bounded linear functionals on $C(X)$ for a compact space $X$.
+
+\begin{ex}
+For a compact topological space $X$, by $\mathcal{M}(X)$ be will denote set of all (finite) complex-valued, regular Borel measures on $X$. $\mathcal{M}(X)$ is a Banach space with norm $\| \mu \| := \sup \left\{ \sum \limits_{j=1}^n |\mu (A_j)|: n \in \mathbb{N}, A_1, ..., A_n \in \mathcal{B}(X) \text{ are pairwise disjoint and } \bigcup \limits_{j=1}^n A_j = X \right\} (=|\mu|(X))$. This norm is called a \textbf{variation norm}.
+\end{ex}
+
+\begin{df}
+We say that functional $\Lambda \in C(X)^*$ is \textbf{positive} if for every $f \geq 0$ (i.e., $\underset{x \in X}{\forall}\ f(x) \in [0, \infty)$) there is $\Lambda f \geq 0$.
+\end{df}
+
+\begin{thm}[Riesz-Markov representation theorem]
+Let $X$ be a comapct topological space. For every continuous linear functional $\Lambda \in C(X)^*$ there is a unique $\mu \in \mathcal{M}(X)$ with
+\[ \underset{f \in C(X)}{\forall}\ \Lambda f = \int \limits_{X} f d\mu. \]
+Moreover, for every $\mu \in \mathcal{M}(X)$ the above equality defines a unique contiunous linear functional $\Lambda \in C(X)^*$ and there is $\| \Lambda \| = \| \mu \|$. Functional $\Lambda$ is positive if and only if coressponding measure $\mu$ is non-negative.
+\end{thm}
+
+\begin{rem} Riesz-Markov theorem states that $\Phi : \mathcal{M}(X) \rightarrow C(X)^*$ given by $\Phi(\mu) (f) = \int \limits_{X} f d\mu, f \in C(X)$ is a bijective isometry. It is straightforward to check that $\Phi$ is also linear. This fact lets us identify Banach spaces $\mathcal{M}(X)$ and $C(X)^*$. This identifiaction allows us also to consider weak$^*$ topology on $\mathcal{M}(X)$. Note that $\mu_n \overset{^{*}w}{\longrightarrow}\mu$ if and only if $\underset{f \in C(X)}{\forall}\ \int \limits_{X} f d\mu_n \rightarrow \int \limits_{X} f d\mu$.
+\end{rem}
+
+\section{Spectral theory for isometries}
+
 We will now introduce basic facts from spectral theory for isometries on Hilbert spaces.
 
 \begin{rem}Let $H$ be a complex inner product space. Then bounded linear operator $U:H \rightarrow H$ is an isometry if and only if $\underset{x,y \in H}{\forall}\ \langle Ux, Uy\rangle = \langle x, y \rangle$.
@@ -409,8 +463,6 @@ After establishing von Neumann's Ergodic Theorem in next chapter, we will be abl
 This chapter includes short introduction to the ergodic theory. We give basic concepts and facts. The presentation is based on \cite{einsiedler}.
 
 \section{Measurable dynamical systems}
-Birkhoff theorem (for measure preserving systems) and note about using $L^1$ and $\mathscr{L}^1$\\
-system $(\mathbb{T}, \mathcal{B}(\mathbb{T}), m, R_{\lambda})$\\
 
 The main object in ergodic theory is a measure preserving system. In the first part of the thesis we will consider only discrete time dynamical systems arising from single transformation.
 
@@ -421,6 +473,11 @@ In this case the measure $\mu$ is called \textbf{$T$-invariant} and $(X, \mathca
 \end{df}
 \begin{rem} Sometimes it is enough to consider measurable dynamical system $(X, \mathcal{A}, \mu, T)$ without the assumption $\mu(T^{-1} A) = \mu(A)$ for $A \in \mathcal{A}$, only with measurability of $T$ (or with assumption $\mu(A) \neq 0 \Longrightarrow \mu(T^{-1}A) \neq 0$). We will always assume that transformation is measure preserving. We assume also (for the sake of simplicity) that measure is already normalized ($\mu(X)=1$), but the theory is valid also for finite measures. Part of the theory can be established for $\sigma$-finite measures.
 \end{rem}
+
+\begin{ex}\label{ex:rot}
+Consider system $(\mathbb{T}, \mathcal{B}(\mathbb{T}), m, R_{\lambda})$, where $\mathbb{T}$ is a unit circle on a complex plane, $\mathcal{B}(\mathbb{T})$ is a Borel $\sigma$-field on $\mathbb{T}$, $m$ is a (normalized) Lebesgue measure on $\mathcal{B}(\mathbb{T})$ and $R_{\lambda}: \mathbb{T} \rightarrow \mathbb{T},\ R_{\lambda}(z) = \lambda z$ is a rotation (multiplication) by $\lambda \in \mathbb{T}$. It obvious that $R_{\lambda}$ preserves measure of arcs, hence $R_{\lambda}$ is measure preserving (set of arcs generates $\mathcal{B}(\mathbb{T})$ and it's easy to check that it is enough to check preservation of measure on the generator of given $\sigma$-field). This is an important example, because rotation by complex number from a unit circle occur in the Wiener-Wintner type theorems.
+\end{ex}
+
 \begin{f}[{\cite[lemma 2.6]{einsiedler}}]\label{f:intinv}$\\$
 Let $(X, \mathcal{A}, \mu)$ be a probability space. A measurable map $T: X \rightarrow X$ is measure preserving if and only if for every $f \in \mathscr{L}^{\infty}(\mu)$ we have
 \begin{equation}\label{e:intinv}
@@ -452,6 +509,10 @@ The measure preserving system $(X, \mathcal{A}, \mu, T)$ is called an \textbf{er
 In the above situation, the transformation $T$ and the measure $\mu$ are also called \textbf{ergodic}.
 \end{df}\\
 Set $A \in \mathcal{A}$ with $T^{-1}A = A$ is called a \textbf{$T$-invariant set} (or simply invariant set). Thus, the ergodicity of the system means that only null sets (sets of zero measure) and full measure sets can be invariant. We will give now a useful characterization of ergodicity.
+
+\begin{ex}
+Consider the rotation system $(\mathbb{T}, \mathcal{B}(\mathbb{T}), m, R_{\lambda})$ from Example \ref{ex:rot}. It is ergodic if and only if $Arg(\lambda) \notin 2\pi \mathbb{Q}$, where $Arg(z)$ stands for the argument of complex number $z$.
+\end{ex}
 
 \begin{prop}\label{p:erginv}
 The measure preserving system $(X, \mathcal{A}, \mu, T)$ is ergodic if and only if for some (every) $p \in [1, \infty)$ we have that 
@@ -487,8 +548,83 @@ If $T$ is ergodic, then
 \end{rem}
 \section{Topological dynamical systems}
 
+It is possible to consider measurable dynamical systems with some additional structure on the phase space $X$. In this section we will give brief introduction to topological systems, in which the phase space will be a compact topological space. We assume compact spaces to be Hausdorff.
 
+\begin{df}
+Pair $(X,T)$ consisting of a compact topological space $X$ and continuous map $T:X \rightarrow X$ is called a \textbf{topological dynamical system}.
+\end{df}
 
+\begin{ex} Note that system $(\mathbb{T}, R_{\lambda})$ for $\lambda \in \mathbb{T}$ is a topological dynamical system.
+\end{ex}
+For a topological dynamical system $(X,T)$ we will consider set $\mathcal{M}(X)$ of finite, regular, complex-valued measures on $X$ as set of natural measures on $X$. When considering topological dynamical systems, we will assume all measures to be regular and Borel. Denote by $\mathcal{M}_1(X)$ set of all non-negative, probability measures from $\mathcal{M}(X)$. We will also consider set of all $T$-invariant measures from $\mathcal{M}_1(X)$, denoted by $\mathcal{M}_T(X)$. By $\mathcal{E}_T (X)$ we will denote set of all ergodic measures from $\mathcal{M}_1(X)$. The following theorem makes use of the Banach-Alaoglu Theorem and Krein-Milman theorem to give some propoerties of these sets.
+
+\begin{thm}[\cite{eisner}]
+Let $(X,T)$ be a topological dynamical system. Then
+\begin{enumerate}[(1)]
+\item $\mathcal{E}_T (X) \subset \mathcal{M}_T(X) \subset \mathcal{M}_1(X) \subset \overline{B}(0, 1)$, where $\overline{B}(0, 1)$ is a unit ball in a space $\mathcal{M}(X)$ with the variation norm,
+\item sets $\mathcal{M}_T(X)$ and $\mathcal{M}_1(X)$ are convex, weak$^*$ compact and weak$^*$ sequentially compact,
+\item $\mathcal{E}_T(X) = Ext(\mathcal{M}_T(X))$,
+\item $\mathcal{M}_T(X) = \overline{co}(\mathcal{E}_T(X))$.
+\end{enumerate}
+\end{thm}
+For a given topological dynamical system $(X,T)$ define map $T_* : \mathcal{M}_1(X) \rightarrow \mathcal{M}_1(X)$ by $T_* \mu (A) := \mu(T^{-1}A)$ for $A \in \mathcal{B}(A)$. Note that $T_* \mu$ is simply transport of measure $\mu$ by map $T$. Note that for $f \in C(X)$ and $\mu \in \mathcal{M}_1 (X)$ we have
+\[ \int \limits_{X} f \circ T d\mu = \int \limits_{X} f dT_* \mu. \]
+
+\begin{lem}[{\cite[thm. 4.1]{einsiedler}}]
+Let $(X, T)$ be a topological dynamical system and let $(\nu)_{n \in \mathbb{N}}$ be a sequence of measures from $\mathcal{M}_1 (X)$. Then any weak$^*$ cluster point $\mu$ of the sequence $\mu_N := \frac{1}{N} \sum \limits_{n=0}^N T^n_* \nu_N, N \in \mathbb{N}$ is a $T$-invariant measure.
+\end{lem}
+\begin{pf} Suppose that there is a subsequence $(\mu_{N_j})_{j \in \mathbb{N}}$ with $\mu_{N_j} \overset{^{*}w}{\longrightarrow}\mu$. It is enought to check that $\int \limits_{X} f dT_* \mu = \int \limits_{X} f d\mu$ for every $f \in C(X)$ (it will mean that $\mu$ and $T_* \mu$ give rise to the same functional on $C(X)$, hence must be equal). We have
+\[ \left| \int \limits_{X} f d\mu - \int \limits_{X} f dT_* \mu \right| = \left| \int \limits_{X} f d\mu - \int \limits_{X} f \circ T d\mu \right| = \]
+\[ = \left| \lim \limits_{j \rightarrow \infty} \int \limits_{X} f d\frac{1}{N_j}\sum \limits_{n=0}^{N_j-1} T_*^n \nu_{N_j} - \lim \limits_{j \rightarrow \infty} \int \limits_{X} f \circ T d\frac{1}{N_j}\sum \limits_{n=0}^{N_j-1} T_*^n \nu_{N_j} \right| = \]
+\[=\lim \limits_{j \rightarrow \infty} \frac{1}{N_j} \left| \sum \limits_{n=0}^{N_j-1} \int \limits_{X} f \circ T^n d\nu_{N_j} - \sum \limits_{n=0}^{N_j-1} \int \limits_{X} f \circ T^{n+1} d\nu_{N_j} \right| =\]
+\[ = \lim \limits_{j \rightarrow \infty} \frac{1}{N_j} \left| \int \limits_{X} f d\nu_{N_j} - \int \limits_{X} f \circ T^{N_j} d\nu_{N_j} \right| \leq \lim \limits_{j \rightarrow \infty} \frac{2\| f\|_{\text{sup}}}{N_j} =0. \]
+\end{pf}
+Note that since $\mathcal{M}_1 (X)$ weak$^*$ sequentially compact, sequence $(\mu_N)_{N \in \mathbb{N}}$ from the above lemma must have a weak$^*$ cluster point. This proves the following remarkable theorem:
+
+\begin{thm}[Krylov–Bogoljubov{\cite[thm. 10.2]{eisner}}]
+For every topological dynamical system $(X,T)$ we have $\mathcal{M}_T(X) \neq \emptyset$, i.e. there exists at least one $T$-invariant, regular, probability Borel measure $\mu$ on $X$.
+\end{thm}
+Since $\mathcal{M}_T(X) = \overline{co}(\mathcal{E}_T(X))$, there must also exists ergodic probability measure for $(X,T)$ and there is exactly one invariant probability if and only if there is exactly one ergodic probability. The unique invariant measure is automatically ergodic. This leads to the following
+
+\begin{df}
+We say that topological dynamical system $(X,T)$ is \textbf{uniquely ergodic} if it admits exactly one invariant probability measure, i.e. $|\mathcal{M}_T(X)|=1$.
+\end{df}
+Unique ergodicty allows one to obtain uniform convergence in Birkhoff's Ergodic Theorem.
+
+\begin{thm}[{\cite[thm. 10.6]{eisner}}] 
+For a topological dynamical system $(X,T)$ the following conditions are equivalent:
+\begin{enumerate}[(1)]
+\item $(X,T)$ is uniquely ergodic,
+\item for every $f \in C(X)$ there is a constant $c(f) \in \mathbb{C}$ such that
+\[ \underset{x \in X}{\forall}\ \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} f(T^n x) = c(f), \]
+\item  for every $f \in C(X)$ there is a constant $c(f) \in \mathbb{C}$ such that
+\[ \frac{1}{N} \sum \limits_{n=0}^{N-1} f \circ T^n \overset{\| \cdot \|_{\text{sup}}}{\longrightarrow} c(f). \]
+\end{enumerate}
+Under any of the above assumptions, $c(f) = \int \limits_{X} f d\mu,$ where $\mu$ is the unique ergodic probability measure.
+\end{thm}
+
+\begin{df} Let $X$ be a compact topological space and take a non-negative measure $\mu \in \mathcal{M}(X)$. We define \textbf{support of a measure} $\mu$ as a set $\text{supp}(\mu) = \{ x \in X: \text{ for every open set } U \text{ with } x \in U \text{ there is } \mu(U) > 0 \}$.
+\end{df}
+
+\begin{f}
+Let $(X,T)$ be a topological dynamical system. For every $\mu \in \mathcal{M}_1 (X)$ there is
+\begin{enumerate}[(1)]
+\item $\text{supp}(\mu)$ is closed,
+\item $\mu(\text{supp}(\mu))=1$,
+\item if $\mu$ is invariant, then $T(supp(\mu)) \subset \text{supp} (\mu)$.
+\end{enumerate}
+\end{f}
+\begin{pf}
+\begin{enumerate}[(1)]
+\item Take $x \in X \backslash \text{supp}(\mu)$. There exists open set $U$ with $x \in U$ and $\mu(U)=0$. For every other $y \in U$ we also have $\mu(U)=0$, so in fact $U \subset X \backslash \text{supp}(\mu)$, what proves that $X \backslash \text{supp}(\mu)$ is open, hence $ \text{supp}(\mu)$ is closed.
+\item It's enough to show that $X \backslash \text{supp}(\mu)$ has zero measure. By regularity, we know that
+\begin{equation}\label{e:suppreg}
+\mu(X \backslash \text{supp}(\mu)) = \sup\{\mu(K): K \subset X \backslash \text{supp}(\mu), K \text{ is compact} \}.
+\end{equation}
+Take any compact $K$ with $K \subset X \backslash \text{supp}(\mu)$. For every $x \in K$ there exists open $U_x$ with $x \in U_x$ and $\mu(U_x)=0$ (by (1)). Now we have $K \subset \bigcup \limits_{x \in K} U_x$ and since $K$ is compact, we can choose $x_1, ..., x_n$ such that $K \subset \bigcup \limits_{j=1}^n U_{x_j}$, so $\mu(K) \leq \sum \limits_{j=1}^n \mu(U_{x_j}) = 0$, so $\mu(K) =0$. By \eqref{e:suppreg} we have $\mu (X \backslash \text{supp}(\mu)) = 0$.
+\item We have to show that for $x \in X$ there is $x \in \text{supp}(\mu) \Rightarrow Tx \in \text{supp}(\mu) $. Assume that $Tx \notin \text{supp}(\mu)$. Then there must exist open set $U$ with $Tx \in U$ and $\mu(U) = 0$. Now we have $x \in T^{-1}U,\ T^{-1}U$ is open since $T$ is continuous and $\mu(T^{-1}U) = \mu(U) = 0$, so also $x \notin \text{supp}(\mu).\ \square$
+\end{enumerate}
+\end{pf}
 
 \section{von Neumann's Ergodic Theorem}
 In this section we state von Neumann's (Mean) Ergodic Theorem, which can be seen as a first operator theoretic type ergodic theorem.
@@ -734,6 +870,8 @@ so $f$ has the Wiener-Wintner property. Take now $f$ of the form $f = \alpha_1 f
 the limit $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) $ exists for each $x \in X_{f_1} \cap X_{f_2} \cap ... \cap X_{f_m}$, so $f$ has the Wiener-Wintner property (the set of all functions having Wiener-Wintner property forms a linear subspace of $L^1(\mu)$). Further, Corollary \ref{c:wwprop-limit} shows that the set of all functions having Wiener-Wintner property is in fact a closed subspace of $L^1(\mu)$. Since we already know that eigenfunctions has the Wiener-Wiener property, then also every $f$ from the Kronecker Factor $\mathcal{K}$ must have the Wiener-Wintner property (since if $L^2(\mu) \ni f_j \overset{L^2(\mu)}{\longrightarrow} f \in L^2(\mu)$ then also $ f_j \overset{L^1(\mu)}{\longrightarrow} f$, so $\mathcal{K} \subset \overline{\text{span}}^{L^1(\mu)} \left\{ f \in L^2(\mu): f \circ T = \lambda f \text{ for some }\lambda \in \mathbb{C} \right\}$ ). Observe further, that Theorem \ref{t:bourgain} implies that every $f \in \mathcal{K}^{\bot}$ also have the Wiener-Wintner property (pointwise convergence for every $\lambda \in \mathbb{T}$ is weaker notion than uniform convergence for $\lambda \in \mathbb{T}$) . By the Orthogonal Projection Theorem we have $L^2(\mu) = \mathcal{K} \oplus \mathcal{K}^{\bot}$, so since both $\mathcal{K}$ and $\mathcal{K}^{\bot}$ have the Wiener-Wintner property and the property is additive, the whole $L^2(\mu)$ has the Wiener-Wintner property. We finish the proof by the closedness of functions with the Wiener-Wintner property in $L^1(\mu)$ and fact that $L^2(\mu)$ is dense in $L^1(\mu).\ \square$ 
 \end{pf}
 
+\section{Uniform topological Wiener-Wintner theorem}
+In this section 
 
 
 \chapter{Ergodic theory for operators}\label{r:ergop}
