@@ -179,18 +179,14 @@ Twierdzenie ergodycznie Wienera-Wintnera jest bardzo wa¿ne. Bardzo bardzo wa¿ne.
 
 \chapter{Preliminaries}\label{r:prel}
 In this chapter we introduce basic notations, concepts and theorems from measure theory, topology and functional analysis which will be used through the thesis. We omit most of the proofs.\\ \\
-By $\mathbb{N}$ we will denote set of positive natural numbers, by $\mathbb{N}_0$ - set of natural numbers together with zero, by $\mathbb{Z}$ - set of integers, by $\mathbb{R}$ - set of real numbers, by $\mathbb{C}$ - set of complex numbers and by $\mathbb{T}=\mathbb{S}^1=\left\{ \lambda \in \mathbb{C}: |\lambda|=1 \right\}$ - circle on a complex plane (1-dimensional torus).
+By $\mathbb{N}$ we will denote set of positive natural numbers, by $\mathbb{N}_0$ - set of natural numberswith zero, by $\mathbb{Z}$ - set of integers, by $\mathbb{R}$ - set of real numbers, by $\mathbb{C}$ - set of complex numbers and by $\mathbb{T}=\mathbb{S}^1=\left\{ \lambda \in \mathbb{C}: |\lambda|=1 \right\}$ - circle on a complex plane (1-dimensional torus).
 
 
 
 \section{Measure theory}
+By $(X, \mathcal{A}, \mu)$ we will denote a measure space, where $X$ is a nonempty set, $\mathcal{A}$ is a $\sigma$-field of subsets of $X$ and $\mu$ is a measure on the measurable space $(X, \mathcal{A})$. By term 'measure' we will always mean non-negative measure. When we will wish measure $\mu$ to have complex values we will introduce it as a 'complex measure $\mu$'. Sets $A \in \mathcal{A}$ are called measurable sets. Measure $\mu$ is called finite if $\mu(X) < \infty$ and $\sigma$-finite if there is a countable collection of measurable sets $\{ A_n \}_{n=1}^{\infty}$ with $\mu(A_n)<\infty$ for each $n \in \mathbb{N}$, such that $X = \bigcup \limits_{n=1}^{\infty} A_n$. If measure $\mu$ is $\sigma$-finite, then the sets $\{ A_n \}_{n=1}^{\infty}$ can be taken to be pairwise disjoint. If $\mu(X)=1$ then the measure $\mu$ is called a probability measure and $(X, \mathcal{A}, \mu)$ is called a probability space. For a finite measure $\mu$, set $A \in \mathcal{A}$ is said to have a full measure if $\mu(A) = \mu (X)$. We will often use the following simple
 
-regular measure\\
-absolute continuity and Radon-Nikodym theorem\\
-
-By $(X, \mathcal{A}, \mu)$ we will denote a measure space, where $X$ is a nonempty set, $\mathcal{A}$ is a $\sigma$-field (or $\sigma$-algebra) of subsets of $X$ and $\mu$ is a measure on the measurable space $(X, \mathcal{A})$. By term 'measure' we will always mean non-negative measure. When we will wish measure $\mu$ to have complex values we will introduce it as a 'complex measure $\mu$'. Sets $A \in \mathcal{A}$ are called measurable sets. Measure $\mu$ is called finite if $\mu(X) < \infty$ and $\sigma$-finite if there is a countable collection of measurable sets $\{ A_n \}_{n=1}^{\infty}$ with $\mu(A_n)<\infty$ for each $n \in \mathbb{N}$, such that $X = \bigcup \limits_{n=1}^{\infty} A_n$. If measure $\mu$ is $\sigma$-finite, then the sets $\{ A_n \}_{n=1}^{\infty}$ can be taken to be pairwise disjoint. If $\mu(X)=1$ then the measure $\mu$ is called a probability measure and $(X, \mathcal{A}, \mu)$ is called a probability space. For a finite measure $\mu$, a set $A \in \mathcal{A}$ is said to have a full measure if $\mu(A) = \mu (X)$. We will often use the following simple
-
-\begin{f} Let $(X, \mathcal{A}, \mu)$ be a measure space with a finite measure. If each measurable set $A_n, n \in \mathbb{N}$ has a full measure, then their intesection $\bigcap \limits_{n=1}^{\infty} A_n$ also has a full measure.
+\begin{f} Let $(X, \mathcal{A}, \mu)$ be a measure space with a finite measure and take measurable sets $A_n, n \in \mathbb{N}$. If each $A_n$ has a full measure, then their intesection $\bigcap \limits_{n=1}^{\infty} A_n$ also has a full measure.
 \end{f}
 
 \begin{df}
@@ -203,7 +199,7 @@ Let $(X, \mathcal{A}, \mu)$ be a measure space. An element $x \in X$ is called a
 
 \begin{rem} Note that a finite measure $\mu$ can have only countably many atoms. To see that observe that for $\varepsilon >0$ a set $A_{\varepsilon}:=\{x \in X: \mu(\{x\}) > \epsilon \}$ must have at most $\frac{\mu(X)}{\varepsilon}$ elements (otherwise we wolud have $\mu(X) > \frac{\mu(X)}{\varepsilon} \cdot \varepsilon = \mu(X)$), hence must be finite. This shows that the set of atoms $A = \bigcup \limits_{n=1}^{\infty} A_{\frac{1}{n}}$ must be countable. Also, there is $\sum \limits_{x \in A} \mu(\{ x\}) \leq \mu(X) < \infty.$
 \end{rem}
-If $X$ is a topological space, then by $\mathcal{B}(X)$ we will denote it's Borel $\sigma$-field, i.e. the smallest $\sigma$-field containing all open subsets of $X$. Note that if $X$ and $Y$ are topological spaces and $T:X \rightarrow Y$ is continuous, then T is also measurable (with respect to Borel $\sigma$-fields on $X$ and $Y$). Measure on a measurable space $(X, \mathcal{B}(X))$ is called a Borel measure. On spaces $\mathbb{R}^n, n \in \mathbb{N}$ (with a standard topology) there is a natural Borel measure, which is a unique measure $m$ with property $m([a_1, b_1]\times [a_2, b_2] \times ... \times [a_n, b_n]) = (b_1 - a_1)(b_2 - a_2)...(b_n - a_n)$ for $a_1\leq b_1,a_1\leq b_2, ..., a_n\leq b_n$. This measure $m$ is called a Lebesgue measure and it's $\sigma$-finite. On $\mathbb{T}$ (with a standard topology) there exists a unique measure such that measure of any arc is its length. This measure is finite and its normalization will be also called a Lebesgue measure and will be denoted by $m$ ($m(\mathbb{T})=1$ and length of arc $A$ is equal to $2\pi m(A)$).\\ \\
+If $X$ is a topological space, then by $\mathcal{B}(X)$ we will denote its Borel $\sigma$-field, i.e. the smallest $\sigma$-field containing all open subsets of $X$. Note that if $X$ and $Y$ are topological spaces and $T:X \rightarrow Y$ is continuous, then T is also measurable (with respect to Borel $\sigma$-fields on $X$ and $Y$). Measure on a measurable space $(X, \mathcal{B}(X))$ is called a Borel measure. On spaces $\mathbb{R}^n, n \in \mathbb{N}$ (with a standard topology) there is a natural Borel measure, which is a unique measure $m$ with property $m([a_1, b_1]\times [a_2, b_2] \times ... \times [a_n, b_n]) = (b_1 - a_1)(b_2 - a_2)...(b_n - a_n)$ for $a_1\leq b_1,a_1\leq b_2, ..., a_n\leq b_n$. This measure $m$ is called a Lebesgue measure and it's $\sigma$-finite. On $\mathbb{T}$ (with a standard topology) there exists a unique measure such that measure of any arc is its length. This measure is finite and its normalization will be also called a Lebesgue measure and will be denoted by $m$ ($m(\mathbb{T})=1$ and length of arc $A$ is equal to $2\pi m(A)$).\\ \\
 Let $T, S: X \rightarrow Y$ be a measurable maps between measurable spaces $(X, \mathcal{A})$ and $(Y, \mathcal{C})$. We will use abreviations $\{ T \in A \}:= \{x \in X: Tx \in A \}$, $\{ T=S \} := \{x \in X: Tx = Sx \}$ and $\{ T \neq S \} := \{x \in X: Tx \neq Sx \}$. Note that these set are measurable. We will say that some property holds for ($\mu$) almost all $x \in X$, if there is a measurable set $A$ such that this property holds for every $x \in A$ and $\mu(X \backslash A) = 0$. We will say that map $T$ is equal to $S$ $\mu$ almost everywhere ($\mu$-a.e.) if $Tx = Sx$ for almost all $x \in X$, i.e. $\mu(T \neq S):=\mu(\{T \neq S\})=0$.\\ \\
 We say that function $f:X \rightarrow \mathbb{R}^n$ or $f:X \rightarrow \mathbb{C}^n$ is a Borel function (or simply a measurable function) if it is measurable with respect to the Borel $\sigma$-field $\mathcal{B}(\mathbb{R}^n)$ or $\mathcal{B}(\mathbb{C}^n)$, where we consider the standard topology on $\mathbb{R}^n$ or $\mathbb{C}^n$. Let $(f_n)_{n \in \mathbb{N}}$ be  a sequence of measurable complex valued functions on $X$. We say that the sequence $(f_n)_{n \in \mathbb{N}}$ converges $\mu$ almost everywhere to a measurable function $f: X \rightarrow \mathbb{C}$ if for almost all $x \in X$ there is $\lim \limits_{n \rightarrow \infty} f_n(x) = f(x)$. The following important theorem says when a.e. convergence implies convergence of integrals.
 \begin{thm}[Lebesgue Dominated Convergence Theorem]
@@ -238,23 +234,16 @@ Let $X$ be a compact topological space and let $\mu$ be a finite, non-negative B
 Let $\mu$ be a complex measure on a measurable space $(X, \mathcal{A})$. We define its total variation measure $| \mu|$ as a non-negative measure on  $(X, \mathcal{A})$ given by
 \[ |\mu| (A) := \sup \{ \sum \limits_{j=1}^{\infty} |\mu (E_j ) | : E_1, E_2, ... \text{ are pairwise disjoint and } \bigcup \limits_{j=1}^{\infty} E_j = A \}. \]
 \end{df}
-$| \mu |$ is always a finite measure (note that a complex measure, unlike the non-negative or signed measure, cannot attain values $+\infty$ or $- \infty$ by definition). For every $A \in \mathcal{A}$ there is $| \mu(A) | \leq |\mu|(A)$ and $| \mu(A) | = |\mu|(A)$ does not hold in general. We say that complex Borel measure is regular if its total variatnion measure is regular.
+$| \mu |$ is always a finite measure (note that a complex measure, unlike the non-negative or signed measure, cannot attain values $+\infty$ or $- \infty$ by definition). For every $A \in \mathcal{A}$ there is $| \mu(A) | \leq |\mu|(A)$ and $| \mu(A) | = |\mu|(A)$ does not hold in general. We say that complex Borel measure is regular if its total variation measure is regular.
 
 \section{Functional analysis}
-remove "finite" from complex measure?\\
-$\mathscr{L}^{\infty}$ and $L^{\infty}$?\\
-remove $\widehat{\sigma}(-n)$?\\
-convergence of geometric series on crircle\\
-Riesz theorem (Hilbert spaces)\\
-Banach and Hilbert conjugate\\
-
 We will always assume that vector spaces are taken over field $\mathbb{C}$. By $\| \cdot \|$ we will denote a norm of a normed space. We will give now standard examples of Banach spaces (i.e. complete normed space) with their properties which will be useful for us later.
 
 \begin{ex}[$\mathscr{L}^p$ and $L^p$ spaces]$\\$
 Let $(X, \mathcal{A}, \mu)$ be a measure space. For $1\leq p < \infty$ consider the vector space \[\mathscr{L}^p(X, \mathcal{A}, \mu) := \left\{ f:X \rightarrow \mathbb{C};\ f \text{ is measurable and } \int \limits_{X} |f|^p d\mu < \infty \right\}.\]
 Define an equivalence relation $\sim$ on $\mathscr{L}^p(X, \mathcal{A}, \mu)$ by $f \sim g$ if $f = g\ \mu$ a.e. Let
 \[ L^p(X, \mathcal{A}, \mu) := \mathscr{L}^p(X, \mathcal{A}, \mu) / \sim. \]
-Spaces $L^p(X, \mathcal{A}, \mu)$ are considered with norm $\|f\|_{L^p(X, \mathcal{A}, \mu)} :=  \left( \int \limits_{X} |f|^p d\mu \right) ^ {\frac{1}{p}}$ with which they become Banach spaces. Usually we will abbreviate $L^p(X, \mathcal{A}, \mu)$ to $L^p(\mu)$ or $L^p$ and $\|\cdot\|_{L^p(X, \mathcal{A}, \mu)}$ to $\| \cdot \|_{L^p(\mu)}$ or $\|\cdot\|_p$.
+Space $L^p(X, \mathcal{A}, \mu)$ endowed with the norm $\|f\|_{L^p(X, \mathcal{A}, \mu)} :=  \left( \int \limits_{X} |f|^p d\mu \right) ^ {\frac{1}{p}}$ become Banach spaces. Usually we will abbreviate $L^p(X, \mathcal{A}, \mu)$ to $L^p(\mu)$ or $L^p$ and $\|\cdot\|_{L^p(X, \mathcal{A}, \mu)}$ to $\| \cdot \|_{L^p(\mu)}$ or $\|\cdot\|_p$.
 \end{ex}
 
 \begin{prop}
@@ -262,7 +251,7 @@ Let $(X, \mathcal{A}, \mu)$ be a measure space with a finite measure. Then for $
 \end{prop}
 
 \begin{ex}[Space $C(X)$]\label{ex:lp}$\\$
-Let $X$ be a compact topological space (we assume that comapct spaces are Hausdorff by definition). Denote by $C(X)$ set of all complex valued continuous functions on $X$. $C(X)$ is a Banach space with norm $\|f\|_{\text{sup}} = \|f\|_{\infty} := \sup \limits_{x \in X} |f(x)|,\ f \in C(X)$. $C(X)$ is separable if and only if $X$ is metrizable (\cite[thm. 4.7]{eisner}). Suppose that there is a finite Borel nonegative measure $\mu$ on $X$. Any function $f \in C(X)$ is bounded, hence integrable with any power $p \in [1, \infty)$, which means that $C(X) \subset \mathscr{L}^p(\mu)$ and $C(X)$ can be embedded into $L^p(X, \mathcal{B}(X), \mu)$. Therefore, space $C(X)$ can be naturally seen as a linear subspace of space $L^p(\mu)$ (with identification of functions equal $\mu$ a.e.).
+Let $X$ be a compact topological space (we assume that comapct spaces are Hausdorff by definition). Denote by $C(X)$ set of all complex valued continuous functions on $X$. $C(X)$ is a Banach space with norm $\|f\|_{\text{sup}} = \|f\|_{\infty} := \sup \limits_{x \in X} |f(x)|,\ f \in C(X)$. $C(X)$ is separable if and only if $X$ is metrizable (\cite[thm. 4.7]{eisner}). Suppose that there is a finite Borel nonegative measure $\mu$ on $X$. Any function $f \in C(X)$ is bounded, hence integrable with any power $p \in [1, \infty)$, what means that $C(X) \subset \mathscr{L}^p(\mu)$ and $C(X)$ can be embedded into $L^p(X, \mathcal{B}(X), \mu)$. Therefore, space $C(X)$ can be naturally seen as a linear subspace of space $L^p(\mu)$ (with identification of functions equal $\mu$ a.e., so equivalence class $f \in L^2(\mu)$ is also in the subspace $C(X)$ if it has continuous representative).
 \end{ex}
 
 \begin{prop}
@@ -286,7 +275,7 @@ Let $H$ be an inner product space. The following inequality holds for all $x,y \
 Let $H$ be an inner product space. Two vectors $x, y \in H$ are said to be \textbf{orthogonal} if $\langle x, y \rangle = 0$. We denote that fact by $x \bot y$. For a set $H_0 \subset H$ its \textbf{orthogonal complement} is a set $H_0^{\bot}:=\left\{ x \in H: \underset{h \in H_0}{\forall}\ \langle h, x \rangle = 0 \right\}$.
 \end{df}
 
-\begin{rem} If $H_0$ is a linear subspace of H, then $H_0^{\bot}$ is a closed linear subspace of H. Closedness of $H_0^{\bot}$ is a consequence of continuity of the inner product.
+\begin{rem} If $H_0$ is a linear subspace of H, then $H_0^{\bot}$ is a closed linear subspace of H.
 \end{rem}
 
 \begin{df}
@@ -297,7 +286,7 @@ Let $E, F$ be normed spaces. A linear transformation $U: E \rightarrow F$ is cal
 \end{rem}
 
 \begin{df}
-Let $E$ be a normed space and let $U:E \rightarrow E$ be a bounded linear operator. Number $\lambda \in \mathbb{C}$ is called an \textbf{eigenvalue} if there is a vector $x \in E,\ x \neq 0$ such that $Ux = \lambda x$. Any such vector $x$ is called an \textbf{eigenvector} (associated with $\lambda$). We denote the set of all eigenvalues of $U$ by $\sigma(U)$. The closed linear subspace $H_{\lambda} = \left\{ x \in H: Ux = \lambda x \right\}$ is called an \textbf{eigenspace} (of $\lambda$).
+Let $E$ be a normed space and let $U:E \rightarrow E$ be a bounded linear operator. Number $\lambda \in \mathbb{C}$ is called an \textbf{eigenvalue} if there is a vector $x \in E,\ x \neq 0$ such that $Ux = \lambda x$. Any such vector $x$ is called an \textbf{eigenvector} (associated with $\lambda$). The closed linear subspace $H_{\lambda} = \left\{ x \in H: Ux = \lambda x \right\}$ is called an \textbf{eigenspace} (of $\lambda$). We denote set of all eigenvalues of operator $U$ by $\sigma(U)$.
 \end{df}
 
 \begin{thm}[Orthogonal Projection Theorem {\cite[lemma 12.4]{rudin}}]\label{t:orthproj}
@@ -314,7 +303,7 @@ Closed unit ball $\overline{B}(0,1) \subset E^*$ in a dual space of a normed spa
 \begin{thm}[{\cite[thm. 3.16]{rudin}}]
 Let $K$ be a weak$^*$ compact subset of a dual space $E^*$ of a separable normed space $E$. Then the weak$^*$ topology is metrizable on $K$.
 \end{thm}
-We say that $\Lambda \in E^*$ is a weak$^*$ limit of a sequence $(\Lambda_n)_{n \in \mathbb{N}}, \Lambda_ \in E^*$ if $\Lambda_n$ converges to $\Lambda$ in weak$^*$ topology, what is equivalent to the condition
+We say that $\Lambda \in E^*$ is a weak$^*$ limit of a sequence $(\Lambda_n)_{n \in \mathbb{N}}, \Lambda_n \in E^*$ if $\Lambda_n$ converges to $\Lambda$ in weak$^*$ topology, what is equivalent to the condition
 \[ \underset{x \in E}{\forall}\ \Lambda_n x \rightarrow \Lambda x.\]
 We note this by $\Lambda_n \overset{^{*}w}{\longrightarrow} \Lambda$. Immediate corollary from above theorems is the following:
 \begin{cor}
@@ -353,7 +342,7 @@ Moreover, for every $\mu \in \mathcal{M}(X)$ the above equality defines a unique
 
 \section{Spectral theory for isometries}
 
-We will now introduce basic facts from spectral theory for isometries on Hilbert spaces.
+We will introduce now basic facts from spectral theory for isometries on Hilbert spaces.
 
 \begin{rem}Let $H$ be a complex inner product space. Then bounded linear operator $U:H \rightarrow H$ is an isometry if and only if $\underset{x,y \in H}{\forall}\ \langle Ux, Uy\rangle = \langle x, y \rangle$.
 \end{rem} 
@@ -397,7 +386,7 @@ The measure $\sigma_{x, U}$ is called a \textbf{spectral measure} of an element 
 \end{cor}
 
 \begin{thm}[Fourier Uniqueness Theorem, {\cite[thm. 1.14]{lemanczyk}}]\label{t:fourier uniqueness}
-Let $\sigma_1, \sigma_2$ be two non-negative Borel measures on $\mathbb{T}$. Then
+Let $\sigma_1, \sigma_2$ be two non-negative, finite Borel measures on $\mathbb{T}$. Then
 \[\sigma_1 = \sigma_2 \Longleftrightarrow \underset{n \in \mathbb{Z}}{\forall}\ \hat{\sigma_1}(n) = \hat{\sigma_2}(n). \]
 \end{thm}
 
@@ -465,7 +454,7 @@ After establishing von Neumann's Ergodic Theorem in next chapter, we will be abl
 
 \chapter{Introduction to ergodic theory}\label{r:erg}
 
-This chapter includes short introduction to the ergodic theory. We give basic concepts and facts. The presentation is based on \cite{einsiedler}.
+This chapter includes short introduction to the ergodic theory. We give basic concepts and facts. The presentation is based on \cite{einsiedler} and \cite{eisner}.
 
 \section{Measurable dynamical systems}
 
@@ -480,7 +469,7 @@ In this case the measure $\mu$ is called \textbf{$T$-invariant} and $(X, \mathca
 \end{rem}
 
 \begin{ex}\label{ex:rot}
-Consider system $(\mathbb{T}, \mathcal{B}(\mathbb{T}), m, R_{\lambda})$, where $\mathbb{T}$ is a unit circle on a complex plane, $\mathcal{B}(\mathbb{T})$ is a Borel $\sigma$-field on $\mathbb{T}$, $m$ is a (normalized) Lebesgue measure on $\mathcal{B}(\mathbb{T})$ and $R_{\lambda}: \mathbb{T} \rightarrow \mathbb{T},\ R_{\lambda}(z) = \lambda z$ is a rotation (multiplication) by $\lambda \in \mathbb{T}$. It obvious that $R_{\lambda}$ preserves measure of arcs, hence $R_{\lambda}$ is measure preserving (set of arcs generates $\mathcal{B}(\mathbb{T})$ and it's easy to check that it is enough to check preservation of measure on the generator of given $\sigma$-field). This is an important example, because rotation by complex number from a unit circle occur in the Wiener-Wintner type theorems.
+Consider system $(\mathbb{T}, \mathcal{B}(\mathbb{T}), m, R_{\lambda})$, where $\mathbb{T}$ is a unit circle on a complex plane, $\mathcal{B}(\mathbb{T})$ is a Borel $\sigma$-field on $\mathbb{T}$, $m$ is a (normalized) Lebesgue measure on $\mathcal{B}(\mathbb{T})$ and $R_{\lambda}: \mathbb{T} \rightarrow \mathbb{T},\ R_{\lambda}(z) = \lambda z$ is a rotation (multiplication) by $\lambda \in \mathbb{T}$. It obvious that $R_{\lambda}$ preserves measure of arcs, hence $R_{\lambda}$ is measure preserving (set of arcs generates $\mathcal{B}(\mathbb{T})$ and it's easy to check that it is enough to check preservation of measure on the generator of given $\sigma$-field). This is an important example, because multiplication by complex number from a unit circle occur in the Wiener-Wintner type theorems.
 \end{ex}
 
 \begin{f}[{\cite[lemma 2.6]{einsiedler}}]\label{f:intinv}$\\$
@@ -513,14 +502,14 @@ The measure preserving system $(X, \mathcal{A}, \mu, T)$ is called an \textbf{er
 \[ \underset{A \in \mathcal{A}}{\forall}\ [T^{-1} A = A \Longrightarrow \mu(A) \in \{0,1\}]. \]
 In the above situation, the transformation $T$ and the measure $\mu$ are also called \textbf{ergodic}.
 \end{df}\\
-Set $A \in \mathcal{A}$ with $T^{-1}A = A$ is called a \textbf{$T$-invariant set} (or simply invariant set). Thus, the ergodicity of the system means that only null sets (sets of zero measure) and full measure sets can be invariant. We will give now a useful characterization of ergodicity.
-
+Set $A \in \mathcal{A}$ with $T^{-1}A = A$ is called a \textbf{$T$-invariant set} (or simply invariant set). Thus, the ergodicity of the system means that only null sets (sets of zero measure) and full measure sets can be invariant.
 \begin{ex}
 Consider the rotation system $(\mathbb{T}, \mathcal{B}(\mathbb{T}), m, R_{\lambda})$ from Example \ref{ex:rot}. It is ergodic if and only if $Arg(\lambda) \notin 2\pi \mathbb{Q}$, where $Arg(z)$ stands for the argument of complex number $z$.
 \end{ex}
+We will give now useful characterization of ergodicity.
 
 \begin{prop}\label{p:erginv}
-The measure preserving system $(X, \mathcal{A}, \mu, T)$ is ergodic if and only if for some (every) $p \in [1, \infty)$ we have that 
+The measure preserving system $(X, \mathcal{A}, \mu, T)$ is ergodic if and only if for some (every) $p \in [1, \infty)$ we have
 \[ \underset{f \in L^p(\mu)}{\forall} [f \circ T = f\ \mu\text{-a.e.} \Longrightarrow f \text{ is equal to a constant function } \mu \text{-a.e.}]. \]
 \end{prop}\\
 Using the above characterization, we will give some spectral properties of Koopman Operator on $L^2(\mu)$.
@@ -562,7 +551,7 @@ Pair $(X,T)$ consisting of a compact topological space $X$ and continuous map $T
 
 \begin{ex} Note that system $(\mathbb{T}, R_{\lambda})$ for $\lambda \in \mathbb{T}$ is a topological dynamical system.
 \end{ex}
-For a topological dynamical system $(X,T)$ we will consider set $\mathcal{M}(X)$ of finite, regular, complex-valued measures on $X$ as set of natural measures on $X$. When considering topological dynamical systems, we will assume all measures to be regular and Borel. Denote by $\mathcal{M}^1(X)$ set of all non-negative, probability measures from $\mathcal{M}(X)$. We will also consider set of all $T$-invariant measures from $\mathcal{M}^1(X)$, denoted by $\mathcal{M}^T(X)$. By $\mathcal{E}^T (X)$ we will denote set of all ergodic measures from $\mathcal{M}^1(X)$. The following theorem makes use of the Banach-Alaoglu Theorem and Krein-Milman theorem to give some propoerties of these sets.
+For a topological dynamical system $(X,T)$ we will consider set $\mathcal{M}(X)$ of finite, regular, complex-valued measures on $X$ as set of natural measures on $X$. When considering topological dynamical systems, we will assume all measures to be regular and Borel. Denote by $\mathcal{M}^1(X)$ set of all non-negative, probability measures from $\mathcal{M}(X)$. We will also consider set of all $T$-invariant measures from $\mathcal{M}^1(X)$, denoted by $\mathcal{M}^T(X)$. By $\mathcal{E}^T (X)$ we will denote set of all ergodic measures from $\mathcal{M}^1(X)$. The following theorem makes use of the Banach-Alaoglu Theorem and Krein-Milman Theorem to give some propoerties of these sets.
 
 \begin{thm}[\cite{eisner}]
 Let $(X,T)$ be a topological dynamical system. Then
@@ -634,7 +623,7 @@ Take any compact $K$ with $K \subset X \backslash \text{supp}(\mu)$. For every $
 Since $T$ is continuous, we can consider the Koopman Operator on space $C(X)$, namely $U_T : C(X) \rightarrow C(X)$ with $U_T f = f \circ T$. $U_T$ is a positive operator, it's a contraction and $U_T ( \mathds{1}) = \mathds{1}$.
 
 \section{von Neumann's Ergodic Theorem}
-In this section we state von Neumann's (Mean) Ergodic Theorem, which can be seen as a first operator theoretic type ergodic theorem.
+In this section we state von Neumann's (Mean) Ergodic Theorem, which can be seen as a first operator theoretic type ergodic theorem. We also prove its consequences in spectral theory for isometries.
 
 \begin{thm}[von Neumann's Ergodic Theorem {\cite[thm. 1.3.1]{weber}}]\label{t:neumann}
 Let $U:H \rightarrow H$ be a contraction on a complex Hilbert space $H$. Then for every $f \in H$ there is a convergence
@@ -650,7 +639,6 @@ Let $U:H\rightarrow H$ be an isometry on a Hilbert space $H$ and take $f \in H, 
 \begin{pf}
 Note that operator is $V:H \rightarrow H$ given by $V:=\lambda U$ is also an isometry, since $\langle Vf, Vg \rangle = \langle \lambda Uf, \lambda Ug \rangle=  \lambda\overline{\lambda} \langle Uf, Ug \rangle = |\lambda|^2 \langle f, g \rangle = \langle f, g \rangle$. By von Neumann's Theorem we have that \[\frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n U^n f = \frac{1}{N} \sum \limits_{n=0}^{N-1} V^n f \longrightarrow Qf,\] where $Q$ is an orthogonal projection on a subspace $\left\{ f \in H: Vf = f \right\} = \left\{ f \in H: \lambda Uf = f \right\} = \left\{ f \in H: Uf = \overline{\lambda} f \right\} = H_{\overline{\lambda}}$, so $Q = P_{\overline{\lambda}}.\ \square$
 \end{pf}
-[Note that this proof doesn't require use of spectral theory, although there is a simpler proof for unitary $U$ using spectral theorem (\cite[thm. 12.44]{rudin}). In the following lemma we will inverse this relationship and make use of von Neumann's theorem in spectral theory.]
 
 \begin{lem}\label{l:spectr}
 Let $U:H\rightarrow H$ be an isometry on Hilbert space $H$ and take $f \in H$. Then $\sigma_f (\{\lambda\}) = \|P_{\lambda}f\|^2,$ where $\sigma_f$ denotes spectral measure of $f$.
@@ -669,7 +657,6 @@ Note that for every $z \in \mathbb{T}$ we have $\frac{1}{N} \sum \limits_{n=0}^{
 \end{equation}
 Putting together \eqref{e:norm}, \eqref{e:int} and \eqref{e:measure} finishes the proof. $\square$
 \end{pf}
-Note that this lemma connects notions of spectral measure and eigenfunctions.
 
 
 
@@ -696,7 +683,7 @@ Let $(X, \mathcal{A}, \mu, T)$ be a measurable dynamical system. A function $f\i
 \[ \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \]
 exists for all $\lambda \in \mathbb{T}$.
 \end{df}
-Using the notion of Wiener-Wintner property, the Theorem \ref{t:ww} can be restated as follows:\textit{ if $(X, \mathcal{A}, \mu, T)$ is a ergodic dynamical system, then every $f \in L^1(\mu)$ has a Wiener-Wintner property.}
+Using the notion of Wiener-Wintner property, the Theorem \ref{t:ww} can be restated as follows:\textit{ if $(X, \mathcal{A}, \mu, T)$ is an ergodic dynamical system, then every $f \in L^1(\mu)$ has a Wiener-Wintner property.}
 
 \begin{rem}
 Note that for a fixed $\lambda \in \mathbb{T}$ it is easy to achieve a.e. converengce in \eqref{ww}. Take a product system $(X \times \mathbb{T}, \mathcal{A} \otimes \mathcal{B}(\mathbb{T}), \mu \otimes m, T \times R_{\lambda})$ and observe that it is measure preserving since both $(X, \mathcal{A}, \mu, T)$ and $(\mathbb{T}, \mathcal{B}(\mathbb{T}), m, R_{\lambda})$ are measure preserving. Define a function $g:X \times \mathbb{T} \rightarrow \mathbb{C}$ by $g(x, \omega)=\omega f(x)$. We have $g \in \mathscr{L}^1(\mu \otimes m)$ since, by Fubini's Theorem,
@@ -726,7 +713,7 @@ Let $(X, \mathcal{A}, \mu, T)$ be an ergodic dynamical system and $f \in \mathca
 
 \noindent For the proof of this theorem we'll need two following lemma's:
 \begin{lem}[{\cite[prop. 2.2]{assani}}]\label{l:kronecker_spectral}
-Let $(X, \mathcal{A}, \mu, T)$ be a measure preserving dynamical system. A function $f \in L^2(\mu)$ belongs to $\mathcal{K}^{\bot}$ if and only if its spectral measure $\sigma_f:=\sigma_{f, U_T}$ is continous.
+Let $(X, \mathcal{A}, \mu, T)$ be a measure preserving dynamical system. A function $f \in L^2(\mu)$ belongs to $\mathcal{K}^{\bot}$ if and only if its spectral measure $\sigma_f:=\sigma_{f, U_T}$ is continuous.
 \end{lem}
 \begin{pf} Fix $f \in \mathcal{K}^{\bot}$. Since for every $\lambda \in \mathbb{T}$ for its eigenspace $H_{\lambda}$ we have $H_{\lambda} \subset \mathcal{K}$ and $f$ is orthogonal to $\mathcal{K}$, $f$ must be also orthogonal to $H_{\lambda}$. If $P_{\lambda}$ is an orthogonal projection to $H_{\lambda}$, then we have $P_{\lambda} f =0$. By Lemma \ref{l:spectr} we have $\sigma_f(\{ \lambda \}) = \| P_{\lambda} f \|^2$ for all $\lambda \in \mathbb{T}$, so $\sigma_f (\{ \lambda \})=0$ for all $\lambda \in \mathbb{T}$ and the measure $\sigma_f$ is continuous. Conversly, fix $f \in L^2 (\mu)$ and assume that $\sigma_f$ is continuous. Then again by Lemma \ref{l:spectr} we have $\| P_{\lambda} f \| =0$, hence $f \in H_{\lambda}^{\bot}$ for every $\lambda \in \mathbb{T}$, so $f$ is orthogonal to every eigenfunction of the operator $U_T$. We have (by linearity of the inner product) that $f$ is orthogonal also to $\text{span}\left\{ f \in L^2(\mu): f \circ T = \lambda f \text{ for some }\lambda \in \mathbb{C} \right\}$ and finally (by continuity of the inner product) $f \in \mathcal{K}^{\bot}$. $\square$
 \end{pf}
@@ -805,7 +792,7 @@ Now we are ready to give the proof of the Bourgain's uniform Wiener-Wintner theo
 \begin{pf} (of the Theorem \ref{t:bourgain})\\
 Let's fix $f \in \mathcal{K}^{\bot}, x \in X$ and consider the sequence $u_n := f(T^n x)$. From Corollary \ref{c:vdcsup} we have
 \[ \sup \limits_{\lambda \in \mathbb{T}} \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \right|^2 \leq \frac{2}{N(R+1)}\sum \limits_{n=0}^{N-1}|f(T^n x)|^2 + \frac{4}{R+1} \sum \limits_{r=1}^{R} \left| \frac{1}{N} \sum \limits_{n=0}^{N-r-1} f(T^n x) \overline{f(T^{n+r} x )} \right|\]
-for every $N \in \mathbb{N}, R\leq N-1$. By Birkhoff's Ergodic Theorem (RÓD£O!) (note that $f \in L^2(\mu) \Rightarrow |f| \in L^1(\mu)$) we have
+for every $N \in \mathbb{N}, R\leq N-1$. By Birkhoff's Ergodic Theorem (note that $f \in L^2(\mu) \Rightarrow |f| \in L^1(\mu)$) we have
 \begin{equation}\label{e:bourgain_main}
 \begin{gathered}
  \limsup \limits_{N \rightarrow \infty} \sup \limits_{\lambda \in \mathbb{T}} \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \right|^2 \leq \\
@@ -851,7 +838,7 @@ exists for every $j \in \mathbb{N}$, then also exists the limit
 \[ \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f (T^n x).\]
 \end{lem}
 \begin{pf}
-Take as $X_0$ the set of all $x \in X$ such that the limits $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} |f_j(T^nx)|$ and $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} |(f-f_j)(T^nx)|$ exists. By Birkhoff Ergodic Theorem (RÓD£O!) ($f-f_j \in L^1(\mu)$) we have that $\mu(X_0)=1$ (as a countable intersection of full measure sets on which there is convergence). Take a bounded sequence $(a_n)_{n \in \mathbb{N}_0}$ in $\mathbb{C}$ and suppose that $x \in X_0$ is such that the limit $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f_j (T^n x) =: b_j$ exists. Since $f_n \stackrel{L^1(\mu)}{\longrightarrow} f$, $(\|f_j\|_1)_{j \in \mathbb{N}}$ is bounded. Take $K=\sup \limits_{j \in \mathbb{N}} \|f_j\|_1$ and $M=\sup \limits_{n \in \mathbb{N}_0} |a_n|$. We have
+Take as $X_0$ the set of all $x \in X$ such that the limits $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} |f_j(T^nx)|$ and $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} |(f-f_j)(T^nx)|$ exists. By Birkhoff Ergodic Theorem ($f-f_j \in L^1(\mu)$) we have that $\mu(X_0)=1$ (as a countable intersection of full measure sets on which there is convergence). Take a bounded sequence $(a_n)_{n \in \mathbb{N}_0}$ in $\mathbb{C}$ and suppose that $x \in X_0$ is such that the limit $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f_j (T^n x) =: b_j$ exists. Since $f_n \stackrel{L^1(\mu)}{\longrightarrow} f$, $(\|f_j\|_1)_{j \in \mathbb{N}}$ is bounded. Take $K=\sup \limits_{j \in \mathbb{N}} \|f_j\|_1$ and $M=\sup \limits_{n \in \mathbb{N}_0} |a_n|$. We have
 \[ |b_j| = \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f_j (T^n x) \leq \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} MK = MK, \]
 so sequence $(b_j)_{j \in \mathbb{N}}$ is also bounded, hence it has convergent subsequence $(b_{j_m})_{m \in \mathbb{N}}$ with $\lim \limits_{m \rightarrow \infty} b_{j_m} =:b$. Fix $\varepsilon > 0$ and take $m \in \mathbb{N}$ large enough to have $|b_{j_m}-b| < \frac{\varepsilon}{2}$ and $\|f - f_{j_m}\|_1 < \frac{\varepsilon}{2M}$. Now we have
 \[ \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f (T^n x) - b\right| \leq \left|\frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f(T^n x) - a_n f_{j_m}(T^nx) \right| + \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} a_n f_{j_m} (T^n x) - b_{j_m}\right| + |b_{j_m}-b| <\]
@@ -872,14 +859,14 @@ what completes the proof.\ $\square$
 \begin{pf}(of the Theorem \ref{t:ww})\\
 First let's take $f \in L^2(\mu)$ being an eigenvalue of the Koopman operator $U_T$, i.e. suppose that there exists $\omega \in \mathbb{T}$ such that $f \circ T = \omega f\ \mu$-a.e. For almost all $x \in X$ and all $\lambda \in \mathbb{T}$ we have
 \[ \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) = \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n \omega^n f(x) = f(x) \frac{1}{N} \sum \limits_{n=0}^{N-1} (\lambda\omega)^n\ \overset{N \rightarrow \infty}{\longrightarrow} f(x) \mathds{1}_{\{1\}} (\lambda\omega), \]
-so $f$ has the Wiener-Wintner property. Take now $f$ of the form $f = \alpha_1 f_1 + \alpha_2 f_2 + ... + \alpha_m f_m,$ where $m \in \mathbb{N}$, $\alpha_1, ..., \alpha_m \in \mathbb{C}$ and $f_1, ..., f_m$ have the Wiener-Wiener property.  Since
+so $f$ has the Wiener-Wintner property. Take now $f$ of the form $f = \alpha_1 f_1 + \alpha_2 f_2 + ... + \alpha_m f_m,$ where $m \in \mathbb{N}$, $\alpha_1, ..., \alpha_m \in \mathbb{C}$ and $f_1, ..., f_m \in L^2(\mu)$ have the Wiener-Wiener property.  Since
 \[ \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) = \sum \limits_{j=1}^m \alpha_j \left( \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f_j(T^n x) \right), \]
 the limit $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) $ exists for each $x \in X_{f_1} \cap X_{f_2} \cap ... \cap X_{f_m}$, so $f$ has the Wiener-Wintner property (the set of all functions having Wiener-Wintner property forms a linear subspace of $L^1(\mu)$). Further, Corollary \ref{c:wwprop-limit} shows that the set of all functions having Wiener-Wintner property is in fact a closed subspace of $L^1(\mu)$. Since we already know that eigenfunctions has the Wiener-Wiener property, then also every $f$ from the Kronecker Factor $\mathcal{K}$ must have the Wiener-Wintner property (since if $L^2(\mu) \ni f_j \overset{L^2(\mu)}{\longrightarrow} f \in L^2(\mu)$ then also $ f_j \overset{L^1(\mu)}{\longrightarrow} f$, so $\mathcal{K} \subset \overline{\text{span}}^{L^1(\mu)} \left\{ f \in L^2(\mu): f \circ T = \lambda f \text{ for some }\lambda \in \mathbb{C} \right\}$ ). Observe further, that Theorem \ref{t:bourgain} implies that every $f \in \mathcal{K}^{\bot}$ also have the Wiener-Wintner property (pointwise convergence for every $\lambda \in \mathbb{T}$ is weaker notion than uniform convergence for $\lambda \in \mathbb{T}$) . By the Orthogonal Projection Theorem we have $L^2(\mu) = \mathcal{K} \oplus \mathcal{K}^{\bot}$, so since both $\mathcal{K}$ and $\mathcal{K}^{\bot}$ have the Wiener-Wintner property and the property is additive, the whole $L^2(\mu)$ has the Wiener-Wintner property. We finish the proof by the closedness of functions with the Wiener-Wintner property in $L^1(\mu)$ and fact that $L^2(\mu)$ is dense in $L^1(\mu).\ \square$ 
 \end{pf}
 
 \section{Uniform topological Wiener-Wintner theorem}
 In this section we will prove Wiener-Wintner theorem for topological dynamical systems, which is combination of Wiener-Wintner Ergodic Theorem and Theorem \ref{t:unierg}. Theorem and proof are taken from \cite{robinson}. Following the author, we consider the case when $X$ is a compact metric space, although the main theorem of Chapter 5 shows that it's true also for nonmetrizable compact space. Let us begin with some facts about eigenfunctions of Koopman Operators on $C(X)$ and $L^2(\mu)$.\\ \\
-Let $(X,T)$ be a uniquely ergodic topological dynamical system with unique ergodic measure $\mu$. Denote by $M_T \subset \mathbb{C}$ set of all eigenvalues of the Koopman Operator $U_T : L^2 (X, \mathcal{B}(X), \mu) \rightarrow L^2 (X, \mathcal{B}(X), \mu)$. By Proposition \ref{p:koopman_spectral} we have $M_T \subset \mathbb{T}$. Since $T$ is continuous, we can consider also Koopman Operator on $C(X)$. Denote by $C_T$ set of eigenvalues from $\mathbb{T}$ of Koopman Operator on $C(X)$, i.e. $C_T = \{ \lambda \in \mathbb{T}: f \circ T = \lambda f \text{ for some } f \in C(X) \backslash \{0\} \}$, where the equality is taken to be pointwise, i.e. $f(Tx) = \lambda f(x)$ for all $x \in X$. We will say that $f \in C(X) \backslash \{ 0 \}$ with $f (Tx) = \lambda f(x)$ for all $x \in X$ is a \textit{continuous eigenfunction} and $f \in L^2(\mu)\backslash \{ 0\}$ with $f \circ T = \lambda f\ \mu$-a.e. is a \textit{measurable eigenfunction} (so continuous eigenfunctions are eigenvectors for Koopman Operator on $C(X)$ and measurable eigenfunctions are eigenvector for Koopman Operator on $L^2(\mu)$). We know that measurable eigenfunction $f$ has $|f| = \text{const}\ \mu$-a.e. We will show that continuous eigenfunction has $|f(x)| = \text{const}$ for all $x \in X$. We will use the following simple
+Let $(X,T)$ be a uniquely ergodic topological dynamical system with unique ergodic measure $\mu$. Denote by $M_T \subset \mathbb{C}$ set of all eigenvalues of the Koopman Operator $U_T : L^2 (X, \mathcal{B}(X), \mu) \rightarrow L^2 (X, \mathcal{B}(X), \mu)$. By Proposition \ref{p:koopman_spectral} we have $M_T \subset \mathbb{T}$. Since $T$ is continuous, we can consider also Koopman Operator on $C(X)$. Denote by $C_T$ set of eigenvalues from $\mathbb{T}$ of Koopman Operator on $C(X)$, i.e. $C_T = \{ \lambda \in \mathbb{T}: f \circ T = \lambda f \text{ for some } f \in C(X) \backslash \{0\} \}$, where the equality is taken to be pointwise, i.e. $f(Tx) = \lambda f(x)$ for all $x \in X$. We will say that $f \in C(X) \backslash \{ 0 \}$ with $f (Tx) = \lambda f(x)$ for all $x \in X$ is a \textit{continuous eigenfunction} and $f \in L^2(\mu)\backslash \{ 0\}$ with $f \circ T = \lambda f\ \mu$-a.e. is a \textit{measurable eigenfunction} (so continuous eigenfunctions are eigenvectors for Koopman Operator on $C(X)$ and measurable eigenfunctions are eigenvectors for Koopman Operator on $L^2(\mu)$). We know that measurable eigenfunction $f$ has $|f| = \text{const}\ \mu$-a.e. We will show that continuous eigenfunction has $|f(x)| = \text{const}$ for all $x \in X$. We will use the following simple
 
 \begin{f}\label{f:noinvariantset}
 Let $(X,T)$ be a uniquely ergodic topological dynamical system with unique ergodic probability measure $\mu$. Suppose that $A \subset X$ is closed with $T(A) \subset A$. If $\text{supp}(\mu) \cap A = \emptyset$ then $A = \emptyset$.
@@ -892,7 +879,7 @@ Now $\nu$ is a $T$-invariant Borel probability measure on $X$ with $\nu(A)=1$. T
 \end{pf}
 
 \begin{f}\label{f:constmod}
-Let $(X,T)$ be a uniquely topological dynamical system with unique ergodic probability measure $\mu$. Every continuous eigenefunction coresponding to eigenvalue $\lambda \in \mathbb{T}$ has constant modulus, i.e. there is $c \geq 0$ with $|g(x)|=c$ for all $x \in X$.
+Let $(X,T)$ be a uniquely topological dynamical system with unique ergodic probability measure $\mu$. Every continuous eigenfunction coresponding to eigenvalue $\lambda \in \mathbb{T}$ has constant modulus, i.e. there is $c \geq 0$ with $|g(x)|=c$ for all $x \in X$.
 \end{f}
 \begin{pf} We have $|g| \circ T = | g \circ T | = | \lambda g| = | \lambda | |g| = |g|$ and since $T$ is ergodic we have by Proposition \ref{p:erginv} $|g| = c\ \mu$-a.e. for some $c \geq 0$. the set $\{ |g| \neq c \}$ is open (since $g$ is continuous) and has measure zero, so $\text{supp} (\mu) \cap \{ |g| \neq c \} = \emptyset$ (any point in $\{ |g| \neq c \}$ has open neighborhood with zero measure, so cannot be in the support of $\mu$), hence for any $x \in \text{supp} (\mu)$ there is $|g(x)|=c$. Now for any $d \geq 0$ with $d \neq c$ the set $\{ |g| = d \}$ is closed (since $T$ is continuous) with $T(\{ |g| = d \}) \subset \{ |g| = d \}$ (since $|g(x)| = d \Rightarrow |g(Tx)| = |\lambda| |g(x)| = d$) and $\{ |g| = d \} \subset  \{ |g| \neq c \}$, hence $\text{supp} (\mu) \cap \{ |g| = d \} = \emptyset$. By Fact \ref{f:noinvariantset} there must be $\{ |g| = d \} = \emptyset$. This proves that $\{ |g| = c \} = X.\ \square$
 \end{pf}
@@ -905,7 +892,7 @@ Let $(X,T)$ be a uniquely topological dynamical system with unique ergodic proba
 By Proposition \label{p:koopman_spectral} we know that for ergodic $T$, the eigenspace corresponding to the eigenvalue $\lambda \in M_T$ is one-dimensional, so we can explicitly give form of the orthogonal projection on this eigenspace. We have 
 \begin{equation}\label{e:spectral_projection_1dim}
 P_\lambda f = \frac{\langle f, g \rangle}{\|g\|_2^2}g \text{ for } f \in L^2(\mu),
-\end{equation} where $g$ is an eigenfunction corresponing to $\lambda$. If $\lambda \in \mathbb{T}\backslash M_T$, then $P_\lambda f =0$ for all $f \in L^2(\mu)$. For $\lambda \in C_T$ we can suppose that $g$ is a continuous function and \eqref{e:spectral_projection_1dim} defines an operator $P_{\lambda} : C(X) \rightarrow C(X)$ and $P_\lambda f =0$ for $\lambda \notin C_T$. Note that we do not define $P_{\lambda} : C(X) \rightarrow C(X)$ for $\lambda \in M_T \backslash C_T$. \\ \\
+\end{equation} where $g$ is an eigenfunction corresponing to $\lambda$. If $\lambda \in \mathbb{T}\backslash M_T$, then $P_\lambda f =0$ for all $f \in L^2(\mu)$. For $\lambda \in C_T$ we can suppose that $g$ is a continuous function and \eqref{e:spectral_projection_1dim} defines an operator $P_{\lambda} : C(X) \rightarrow C(X)$ and $P_\lambda f =0$ for $\lambda \notin ( C_T \cup M_T)$. Note that we do not define $P_{\lambda} : C(X) \rightarrow C(X)$ for $\lambda \in M_T \backslash C_T$. \\ \\
 Observe that $\lambda \in M_T \Leftrightarrow \lambda^{-1} = \overline{\lambda} \in M_T$ and $\lambda \in C_T \Leftrightarrow \overline{\lambda} 
 \in C_T$. If follows from facts that $g(Tx) = \lambda g(x) \Leftrightarrow \overline{g}(Tx) = \overline{\lambda} \overline{g} (x)$; $g \neq 0 \Leftrightarrow \overline{g} \neq 0$ and $g$ is continuous if and only if $\overline{g}$ is continuous. It follows that for $\lambda \in \mathbb{T}$ with $\lambda \notin M_T \backslash C_T$ we also have $\overline{\lambda} \notin M_T \backslash C_T$ and the operator $P_{\overline{\lambda}} : C(X) \rightarrow C(X)$ is well defined. Now we can state uniform Wiener-Wintner theorem for topological dynamical systems.
 
@@ -933,7 +920,7 @@ Consider topological dynamical system $(\hat{X}, \hat{T})$, where $\hat{X} = X \
 \end{equation}
 since $\frac{1}{N_j} \sum \limits_{n=0}^{N_{j}} \delta_{(T^n x_{N_j}, \lambda^n)} \overset{^{*}w}{\longrightarrow} \rho$. Consider now the marginal measure $\rho |_X : \mathcal{B}(X) \rightarrow [0,1]$ given by $\rho|_X (B) = \rho(B \times \mathbb{T})$ for $B \in \mathcal{B}(X)$. $\rho |_X$ is a probability measure on $(X, \mathcal{B}(X))$. We will verify now that $\rho |_X$ is also $T$-invariant:
 \[ \rho|_X (T^{-1} B ) = \rho (T^{-1} (B) \times \mathbb{T})=\rho (\hat{T}^{-1}( B \times \mathbb{T})) = \rho (B \times \mathbb{T}) = \rho|_X (B).  \]
-Since $(X,T)$ is uniquely ergodic, there must be $\rho|_X = \mu$. Let's take spectral measure $\sigma_{h, \hat{T}, \rho}$ of the function $h$ (which can be seen as an element of $L^2(\hat{X}, \rho)$) for the Koopman Operator $U_{\hat{T}}: L^2(\rho) \rightarrow L^2(\rho)$. Observe that
+Since $(X,T)$ is uniquely ergodic, there must be $\rho|_X = \mu$. Let's take spectral measure $\sigma_{h, \hat{T}, \rho}$ of the function $h$ for the Koopman Operator $U_{\hat{T}}: L^2(\rho) \rightarrow L^2(\rho)$. Observe that
 \begin{equation*}
 \begin{gathered}
  \widehat{\sigma}_{h, \hat{T}, \rho} (n) = \langle U_{\hat{T}}h, h \rangle = \int \limits_{\hat{X}} h \circ \hat{T}^n \overline{h} d\rho =  \int \limits_{\hat{X}} h(T^n x, \lambda^n \omega) \overline{h(x, \omega)}d\rho(x, \omega) = \\
@@ -941,7 +928,7 @@ Since $(X,T)$ is uniquely ergodic, there must be $\rho|_X = \mu$. Let's take spe
 = \lambda^n \int \limits_{X} f(T^n x)\overline{f(x)} d\rho|_X (x)= \lambda^n \int \limits_{X} f(T^n x)\overline{f(x)} d\mu (x) = \lambda^n \widehat{\sigma}_{f, T, \mu} (n).
 \end{gathered}
 \end{equation*}
-Consider the measure $\sigma_{h, \hat{T}, \rho} \circ R_{\overline{\lambda}}^{-1}$ on $()$ given by $\sigma_{h, \hat{T}, \rho} \circ  R_{\overline{\lambda}}^{-1} (A) := \sigma_{h, \hat{T}, \rho} (R_{\overline{\lambda}}^{-1} (A))$ (so it's measure $\sigma_{h, \hat{T}, \rho}$ transported by rotation $R_{\overline{\lambda}}$. We have
+Consider the measure $\sigma_{h, \hat{T}, \rho} \circ R_{\overline{\lambda}}^{-1}$ on $(\mathbb{T}, \mathcal{B}(\mathbb{T}))$ given by $\sigma_{h, \hat{T}, \rho} \circ  R_{\overline{\lambda}}^{-1} (A) := \sigma_{h, \hat{T}, \rho} (R_{\overline{\lambda}}^{-1} (A))$ (so it's measure $\sigma_{h, \hat{T}, \rho}$ transported by rotation $R_{\overline{\lambda}}$). We have
 \begin{equation*}
 \begin{gathered}
 \widehat{\sigma_{h, \hat{T}, \rho} \circ  R_{\overline{\lambda}}^{-1}}(n) = \int \limits_{\mathbb{T}} z^n d\sigma_{h, \hat{T}, \rho} \circ  R_{\overline{\lambda}}^{-1} (z) = \int \limits_{\mathbb{T}} (\overline{\lambda}z)^n d\sigma_{h, \hat{T}, \rho} (z) = \\
@@ -983,13 +970,28 @@ Using Fact \ref{f:constmod} we know that $|g|$ is constant (and nonzero), so the
 \[ \sigma_{f, T, \mu} (\{\overline{\lambda}\})^{1/2} \geq \limsup \limits_{N \rightarrow \infty} \frac{1}{N} \left| \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x_N) \right| \geq \varepsilon >0.\]
 On the other hand, from Lemma \ref{l:spectr} we know that \[ \sigma_{f, T, \mu} (\{\overline{\lambda}\})^{1/2} = \|P_{\overline{\lambda}} f\|_2 =0.\]
 Obtained contrary finishes the proof. $\square$
-
 \end{enumerate}
 \end{pf}
+It's also possible to obtain equivalence in Theorem \ref{t:robinson}.
 
-\chapter{Ergodic theory for operators}\label{r:ergop}
+\begin{prop}
+Let $(X,T)$ be uniquely ergodic topological dynamical system with unique measure $\mu$ and take $\lambda \in \mathbb{T}$. If for every $f \in C(X)$ the sequence
+\begin{equation}\label{e:robinson_reverse}
+\frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f \circ T^n
+\end{equation}
+converges uniformly, then $\lambda \notin M_T \backslash C_T$.
+\end{prop}
+\begin{pf}
+Suppose first that there are $f,g \in C(X)$ with $\frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f \circ T^n \overset{\| \cdot \|_{\text{sup}}}{\rightarrow} g$ and $g \neq 0$. In particular there must be poinwise convergence for every $x \in X$ and we get
+\[ g(Tx) = \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f (T^{n+1} x) = \overline{\lambda} \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^{n+1} f (T^{n+1} x) = \overline{\lambda} \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=1}^{N} \lambda^{n} f (T^{n} x)  =  \]
+\[ = \overline{\lambda} \lim \limits_{N \rightarrow \infty} \frac{1}{N} \Big( \sum \limits_{n=0}^{N-1} \lambda^{n} f (T^{n} x) - f(x) + \lambda^N f(T^N x) \Big) = \overline{\lambda}g(x),\]
+since $|\lambda^N f(T^N x)| \leq |\lambda^N| \|f\|_{\text{sup}} = \|f\|_{\text{sup}}$. This proves that $\overline{\lambda} \in C_T$ and also $\lambda \in C_T$, since $g \neq 0$. Suppose now that for every $f \in C(X)$ we have uniform convergence of \eqref{e:robinson_reverse} to $0$. We will prove that in this case there is $\lambda \notin M_T$. Note that by Corollary \ref{c:spectr_proj} the sequence \eqref{e:robinson_reverse} converges in $L^2(\mu)$ to the $P_{\overline{\lambda}} f$ - the orthogonal projection on the eigenspace of $\overline{\lambda}$. Since uniform and $L^2$ limits are almost everywhere equal if they both exists, we can conclude that $P_{\overline{\lambda}} f = 0$ for every $f \in C(X)$ (the equality is understood $\mu$-a.e. and function $f \in C(X)$ can be seen as an element of $L^2(\mu)$). Since $C(X)$ is dense in $L^2(\mu)$ and operator $P_{\overline{\lambda}}$ is continuous, there acutally is $P_{\overline{\lambda}} f =0$ for all $f \in L^2(\mu)$. This proves that eigenspace of $\overline{\lambda}$ is $\{ 0 \}$, hence $\overline{\lambda} \notin M_T$ and also $\lambda \notin M_T.\ \square$
+\end{pf}
 
-\chapter{Wiener-Wintner theorem for semigroups of Markov operators}\label{r:wwop}
+
+%\chapter{Ergodic theory for operators}\label{r:ergop}
+
+%\chapter{Wiener-Wintner theorem for semigroups of Markov operators}\label{r:wwop}
 
 \begin{thebibliography}{99}
 \addcontentsline{toc}{chapter}{Bibliography}
