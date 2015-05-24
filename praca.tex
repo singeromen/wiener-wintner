@@ -294,7 +294,7 @@ Let $H_0$ be a closed linear subspace of a Hilbert space $H$. Then
 \[ H = H_0 \oplus H_0^{\bot}, \]
 i.e. for every $x \in H$ there are unique $x_0 \in H_0,\ x_1 \in H_0^{\bot}$ such that $x = x_0 + x_1$. Moreover, transformation $P: H \rightarrow H$ given by $P(x)=x_0$ is a bounded linear operator with $\| P \| \leq 1$ and $P \circ P =P$. Operator $P$ is called an \textbf{orthogonal projection} on subspace $H_0$.
 \end{thm}
-For a normed space $E$ we denote by $E^*$ its dual space, i.e. normed space of all continuous linear functionals $\Lambda: E \rightarrow \mathbb{C}$ with the operator norm. We can consider weak topology on $E$, i.e. the coarsest topology such that each $\Lambda \in E^*$ is continuous and weak$^*$ topology on $E^*$, i.e. the coarsest topology such that for each $x \in E$ evaluation $E^* \ni \Lambda \mapsto \Lambda x \in \mathbb{C}$ is continuous. $E$ with weak topology and $E^*$ with weak$^*$ topology are locally convex topological vector spaces, although they do not need to be metrizable.
+For a normed space $E$ we denote by $E^*$ its dual space, i.e. normed space of all continuous linear functionals $\Lambda: E \rightarrow \mathbb{C}$ with the operator norm. We use standard notation $\langle x, x^* \rangle := x^*(x)$ for $x \in E,\ x^* \in E^*$. We can consider weak topology on $E$, i.e. the coarsest topology such that each $\Lambda \in E^*$ is continuous and weak$^*$ topology on $E^*$, i.e. the coarsest topology such that for each $x \in E$ evaluation $E^* \ni \Lambda \mapsto \Lambda x \in \mathbb{C}$ is continuous. $E$ with weak topology and $E^*$ with weak$^*$ topology are locally convex topological vector spaces, although they do not need to be metrizable.
 
 \begin{thm}[Banach-Alaouglu theorem {\cite[thm. 3.15]{rudin}}]
 Closed unit ball $\overline{B}(0,1) \subset E^*$ in a dual space of a normed space $E$ is weak$^*$ compact.
@@ -314,7 +314,7 @@ Closed unit ball $\overline{B}(0,1) \subset E^*$ in a dual space of a separable 
 Let $V$ be a vector space and take $A \subset V$. Point $x \in A$ is said to be an \textbf{extremal point} of $A$ if $x$ is not a middle point of any interval with ends in $A$, i.e. if $x = \alpha y + (1-\alpha)z$ for some $y,z \in A, \alpha \in (0,1)$ then $y=z=x$. We denote set of all extreme points of $A$ by $Ext(A)$.
 \end{df}
 
-\begin{thm}[Krein-Milman theorem{\cite[thm. 3.23]{rudin}}]
+\begin{thm}[Krein-Milman theorem\ {\cite[thm. 3.23]{rudin}}]
 Let $E$ be a locally convex topological vector space. If $K$ is a nonempty, compact and convex subset of $E$, then $K = \overline{co}(Ext(K))$, where $co(A)$ stands for a convex hull of a set $A \subset E$.
 \end{thm}
 
@@ -340,6 +340,32 @@ Moreover, for every $\mu \in \mathcal{M}(X)$ the above equality defines a unique
 \begin{rem} Riesz-Markov theorem states that $\Phi : \mathcal{M}(X) \rightarrow C(X)^*$ given by $\Phi(\mu) (f) = \int \limits_{X} f d\mu, f \in C(X)$ is a bijective isometry. It is straightforward to check that $\Phi$ is also linear. This fact lets us identify Banach spaces $\mathcal{M}(X)$ and $C(X)^*$. This identifiaction allows us also to consider weak$^*$ topology on $\mathcal{M}(X)$. Note that $\mu_n \overset{^{*}w}{\longrightarrow}\mu$ if and only if $\underset{f \in C(X)}{\forall}\ \int \limits_{X} f d\mu_n \rightarrow \int \limits_{X} f d\mu$.
 \end{rem}
 
+\begin{df} Let $E$ be a normed space. Denote by $L(E)$ set of all bounded linear operators $T:E \rightarrow E$. The \textbf{strong operator topology} (s.o.t) on $L(E)$ is a topology induced by a family of seminorms $\{p_x :\ x \in E \}$, where $p_x(T) := Tx$ for $x \in E,\ T \in L(E)$.
+\end{df}
+
+\begin{rem} Note that space $L(E)$ endowed with strong operator topology is a locally convex topological vector space. Net $(T_{\alpha})_{\alpha \in \Lambda}$ of operators in $L(E)$ converges to $T \in L(E)$ in s.o.t if and only if
+\[ \underset{x \in E}{\forall}\ T_{\alpha}x \overset{\alpha}{\longrightarrow} Tx, \]
+so strong operator topology is a topology of pointwise convergence on $L(E)$.
+\end{rem}
+
+\begin{df}
+Let $E,F$ be normed space. For $T \in L(E,F)$ there exists unique operator $T' \in L(F^*, E^*)$ such that
+\[ T'y^*(x) = y^*(Tx) \text{ for all } x \in E,\ y^* \in F^*. \]
+Operator $T'$ is called an \textbf{adjoint (dual) operator} of $T$.
+\end{df}
+
+\begin{df}
+We say that Banach space $E$ is reflexive if it is isometrically isomorphic to its second dual, i.e. $X \cong X^{**}$.
+\end{df}
+Banach-Alaoglu Theorem implies the following
+\begin{thm}
+Banach space $E$ is reflexive if and only if its closed unit ball is weakly compact.
+\end{thm}
+Every Hilbert space is reflexive.
+
+\begin{thm}[Krein-Smulian Theorem\ {\cite[thm. G.7]{eisner}}]\label{t:kreinsmulian}
+Let $E$ be a Banach space. If set $A \subset E$ is relatively weakly compact then also $co A$ is relatively weakly compact.
+\end{thm}
 \section{Spectral theory for isometries}
 
 We will introduce now basic facts from spectral theory for isometries on Hilbert spaces.
@@ -432,7 +458,7 @@ Non-negative finite Borel measure $\sigma$ on $\mathbb{T}$ is continuous if and 
 ( \sum \limits_{k=1}^N y_k )^2 \leq N \sum \limits_{k=1}^N y_k^2.
 \end{equation}
 It can be seen by the following computation:
-\[N \sum \limits_{k=1}^N  y_k ^2 -  (\sum \limits_{k=1}^N  y_k )^2 = N \sum \limits_{k=1}^N  y_k ^2 - (\sum \limits_{k=1}^N y_k^2 + 2 \sum \limits_{1 \leq i < j \leq N} y_iy_j) = \]
+\[ N \sum \limits_{k=1}^N  y_k ^2 -  (\sum \limits_{k=1}^N  y_k )^2 = N \sum \limits_{k=1}^N  y_k ^2 - (\sum \limits_{k=1}^N y_k^2 + 2 \sum \limits_{1 \leq i < j \leq N} y_iy_j) = \]
 \[ =(N-1) \sum \limits_{k=1}^N  y_k ^2 - 2 \sum \limits_{1 \leq i < j \leq N} y_iy_j = \sum \limits_{1 \leq i < j \leq N} ( y_i - y_j)^2 \geq 0. \]
 \end{rem}
 From \eqref{e:squares} we can obtain another
@@ -456,7 +482,7 @@ After establishing von Neumann's Ergodic Theorem in next chapter, we will be abl
 
 This chapter includes short introduction to the ergodic theory. We give basic concepts and facts. The presentation is based on \cite{einsiedler} and \cite{eisner}.
 
-\section{Measurable dynamical systems}
+\section{Measure preserving dynamical systems}
 
 The main object in ergodic theory is a measure preserving system. In the first part of the thesis we will consider only discrete time dynamical systems arising from single transformation.
 
@@ -985,15 +1011,230 @@ converges uniformly, then $\lambda \notin M_T \backslash C_T$.
 Suppose first that there are $f,g \in C(X)$ with $\frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f \circ T^n \overset{\| \cdot \|_{\text{sup}}}{\rightarrow} g$ and $g \neq 0$. In particular there must be poinwise convergence for every $x \in X$ and we get
 \[ g(Tx) = \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f (T^{n+1} x) = \overline{\lambda} \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^{n+1} f (T^{n+1} x) = \overline{\lambda} \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=1}^{N} \lambda^{n} f (T^{n} x)  =  \]
 \[ = \overline{\lambda} \lim \limits_{N \rightarrow \infty} \frac{1}{N} \Big( \sum \limits_{n=0}^{N-1} \lambda^{n} f (T^{n} x) - f(x) + \lambda^N f(T^N x) \Big) = \overline{\lambda}g(x),\]
-since $|\lambda^N f(T^N x)| \leq |\lambda^N| \|f\|_{\text{sup}} = \|f\|_{\text{sup}}$. This proves that $\overline{\lambda} \in C_T$ and also $\lambda \in C_T$, since $g \neq 0$. Suppose now that for every $f \in C(X)$ we have uniform convergence of \eqref{e:robinson_reverse} to $0$. We will prove that in this case there is $\lambda \notin M_T$. Note that by Corollary \ref{c:spectr_proj} the sequence \eqref{e:robinson_reverse} converges in $L^2(\mu)$ to the $P_{\overline{\lambda}} f$ - the orthogonal projection on the eigenspace of $\overline{\lambda}$. Since uniform and $L^2$ limits are almost everywhere equal if they both exists, we can conclude that $P_{\overline{\lambda}} f = 0$ for every $f \in C(X)$ (the equality is understood $\mu$-a.e. and function $f \in C(X)$ can be seen as an element of $L^2(\mu)$). Since $C(X)$ is dense in $L^2(\mu)$ and operator $P_{\overline{\lambda}}$ is continuous, there acutally is $P_{\overline{\lambda}} f =0$ for all $f \in L^2(\mu)$. This proves that eigenspace of $\overline{\lambda}$ is $\{ 0 \}$, hence $\overline{\lambda} \notin M_T$ and also $\lambda \notin M_T.\ \square$
+since $|\lambda^N f(T^N x)| \leq |\lambda^N| \|f\|_{\text{sup}} = \|f\|_{\text{sup}}$. This proves that $\overline{\lambda} \in C_T$ and also $\lambda \in C_T$, since $g \neq 0$. Suppose now that for every $f \in C(X)$ we have uniform convergence of \eqref{e:robinson_reverse} to $0$. We will prove that in this case there is $\lambda \notin M_T$. Note that by Corollary \ref{c:spectr_proj} the sequence \eqref{e:robinson_reverse} converges in $L^2(\mu)$ to the $P_{\overline{\lambda}} f$ - the orthogonal projection on the eigenspace of $\overline{\lambda}$. Since uniform and $L^2$ limits are almost everywhere equal if they both exists, we can conclude that $P_{\overline{\lambda}} f = 0$ for every $f \in C(X)$ (the equality is understood $\mu$-a.e. and function $f \in C(X)$ can be seen as an element of $L^2(\mu)$). Since $C(X)$ is dense in $L^2(\mu)$ and operator $P_{\overline{\lambda}}$ is continuous, there actually is $P_{\overline{\lambda}} f =0$ for all $f \in L^2(\mu)$. This proves that eigenspace of $\overline{\lambda}$ is $\{ 0 \}$, hence $\overline{\lambda} \notin M_T$ and also $\lambda \notin M_T.\ \square$
 \end{pf}
 
 
-%\chapter{Ergodic theory for operators}\label{r:ergop}
+\chapter{Ergodic theory for operator semigroups and Markov operators on $C(K)$}\label{r:ergop}
+Lattice properties of $C(K)$ and $\mathcal{M}(K)$\\
+Properties of positive and Markov operators\\
 
-%\chapter{Wiener-Wintner theorem for semigroups of Markov operators}\label{r:wwop}
+This chapter contains preliminaries for the next chapter in which we will establish topological Wiener-Winter theorem for semigroups of operators. We present basics of operator theoretic approach to ergodic theory. Instead of single deterministic transformation on measure space, we will consider semigroup of bounded linear operators on Banach space. Introduction to these topics can be found in \cite{krengel}. We will follow setting presented in \cite{schreiber13} and \cite{schreiber14}. We also introduce concepts of amenable semigroups and Markov operators on $C(K)$. 
+
+\section{Operator semigroups, ergodic nets and mean ergodicity}
+
+\begin{df}
+We say that semigroup $G$ is a \textbf{semitopological semigroup} if $G$ is endowed with topology, which makes transformations $G \ni g \mapsto gh \in G,\ G \ni g \mapsto hg \in G$ continuous for every $h \in G$.
+\end{df}
+Let $\mathfrak{X}$ be a Banach space. We will consider semigroups of bounded operators on $\mathfrak{X}$ indexed by elements of semitopological semigroup. We will assume such representation to have some basic properties.Space $L(\mathfrak{X})$ will be considered with strong operator topology, unless stated otherwise.
+
+\begin{df}
+Let $G$ be a semitopological semigroup. $\mathcal{S} = \{ S_g:\ g \in G \}$ is called a \textbf{bounded representation of $G$ on $\mathfrak{X}$} if
+\begin{enumerate}[(i)]
+\item $S_g \in L(\mathfrak{X})$ for every $g \in G$,
+\item $S_{g_1}S_{g_2} = S_{g_2 g_1}$ for all $g_1, g_2 \in G$,
+\item $\sup \limits_{g \in G} \|S_g\| < \infty$,
+\item $G \ni g \mapsto S_g x$ is continuous for every $x \in \mathfrak{X}$.
+\end{enumerate}
+\end{df}
+For $x \in \mathfrak{X}$ we will denote $\mathcal{S}x:=\{S_g x:\ g \in G \}$.
+\begin{ex}
+Let $X$ be a compact Hausdorff space, let $T:X \rightarrow X$ be a continuous transformation and $U_T \in L(C(X))$ be its Koopman operator on the Banach space of continuous functions. Note that $U_T$ is a contraction, i.e. $\|U_T\| \leq 1$. Semigroup $\mathbb{N}$ endowed with the discrete topology becomes semitopological semigroup. $\mathcal{S} := \{ U_T^n:\ n \in \mathbb{N} \}$ is a bounded representation of $\mathbb{N}$ on $C(X)$. Analogously, if $T: X \rightarrow X$ is a measure preserving transformation on the measure space $(X, \mathcal{A}, \mu)$, then the Koopman operator $U_T: L^p(\mu) \rightarrow L^p(\mu), p \in [1, \infty)$ gives rise to a bounded representation $\{U_T^n \}_{n \in \mathbb{N}}$ of $\mathbb{N}$ on $L^p(\mu)$.
+\end{ex}
+
+\begin{ex}\label{e:powerbounded}
+The previous example can be generalised. Let $\mathfrak{X}$ be a Banach space and let $\{T_n\}_{n \in \mathbb{N}}$ be a sequence of bounded linear operators on $\mathfrak{X}$ satisfying $T_{n+m} = T_m T_n$ for $n, m \in \mathbb{N}$ and assume that sequence $\{T_n\}_{n \in \mathbb{N}}$ is \textbf{power bounded}, i.e. $\sup \limits_{n \in \mathbb{N}} \|T_n \| < \infty$. Then $\mathcal{S}:= \{T_n:\ n \in \mathbb{N} \}$ is a bounded representation of $\mathbb{N}$ on $\mathfrak{X}$.  In particular, if we take $T$ to be a contraction on $\mathfrak{X}$, then a sequence $T_n := T^n$ is a bounded representation of $\mathbb{N}$ on $\mathfrak{X}$.
+\end{ex}\\
+Note that bounded representation $\mathcal{S}$ is itself a semitopological semigroup with respect to the strong operator topology. In fact, even $co\mathcal{S}$ and $\overline{co}\mathcal{S}$ are semitopological semigroups. We will denote fixed space of semigroup $\mathcal{S}$ by \[Fix(\mathcal{S}):= \{ x \in \mathfrak{X}: S_g x =x \text{ for all } g \in G \}.\]
+$Fix(\mathcal{S})$ is a closed linear subspace of $\mathfrak{X}$. We will also denote
+\[ \mathbb{P}_{\mathcal{S}} = \{\mu \in Fix(\mathcal{S}):\ \mu \geq 0,\ \mu(X) = 1 \} \]
+for the set of invariant probability measures. Together with semigroup $\mathcal{S}$ we will consider adjoint semigroup $\mathcal{S}' := \{S_g ' : g \in G\}$ and its fixed space $Fix(\mathcal{S}')$.\\ \\
+For a given bounden representation $\mathcal{S}$, we would like to study its mean asymptotic behaviour, in a similar fashion in which we studied existence of limit for ergodic averages
+\[ \frac{1}{N} \sum \limits_{n=0}^{N-1} f \circ T^n. \]
+Since there is no canonical way of averaging for abstract semigroup, we need to introduce the concept of $\mathcal{S}$-ergodic net.
+
+\begin{df}
+Let $\mathcal{S}$ be a bounded representation of semigroup $G$. A net $(A^{\mathcal{S}}_\alpha)_{\alpha \in \Lambda}$ of operators in $L(\mathfrak{X})$ is called a \textbf{strong right (left) $\mathcal{S}$-ergodic net} if
+\begin{enumerate}[(i)]
+\item $A_{\alpha}^{\mathcal{S}} \in  \overline{co}\mathcal{S}$ for all $\alpha \in \Lambda$ (closure is taken with respect to the strong operator topology),
+\item $(A_{\alpha}^{\mathcal{S}})$ is \textbf{strongly right (left) asymptotically invariant}, i.e.
+\[ \lim \limits_{\alpha} (A_{\alpha}^{\mathcal{S}} x - A_{\alpha}^{\mathcal{S}} S_g x) = 0\ \  \Big( \lim \limits_{\alpha} (A_{\alpha}^{\mathcal{S}} x - S_g A_{\alpha}^{\mathcal{S}} x) = 0 \Big). \]
+\end{enumerate}
+The net $(A^{\mathcal{S}}_\alpha)_{\alpha \in \Lambda}$ is called a \textbf{weak right (left) $\mathcal{S}$-ergodic net} if condition (i) holds and $(A^{\mathcal{S}}_\alpha)_{\alpha \in \Lambda}$ is \textbf{weakly right (left) asymptotically invariant}, i.e. convergence in (ii) holds in weak topology on $\mathfrak{X}$. The net $(A^{\mathcal{S}}_\alpha)_{\alpha \in \Lambda}$ is called \textbf{strong (weak) $\mathcal{S}$-ergodic net} when it is a strong (weak) right and left $\mathcal{S}$-ergodic net. We say that representation $\mathcal{S}$ admits strong (weak) right/left ergodic net if there exists at least one ergodic net with desired properties.
+\end{df}
+
+\begin{ex}
+Let $\mathcal{S}:=\{T_n\}_{n \in \mathbb{N}}$ be such as in Example \ref{e:powerbounded}. The sequence of Ceasaro averages 
+\[ A_N := \frac{1}{N} \sum \limits_{n=0}^{N-1} T_n,\ N \in \mathbb{N}, \]
+is a strong $\mathcal{S}$-ergodic net. Indeed, we have $A_N \in co\mathcal{S}$ for all $N \in \mathbb{N}$ and
+\[ \| A_N x - A_N T_k x \| = \| \frac{1}{N} \Big( \sum \limits_{n=0}^{N-1} T_n x - \sum \limits_{n=0}^{N-1} T_{k+n} x \Big) \|  = \| \frac{1}{N} \Big( \sum \limits_{n=0}^{k-1} T_n x - \sum \limits_{n=N}^{N+k-1} T_n x \Big) \| \leq \]
+\[ \leq \frac{2k\|x\|}{N} \sup \limits_{n \in \mathbb{N}} \|T_n\| \overset{N \rightarrow \infty}{\longrightarrow} 0 \text{ for every } k \in \mathbb{N}. \]
+Analogously there is
+\[ \| A_N x - T_k A_N x \| \overset{N \rightarrow \infty}{\longrightarrow} 0 \text{ for every } k \in \mathbb{N}, \]
+which shows that $(A_N)_{n \in \mathbb{N}}$ is a strong $\mathcal{S}$-ergodic net. Of course, $(A_N)_{n \in \mathbb{N}}$ is also weak $\mathcal{S}$-ergodic net. In particular, Ceasaro averages of iterates of Koopman Operator for continuous transformation on compact space $X$ forms a strong ergodic net on the space $C(X).\ \blacksquare$ 
+\end{ex}
+%We will state now important theorem about that convergence.
+%
+%\begin{thm}[Eberlein's Theorem, {\cite[thm 1.5, p. 76]{krengel}}]\label{t:eberlein}
+%Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$ and let $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$ be a $\mathcal{S}$-ergodic net. Take $x, y \in \mathfrak{X}$. Then the following conditions are equivalent:
+%\begin{enumerate}[(1)]
+%\item $A_{\alpha}^{\mathcal{S}} x \longrightarrow y,$
+%\item $A_{\alpha}^{\mathcal{S}} x \overset{w}{\longrightarrow} y,$
+%\item $y$ is a weak cluster point of $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+%\item $y \in Fix(\mathcal{S})$ and $y \in \overline{co} \mathcal{S}x$.
+%\end{enumerate}
+%\end{thm}
+%
+%\begin{rem} Note that condition (4) in Eberlein's Theorem is independent of $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$. It means, that if $A_{\alpha}^{\mathcal{S}} x \longrightarrow y$ for some $\mathcal{S}$-ergodic net then $B_{\beta}^{\mathcal{S}} x \longrightarrow y$ for every $\mathcal{S}$-ergodic net $(B_{\beta}^{\mathcal{S}})_{\beta \in \Lambda'}$.
+%\end{rem}
+The following fact might be surprising:
+
+\begin{thm}[{\cite[thm 1.5]{schreiber13}}]\label{t:weakstrongnets}
+Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$ on $\mathfrak{X}$. There exists strong (right) $\mathcal{S}$-ergodic net if and only if there exists weak (right) $\mathcal{S}$-ergodic net.
+\end{thm}
+Operator ergodic theory is interested in convergence of net $A^{\mathcal{S}}_{\alpha}x$ for each $x \in \mathfrak{X}$. We will now introduce central theorem of the ergodic theory for operator semigroups which deals with that convergence. Our statement of the theorem is a combination of Theorem 1.7 from \cite{schreiber13} and Theorems 1.5 (p. 76) and 1.9 (p. 79) from \cite{krengel}.
+
+\begin{thm}[Abstract mean ergodic theorem]
+Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$ which admits strong right ergodic net. The following conditions are equivalent:
+\begin{enumerate}[(1)]
+\item $A_{\alpha}^{\mathcal{S}} x$ converges to a fixed point of $\mathcal{S}$ for every $x \in \mathfrak{X}$ and every strong right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{\mathcal{S}} x$ converges weakly to a fixed point of $\mathcal{S}$ for every $x \in \mathfrak{X}$ and every right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{\mathcal{S}} x$ converges weakly to a fixed point of $\mathcal{S}$ for every $x \in \mathfrak{X}$ and every weak right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{\mathcal{S}} x$ has a weak cluster point in $Fix(\mathcal{S})$ for every $x \in \mathfrak{X}$ and every weak right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $\overline{co}\mathcal{S}x \cap Fix(\mathcal{S}) \neq \emptyset$ for all $x \in \mathfrak{X}$,
+\item there exists operator $P \in \overline{co}\mathcal{S}$ such that $S_g P = P S_g = P^2 = P$ for every $g \in G$,
+\item $Fix(\mathcal{S})$ separates $Fix(\mathcal{S}')$, (i.e. for every $Fix(\mathcal{S}) \ni x \neq 0$ there exists $x^* \in Fix(\mathcal{S}')$ with $\langle x, x^* \rangle \neq 0$),
+\item $\mathfrak{X} = Fix(\mathcal{S}) \oplus \overline{span}\ rg (I - \mathcal{S}) := Fix(\mathcal{S}) \oplus \overline{span}\ \{ x - S_g x: x \in \mathfrak{X},\ g \in G \}$.
+\end{enumerate}
+The strong (weak) limit $\lim \limits_{\alpha} A_{\alpha}^{\mathcal{S}} x$ is equal for every strong (weak) right $S$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$ and is also equal to $Px$. Operator P is a $\mathcal{S}$-absorbing projection onto $Fix(\mathcal{S})$ along $\overline{span}\ rg (I - \mathcal{S})$.
+\end{thm}
+
+\begin{rem} Note that conditions (5) - (8) in the above theorem doesn't require the concept of $\mathcal{S}$-ergodic net. Nevertheless, proof of equivalence between them requires existence of at least one right $\mathcal{S}$-ergodic net. This is why we will introduce concept of amenable semigroup for which representations there always exists ergodic net. Motivated by the Abstract Mean Ergodic Theorem, we define mean ergodicity of semigroup $\mathcal{S}$ in terms of absorbing projection, which itself doesn't require concept of ergodic net.
+\end{rem}
+
+\begin{df} Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$. We say that $\mathcal{S}$ is \textbf{mean ergodic} if $\overline{co}\mathcal{S}$ contains $\mathcal{S}$-absorbing projection (also called a zero element), i.e. there exists $P \in \overline{co}\mathcal{S}$ with $P^2 = S_g P = P S_g = P$ for all $g \in G$.
+\end{df}
+If $\mathcal{S}$ admits even $S$-ergodic net (which is simultaneously left and right asymptotically invariant), then the limit $Px = \lim \limits A_{\alpha}^{\mathcal{S}} x$ is always a fixed point of $\mathcal{S}$ (if exists). It allows us to give the following variant:
+
+\begin{thm}[Abstract mean ergodic theorem]\label{t:ame_nofix}
+Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$ which admits strong ergodic net. The following conditions are equivalent:
+\begin{enumerate}[(1)]
+\item $A_{\alpha}^{\mathcal{S}} x$ converges for every $x \in \mathfrak{X}$ and every strong right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{\mathcal{S}} x$ converges weakly for every $x \in \mathfrak{X}$ and every right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{\mathcal{S}} x$ converges weakly for every $x \in \mathfrak{X}$ and every weak right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{\mathcal{S}} x$ has a weak cluster point for every $x \in \mathfrak{X}$ and every weak right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $\overline{co}\mathcal{S}x \cap Fix(\mathcal{S}) \neq \emptyset$ for all $x \in \mathfrak{X}$,
+\item there exists operator $P \in \overline{co}\mathcal{S}$ such that $S_g P = P S_g = P^2 = P$ for every $g \in G$,
+\item $Fix(\mathcal{S})$ separates $Fix(\mathcal{S}')$, (i.e. for every $Fix(\mathcal{S}) \ni x \neq 0$ there exists $x^* \in Fix(\mathcal{S}')$ with $\langle x, x^* \rangle \neq 0$),
+\item $\mathfrak{X} = Fix(\mathcal{S}) \oplus \overline{span}\ rg (I - \mathcal{S}) := Fix(\mathcal{S}) \oplus \overline{span}\ \{ x - S_g x: x \in \mathfrak{X},\ g \in G \}$.
+\end{enumerate}
+The strong (weak) limit $\lim \limits_{\alpha} A_{\alpha}^{\mathcal{S}} x$ is equal for every strong (weak) right $S$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$ and is also equal to $Px$. Operator P is a $\mathcal{S}$-absorbing projection onto $Fix(\mathcal{S})$ along $\overline{span}\ rg (I - \mathcal{S})$.
+\end{thm}
+
+\section{Amenable semigroups}
+Let $X$ be a topological space. Denote by $C_b (G)$ the space of all bounded continuous complex-valued functions on G.
+\begin{df}
+Let $G$ be a semitpological semigroup. We say that $m \in C_b (G)^*$ is a \textbf{mean} if $\langle \mathds{1}, m \rangle = \| m \| = 1$. We say that a mean $m$ is \textbf{right (left) invariant} if it satisfies
+\[ m(R_g f) = m(f)\ \ \Big( m(L_g f) = m(f) \Big), \]
+where for $g \in G$ we have $R_g,\ L_g : C_b(G) \rightarrow C_b(G),\ R_g(f)(h):= f(hg),\ L_g(f)(h):=f(hg).$ A mean $m$ is called \textbf{invariant} if it's both left and right invariant. The semigroup $G$ is called \textbf{right (left) amenable} if there exists right (left) invariant mean on $G$. $G$ is called \textbf{amenable} if there exists mean $m$ on $G$ which is both left and right invariant.
+\end{df}
+
+\begin{ex}
+$\mathbb{N}$ with discrete topology is a amenable semitopological semigroup.
+\end{ex}
+We are interested in the amenability of the semigroup, since bouned representation of amenable semigroup admits ergodic net.
+
+\begin{thm}[{\cite[prop. 1.3]{schreiber13}}]
+Let $\mathcal{S}$ be a bounded representation of $G$ on $\mathfrak{X}$. If $G$ is (right) amenable then there exists weak (right) $\mathcal{S}$-ergodic net.
+\end{thm}
+Using Theorem \ref{t:weakstrongnets} we can strengthen the previous result:
+
+\begin{cor}
+Let $\mathcal{S}$ be a bounded representation of $G$ on $\mathfrak{X}$. If $G$ is (right) amenable then there exists strong (right) $\mathcal{S}$-ergodic net.
+\end{cor}
+
+\begin{cor}[{\cite[cor. 1.9]{schreiber13}}]
+Let $\mathcal{S}$ be a bounded representation of amenable semigroup $G$ on $\mathfrak{X}$. If for every $x \in \mathfrak{X}$ the set $\mathcal{S}x$ is relatively weakly compact then $\mathcal{S}$ is mean ergodic. 
+\end{cor}
+\begin{pf} By Krein-Smulian Theorem ($\ref{t:kreinsmulian}$) we have that $\overline{co}\mathcal{S}x$ is weakly compact (note that norm and weak closure of convex set are equal). Let $(A^{\mathcal{S}}_{\alpha})_{\alpha \in \Lambda}$ be a weak ergodic net. Since $A^{\mathcal{S}}_{\alpha} \in \overline{co}^{s.o.t}(\mathcal{S})$, we have $A^{\mathcal{S}}_{\alpha} x \in \overline{co}\mathcal{S}x$ for each $x \in \mathfrak{X}$, hence net $A^{\mathcal{S}}_{\alpha} x$ has a weak cluster point for each $x \in \mathfrak{X}$. By Theorem $\ref{t:ame_nofix}$ we have that $\mathcal{S}$ is mean ergodic.
+\end{pf}
+Using the fact that closed unit ball in a reflexive Banach space is weakly compact we obtain the following 
+\begin{cor}
+A bounded representation $\mathcal{S}$ of amenable semigroup $G$ on a reflexive Banach space $\mathfrak{X}$ is mean ergodic. In particular every power bounded sequence $(T_n)_{n \in \mathbb{N}}$ of operators in $L(\mathfrak{X})$ with $T_{n+m} = T_m T_n$ for $n, m \in \mathbb{N}$ on reflexive Banach space is mean ergodic.
+\end{cor}
+\noindent Note that von Neumann's Ergodic Theorem (Theorem \ref{t:neumann}) is a special case of the previous corollary, since Hilbert space is always reflexive.
+
+\section{Markov operators on $C(X)$}
+We will introduce now class of operators for which we will establish semigroup generalization of topological Wiener-Wintner theorem.
+
+\begin{df}
+Let $X$ be a compact Hausdorff topological space. Operator $S \in L(C(X))$ is called a \textbf{Markov operator} if $S\mathds{1} = \mathds{1}$ and $S$ is positive, i.e. $Sf \geq 0$ for $f \geq 0$. $\mathds{1} \in C(X)$ stands for function with $\mathds{1}(x)=1$ for all $x \in X$.
+\end{df}
+\begin{rem}
+Let $S$ be a Markov operator on $C(X)$. Its dual operator $S' : \mathcal{M}(X) \rightarrow \mathcal{M}(X)$ is also positive and for all $\mu \in \mathcal{M}(X)$ we have $S'\mu(X) = \mu(X)$. Indeed, for $\mathcal{M}(X) \ni \mu \geq 0$ and $C(X) \ni f \geq 0$ we have \[\int \limits_X f dS' \mu = \langle f, S' \mu \rangle = \langle Sf, \mu \rangle = \int \limits_X Sf d\mu \geq 0,\] so $S'\mu \geq 0$. There also is \[S'\mu (X) = \int \limits_X \mathds{1} d S'\mu = \langle \mathds{1}, S' \mu \rangle = \langle S \mathds{1}, \mu \rangle = \langle \mathds{1}, \mu \rangle = \mu(X).\]
+Note that if $\mu$ is a probability measure on $X$ then $S'\mu$ is also a probability measure. This allows one to think about $S'$ as an operator describing evolution of probabilities on space $X$. In particular, if $\delta_x$ is a unit mass measure in a point $x \in X$ then $S'\delta_x$ is a probability which describes stochastic evolution of the point $x$.
+\end{rem}
+%
+%The following theorem states several properties of Markov operators.
+%
+%\begin{thm}
+%Let $X$ be compact Hausdorff topological space and let $S:C(X) \rightarrow C(X)$ be a Markov operator. The following holds:
+%\begin{enumerate}[(1)]
+%\item for every $x \in X$ there is 
+%\end{enumerate}
+%\end{thm}
+
+For a given Markov operator $S$ on $C(X)$ and invariant probability measure $\mu \in Fix(S')$ we are interested in extending $S$ to the linear contractive operator on $L^2(\mu)$. Note first, that for $f \in C(X)\ (\subset L^1(\mu))$ we have
+\[ \|f\|_{L^1(\mu)} = \int \limits_{X} |f| d\mu = \langle |f|, \mu \rangle = \langle |f|, S'\mu \rangle = \langle S|f|, \mu \rangle \geq \langle |Sf|, \mu \rangle = \|Sf\|_{L^1(\mu)}.   \]
+Since $C(X)$ is dense in $L^1(\mu)$ (in $L^1$ norm), we can uniquely extend $S$ to a positive contraction $\hat{S}: L^1(\mu) \rightarrow L^1(\mu)$. Moreover, since $S\mathds{1} = \mathds{1}$, we have for $f \in L^{\infty}(\mu)$
+\[ \|\hat{S}f\|_{L^{\infty}(\mu)} = \||\hat{S}f|\|_{L^{\infty}(\mu)}  \leq \|\hat{S}|f| \|_{L^{\infty}(\mu)} \leq \|\hat{S}( \|f \|_{L^{\infty}(\mu)} \cdot \mathds{1}) \|_{L^{\infty}(\mu)} = = \|S( \|f \|_{L^{\infty}(\mu)} \cdot \mathds{1}) \|_{L^{\infty}(\mu)} = \]
+\[ = \|f\|_{L^{\infty}(\mu)} \|S \mathds{1} \|_{L^{\infty}(\mu)} = \|f\|_{L^{\infty}(\mu)} \|\mathds{1} \|_{L^{\infty}(\mu)} = \|f\|_{L^{\infty}},\]
+hence $\hat{S}$ is also a $\| \cdot \|_{L^{\infty}(\mu)}$-contraction (restricted to the $L^{\infty}(\mu)$. We can now make use of the following
+
+\begin{thm}[{\cite[thm 8.23]{eisner}}]
+Let $(X, \mathcal{A}, \mu)$ be a measure space and assume that $T:L^1(\mu) \rightarrow L^1(\mu)$ is a contraction and
+\[ \|Tf\|_{L^{\infty}(\mu)} \leq \|f\|_{L^{\infty}(\mu)} \text{ for all } f\in L^1(\mu) \cap L^{\infty}(\mu). \]
+Then for every $f\in L^1(\mu) \cap L^p(\mu),\ p \in (1, \infty)$ we have
+\[ \|Tf\|_{L^p(\mu)} \leq \|f\|_{L^p(\mu)}. \]
+\end{thm}\\
+In our case $(X, \mathcal{A}, \mu)$ is a probability space, so $L^p(\mu) \subset L^1(\mu)$ for every $p \in (1, \infty)$. We can conclude that $\hat{S}$ restricted to the $L^p(\mu)$ is a contraction for $L^p(\mu)$ norm. In particular, we can uniquely extend Markov operator $S$ (on $C(X)$) to the positive contraction on $L^2(\mu)$ (by extending first to $L^1(\mu)$ and then restricting to $L^2(\mu)$). Note that we made use of the invariance of the measure $\mu$.\\ \\
+In the case of invariant probability measure $\mu \in \mathbb{P}_{\mathcal{S}}$ for bounded Markovian representation $\mathcal{S}$ of semitopological semigroup $G$ on $C(X)$  we can consider semigroup of positive contractions on $L^2(\mu)$. We denote it by $\mathcal{S}_2 = \{S_{g,2}:\ g \in G \}$, where $S_{g,2}$ is the extension of $S_g$ to $L^2(\mu)$. Note that $\mathcal{S}_2$ is a bounded representation of $G$ on $L^2(\mu)$. Boundedness is obvious since all $S_{g,2}$ in $\mathcal{S}_2$ are contractions, condition $S_{g,2}S_{h,2}=S_{hg,2}$ is satisfied since it is satisfied for the semigroup $\mathcal{S}$. In order to check last condition, i.e. continuity in $L^2(\mu)$ of $G \ni g \mapsto S_{g,2}f$ for every $f \in L^2(\mu)$, let us fix $f \in L^2(\mu),\ g \in G$ and $\varepsilon > 0$. $C(X)$ is dense in $L^2(\mu)$, so there exists $f_0 \in C(X)$ with $\|f - f_0\|_{L^2(\mu)} < \varepsilon$. Since $\mathcal{S}$ is a bounded representation of $G$ on $C(X)$, there exists an open neighbourhood $U$ of $g$ such that there is $\|S_g f_0 - S_h f_0\|_{sup} < \varepsilon$ for every $h \in U$. For $h \in U$ we have now
+\[ \|S_{g,2}f - S_{h,2}f\|_{L^2(\mu)} \leq \|S_{g,2}f - S_{g,2}f_0\|_{L^2(\mu)} + \|S_{g,2}f_0 - S_{h,2}f_0\|_{L^2(\mu)} + \]
+\[ +\|S_{h,2}f_0 - S_{h,2}f\|_{L^2(\mu)}\| \leq \|S_{g,2}\| \cdot \|f - f_0\|_{L^2(\mu)} + \|S_g f_0 - S_h f_0\|_{L^2(\mu)} + \]
+\[ + \|S_{h,2}\| \cdot \|f - f_0\|_{L^2(\mu)} \leq 2\|f - f_0\|_{L^2(\mu)} + \|S_g f_0 - S_h f_0\|_{sup} < 3\varepsilon. \]
+Together with the semigroup $\mathcal{S}_2$ we will consider its Hermitian adjoint semigroup $\mathcal{S}^*_2 := \{S_{g,2}^*: g \in G \}$.
+
+
+%There is a natural extension of the concept of unique ergodicity to the semigroup of operators
+
+%\begin{df}
+%Let $X$ be a compact Hausdorff topological space. Let $\mathcal{S}$ be a bounded representation of %semitopological semigroup $G$ on the Banach space $C(X)$. We say that $\mathcal{S}$ is %\textbf{uniquely ergodic} if there exists a probability measure $\mu \in \mathcal{M}(X)$ with $Fix ( %\mathcal{S}' ) = \mathbb{C} \cdot \mu$.
+%\end{df}
+
+
+
+\chapter{Wiener-Wintner theorem for semigroups of Markov operators on $C(X)$}\label{r:wwop}
+In this chapter we will establish generalization of topological Wiener-Wintner theorem to the case of Markovian bounded representation of amenable semigroup. The generalization for uniquely ergodic semigroup is due to M. Schreiber (\cite{schreiber14}).\\ \\
+We begin with introducing the concept of the semigroup character.
+
+\begin{df}
+Let $G$ be a semitopological semigroup. A continuous map $\chi: G \rightarrow \mathbb{T}$ is called a \textbf{character of $G$} if it satisfies $\chi(g h) = \chi (g) \chi (h)$ for all $g,h \in G$. We denote the set of all characters of the semigroup $G$ by $\widehat{G}$.
+\end{df}
+For a given semitopological semigroup $G$, its bounded representation $\mathcal{S}$ of $G$ on the Banach space $\mathfrak{X}$ and a character $\chi$ of $G$ we will be interested in the mean ergodicity of the distorted semigroup $_{\chi}\mathcal{S} := \{\chi(g) S_g:\ g \in G \}$. Note that $_{\chi}\mathcal{S}$ is itself a bounded representation of $G$ on $\mathfrak{X}$, since
+\[ \chi(g_1)S_{g_1} \chi(g_2)S_{g_2} = \chi(g_2) \chi (g_1) S_{g_1} S_{g_2} = \chi (g_2 g_1) S_{g_2 g_1} \]
+and
+\[ \sup \limits_{g \in G} \| \chi(g) S_g \| = \sup \limits_{g \in G} | \chi(g)| \| S_g \| = \sup \limits_{g \in G} \|S_g \| < \infty. \]
+
+\begin{ex}
+It is straightforward to check that a map $\chi: \mathbb{N} \rightarrow \mathbb{T}$ given by $\chi(n) := \lambda^n$ is a character of $\mathbb{N}$ for a fixed $\lambda \in \mathbb{T}$. In fact every $\chi \in \widehat{\mathbb{N}}$ is given by this formula for some $\lambda \in \mathbb{N}$ (RÓD£O!). If now $\mathcal{S} = \{T_n \}_{n \in \mathbb{N}}$ is a bounded representation of $\mathbb{N}$ on a Banach space $\mathfrak{X}$, then for $\chi \in \widehat{\mathbb{N}}$ we have $_{\chi}\mathcal{S} = \{ \lambda^n T_n:\ n \in \mathbb{N} \}$ for some $\lambda \in \mathbb{T}$. The Ceasaro averages $A_N^{_{\chi}\mathcal{S}}$ become
+\[ A_N^{_{\chi}\mathcal{S}} = \frac{1}{N} \sum \limits_{n=0}^N \lambda^n T_n. \]
+In particular, if $T$ is a continuous transformation on compact Hausdorff topological space $X$, then for a distorted semigroup induced by its Koopman operator $_{\chi}\mathcal{S} = \{ \lambda^n U_T^n:\ n \in \mathbb{N} \},\ \lambda \in \mathbb{T}$ and $f \in C(X)$ we have
+\[ A_N^{_{\chi}\mathcal{S}} f = \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n U_T^n f = \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f \circ T^n, \]
+hence Ceasaro averages of distorted representation are exactly Wiener-Wintner type averages. We can of course take also Koopman operator on $L^p(\mu)\ (1\leq p < \infty)$ of measure preserving transformation on measure space $(X, \mathcal{A}, \mu)$.
+\end{ex}
 
 \begin{thebibliography}{99}
+
 \addcontentsline{toc}{chapter}{Bibliography}
 
 \bibitem[Assani]{assani} I. Assani,  \textit{Wiener Wintner Ergodic Theorems}, World Scientific, River Edge (2003)
@@ -1006,6 +1247,8 @@ since $|\lambda^N f(T^N x)| \leq |\lambda^N| \|f\|_{\text{sup}} = \|f\|_{\text{s
 
 \bibitem[Eisner et al]{eisner} T. Eisner, B. Farkas, M. Haase, R. Nagel, \textit{Operator Theoretic Aspects of
 Ergodic Theory}, Graduate Texts in Mathematics, Springer, to appear, \url{http://www.fan.uni-wuppertal.de/fileadmin/mathe/reine_mathematik/funktionalanalysis/farkas/GTM-master-v82.pdf}
+
+\bibitem[Krengel, Brunel]{krengel} Ulrich Krengel, Antoine Brunel, \textit{Ergodic theorems}, Walter de Gruyter, 1985 - 357
 
 \bibitem[Lemañczyk]{lemanczyk} M. Lemañczyk, \textit{Teoria spektralna dla ergodyków}, 2010, script, \url{http://www-users.mat.umk.pl/~mlem/files/Teoria_spektralna_dla_ergodykow.pdf}
 
