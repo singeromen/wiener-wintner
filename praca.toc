@@ -2,11 +2,11 @@
 \contentsline {chapter}{\numberline {1}Preliminaries}{7}{chapter.1}
 \contentsline {section}{\numberline {1.1}Measure theory}{7}{section.1.1}
 \contentsline {section}{\numberline {1.2}Functional analysis}{10}{section.1.2}
-\contentsline {section}{\numberline {1.3}Spectral theory for isometries}{13}{section.1.3}
+\contentsline {section}{\numberline {1.3}Spectral theory for isometries}{14}{section.1.3}
 \contentsline {chapter}{\numberline {2}Introduction to ergodic theory}{19}{chapter.2}
 \contentsline {section}{\numberline {2.1}Measure preserving dynamical systems}{19}{section.2.1}
 \contentsline {section}{\numberline {2.2}Topological dynamical systems}{22}{section.2.2}
-\contentsline {section}{\numberline {2.3}von Neumann's Ergodic Theorem}{24}{section.2.3}
+\contentsline {section}{\numberline {2.3}von Neumann's Ergodic Theorem}{25}{section.2.3}
 \contentsline {chapter}{\numberline {3}Wiener-Wintner theorems for deterministic transformations}{27}{chapter.3}
 \contentsline {section}{\numberline {3.1}Bourgain's uniform Wiener-Wintner theorem}{28}{section.3.1}
 \contentsline {section}{\numberline {3.2}Proof of Wiener-Wintner Ergodic Theorem}{32}{section.3.2}
@@ -15,5 +15,5 @@
 \contentsline {section}{\numberline {4.1}Operator semigroups, ergodic nets and mean ergodicity}{41}{section.4.1}
 \contentsline {section}{\numberline {4.2}Amenable semigroups}{45}{section.4.2}
 \contentsline {section}{\numberline {4.3}Markov operators on $C(X)$}{46}{section.4.3}
-\contentsline {chapter}{\numberline {5}Wiener-Wintner theorem for semigroups of Markov operators on $C(X)$}{49}{chapter.5}
-\contentsline {chapter}{Bibliography}{51}{chapter*.3}
+\contentsline {chapter}{\numberline {5}Wiener-Wintner theorem for semigroups of Markov operators on $C(X)$}{51}{chapter.5}
+\contentsline {chapter}{Bibliography}{53}{chapter*.3}

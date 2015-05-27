@@ -184,7 +184,7 @@ By $\mathbb{N}$ we will denote set of positive natural numbers, by $\mathbb{N}_0
 
 
 \section{Measure theory}
-By $(X, \mathcal{A}, \mu)$ we will denote a measure space, where $X$ is a nonempty set, $\mathcal{A}$ is a $\sigma$-field of subsets of $X$ and $\mu$ is a measure on the measurable space $(X, \mathcal{A})$. By term 'measure' we will always mean non-negative measure. When we will wish measure $\mu$ to have complex values we will introduce it as a 'complex measure $\mu$'. Sets $A \in \mathcal{A}$ are called measurable sets. Measure $\mu$ is called finite if $\mu(X) < \infty$ and $\sigma$-finite if there is a countable collection of measurable sets $\{ A_n \}_{n=1}^{\infty}$ with $\mu(A_n)<\infty$ for each $n \in \mathbb{N}$, such that $X = \bigcup \limits_{n=1}^{\infty} A_n$. If measure $\mu$ is $\sigma$-finite, then the sets $\{ A_n \}_{n=1}^{\infty}$ can be taken to be pairwise disjoint. If $\mu(X)=1$ then the measure $\mu$ is called a probability measure and $(X, \mathcal{A}, \mu)$ is called a probability space. For a finite measure $\mu$, set $A \in \mathcal{A}$ is said to have a full measure if $\mu(A) = \mu (X)$. We will often use the following simple
+By $(X, \mathcal{A}, \mu)$ we will denote a measure space, where $X$ is a nonempty set, $\mathcal{A}$ is a $\sigma$-field of subsets of $X$ and $\mu$ is a measure on the measurable space $(X, \mathcal{A})$. By term 'measure' we will always mean a $\sigma$-additive, non-negative measure. When we will wish measure $\mu$ to have complex values we will introduce it as a 'complex measure $\mu$'. Sets $A \in \mathcal{A}$ are called measurable sets. Measure $\mu$ is called finite if $\mu(X) < \infty$ and $\sigma$-finite if there is a countable collection of measurable sets $\{ A_n \}_{n=1}^{\infty}$ with $\mu(A_n)<\infty$ for each $n \in \mathbb{N}$, such that $X = \bigcup \limits_{n=1}^{\infty} A_n$. If measure $\mu$ is $\sigma$-finite, then the sets $\{ A_n \}_{n=1}^{\infty}$ can be taken to be pairwise disjoint. If $\mu(X)=1$ then the measure $\mu$ is called a probability measure and $(X, \mathcal{A}, \mu)$ is called a probability space. For a finite measure $\mu$, set $A \in \mathcal{A}$ is said to have a full measure if $\mu(A) = \mu (X)$. We will often use the following simple
 
 \begin{f} Let $(X, \mathcal{A}, \mu)$ be a measure space with a finite measure and take measurable sets $A_n, n \in \mathbb{N}$. If each $A_n$ has a full measure, then their intesection $\bigcap \limits_{n=1}^{\infty} A_n$ also has a full measure.
 \end{f}
@@ -201,9 +201,9 @@ Let $(X, \mathcal{A}, \mu)$ be a measure space. An element $x \in X$ is called a
 \end{rem}
 If $X$ is a topological space, then by $\mathcal{B}(X)$ we will denote its Borel $\sigma$-field, i.e. the smallest $\sigma$-field containing all open subsets of $X$. Note that if $X$ and $Y$ are topological spaces and $T:X \rightarrow Y$ is continuous, then T is also measurable (with respect to Borel $\sigma$-fields on $X$ and $Y$). Measure on a measurable space $(X, \mathcal{B}(X))$ is called a Borel measure. On spaces $\mathbb{R}^n, n \in \mathbb{N}$ (with a standard topology) there is a natural Borel measure, which is a unique measure $m$ with property $m([a_1, b_1]\times [a_2, b_2] \times ... \times [a_n, b_n]) = (b_1 - a_1)(b_2 - a_2)...(b_n - a_n)$ for $a_1\leq b_1,a_1\leq b_2, ..., a_n\leq b_n$. This measure $m$ is called a Lebesgue measure and it's $\sigma$-finite. On $\mathbb{T}$ (with a standard topology) there exists a unique measure such that measure of any arc is its length. This measure is finite and its normalization will be also called a Lebesgue measure and will be denoted by $m$ ($m(\mathbb{T})=1$ and length of arc $A$ is equal to $2\pi m(A)$).\\ \\
 Let $T, S: X \rightarrow Y$ be a measurable maps between measurable spaces $(X, \mathcal{A})$ and $(Y, \mathcal{C})$. We will use abreviations $\{ T \in A \}:= \{x \in X: Tx \in A \}$, $\{ T=S \} := \{x \in X: Tx = Sx \}$ and $\{ T \neq S \} := \{x \in X: Tx \neq Sx \}$. Note that these set are measurable. We will say that some property holds for ($\mu$) almost all $x \in X$, if there is a measurable set $A$ such that this property holds for every $x \in A$ and $\mu(X \backslash A) = 0$. We will say that map $T$ is equal to $S$ $\mu$ almost everywhere ($\mu$-a.e.) if $Tx = Sx$ for almost all $x \in X$, i.e. $\mu(T \neq S):=\mu(\{T \neq S\})=0$.\\ \\
-We say that function $f:X \rightarrow \mathbb{R}^n$ or $f:X \rightarrow \mathbb{C}^n$ is a Borel function (or simply a measurable function) if it is measurable with respect to the Borel $\sigma$-field $\mathcal{B}(\mathbb{R}^n)$ or $\mathcal{B}(\mathbb{C}^n)$, where we consider the standard topology on $\mathbb{R}^n$ or $\mathbb{C}^n$. Let $(f_n)_{n \in \mathbb{N}}$ be  a sequence of measurable complex valued functions on $X$. We say that the sequence $(f_n)_{n \in \mathbb{N}}$ converges $\mu$ almost everywhere to a measurable function $f: X \rightarrow \mathbb{C}$ if for almost all $x \in X$ there is $\lim \limits_{n \rightarrow \infty} f_n(x) = f(x)$. The following important theorem says when a.e. convergence implies convergence of integrals.
+We say that function $f:X \rightarrow \mathbb{R}^n$ or $f:X \rightarrow \mathbb{C}^n$ is a Borel function (or simply a measurable function) if it is measurable with respect to the Borel $\sigma$-field $\mathcal{B}(\mathbb{R}^n)$ or $\mathcal{B}(\mathbb{C}^n)$, where we consider the standard topology on $\mathbb{R}^n$ or $\mathbb{C}^n$. Let $(f_n)_{n \in \mathbb{N}}$ be  a sequence of measurable complex-valued functions on $X$. We say that the sequence $(f_n)_{n \in \mathbb{N}}$ converges $\mu$ almost everywhere to a measurable function $f: X \rightarrow \mathbb{C}$ if $\lim \limits_{n \rightarrow \infty} f_n(x) = f(x)$ for almost all $x \in X$. The following important theorem says when a.e. convergence implies convergence of integrals.
 \begin{thm}[Lebesgue Dominated Convergence Theorem]
-Let $(X, \mathcal{A}, \mu)$ be a measure space and let $f, f_1, f_2, ...$ be a sequence of measurable complex valued functions on $X$ with $f_n \stackrel{n \rightarrow \infty}{\longrightarrow} f\ \mu$-a.e. Suppose further, that there is a finitely integrable function $g: X \rightarrow [0, \infty)$ with $|f_n| \leq g\ \mu$-a.e. for every $n \in \mathbb{N}$. Then functions $f, f_1, f_2, ...$ are also finitely integrable and
+Let $(X, \mathcal{A}, \mu)$ be a measure space and let $f, f_1, f_2, ...$ be a sequence of measurable, complex-valued functions on $X$ with $f_n \stackrel{n \rightarrow \infty}{\longrightarrow} f\ \mu$-a.e. Suppose further, that there is a measurable function $g: X \rightarrow [0, \infty)$ with $|f_n| \leq g\ \mu$-a.e. for every $n \in \mathbb{N}$ and $\int \limits_X gd\mu < \infty$. Then functions $f, f_1, f_2, ...$ are integrable and
 \[ \lim \limits_{n \rightarrow \infty} \int \limits_{X} f_n d\mu = \int \limits_{X} f d\mu. \]
 \end{thm}
 Given two measure spaces $(X, \mathcal{A}, \mu)$ and $(Y, \mathcal{C}, \nu)$ there is a natural measurable structure on the product $X \times Y$. We define product $\sigma$-field $\mathcal{A} \otimes \mathcal{C}$ of the subsets of $X \times Y$ as the smallest $\sigma$-field containing all measurable rectangles $A\times C, A\in \mathcal{A}, C \in \mathcal{C}$, i.e. $\mathcal{A} \otimes \mathcal{C}:= \sigma( \{A \times C:  A\in \mathcal{A}, C \in \mathcal{C}\})$. Moreover, if both measures $\mu$ and $\nu$ are $\sigma$-finite, then there exists unique measure $\mu \otimes \nu$ on the measurable space $(X \times Y, \mathcal{A} \otimes \mathcal{C})$ with the property $\mu \otimes \nu (A \times C) = \mu(A)\nu(C)$ for all $A \in \mathcal{A}, C \in \mathcal{C}$. The measure $\mu \otimes \nu$ is called a product measure. Fubini's theorem establishes connection between integral with respect to the product measure and iterated integrals with respect to the measures $\mu$ and $\nu$ separately.
@@ -213,9 +213,9 @@ Let $(X, \mathcal{A}, \mu)$ and $(Y, \mathcal{C}, \nu)$ be measure spaces with $
 Then for $\mu$-almost all $x \in X$ the function $f(x, \cdot) : Y \rightarrow \mathbb{C}$ is $\nu$-finitely integrable and for $\nu$-almost all $y \in Y$ the function $f(\cdot, y) :X \rightarrow \mathbb{C}$ is $\mu$-finitely integrable. Moreover function $X \ni x \mapsto \int \limits_{Y} f(x, y) d\nu(y) \in \mathbb{C}$ is $\mu$-finitely integrable and function $Y \ni y \mapsto \int \limits_{Y} f(x, y) d\mu(x) \in \mathbb{C}$ is $\nu$-finitely integrable. The following equality holds:
 \[ \int \limits_{X \times Y} fd\mu \otimes \nu = \int \limits_{X} \left( \int \limits_{Y} f(x,y) d\nu(y) \right) d\mu(x) = \int \limits_{Y} \left( \int \limits_{X} f(x,y) d\mu(x) \right) d\nu(y).\]
 \end{thm}
-\begin{rem} Note that functions $X \ni x \mapsto \int \limits_{Y} f(x, y) d\nu(y) \in \mathbb{C}$ and $Y \ni y \mapsto \int \limits_{Y} f(x, y) d\mu(x) \in \mathbb{C}$ may not be defined properly for every $x \in X$ and $y \in Y$, although they are definied $\mu$- and $\nu$-almost everywhere, which is enough to properly define their integrals.
+\begin{rem} Note that functions $X \ni x \mapsto \int \limits_{Y} f(x, y) d\nu(y) \in \mathbb{C}$ and $Y \ni y \mapsto \int \limits_{Y} f(x, y) d\mu(x) \in \mathbb{C}$ may not be defined properly for every $x \in X$ and $y \in Y$, although they are definied $\mu$- and $\nu$-almost everywhere, which is enough to define properly their integrals.
 \end{rem}
-There is also version of Fubini's Theorem for non-negative functions. In this case the integrals do not need to be finite.
+There is also a version of Fubini's Theorem for non-negative functions. In this case the integrals do not need to be finite.
 \begin{thm}[Fubini's Theorem for non-negative functions]
 Let $(X, \mathcal{A}, \mu)$ and $(Y, \mathcal{C}, \nu)$ be measure spaces with $\sigma$-finite measures. Let $f:X\times Y \rightarrow [0, \infty)$ be measurable with respect to the product $\sigma$-field $\mathcal{A} \otimes \mathcal{C}$. Then  function $X \ni x \mapsto \int \limits_{Y} f(x, y) d\nu(y) \in \mathbb{C}$ is $\mathcal{A}$-measurable and function $Y \ni y \mapsto \int \limits_{Y} f(x, y) d\mu(x) \in \mathbb{C}$ is $\mathcal{C}$-measurable and the following equality holds:
 \[ \int \limits_{X \times Y} fd\mu \otimes \nu = \int \limits_{X} \left( \int \limits_{Y} f(x,y) d\nu(y) \right) d\mu(x) = \int \limits_{Y} \left( \int \limits_{X} f(x,y) d\mu(x) \right) d\nu(y).\]
@@ -230,7 +230,7 @@ Let $X$ be a compact topological space and let $\mu$ be a finite, non-negative B
 \end{enumerate}
 \end{df}
 
-\begin{df}
+\begin{df}\label{d:measuremodulus}
 Let $\mu$ be a complex measure on a measurable space $(X, \mathcal{A})$. We define its total variation measure $| \mu|$ as a non-negative measure on  $(X, \mathcal{A})$ given by
 \[ |\mu| (A) := \sup \{ \sum \limits_{j=1}^{\infty} |\mu (E_j ) | : E_1, E_2, ... \text{ are pairwise disjoint and } \bigcup \limits_{j=1}^{\infty} E_j = A \}. \]
 \end{df}
@@ -251,7 +251,7 @@ Let $(X, \mathcal{A}, \mu)$ be a measure space with a finite measure. Then for $
 \end{prop}
 
 \begin{ex}[Space $C(X)$]\label{ex:lp}$\\$
-Let $X$ be a compact topological space (we assume that comapct spaces are Hausdorff by definition). Denote by $C(X)$ set of all complex valued continuous functions on $X$. $C(X)$ is a Banach space with norm $\|f\|_{\text{sup}} = \|f\|_{\infty} := \sup \limits_{x \in X} |f(x)|,\ f \in C(X)$. $C(X)$ is separable if and only if $X$ is metrizable (\cite[thm. 4.7]{eisner}). Suppose that there is a finite Borel nonegative measure $\mu$ on $X$. Any function $f \in C(X)$ is bounded, hence integrable with any power $p \in [1, \infty)$, what means that $C(X) \subset \mathscr{L}^p(\mu)$ and $C(X)$ can be embedded into $L^p(X, \mathcal{B}(X), \mu)$. Therefore, space $C(X)$ can be naturally seen as a linear subspace of space $L^p(\mu)$ (with identification of functions equal $\mu$ a.e., so equivalence class $f \in L^2(\mu)$ is also in the subspace $C(X)$ if it has continuous representative).
+Let $X$ be a compact topological space (we assume that comapct spaces are Hausdorff by definition). Denote by $C(X)$ set of all complex valued continuous functions on $X$. $C(X)$ is a Banach space with norm $\|f\|_{\text{sup}} := \sup \limits_{x \in X} |f(x)|,\ f \in C(X)$. $C(X)$ is separable if and only if $X$ is metrizable (\cite[thm. 4.7]{eisner}). Suppose that there is a finite Borel nonegative measure $\mu$ on $X$. Any function $f \in C(X)$ is bounded, hence integrable with any power $p \in [1, \infty)$, what means that $C(X) \subset \mathscr{L}^p(\mu)$ and $C(X)$ can be embedded into $L^p(X, \mathcal{B}(X), \mu)$. Therefore, space $C(X)$ can be naturally seen as a linear subspace of space $L^p(\mu)$ (with identification of functions equal $\mu$ a.e., so equivalence class $f \in L^2(\mu)$ is also in the subspace $C(X)$ if it has continuous representative).
 \end{ex}
 
 \begin{prop}
@@ -272,21 +272,21 @@ Let $H$ be an inner product space. The following inequality holds for all $x,y \
 %\end{rem}
 
 \begin{df}
-Let $H$ be an inner product space. Two vectors $x, y \in H$ are said to be \textbf{orthogonal} if $\langle x, y \rangle = 0$. We denote that fact by $x \bot y$. For a set $H_0 \subset H$ its \textbf{orthogonal complement} is a set $H_0^{\bot}:=\left\{ x \in H: \underset{h \in H_0}{\forall}\ \langle h, x \rangle = 0 \right\}$.
+Let $H$ be an inner product space. Two vectors $x, y \in H$ are said to be \textbf{orthogonal} if $\langle x, y \rangle = 0$ (we write $x \bot y$). For a set $H_0 \subset H$ its \textbf{orthogonal complement} is a set $H_0^{\bot}:=\left\{ x \in H: \underset{h \in H_0}{\forall}\ \langle h, x \rangle = 0 \right\}$.
 \end{df}
 
 \begin{rem} If $H_0$ is a linear subspace of H, then $H_0^{\bot}$ is a closed linear subspace of H.
 \end{rem}
 
 \begin{df}
-Let $E, F$ be normed spaces. A linear transformation $U: E \rightarrow F$ is called a \textbf{bounded linear operator} if there exists $M > 0$ such that $\underset{x \in E}{\forall}\ \|Ux\| \leq M\|x\|$. Constant $\|U\| := \sup \limits_{\|x\| \leq 1} \|Ux\|$ is called a \textbf{operator norm} of U. If $\| U \| \leq 1$ then $U$ is called a \textbf{contraction}. If $\underset{x \in E}{\forall}\ \|Ux\| = \|x\|$ then $U$ is called an \textbf{isometry}. Note that an isometry is always a contraction.
+Let $E, F$ be normed spaces. A linear transformation $U: E \rightarrow F$ is called a \textbf{bounded linear operator} if there exists $M > 0$ such that $\underset{x \in E}{\forall}\ \|Ux\| \leq M\|x\|$. The constant $\|U\| := \sup \limits_{\|x\| \leq 1} \|Ux\|$ is called a \textbf{operator norm} of U. If $\| U \| \leq 1$ then $U$ is called a \textbf{contraction}. If $\underset{x \in E}{\forall}\ \|Ux\| = \|x\|$ then $U$ is called an \textbf{isometry}. Note that an isometry is always a contraction.
 \end{df}
 
-\begin{rem} Linear operator $U: E \rightarrow F$ between normed spaces is continuous if and only if it's bounded. Space $L(E,F)$ of all bounded linear operators with the operator norm is a normed space. $L(E,F)$ is a Banach space if and only if $F$ is a Banach space.
+\begin{rem} Linear operator $U: E \rightarrow F$ between normed spaces is continuous if and only if it's bounded. The space $L(E,F)$ of all bounded linear operators, endowed with the operator norm is a normed space. $L(E,F)$ is a Banach space if and only if $F$ is a Banach space.
 \end{rem}
 
 \begin{df}
-Let $E$ be a normed space and let $U:E \rightarrow E$ be a bounded linear operator. Number $\lambda \in \mathbb{C}$ is called an \textbf{eigenvalue} if there is a vector $x \in E,\ x \neq 0$ such that $Ux = \lambda x$. Any such vector $x$ is called an \textbf{eigenvector} (associated with $\lambda$). The closed linear subspace $H_{\lambda} = \left\{ x \in H: Ux = \lambda x \right\}$ is called an \textbf{eigenspace} (of $\lambda$). We denote set of all eigenvalues of operator $U$ by $\sigma(U)$.
+Let $E$ be a normed space and let $U:E \rightarrow E$ be a (bounded) linear operator. Number $\lambda \in \mathbb{C}$ is called an \textbf{eigenvalue} if there is a vector $x \in E,\ x \neq 0$ such that $Ux = \lambda x$. Any such a vector $x$ is called an \textbf{eigenvector} (associated with $\lambda$). The closed linear subspace $H_{\lambda} = \left\{ x \in H: Ux = \lambda x \right\}$ is called an \textbf{eigenspace} (of $\lambda$). The set of all eigenvalues of operator $U$ is called a \textbf{point spectrum} and is denoted by $\sigma_p(U)$.
 \end{df}
 
 \begin{thm}[Orthogonal Projection Theorem {\cite[lemma 12.4]{rudin}}]\label{t:orthproj}
@@ -294,7 +294,7 @@ Let $H_0$ be a closed linear subspace of a Hilbert space $H$. Then
 \[ H = H_0 \oplus H_0^{\bot}, \]
 i.e. for every $x \in H$ there are unique $x_0 \in H_0,\ x_1 \in H_0^{\bot}$ such that $x = x_0 + x_1$. Moreover, transformation $P: H \rightarrow H$ given by $P(x)=x_0$ is a bounded linear operator with $\| P \| \leq 1$ and $P \circ P =P$. Operator $P$ is called an \textbf{orthogonal projection} on subspace $H_0$.
 \end{thm}
-For a normed space $E$ we denote by $E^*$ its dual space, i.e. normed space of all continuous linear functionals $\Lambda: E \rightarrow \mathbb{C}$ with the operator norm. We use standard notation $\langle x, x^* \rangle := x^*(x)$ for $x \in E,\ x^* \in E^*$. We can consider weak topology on $E$, i.e. the coarsest topology such that each $\Lambda \in E^*$ is continuous and weak$^*$ topology on $E^*$, i.e. the coarsest topology such that for each $x \in E$ evaluation $E^* \ni \Lambda \mapsto \Lambda x \in \mathbb{C}$ is continuous. $E$ with weak topology and $E^*$ with weak$^*$ topology are locally convex topological vector spaces, although they do not need to be metrizable.
+For a normed space $E$ we denote by $E^*$ its dual space, i.e. the normed space of all continuous linear functionals $\Lambda: E \rightarrow \mathbb{C}$ with the operator norm. We use standard notation $\langle x, x^* \rangle := x^*(x)$ for $x \in E,\ x^* \in E^*$. We can consider weak topology on $E$, i.e. the coarsest topology such that each $\Lambda \in E^*$ is continuous and weak$^*$ topology on $E^*$, i.e. the coarsest topology such that for each $x \in E$ evaluation $E^* \ni \Lambda \mapsto \Lambda x \in \mathbb{C}$ is continuous. $E$ with the weak topology and $E^*$ with the weak$^*$ topology are locally convex topological vector spaces, although except the finite dimensional case they are never metrizable.
 
 \begin{thm}[Banach-Alaouglu theorem {\cite[thm. 3.15]{rudin}}]
 Closed unit ball $\overline{B}(0,1) \subset E^*$ in a dual space of a normed space $E$ is weak$^*$ compact.
@@ -328,16 +328,16 @@ For a compact topological space $X$, by $\mathcal{M}(X)$ be will denote set of a
 \end{ex}
 
 \begin{df}
-We say that functional $\Lambda \in C(X)^*$ is \textbf{positive} if for every $f \geq 0$ (i.e., $\underset{x \in X}{\forall}\ f(x) \in [0, \infty)$) there is $\Lambda f \geq 0$.
+We say that functional $\Lambda \in C(X)^*$ is \textbf{positive} if $\Lambda f \geq 0$ for every $f \geq 0$ (i.e., $\underset{x \in X}{\forall}\ f(x) \in [0, \infty)$).
 \end{df}
 
 \begin{thm}[Riesz-Markov representation theorem]
 Let $X$ be a comapct topological space. For every continuous linear functional $\Lambda \in C(X)^*$ there is a unique $\mu \in \mathcal{M}(X)$ with
 \[ \underset{f \in C(X)}{\forall}\ \Lambda f = \int \limits_{X} f d\mu. \]
-Moreover, for every $\mu \in \mathcal{M}(X)$ the above equality defines a unique contiunous linear functional $\Lambda \in C(X)^*$ and there is $\| \Lambda \| = \| \mu \|$. Functional $\Lambda$ is positive if and only if coressponding measure $\mu$ is non-negative.
+Moreover, for every $\mu \in \mathcal{M}(X)$ the above equality defines a unique contiunous linear functional $\Lambda \in C(X)^*$ and there is $\| \Lambda \| = \| \mu \|$. Functional $\Lambda$ is positive if and only if the coressponding measure $\mu$ is non-negative.
 \end{thm}
 
-\begin{rem} Riesz-Markov theorem states that $\Phi : \mathcal{M}(X) \rightarrow C(X)^*$ given by $\Phi(\mu) (f) = \int \limits_{X} f d\mu, f \in C(X)$ is a bijective isometry. It is straightforward to check that $\Phi$ is also linear. This fact lets us identify Banach spaces $\mathcal{M}(X)$ and $C(X)^*$. This identifiaction allows us also to consider weak$^*$ topology on $\mathcal{M}(X)$. Note that $\mu_n \overset{^{*}w}{\longrightarrow}\mu$ if and only if $\underset{f \in C(X)}{\forall}\ \int \limits_{X} f d\mu_n \rightarrow \int \limits_{X} f d\mu$.
+\begin{rem} Riesz-Markov theorem states that $\Phi : \mathcal{M}(X) \rightarrow C(X)^*$ given by $\Phi(\mu) (f) = \int \limits_{X} f d\mu, f \in C(X)$ is a bijective isometry. It is straightforward to check that $\Phi$ is also linear. Hence we will identify Banach spaces $\mathcal{M}(X)$ and $C(X)^*$. This identifiaction allows us also to consider weak$^*$ topology on $\mathcal{M}(X)$. Note that $\mu_n \overset{^{*}w}{\longrightarrow}\mu$ if and only if $\underset{f \in C(X)}{\forall}\ \int \limits_{X} f d\mu_n \rightarrow \int \limits_{X} f d\mu$.
 \end{rem}
 
 \begin{df} Let $E$ be a normed space. Denote by $L(E)$ set of all bounded linear operators $T:E \rightarrow E$. The \textbf{strong operator topology} (s.o.t) on $L(E)$ is a topology induced by a family of seminorms $\{p_x :\ x \in E \}$, where $p_x(T) := Tx$ for $x \in E,\ T \in L(E)$.
@@ -366,6 +366,11 @@ Every Hilbert space is reflexive.
 \begin{thm}[Krein-Smulian Theorem\ {\cite[thm. G.7]{eisner}}]\label{t:kreinsmulian}
 Let $E$ be a Banach space. If set $A \subset E$ is relatively weakly compact then also $co A$ is relatively weakly compact.
 \end{thm}
+We will also make use of the following topological theorem:
+\begin{thm}[Tietze's extension theorem\ {\cite[thm. 20.4]{rudin2}}]\label{t:tietze}
+Let $X$ be a compact Hausdorff space and take compact $K \subset X$. For every $f \in C(K)$ there exists $g \in C(X)$ with $g = f$ on K. Moreover, $g$ can be taken such that $\|g\|_\text{sup} = \sup \limits_{x \in K}| f(x) |$ and if $f$ is real-valued then $g$ also can be taken to be real-valued.
+\end{thm}
+
 \section{Spectral theory for isometries}
 
 We will introduce now basic facts from spectral theory for isometries on Hilbert spaces.
@@ -380,7 +385,7 @@ Sequence $(r_n)_{n \in \mathbb{Z}}$ of complex numbers is called \textbf{positiv
 \begin{prop} \label{p:posdef}
 Let $U:H \rightarrow H$ be an isometry on Hilbert space $H$. For a vector $x \in H$ define $r_n := \langle U^n x, x \rangle$ for $n \geq 0$ and $r_n := \overline{r_{-n}} = \langle x, U^n x \rangle$ for $n<0$. The sequence $(r_n)_{n \in \mathbb{Z}}$ is positive definite.
 \end{prop}
-\begin{pf} Note first that for $n \geq m$ we have $r_{n-m} = \langle U^{n-m}x, x \rangle = \langle U^n x, U^m x \rangle$ (since $U$ is an isometry) and for $n < m$ we also have $r_{n-m} = \overline{r_{m-n}} = \overline{\langle U^{m-n} x, x \rangle} = \overline{\langle U^m x, U^n x \rangle} = \langle U^n x, U^m x \rangle$. Compute now
+\begin{pf} Note first that for $n \geq m$ we have $r_{n-m} = \langle U^{n-m}x, x \rangle = \langle U^n x, U^m x \rangle$ (since $U$ is an isometry) and for $n < m$ we also have $r_{n-m} = \overline{r_{m-n}} = \overline{\langle U^{m-n} x, x \rangle} = \overline{\langle U^m x, U^n x \rangle} = \langle U^n x, U^m x \rangle$. Now compute
 \begin{equation} \label{e:posdef}
 \begin{split}
 \sum \limits_{n,m=0}^N r_{n-m}a_n \overline{a_m} =  \sum \limits_{n,m=0}^N \langle U^n x, U^m x \rangle a_n \overline{a_m} = \sum \limits_{n,m=0}^N \langle a_n U^n x, a_m U^m x \rangle = \\
@@ -393,14 +398,14 @@ $\square$
 \end{pf}
 
 \begin{thm}[Herglotz's theorem {\cite[thm. 2.3]{lemanczyk}}]
-Let $(r_n)_{n \in \mathbb{Z}}$ be positive definite sequence. There exists unique non-negative finite Borel measure $\sigma$ on $\mathbb{T}$ such that
+Let $(r_n)_{n \in \mathbb{Z}}$ be positive definite sequence. Then there exists a unique non-negative finite Borel measure $\sigma$ on $\mathbb{T}$ such that
 \begin{equation} \label{e:spectral}
 r_n = \int \limits_{\mathbb{T}} z^n d\sigma (z)\ \text{ for all } n\in \mathbb{Z}.
 \end{equation}
 Conversly, for every non-negative finite Borel measure $\sigma$ on $\mathbb{T}$, sequence $r_n$ defined by \eqref{e:spectral} is positive definite.
 \end{thm}
 
-\begin{df} Let $\sigma$ be a non-negative finite Borel measure on $\mathbb{T}$. Then the number
+\begin{df} Let $\sigma$ be a non-negative finite Borel measure on $\mathbb{T}$. Then the quantity
 \[ \widehat{\sigma}(n):=  \int \limits_{\mathbb{T}} z^n d\sigma (z),\ n \in \mathbb{Z}\]
 is called the \textbf{n-th Fourier coefficient} of the measure $\sigma$. Note that the sequence $\widehat{\sigma}(n),\ n \in \mathbb{Z}$ is positive definite and $\widehat{\sigma}(-n) = \overline{\widehat{\sigma}(n)}$ for every $n \in \mathbb{Z}$.
 \end{df}
@@ -420,7 +425,7 @@ Let $\sigma_1, \sigma_2$ be two non-negative, finite Borel measures on $\mathbb{
 Let $U:H \rightarrow H$ be an isometry on Hilbert space $H$. For every $x \in H$ and finite sequence $(a_n)_{n=0}^N$ of complex numbers the following equality holds:
 \[ \| \sum \limits_{n=0}^N a_n U^n x \|^2 = \int \limits_{\mathbb{T}} | \sum \limits_{n=0}^N a_n  z^n |^2 d\sigma_x(z) = \|\sum \limits_{n=0}^N a_n z^n \|_{L^2(\mathbb{T}, \mathcal{B}(\mathbb{T}), \sigma_x)}^2. \]
 \end{prop}
-\begin{pf} For sequence $(r_n)_{n \in \mathbb{Z}}$ like in Proposition \ref{p:posdef}, we have by equalities \eqref{e:posdef} and \eqref{e:spectral}
+\begin{pf} For any sequence $(r_n)_{n \in \mathbb{Z}}$ in Proposition \ref{p:posdef}, we have (by equalities \eqref{e:posdef} and \eqref{e:spectral})
 \[ \|\sum \limits_{n=0}^N a_n U^n x \|^2 = \sum \limits_{n,m=0}^N r_{n-m}a_n \overline{a_m} = \sum \limits_{n,m=0}^N  a_n \overline{a_m}  \int \limits_{\mathbb{T}} z^{n-m} d\sigma_x (z) = \sum \limits_{n,m=0}^N  a_n \overline{a_m}  \int \limits_{\mathbb{T}} z^n\overline{z^m} d\sigma_x (z) =\]
 \[ = \sum \limits_{n=0}^N a_n \int \limits_{\mathbb{T}} z^n (\sum \limits_{m=0}^N \overline{a_m z^m}) d\sigma_x(z) = \int \limits_{\mathbb{T}} \sum \limits_{n=0}^N a_n  z^n (\sum \limits_{m=0}^N \overline{a_m z^m}) d\sigma_x(z) = \int \limits_{\mathbb{T}} | \sum \limits_{n=0}^N a_n  z^n |^2 d\sigma_x(z).\]
 \begin{flushright}
@@ -430,10 +435,10 @@ $\square$
 In order to prove Wiener's Criterion of Continuity, we need the following lemma (also due to Wiener):
 
 \begin{lem}[Wiener, {\cite[lemma 1.16]{lemanczyk}}]
-Let $\sigma$ be a finite non-negative Borel measure on $\mathbb{T}$. Denote by $\{a_1, a_2, ... \}$ a set of all atoms of measure $\sigma$. Then
+Let $\sigma$ be a finite non-negative Borel measure on $\mathbb{T}$. Denote by $\{a_1, a_2, ... \}$ the set of all atoms of the measure $\sigma$. Then
 \[ \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} | \widehat{\sigma} (n) |^2 = \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} | \widehat{\sigma} (-n) |^2 = \sum \limits_{m \geq 1} \sigma(\{ a_m \})^2. \]
 \end{lem}
-\begin{pf} Note first, that since $\widehat{\sigma} (n) = \overline{\widehat{\sigma}(-n)}$, limits $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} | \widehat{\sigma} (n) |^2$ and $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} | \widehat{\sigma} (-n) |^2$ must be equal if they exists. Note further, that since measure $\sigma$ is finite, series $\sum \limits_{m \geq 1} \sigma(\{ a_m \})^2$ must be convergent (we know that $\sum \limits_{m \geq 1} \sigma(\{ a_m \}) < \infty$ and only for finitely many $m \in \mathbb{N}$ there can be $\sigma(\{ a_m \}) \geq 1$). Observe that by Fubini's Theorem we have
+\begin{pf} Note first, that since $\widehat{\sigma} (n) = \overline{\widehat{\sigma}(-n)}$, thus the limits $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} | \widehat{\sigma} (n) |^2$ and $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} | \widehat{\sigma} (-n) |^2$ coincide (if they exists). Note further, that since the measure $\sigma$ is finite, the series $\sum \limits_{m \geq 1} \sigma(\{ a_m \})^2$ converges (we know that $\sum \limits_{m \geq 1} \sigma(\{ a_m \}) < \infty$ and only for finitely many $m \in \mathbb{N}$ there can be $\sigma(\{ a_m \}) \geq 1$). By Fubini's Theorem we have
 \[ |\widehat{\sigma} (n) |^2 = \widehat{\sigma}(n) \overline{\widehat{\sigma}(n)} = \int \limits_{\mathbb{T}} z^n d\sigma (z) \overline{ \int \limits_{\mathbb{T}} w^n d\sigma (w)} = \int \limits_{\mathbb{T}} z^n \left( \int \limits_{\mathbb{T}} \overline{w}^n d\sigma (w) \right) d\sigma (z) = \]
 \[= \int \limits_{\mathbb{T} \times \mathbb{T}} (z \overline{w})^n d\sigma \otimes \sigma (z, w),\]
 and further
@@ -457,9 +462,9 @@ Non-negative finite Borel measure $\sigma$ on $\mathbb{T}$ is continuous if and 
 \begin{equation}\label{e:squares}
 ( \sum \limits_{k=1}^N y_k )^2 \leq N \sum \limits_{k=1}^N y_k^2.
 \end{equation}
-It can be seen by the following computation:
+It can be seen from the following:
 \[ N \sum \limits_{k=1}^N  y_k ^2 -  (\sum \limits_{k=1}^N  y_k )^2 = N \sum \limits_{k=1}^N  y_k ^2 - (\sum \limits_{k=1}^N y_k^2 + 2 \sum \limits_{1 \leq i < j \leq N} y_iy_j) = \]
-\[ =(N-1) \sum \limits_{k=1}^N  y_k ^2 - 2 \sum \limits_{1 \leq i < j \leq N} y_iy_j = \sum \limits_{1 \leq i < j \leq N} ( y_i - y_j)^2 \geq 0. \]
+\[ =(N-1) \sum \limits_{k=1}^N  y_k ^2 - 2 \sum \limits_{1 \leq i < j \leq N} y_iy_j \geq \sum \limits_{1 \leq i < j \leq N} ( y_i - y_j)^2 \geq 0. \]
 \end{rem}
 From \eqref{e:squares} we can obtain another
 \begin{cor}\label{c:wiener_nosquares}
@@ -491,11 +496,11 @@ Let $(X, \mathcal{A}, \mu)$ be a probability space. A measurable map $T: X \righ
 \[ \underset{A \in \mathcal{A}}{\forall}\ \mu(T^{-1} A) = \mu(A).\]
 In this case the measure $\mu$ is called \textbf{$T$-invariant} and $(X, \mathcal{A}, \mu, T)$ is called a \textbf{measure preserving (dynamical) system}.
 \end{df}
-\begin{rem} Sometimes it is enough to consider measurable dynamical system $(X, \mathcal{A}, \mu, T)$ without the assumption $\mu(T^{-1} A) = \mu(A)$ for $A \in \mathcal{A}$, only with measurability of $T$ (or with assumption $\mu(A) \neq 0 \Longrightarrow \mu(T^{-1}A) \neq 0$). We will always assume that transformation is measure preserving. We assume also (for the sake of simplicity) that measure is already normalized ($\mu(X)=1$), but the theory is valid also for finite measures. Part of the theory can be established for $\sigma$-finite measures.
+\begin{rem} Sometimes it is enough to consider measurable dynamical system $(X, \mathcal{A}, \mu, T)$ without the assumption $\mu(T^{-1} A) = \mu(A)$ for $A \in \mathcal{A}$. Namely, we assume only measurability of $T$ and that $\mu(A) \neq 0 \Longrightarrow \mu(T^{-1}A) \neq 0$. However, in our thesis, we always assume that transformation is measure preserving. We assume also (for the sake of simplicity) that measure is already normalized ($\mu(X)=1$), but the theory is valid also for finite measures. Some of the results can be established for not necesarily finite, but at least $\sigma$-finite measures.
 \end{rem}
 
 \begin{ex}\label{ex:rot}
-Consider system $(\mathbb{T}, \mathcal{B}(\mathbb{T}), m, R_{\lambda})$, where $\mathbb{T}$ is a unit circle on a complex plane, $\mathcal{B}(\mathbb{T})$ is a Borel $\sigma$-field on $\mathbb{T}$, $m$ is a (normalized) Lebesgue measure on $\mathcal{B}(\mathbb{T})$ and $R_{\lambda}: \mathbb{T} \rightarrow \mathbb{T},\ R_{\lambda}(z) = \lambda z$ is a rotation (multiplication) by $\lambda \in \mathbb{T}$. It obvious that $R_{\lambda}$ preserves measure of arcs, hence $R_{\lambda}$ is measure preserving (set of arcs generates $\mathcal{B}(\mathbb{T})$ and it's easy to check that it is enough to check preservation of measure on the generator of given $\sigma$-field). This is an important example, because multiplication by complex number from a unit circle occur in the Wiener-Wintner type theorems.
+Consider dynamical system $(\mathbb{T}, \mathcal{B}(\mathbb{T}), m, R_{\lambda})$, where $\mathbb{T}$ is a unit circle on a complex plane, $\mathcal{B}(\mathbb{T})$ is a Borel $\sigma$-field on $\mathbb{T}$, $m$ is a (normalized) Lebesgue measure on $\mathcal{B}(\mathbb{T})$ and $R_{\lambda}: \mathbb{T} \rightarrow \mathbb{T},\ R_{\lambda}(z) = \lambda z$ is a rotation (multiplication) by $\lambda \in \mathbb{T}$. It is obvious that $R_{\lambda}$ preserves (the Haar) measure of arcs, hence $R_{\lambda}$ is measure preserving (clearly arcs generate $\mathcal{B}(\mathbb{T})$ and it's easy to notice that it is enough to check preservation of measure on the generator of given $\sigma$-field). This is an important example, because multiplication by complex number from a unit circle occur in the Wiener-Wintner type theorems.
 \end{ex}
 
 \begin{f}[{\cite[lemma 2.6]{einsiedler}}]\label{f:intinv}$\\$
@@ -505,16 +510,16 @@ Let $(X, \mathcal{A}, \mu)$ be a probability space. A measurable map $T: X \righ
 \end{equation}
 Moreover, if $T$ is measure preserving, then \eqref{e:intinv} holds for all $f \in \mathscr{L}^1(\mu)$.
 \end{f}
-For two measure preserving preserving systems it is natural to consider their product:
-\begin{f}\label{f:product_system} Let $(X, \mathcal{A}, \mu, T)$ and $(Y, \mathcal{C}, \nu, S)$ be measure preserving systems. Then the system $(X \times Y, \mathcal{A} \otimes \mathcal{C}, \mu \otimes \nu, T \times S)$ with $T \times S (x, y) := (Tx, Sy)$ is also a measure preserving system which is called a \textbf{product system} of $(X, \mathcal{A}, \mu, T)$ and $(Y, \mathcal{C}, \nu, S)$.
+For two measure preserving systems it is natural to consider their product:
+\begin{f}\label{f:product_system} Let $(X, \mathcal{A}, \mu, T)$ and $(Y, \mathcal{C}, \nu, S)$ be measure preserving systems. Then the system $(X \times Y, \mathcal{A} \otimes \mathcal{C}, \mu \otimes \nu, T \times S)$ with $T \times S (x, y) := (Tx, Sy)$ is also a measure preserving system which is called the \textbf{direct product} of $(X, \mathcal{A}, \mu, T)$ and $(Y, \mathcal{C}, \nu, S)$.
 \end{f}
-We will give now definition of the Koopman Operator, which gives the crucial possibility of using functional analysis in ergodic theory.
+We will give now definition of the Koopman Operator, which gives possibility to apply the functional analysis in ergodic theory.
 
 \begin{df}[Koopman Operator on $L^p(\mu)$]$\\$
-Let $(X, \mathcal{A}, \mu, T)$ be a measure preserving system. For $1 \leq p < \infty$ we definie the \textbf{Koopman Operator on $L^p(\mu)$} (induced by $T$) as $U_T : L^p(\mu) \rightarrow L^p(\mu)$ given by
+Let $(X, \mathcal{A}, \mu, T)$ be a measure preserving system. For $1 \leq p < \infty$ we definie the \textbf{Koopman Operator on $L^p(\mu)$} (induced by $T$) as $U_T : L^p(\mu) \rightarrow L^p(\mu)$ is defined by
 \[ U_T f := f \circ T.\]
 \end{df}
-\begin{rem} Note that since $f \in L^p(\mu)$ is formally a equivalence class of functions equal almost everywhere, it doesn't make sense to consider the superposition $f \circ T (x) := f(Tx)$ for a fixed point $x \in X$. On the other hand, note that if for $f, g \in \mathscr{L}^p(\mu)$ we have $f=g$ almost everywhere, then also $f \circ T = g \circ T$ almost everywhere. Indeed, we have $\mu (\{ f \circ T \neq g \circ T\}) = \mu ( \{ x \in X: f(Tx) \neq g(Tx) \} ) = \mu (T^{-1}(\{f \neq g\})) = \mu (\{ f \neq g\}) =0,$ since $T$ is measure preserving. This shows that the equivalence class of $f \circ T$ is uniquely determined by the equivalence class of $f$, so it makes sense to define $f \circ T$ for $f \in L^p(\mu)$. Note further, that for $f \in L^p(\mu)$ we have by \ref{e:intinv}
+\begin{rem} Note that since $f \in L^p(\mu)$ is formally an equivalence class of functions (equal almost everywhere), it doesn't make sense to consider the superposition $f \circ T (x) := f(Tx)$ for a fixed point $x \in X$. On the other hand, note that if for $f, g \in \mathscr{L}^p(\mu)$ we have $f=g$ almost everywhere, then also $f \circ T = g \circ T$ almost everywhere. Indeed, $\mu (\{ f \circ T \neq g \circ T\}) = \mu ( \{ x \in X: f(Tx) \neq g(Tx) \} ) = \mu (T^{-1}(\{f \neq g\})) = \mu (\{ f \neq g\}) =0,$ since $T$ is measure preserving. This shows that the equivalence class of $f \circ T$ is uniquely determined by the equivalence class of $f$, so it makes sense to define $f \circ T$ for $f \in L^p(\mu)$. Note further, that for $f \in L^p(\mu)$ we have by \ref{e:intinv}
 \[ \int \limits_X | f \circ T |^p d\mu =  \int \limits_X | f |^p \circ T d\mu = \int \limits_X | f |^p d\mu < \infty, \]
 so Koopman Operator is well defined.
 \end{rem}
@@ -524,18 +529,18 @@ For a measure preserving system $(X, \mathcal{A}, \mu, T)$, its Koopman Operator
 \end{f}
 The most important class of measure preserving systems are ergodic dynamical systems.
 \begin{df}
-The measure preserving system $(X, \mathcal{A}, \mu, T)$ is called an \textbf{ergodic dynamical system} if
+A measure preserving system $(X, \mathcal{A}, \mu, T)$ is called an \textbf{ergodic (dynamical system)} if
 \[ \underset{A \in \mathcal{A}}{\forall}\ [T^{-1} A = A \Longrightarrow \mu(A) \in \{0,1\}]. \]
 In the above situation, the transformation $T$ and the measure $\mu$ are also called \textbf{ergodic}.
 \end{df}\\
-Set $A \in \mathcal{A}$ with $T^{-1}A = A$ is called a \textbf{$T$-invariant set} (or simply invariant set). Thus, the ergodicity of the system means that only null sets (sets of zero measure) and full measure sets can be invariant.
+Set $A \in \mathcal{A}$ with $T^{-1}A = A$ is called a \textbf{$T$-invariant set} (or simply invariant set). Thus, the ergodicity of the system means that only null sets (sets of zero measure) and full measure sets are invariant.
 \begin{ex}
-Consider the rotation system $(\mathbb{T}, \mathcal{B}(\mathbb{T}), m, R_{\lambda})$ from Example \ref{ex:rot}. It is ergodic if and only if $Arg(\lambda) \notin 2\pi \mathbb{Q}$, where $Arg(z)$ stands for the argument of complex number $z$.
+Consider the rotation system $(\mathbb{T}, \mathcal{B}(\mathbb{T}), m, R_{\lambda})$ from Example \ref{ex:rot}. It may be proved that it is ergodic if and only if $Arg(\lambda) \notin 2\pi \mathbb{Q}$, where $Arg(z)$ stands for the argument of complex number $z$.
 \end{ex}
-We will give now useful characterization of ergodicity.
+We now give a useful characterization of ergodicity. Namely,
 
 \begin{prop}\label{p:erginv}
-The measure preserving system $(X, \mathcal{A}, \mu, T)$ is ergodic if and only if for some (every) $p \in [1, \infty)$ we have
+A measure preserving system $(X, \mathcal{A}, \mu, T)$ is ergodic if and only if for some (every) $p \in [1, \infty)$ we have
 \[ \underset{f \in L^p(\mu)}{\forall} [f \circ T = f\ \mu\text{-a.e.} \Longrightarrow f \text{ is equal to a constant function } \mu \text{-a.e.}]. \]
 \end{prop}\\
 Using the above characterization, we will give some spectral properties of Koopman Operator on $L^2(\mu)$.
@@ -552,7 +557,7 @@ Let $(X, \mathcal{A}, \mu, T)$ be a measure preserving system and $U_T : L^2(\mu
 \begin{enumerate}[(1)]
 \item Suppose that for $f \in L^2(\mu), f \neq 0, \lambda \in \mathbb{C}$ we have $U_T f = \lambda f$. Since $U_T$ is an isometry we have $\|f\|_2 = \|U_T f\|_2 = \| \lambda f \|_2 = |\lambda| \|f\|_2$. Since $f \neq 0 \Rightarrow \| f \|_2 \neq 0$, we get $|\lambda| = 1$, so $\lambda \in \mathbb{T}$.
 \item Suppose that $U_T f = \lambda f$. By (1) we have $| \lambda | = 1$, so $|f| \circ T = | f \circ T | = |U_T f| = |\lambda f| = |\lambda| |f| = |f|$, so $|f|$ is $T$-invariant. $T$ is ergodic, hence by Proposition \ref{p:erginv} $|f| = \text{const}\ \mu$-a.e.
-\item Take $f,g \in H_{\lambda}$ and assume that $f \neq 0.$ By (2) we have $|f| = \text{const}\ \mu$-a.e., hence there must be also $|f| \neq 0\ \mu$-a.e. and further $f \neq 0\ \mu$-a.e. Since also $|g| = \text{const}\ \mu$-a.e., we have $\frac{|g|}{|f|} = \text{const}\ \mu-$a.e., so $\frac{g}{f} \in L^2(\mu)$. Now we have $U_T (\frac{g}{f}) = \frac{g}{f} \circ T = \frac{g \circ T}{f \circ T} = \frac{\lambda g}{\lambda f} = \frac{g}{f}$. $T$ is ergodic, so there exists $\alpha \in \mathbb{C}$ such that $\frac{g}{f} = \alpha\ \mu-$a.e., so $g = \alpha f$, hence $H_{\lambda}$ is one-dimensional.\ $\square$
+\item Take $f,g \in H_{\lambda}$ and assume that $f \neq 0.$ By (2) we have $|f| = \text{const}\ \mu$-a.e., hence there must be also $|f| \neq 0\ \mu$-a.e. and further $f \neq 0\ \mu$-a.e. Since also $|g| = \text{const}\ \mu$-a.e., we have $\frac{|g|}{|f|} = \text{const}\ \mu-$a.e., so $\frac{g}{f} \in L^2(\mu)$. Now we have $U_T (\frac{g}{f}) = \frac{g}{f} \circ T = \frac{g \circ T}{f \circ T} = \frac{\lambda g}{\lambda f} = \frac{g}{f}$. By ergodicity, there exists $\alpha \in \mathbb{C}$ such that $\frac{g}{f} = \alpha\ \mu-$a.e., so $g = \alpha f$, hence $H_{\lambda}$ is one-dimensional.\ $\square$
 \end{enumerate}
 \end{pf}
 One of the main interests of the ergodic theory is the asymptotic behavior of ergodic averages $\frac{1}{N} \sum \limits_{n=0}^{N-1} f(T^n x)$. The main and classical result in this field is the celebrated Birkhoff's Ergodic Theorem.
@@ -577,40 +582,40 @@ Pair $(X,T)$ consisting of a compact topological space $X$ and continuous map $T
 
 \begin{ex} Note that system $(\mathbb{T}, R_{\lambda})$ for $\lambda \in \mathbb{T}$ is a topological dynamical system.
 \end{ex}
-For a topological dynamical system $(X,T)$ we will consider set $\mathcal{M}(X)$ of finite, regular, complex-valued measures on $X$ as set of natural measures on $X$. When considering topological dynamical systems, we will assume all measures to be regular and Borel. Denote by $\mathcal{M}^1(X)$ set of all non-negative, probability measures from $\mathcal{M}(X)$. We will also consider set of all $T$-invariant measures from $\mathcal{M}^1(X)$, denoted by $\mathcal{M}^T(X)$. By $\mathcal{E}^T (X)$ we will denote set of all ergodic measures from $\mathcal{M}^1(X)$. The following theorem makes use of the Banach-Alaoglu Theorem and Krein-Milman Theorem to give some propoerties of these sets.
+For a topological dynamical system $(X,T)$ we will consider set $\mathcal{M}(X)$ of finite, regular, complex-valued measures on $X$ as set of natural measures on $X$. When considering topological dynamical systems, we will assume all measures to be regular and Borel. Denote by $\mathcal{M}^1(X)$ set of all non-negative, probability measures from $\mathcal{M}(X)$. We will also consider set of all $T$-invariant measures from $\mathcal{M}^1(X)$, denoted by $\mathcal{M}^T(X)$. By $\mathcal{E}^T (X)$ we will denote set of all ergodic measures from $\mathcal{M}^1(X)$. The following theorem makes use of the Banach-Alaoglu Theorem and Krein-Milman Theorem to give some properties of these sets.
 
 \begin{thm}[\cite{eisner}]
 Let $(X,T)$ be a topological dynamical system. Then
 \begin{enumerate}[(1)]
 \item $\mathcal{E}^T (X) \subset \mathcal{M}^T(X) \subset \mathcal{M}^1(X) \subset \overline{B}(0, 1)$, where $\overline{B}(0, 1)$ is a unit ball in a space $\mathcal{M}(X)$ with the variation norm,
-\item sets $\mathcal{M}^T(X)$ and $\mathcal{M}^1(X)$ are convex, weak$^*$ compact and if $X$ is metrizable, then weak$^*$ sequentially compact,
+\item the sets $\mathcal{M}^T(X)$ and $\mathcal{M}^1(X)$ are convex, weak$^*$ compact and if $X$ is metrizable, then weak$^*$ sequentially compact,
 \item $\mathcal{E}^T(X) = Ext(\mathcal{M}^T(X))$,
 \item $\mathcal{M}^T(X) = \overline{co}(\mathcal{E}^T(X))$.
 \end{enumerate}
 \end{thm}
-For a given topological dynamical system $(X,T)$ define map $T_* : \mathcal{M}^1(X) \rightarrow \mathcal{M}^1(X)$ by $T_* \mu (A) := \mu(T^{-1}A)$ for $A \in \mathcal{B}(A)$. Note that $T_* \mu$ is simply transport of measure $\mu$ by map $T$. Note that for $f \in C(X)$ and $\mu \in \mathcal{M}^1 (X)$ we have
+For a given topological dynamical system $(X,T)$ define a map $T_* : \mathcal{M}^1(X) \rightarrow \mathcal{M}^1(X)$ by $T_* \mu (A) := \mu(T^{-1}A)$ for $A \in \mathcal{B}(A)$. Note that $T_* \mu$ is simply the transport of measure $\mu$ by the map $T$. We have
 \[ \int \limits_{X} f \circ T d\mu = \int \limits_{X} f dT_* \mu. \]
 
 \begin{lem}[{\cite[thm. 4.1]{einsiedler}}]\label{l:invariant_limit}
 Let $(X, T)$ be a topological dynamical system with metrizable $X$ and let $(\nu)_{n \in \mathbb{N}}$ be a sequence of measures from $\mathcal{M}^1 (X)$. Then any weak$^*$ cluster point $\mu$ of the sequence $\mu_N := \frac{1}{N} \sum \limits_{n=0}^N T^n_* \nu_N, N \in \mathbb{N}$ is a $T$-invariant measure.
 \end{lem}
-\begin{pf} Suppose that there is a subsequence $(\mu_{N_j})_{j \in \mathbb{N}}$ with $\mu_{N_j} \overset{^{*}w}{\longrightarrow}\mu$. It is enought to check that $\int \limits_{X} f dT_* \mu = \int \limits_{X} f d\mu$ for every $f \in C(X)$ (it will mean that $\mu$ and $T_* \mu$ give rise to the same functional on $C(X)$, hence must be equal). We have
+\begin{pf} Suppose that there is a subsequence $(\mu_{N_j})_{j \in \mathbb{N}}$ with $\mu_{N_j} \overset{^{*}w}{\longrightarrow}\mu$. It is enough to show $\int \limits_{X} f dT_* \mu = \int \limits_{X} f d\mu$ (for every $f \in C(X)$ , it will mean that $\mu$ and $T_* \mu$ give rise to the same functional on $C(X)$, hence must be equal). We have
 \[ \left| \int \limits_{X} f d\mu - \int \limits_{X} f dT_* \mu \right| = \left| \int \limits_{X} f d\mu - \int \limits_{X} f \circ T d\mu \right| = \]
 \[ = \left| \lim \limits_{j \rightarrow \infty} \int \limits_{X} f d\frac{1}{N_j}\sum \limits_{n=0}^{N_j-1} T_*^n \nu_{N_j} - \lim \limits_{j \rightarrow \infty} \int \limits_{X} f \circ T d\frac{1}{N_j}\sum \limits_{n=0}^{N_j-1} T_*^n \nu_{N_j} \right| = \]
 \[=\lim \limits_{j \rightarrow \infty} \frac{1}{N_j} \left| \sum \limits_{n=0}^{N_j-1} \int \limits_{X} f \circ T^n d\nu_{N_j} - \sum \limits_{n=0}^{N_j-1} \int \limits_{X} f \circ T^{n+1} d\nu_{N_j} \right| =\]
 \[ = \lim \limits_{j \rightarrow \infty} \frac{1}{N_j} \left| \int \limits_{X} f d\nu_{N_j} - \int \limits_{X} f \circ T^{N_j} d\nu_{N_j} \right| \leq \lim \limits_{j \rightarrow \infty} \frac{2\| f\|_{\text{sup}}}{N_j} =0. \]
 \end{pf}
-Note that since $\mathcal{M}^1 (X)$ weak$^*$ sequentially compact, sequence $(\mu_N)_{N \in \mathbb{N}}$ from the above lemma must have a weak$^*$ cluster point. This proves the following remarkable theorem for metrizable spaces, but it's true in general.
+Note that since $\mathcal{M}^1 (X)$ weak$^*$ sequentially compact, thus the sequence $(\mu_N)_{N \in \mathbb{N}}$ from the above lemma always has a weak$^*$ cluster point. This proves the following remarkable theorem.
 
 \begin{thm}[Krylov–Bogoljubov{\cite[thm. 10.2]{eisner}}]\label{t:krylov}
 For every topological dynamical system $(X,T)$ we have $\mathcal{M}^T(X) \neq \emptyset$, i.e. there exists at least one $T$-invariant, regular, probability Borel measure $\mu$ on $X$.
 \end{thm}
-Since $\mathcal{M}^T(X) = \overline{co}(\mathcal{E}^T(X))$, there must also exists ergodic probability measure for $(X,T)$ and there is exactly one invariant probability if and only if there is exactly one ergodic probability. The unique invariant measure is automatically ergodic. This leads to the following
+Since $\mathcal{M}^T(X) = \overline{co}(\mathcal{E}^T(X))$, there exists an ergodic probability measure for $(X,T)$ and there is exactly one invariant probability if and only if there is exactly one ergodic probability. The unique invariant measure is automatically ergodic. This leads to the following
 
 \begin{df}
 We say that topological dynamical system $(X,T)$ is \textbf{uniquely ergodic} if it admits exactly one invariant probability measure, i.e. $|\mathcal{M}^T(X)|=1$.
 \end{df}
-Unique ergodicty allows one to obtain uniform convergence in Birkhoff's Ergodic Theorem.
+It follows (apply the Birkhoff ergodic theorem) that
 
 \begin{thm}[{\cite[thm. 10.6]{eisner}}]\label{t:unierg}
 For a topological dynamical system $(X,T)$ the following conditions are equivalent:
@@ -624,37 +629,41 @@ For a topological dynamical system $(X,T)$ the following conditions are equivale
 Under any of the above assumptions, $c(f) = \int \limits_{X} f d\mu,$ where $\mu$ is the unique ergodic probability measure.
 \end{thm}
 
-\begin{df} Let $X$ be a compact topological space and take a non-negative measure $\mu \in \mathcal{M}(X)$. We define \textbf{support of a measure} $\mu$ as a set $\text{supp}(\mu) = \{ x \in X: \text{ for every open set } U \text{ with } x \in U \text{ there is } \mu(U) > 0 \}$.
+\begin{df} Let $X$ be a compact topological space and take a non-negative measure $\mu \in \mathcal{M}(X)$. We define the \textbf{support of a measure} $\mu$ as $\text{supp}(\mu) = \{ x \in X: \text{ for every open set } U \text{ with } x \in U \text{ there is } \mu(U) > 0 \}$.
 \end{df}
 
 \begin{f}
-Let $(X,T)$ be a topological dynamical system. For every $\mu \in \mathcal{M}^1 (X)$ there is
+Let $(X,T)$ be a topological dynamical system. For every $\mu \in \mathcal{M}^1 (X)$
 \begin{enumerate}[(1)]
 \item $\text{supp}(\mu)$ is closed,
 \item $\mu(\text{supp}(\mu))=1$,
-\item if $\mu$ is invariant, then $T(supp(\mu)) \subset \text{supp} (\mu)$.
+\item if $\mu$ is invariant, then $T(supp(\mu)) \subset \text{supp} (\mu)$,
+\item for every $f \in L^1(\mu)$ there is \[\int \limits_X f d\mu = \int \limits_{\text{supp}(\mu)} f d\mu,\]
+\item for $f,g \in C(X)$ there is $f = g\ \mu$-a.e. if and only if $f(x) = g(x)$ for every $x \in \text{supp}(\mu)$.
 \end{enumerate}
 \end{f}
 \begin{pf}
 \begin{enumerate}[(1)]
-\item Take $x \in X \backslash \text{supp}(\mu)$. There exists open set $U$ with $x \in U$ and $\mu(U)=0$. For every other $y \in U$ we also have $\mu(U)=0$, so in fact $U \subset X \backslash \text{supp}(\mu)$, what proves that $X \backslash \text{supp}(\mu)$ is open, hence $ \text{supp}(\mu)$ is closed.
+\item If $x \in X \backslash \text{supp}(\mu)$ then there exists an open set $U$ with $x \in U$ such that $\mu(U)=0$. Hence $U \subset X \backslash \text{supp}(\mu)$, what proves that $X \backslash \text{supp}(\mu)$ is open. It follows that $ \text{supp}(\mu)$ is closed.
 \item It's enough to show that $X \backslash \text{supp}(\mu)$ has zero measure. By regularity, we know that
 \begin{equation}\label{e:suppreg}
 \mu(X \backslash \text{supp}(\mu)) = \sup\{\mu(K): K \subset X \backslash \text{supp}(\mu), K \text{ is compact} \}.
 \end{equation}
-Take any compact $K$ with $K \subset X \backslash \text{supp}(\mu)$. For every $x \in K$ there exists open $U_x$ with $x \in U_x$ and $\mu(U_x)=0$ (by (1)). Now we have $K \subset \bigcup \limits_{x \in K} U_x$ and since $K$ is compact, we can choose $x_1, ..., x_n$ such that $K \subset \bigcup \limits_{j=1}^n U_{x_j}$, so $\mu(K) \leq \sum \limits_{j=1}^n \mu(U_{x_j}) = 0$, so $\mu(K) =0$. By \eqref{e:suppreg} we have $\mu (X \backslash \text{supp}(\mu)) = 0$.
-\item We have to show that for $x \in X$ there is $x \in \text{supp}(\mu) \Rightarrow Tx \in \text{supp}(\mu) $. Assume that $Tx \notin \text{supp}(\mu)$. Then there must exist open set $U$ with $Tx \in U$ and $\mu(U) = 0$. Now we have $x \in T^{-1}U,\ T^{-1}U$ is open since $T$ is continuous and $\mu(T^{-1}U) = \mu(U) = 0$, so also $x \notin \text{supp}(\mu).\ \square$
+Take any compact set $K$ with $K \subset X \backslash \text{supp}(\mu)$. For every $x \in K$ there exists open $U_x$ with $x \in U_x$ and $\mu(U_x)=0$ (by (1)). Now we have $K \subset \bigcup \limits_{x \in K} U_x$ and since $K$ is compact, we can choose $x_1, ..., x_n$ such that $K \subset \bigcup \limits_{j=1}^n U_{x_j}$, so $\mu(K) \leq \sum \limits_{j=1}^n \mu(U_{x_j}) = 0$, so $\mu(K) =0$. By \eqref{e:suppreg} we have $\mu (X \backslash \text{supp}(\mu)) = 0$.
+\item We have to show thatif $x \in \text{supp}(\mu)$ then $Tx \in \text{supp}(\mu) $. Assume that $Tx \notin \text{supp}(\mu)$. Then there exists an open set $U$ with $Tx \in U$ and $\mu(U) = 0$. Now we have $x \in T^{-1}U,\ T^{-1}U$ is open (since $T$ is continuous) and $\mu(T^{-1}U) = \mu(U) = 0$. In particular $x \notin \text{supp}(\mu)$, a contradiction.
+\item Follows from $(2)$.
+\item If $f = g$ on $\text{supp}(\mu)$ then $(2)$ implies that $f = g\ \mu$-a.e. On the other hand, if there is $x \in \text{supp}(\mu)$ with $f(x) \neq g(x)$, then there must also be $f \neq g$ on some open nieghborhood $U$ of x. Since $x \in \text{supp}(\mu)$, there is $\mu(U)>0$, hence $\mu(\{ f \neq g \}) \geq \mu(U) >0.\ \square$
 \end{enumerate}
 \end{pf}
 Since $T$ is continuous, we can consider the Koopman Operator on space $C(X)$, namely $U_T : C(X) \rightarrow C(X)$ with $U_T f = f \circ T$. $U_T$ is a positive operator, it's a contraction and $U_T ( \mathds{1}) = \mathds{1}$.
 
 \section{von Neumann's Ergodic Theorem}
-In this section we state von Neumann's (Mean) Ergodic Theorem, which can be seen as a first operator theoretic type ergodic theorem. We also prove its consequences in spectral theory for isometries.
+In this section we state von Neumann's (Mean) Ergodic Theorem, which can be seen as a first operator theoretic type ergodic theorem. It follows from the more general Corollary \ref{c:reflexivemeanergodic}. We also prove its consequences in spectral theory for isometries.
 
 \begin{thm}[von Neumann's Ergodic Theorem {\cite[thm. 1.3.1]{weber}}]\label{t:neumann}
-Let $U:H \rightarrow H$ be a contraction on a complex Hilbert space $H$. Then for every $f \in H$ there is a convergence
-\[ \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} U^n f = Pf, \]
-where $P:H \rightarrow H$ is an orthogonal projection to a closed subspace of $U$-invariant vectors $H_U = \left\{ g\in H: Ug = g \right\}$. Moreover, there is
+Let $U:H \rightarrow H$ be a contraction on a complex Hilbert space $H$. Then for every $f \in H$ there is 
+\[ \lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} U^n f = Pf\ (\text{in the norm } \|\cdot\|), \]
+where $P:H \rightarrow H$ is an orthogonal projection on the closed subspace of $U$-invariant vectors $H_U = \left\{ g\in H: Ug = g \right\}$. Moreover,
 \[ H=H_U \oplus H_0, \]
 where $H_0 = \overline{\left\{ g - Ug: g \in H \right\}}$.
 \end{thm}
@@ -663,11 +672,11 @@ where $H_0 = \overline{\left\{ g - Ug: g \in H \right\}}$.
 Let $U:H\rightarrow H$ be an isometry on a Hilbert space $H$ and take $f \in H, \lambda \in \mathbb{T}$. Then $\lim \limits_{N \rightarrow \infty}\frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n U^n f = P_{\overline{\lambda}} f$, where $P_{\lambda}$ is an orthogonal projection to the $H_{\lambda}$ - the eigenspace of $\lambda \in \mathbb{T}$.
 \end{cor}
 \begin{pf}
-Note that operator is $V:H \rightarrow H$ given by $V:=\lambda U$ is also an isometry, since $\langle Vf, Vg \rangle = \langle \lambda Uf, \lambda Ug \rangle=  \lambda\overline{\lambda} \langle Uf, Ug \rangle = |\lambda|^2 \langle f, g \rangle = \langle f, g \rangle$. By von Neumann's Theorem we have that \[\frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n U^n f = \frac{1}{N} \sum \limits_{n=0}^{N-1} V^n f \longrightarrow Qf,\] where $Q$ is an orthogonal projection on a subspace $\left\{ f \in H: Vf = f \right\} = \left\{ f \in H: \lambda Uf = f \right\} = \left\{ f \in H: Uf = \overline{\lambda} f \right\} = H_{\overline{\lambda}}$, so $Q = P_{\overline{\lambda}}.\ \square$
+Note that the operator $V:H \rightarrow H$ defined by $V:=\lambda U$ is also an isometry, since $\langle Vf, Vg \rangle = \langle \lambda Uf, \lambda Ug \rangle=  \lambda\overline{\lambda} \langle Uf, Ug \rangle = |\lambda|^2 \langle f, g \rangle = \langle f, g \rangle$. By von Neumann's Theorem we have that \[\frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n U^n f = \frac{1}{N} \sum \limits_{n=0}^{N-1} V^n f \longrightarrow Qf,\] where $Q$ is an orthogonal projection on a subspace $\left\{ f \in H: Vf = f \right\} = \left\{ f \in H: \lambda Uf = f \right\} = \left\{ f \in H: Uf = \overline{\lambda} f \right\} = H_{\overline{\lambda}}$. It follows that $Q = P_{\overline{\lambda}}.\ \square$
 \end{pf}
 
 \begin{lem}\label{l:spectr}
-Let $U:H\rightarrow H$ be an isometry on Hilbert space $H$ and take $f \in H$. Then $\sigma_f (\{\lambda\}) = \|P_{\lambda}f\|^2,$ where $\sigma_f$ denotes spectral measure of $f$.
+Let $U:H\rightarrow H$ be an isometry on Hilbert space $H$ and $f \in H$. Then $\sigma_f (\{\lambda\}) = \|P_{\lambda}f\|^2,$ where $\sigma_f$ denotes the spectral measure of $f$.
 \end{lem}
 \begin{pf}  From Corollary \ref{c:spectr_proj} we have 
 \begin{equation}\label{e:norm}
@@ -681,7 +690,7 @@ Note that for every $z \in \mathbb{T}$ we have $\frac{1}{N} \sum \limits_{n=0}^{
 \begin{equation}\label{e:measure}
  \int \limits_{\mathbb{T}}  | \frac{1}{N} \sum \limits_{n=0}^{N-1}  \left(\frac{z}{\lambda}\right)^n |^2 d\sigma_f (z) \longrightarrow \int \limits_{\mathbb{T}} \mathds{1}_{\{\lambda\}}(z) d\sigma_f (z) = \sigma_f (\{ \lambda \}).
 \end{equation}
-Putting together \eqref{e:norm}, \eqref{e:int} and \eqref{e:measure} finishes the proof. $\square$
+Putting together \eqref{e:norm}, \eqref{e:int} and \eqref{e:measure} the proof is completed. $\square$
 \end{pf}
 
 
@@ -752,7 +761,7 @@ Let $H$ be a complex Hilbert space. For every finite sequence $x_0, x_1, ..., x_
 \end{multline*}
 If $H=\mathbb{C}$, this ineqaulity becomes
 \begin{equation*}
-| \frac{1}{N} \sum \limits_{n=0}^{N-1} x_n |^2 \leq \frac{N+R}{N(R+1)}\left( \frac{1}{N} \sum \limits_{n=0}^{N-1} |x_n |^2 + \frac{2}{N(R+1)}\sum \limits_{c=1}^{R} (R-c+1) \Re \left( \sum \limits_{j=0}^{N-c-1} x_j \overline{x_{j+c}} \right) \right).
+| \frac{1}{N} \sum \limits_{n=0}^{N-1} x_n |^2 \leq \frac{N+R}{N(R+1)}\left( \frac{1}{N} \sum \limits_{n=0}^{N-1} |x_n |^2 + \frac{2}{N(R+1)}\sum \limits_{c=1}^{R} (R-c+1) \text{Re} \left( \sum \limits_{j=0}^{N-c-1} x_j \overline{x_{j+c}} \right) \right).
 \end{equation*}
 \end{lem}
 \begin{pf} Let's make a convention that $x_n:=0$ for $n<0$ and $n \geq N$. Observe that
@@ -794,7 +803,7 @@ Combinig together \eqref{e:vdc2}, \eqref{e:vdc3} and \eqref{e:vdc4} we get to th
 \[=  \frac{N+R}{N^2 (R+1)^2} \left( (R+1) \sum \limits_{n=0}^{N-1} \|x_n\|^2 + \sum \limits_{c=1}^{R} (R-c+1) \sum \limits_{j=0}^{N-c-1} [x_{j+c}, x_j] \right) =  \]
 \[ = \frac{N+R}{N(R+1)} \left( \frac{1}{N} \sum \limits_{n=0}^{N-1} \|x_n\|^2 + \frac{1}{N(R+1)} \sum \limits_{c=1}^{R} (R-c+1) \sum \limits_{j=0}^{N-c-1} (\langle x_{j+c}, x_j \rangle + \langle x_j, x_{j+c} \rangle) \right).\]
 Inequality for $H=\mathbb{C}$ is immediate by observing that
-\[ \langle x_{j+c}, x_j \rangle + \langle x_j, x_{j+c} \rangle = x_{j+c}\overline{x_{j}} + x_j \overline{x_{j+c}} = 2\Re (x_j \overline{x_{j+c}}) \]
+\[ \langle x_{j+c}, x_j \rangle + \langle x_j, x_{j+c} \rangle = x_{j+c}\overline{x_{j}} + x_j \overline{x_{j+c}} = 2\text{Re} (x_j \overline{x_{j+c}}) \]
 and using the linearity of the real part of complex number.\ $\square$
 \end{pf}
 We will now make use of Van der Corput's inequality for $H=\mathbb{C}$ to obtain another inequality:
@@ -806,8 +815,8 @@ For every finite sequence $u_0, u_1, ..., u_{N-1} \in \mathbb{C}$ and integer $R
 \begin{equation*}
 \begin{gathered}
  \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n u_n \right|^2 \leq \\
-\leq \frac{N+R}{N(R+1)}\left( \frac{1}{N} \sum \limits_{n=0}^{N-1} |\lambda^n u_n |^2 + \frac{2}{N(R+1)}\sum \limits_{c=1}^{R} (R-c+1) \Re \left( \sum \limits_{j=0}^{N-c-1} \lambda^j u_j \overline{\lambda^{j+c } u_{j+c}} \right) \right) \leq \\
-\leq \frac{2N}{N(R+1)}\left( \frac{1}{N} \sum \limits_{n=0}^{N-1} |u_n |^2 + \frac{2(R+1)}{N(R+1)}\sum \limits_{c=1}^{R}\Re \left( \sum \limits_{j=0}^{N-c-1} \lambda^j \lambda^{-j-c} u_j \overline{u_{j+c}} \right) \right) \leq \\
+\leq \frac{N+R}{N(R+1)}\left( \frac{1}{N} \sum \limits_{n=0}^{N-1} |\lambda^n u_n |^2 + \frac{2}{N(R+1)}\sum \limits_{c=1}^{R} (R-c+1) \text{Re} \left( \sum \limits_{j=0}^{N-c-1} \lambda^j u_j \overline{\lambda^{j+c } u_{j+c}} \right) \right) \leq \\
+\leq \frac{2N}{N(R+1)}\left( \frac{1}{N} \sum \limits_{n=0}^{N-1} |u_n |^2 + \frac{2(R+1)}{N(R+1)}\sum \limits_{c=1}^{R} \text{Re} \left( \sum \limits_{j=0}^{N-c-1} \lambda^j \lambda^{-j-c} u_j \overline{u_{j+c}} \right) \right) \leq \\
 \leq \frac{2}{N(R+1)}\sum \limits_{n=0}^{N-1}|u_n|^2 + \frac{4}{N(R+1)} \sum \limits_{c=1}^{R} \left| \lambda^{-c} \sum \limits_{j=0}^{N-c-1} u_j \overline{u_{j+c}} \right| = \\
 = \frac{2}{N(R+1)}\sum \limits_{n=0}^{N-1}|u_n|^2 + \frac{4}{R+1} \sum \limits_{r=1}^{R} \left| \frac{1}{N} \sum \limits_{n=0}^{N-r-1} u_n \overline{u_{n+r}} \right|.
 \end{gathered}
@@ -1132,7 +1141,7 @@ The strong (weak) limit $\lim \limits_{\alpha} A_{\alpha}^{\mathcal{S}} x$ is eq
 \end{thm}
 
 \section{Amenable semigroups}
-Let $X$ be a topological space. Denote by $C_b (G)$ the space of all bounded continuous complex-valued functions on G.
+Let $X$ be a topological space. Denote by $C_b (X)$ the normed space of all bounded continuous complex-valued functions on X with the supremum norm.
 \begin{df}
 Let $G$ be a semitpological semigroup. We say that $m \in C_b (G)^*$ is a \textbf{mean} if $\langle \mathds{1}, m \rangle = \| m \| = 1$. We say that a mean $m$ is \textbf{right (left) invariant} if it satisfies
 \[ m(R_g f) = m(f)\ \ \Big( m(L_g f) = m(f) \Big), \]
@@ -1159,7 +1168,7 @@ Let $\mathcal{S}$ be a bounded representation of amenable semigroup $G$ on $\mat
 \begin{pf} By Krein-Smulian Theorem ($\ref{t:kreinsmulian}$) we have that $\overline{co}\mathcal{S}x$ is weakly compact (note that norm and weak closure of convex set are equal). Let $(A^{\mathcal{S}}_{\alpha})_{\alpha \in \Lambda}$ be a weak ergodic net. Since $A^{\mathcal{S}}_{\alpha} \in \overline{co}^{s.o.t}(\mathcal{S})$, we have $A^{\mathcal{S}}_{\alpha} x \in \overline{co}\mathcal{S}x$ for each $x \in \mathfrak{X}$, hence net $A^{\mathcal{S}}_{\alpha} x$ has a weak cluster point for each $x \in \mathfrak{X}$. By Theorem $\ref{t:ame_nofix}$ we have that $\mathcal{S}$ is mean ergodic.
 \end{pf}
 Using the fact that closed unit ball in a reflexive Banach space is weakly compact we obtain the following 
-\begin{cor}
+\begin{cor}\label{c:reflexivemeanergodic}
 A bounded representation $\mathcal{S}$ of amenable semigroup $G$ on a reflexive Banach space $\mathfrak{X}$ is mean ergodic. In particular every power bounded sequence $(T_n)_{n \in \mathbb{N}}$ of operators in $L(\mathfrak{X})$ with $T_{n+m} = T_m T_n$ for $n, m \in \mathbb{N}$ on reflexive Banach space is mean ergodic.
 \end{cor}
 \noindent Note that von Neumann's Ergodic Theorem (Theorem \ref{t:neumann}) is a special case of the previous corollary, since Hilbert space is always reflexive.
@@ -1168,28 +1177,109 @@ A bounded representation $\mathcal{S}$ of amenable semigroup $G$ on a reflexive 
 We will introduce now class of operators for which we will establish semigroup generalization of topological Wiener-Wintner theorem.
 
 \begin{df}
-Let $X$ be a compact Hausdorff topological space. Operator $S \in L(C(X))$ is called a \textbf{Markov operator} if $S\mathds{1} = \mathds{1}$ and $S$ is positive, i.e. $Sf \geq 0$ for $f \geq 0$. $\mathds{1} \in C(X)$ stands for function with $\mathds{1}(x)=1$ for all $x \in X$.
+Let $X$ be a compact Hausdorff topological space. Operator $S \in L(C(X))$ is called a \textbf{Markov operator} if $S\mathds{1} = \mathds{1}$ and $S$ is positive, i.e. $Sf \geq 0$ for $f \geq 0$. $\mathds{1} \in C(X)$ stands for a function with $\mathds{1}(x)=1$ for all $x \in X$.
 \end{df}
+
+\begin{ex}
+Let $(X,T)$ be a topological dynamical system. The Koopman operator $U_T : C(X) \rightarrow C(X)$ is a Markov operator, since for $f \geq 0$ there is $f \circ T \geq 0$ and $\mathds{1} \circ T (x) = \mathds{1}(Tx) = 1$, so $U_T \mathds{1} = \mathds{1}$.
+\end{ex}
+
 \begin{rem}
 Let $S$ be a Markov operator on $C(X)$. Its dual operator $S' : \mathcal{M}(X) \rightarrow \mathcal{M}(X)$ is also positive and for all $\mu \in \mathcal{M}(X)$ we have $S'\mu(X) = \mu(X)$. Indeed, for $\mathcal{M}(X) \ni \mu \geq 0$ and $C(X) \ni f \geq 0$ we have \[\int \limits_X f dS' \mu = \langle f, S' \mu \rangle = \langle Sf, \mu \rangle = \int \limits_X Sf d\mu \geq 0,\] so $S'\mu \geq 0$. There also is \[S'\mu (X) = \int \limits_X \mathds{1} d S'\mu = \langle \mathds{1}, S' \mu \rangle = \langle S \mathds{1}, \mu \rangle = \langle \mathds{1}, \mu \rangle = \mu(X).\]
 Note that if $\mu$ is a probability measure on $X$ then $S'\mu$ is also a probability measure. This allows one to think about $S'$ as an operator describing evolution of probabilities on space $X$. In particular, if $\delta_x$ is a unit mass measure in a point $x \in X$ then $S'\delta_x$ is a probability which describes stochastic evolution of the point $x$.
 \end{rem}
-%
-%The following theorem states several properties of Markov operators.
-%
-%\begin{thm}
-%Let $X$ be compact Hausdorff topological space and let $S:C(X) \rightarrow C(X)$ be a Markov operator. The following holds:
-%\begin{enumerate}[(1)]
-%\item for every $x \in X$ there is 
-%\end{enumerate}
-%\end{thm}
+We will give now some lattice properties of Markov operator and its dual operator. For the definiton of the modulus of complex measure recall Definition \ref{d:measuremodulus}. By $\mu \leq \nu,\ \mu,\nu \in \mathcal{M}(X)$ we mean that measures $\mu$ and $\mu$ are real-valued and $\nu - \mu$ is nonnegative ($\nu(A) \geq \mu(A) $ for every $A \in \mathcal{B}(X)$).
+\begin{lem}
+Let $X$ be a compact Hausdorff topological space. Let $S:C(X) \rightarrow C(X)$ be a Markov operator. The following holds:
+\begin{enumerate}[(1)]
+\item if $f \in C(X)$ is real-valued, then $Sf$ is also real-valued,
+\item for every $f \in C(X)$ there is $S(\text{Re} f) = \text{Re} (Sf)$ and $S(Im f) = Im (Sf)$,
+\item $|Sf| \leq S|f|$ for every $f \in C(X)$ %and $|S' \mu| \leq S' | \mu |$ for every $\mu \in \mathcal{M}(X)$,
+\item $\|S\|=1$ and $\|S'\|=1$,
+\item for a given $0 \leq \mu \in \mathcal{M}(X)$, if $S'\mu \geq \mu$ then $S'\mu = \mu$.
+\end{enumerate}
+\end{lem}
+\begin{pf}
+\begin{enumerate}[(1)]
+\item We have $f = f^+ - f^-,\ f^+, f^- \geq 0$ and $Sf = Sf^+ - Sf^-$. Since $S$ is positive, we have that $Sf^+,Sf^- \geq 0$, so $Sf$ is also real-valued.
+\item We have $f = \text{Re} f + i \text{Im} f$ and $Sf = S(\text{Re} f) + S(i \text{Im} f) = S(\text{Re} f) + i S(\text{Im} f)$. From the previous point we know that $S(\text{Re}f)$ and $S(\text{Im}f)$ are real-valued. Since of course  $Sf = \text{Re}(Sf) + i \text{Im}(Sf)$ and splitting to the real and imaginary part is unique, there must be $\text{Re}(Sf) = S(\text{Re} f)$ and $\text{Im}(Sf) = S(\text{Im} f)$.
+\item Note first that for $f \in C(X)$ we have $|f|(x) = \sup \limits_{\lambda \in \mathbb{T}} \text{Re}( \lambda f(x))$.  For every $\lambda \in \mathbb{T}$ there is of course $\text{Re}( \lambda f) \leq |f|$, so also $S \text{Re}( \lambda f) = \text{Re}(\lambda Sf) \leq S|f|$. Passing to the supremum yields $|Sf| = \sup \limits_{\lambda \in \mathbb{T}} \text{Re}( \lambda Sf) \leq S|f|$.
+\item For $f \in C(X)$ there is $\|Sf\| = \||Sf|\| \leq \| S|f| \| \leq \| S(\|f\|\cdot \mathds{1})\| = \|f\| \|S \mathds{1}\| = \|f\| \|\mathds{1}\| = \|f\|$, so $\|S\| \leq 1$. $S\mathds{1} = \mathds{1}$ yields now that $\|S\| = 1$. Since $\|S\|=\|S'\|$, there is also $\|S'\|=1$.
+\item For every $0 \leq f \in C(X)$ there is
+\[ 0 \leq \langle f, S'\mu - \mu \rangle \leq \langle \|f\|_\text{sup} \cdot \mathds{1}, S'\mu - \mu \rangle = \langle \|f\|_\text{sup} \cdot \mathds{1}, S'\mu \rangle - \langle \|f\|_\text{sup} \cdot \mathds{1}, \mu \rangle = \]
+\[ = \|f\|_\text{sup}( \langle S\mathds{1}, \mu \rangle - \langle \mathds{1}, \mu \rangle ) = 0,  \]
+hence $S'\mu = \mu.\ \square$
+\end{enumerate}
+\end{pf}
+Now we would like to investigate subsets of $X$ invariant for the Markov operators. Note that we have to give new definition of invariance, since we don't necessarily consider deterministic transformation on $X$.
+
+\begin{df}
+Let $X$ be a compact Hausdorff topological space and let $S:C(X) \rightarrow C(X)$ be a Markov operator. We say that subset $F \subset X$ is \textbf{invariant} (for $S$) if $F$ is nonempty, closed and for every $x \in F$ there is $\text{supp}(S'\delta_x) \subset F$. If we consider semigroup $\mathcal{S}$ of Markov operators, then $F$ is called invariant if it is invariant for every operator $S \in \mathcal{S}$. Invariant set $F$ is called \textbf{minimal} if there exsists no invariant proper subset of $F$.
+\end{df}
+Properties of invariant sets for a single Markov operator can be found in \cite{sine}. We give analogical properties of sets invariant for semigroup of Markov operators.
+
+\begin{prop}\label{p:vanish}
+Let $X$ be a compact Hausdorff topological space and let $\mathcal{S} = \{S_g:\ g \in G \}$ be a bounded, Markovian representation of semitopological semigroup $G$ on $C(X)$. Then closed and nonempty set $F \subset X$ is invariant if and only if $S_g f$ vanishes on $F$ for every $g \in G$ and every $f \in C(X)$ vanishing on $F$.
+\end{prop}
+\begin{pf}
+Assume that $F$ is invariant and $C(X) \ni f=0$ on $F$. For every $g \in G$ and $x \in F$ we have \[S_g f (x) = \langle S_g f, \delta_x \rangle = \langle f, S_g'\delta_x \rangle = \int \limits_{X} f dS_g' \delta_x = \int \limits_{\text{supp}(S_g'\delta_x)} f dS_g' \delta_x=0,\]
+since $\text{supp}(S_g'\delta_x) \subset F$ and $f$ vanishes on $F$. Conversly, assume that $F$ is not invariant, i.e. there exists $x \in F$ and $g \in G$ with $y \in \text{supp}(S_g' \delta_x) \backslash F$ for some $y \in X$. Take continuous function $f : X \rightarrow [0,1]$ with $f(y)=1$ and $f = 0$ on $F$ (it exists due to the Tietze's extension theorem (Theorem \ref{t:tietze})). We have then
+\[ S_gf(x) = \int \limits_X S_gf d \delta_x = \int \limits_X f d S_g'\delta_x > 0, \]
+since $f(y)=1$ and $y \in supp(S_g' \delta_x)$ (there must be $f > \frac{1}{2}$ on some neighborhood $U$ of $y$ and since $y$ is in the support of $S_g' \delta_x$, there must be $S_g'\delta_x (U)>0$. Both the function $f$ and the measure $S_g' \delta_x$ are nonnegative, hence the integral must be strictly positive). There is $x \in F$, so $S_g f$ doesn't vanish on $F.\ \square$
+\end{pf}
+
+\begin{rem}
+Let $F$ be an invariant set. For every $g \in G$ and $f,h \in C(X)$ we have $S_g f = S_g h$ if $f=h$ on $F$. This allows us to consider restricted semigroup $\mathcal{S}|_F:= \{S_g|_F : g \in G \}$ of Markov operators on $C(F)$, where for $f \in C(F)$ we have $S_g |_F ( f):=(S_g h) |_F$ for any $h \in C(X)$ with $f = h$ on $F$. The previous proposition assures that this definition is correct. $\mathcal{S}|_F$ is a bounded representation of $G$ on $C(F)$. If $\mathcal{S}$ admits (right) ergodic net, then also $\mathcal{S}|_F$ admits (right) ergodic net (it's enough to restrict $\mathcal{S}$-ergodic net to $F$). If $\mathcal{S}$ is in addition mean ergodic, then $\mathcal{S}|_F$ is also mean ergodic. To see that take $0 \neq \mu \in Fix(\mathcal{S}|_F')$ and consider measure $\nu(A) := \mu(A \cap F),\ A \in \mathcal{B}(X)$. For $f \in C(X)$ there is
+\[ \langle f, S_g' \nu \rangle = \langle S_g f, \nu \rangle = \int \limits_X S_g f d\nu = \int \limits_F S_g f d\nu = \langle (S_g f) |_F, \mu \rangle = \langle S_g |_F (f |_F), \mu \rangle = \langle f|_F, \mu \rangle = \langle f, \nu \rangle, \]
+so $\nu \in Fix(\mathcal{S}')$. There exists $f \in Fix(\mathcal{S})$ with $\langle f, \nu \rangle \neq 0$, but again
+$S_g |_F (f|_F) = (S_g f) |_F = f|_F$, so $f|_F \in Fix(\mathcal{S}|_F)$ and 
+\[ \langle f|_F, \mu \rangle = \int \limits_F f|_F d\mu = \int \limits_X f d\nu = \langle f, \nu \rangle \neq 0, \]
+hence $Fix(\mathcal{S}|_F)$ separates $Fix(\mathcal{S}|_F')$ and $\mathcal{S}|_F$ is mean ergodic. Note also that if $K \subset F$ is invariant for $\mathcal{S}|_F$ then $K$ is invariant also for $\mathcal{S}$. Indeed, assume that $f \in C(X)$ vanishes on $K$. We have that $f|_F \in C(F)$ vanishes on $K$, so $S_g|_F( f|_F)$ vanishes on $K$. On the other hand $S_g|_F (f|_F) = (S_g f)|_F$, so in fact $S_g f$ vanishes on $K$. Proposition \ref{p:vanish} implies that $K$ is invariant for $\mathcal{S}$.
+
+\end{rem}
+
+\begin{lem} Let $X$ be a compact Hausdorff topological space and let $\mathcal{S} = \{S_g: g \in G \}$ be a bounded, Markovian representation of semitopological semigroup $G$ on $C(X)$ which admits strong right ergodic net. The following conditions holds:
+\begin{enumerate}[(1)]
+\item $\text{supp}(\mu)$ is invariant for every $\mu \in \mathbb{P}_{\mathcal{S}}$,
+\item for every real-valued $f \in Fix (\mathcal{S})$ sets $M(f) := \{ x \in X: f(x) = \sup \limits_{y \in X} f(x)\}$ and $m(f):= \{ x \in X: f(x) = \inf \limits_{y \in X} f(y)\}$ are invariant,
+\item for every real-valued $f \in Fix(\mathcal{S})$ and $\mu \in \mathbb{P}_{\mathcal{S}}$ the set $\{ f \leq r \} \cap \text{supp}(\mu)$ is invariant if is nonempty
+\end{enumerate}
+\end{lem}
+\begin{pf}
+\begin{enumerate}[(1)]
+\item Let $0 \leq f \in C(X)$ vanish on $\text{supp}(\mu)$. There is
+\[ \int \limits_{\text{supp}(\mu)} S_g f d\mu = \int \limits_X S_g f d\mu = \langle S_g f, \mu \rangle = \langle f, S_g' \mu \rangle =\langle f, \mu \rangle = \int \limits_X f d\mu = \int \limits_{\text{supp}(\mu)} f d\mu = 0.  \]
+Since $S_g f$ and $\mu$ are nonnegative, there must be $S_g f = 0$ on $\text{supp}(\mu)$. If $f$ is real-valued and vanishes on $\text{supp}(\mu)$ then both $f^+$ and $f^-$ must vanish on $\text{supp}(\mu)$, hence $Sf = Sf^+ - Sf^-$ vanish on $\text{supp}(\mu)$. Finally, if $f$ is complex-valued, then both $\text{Re} f$ and $\text{Im} f$ must vanish on $\text{supp}(\mu)$ and the same argument works.
+\item We will prove only that $m(f)$ is invariant, proof for $M(f)$ is analogous. It is obvoius that $m(f)$ is closed and nonempty. Set $r:=\inf \limits_{y \in X} f(y)$ and take $x \in m(f)$. For every $g \in G$ we have 
+\[ r = f(x) = S_g f(x) = \int \limits_X f dS_g' \delta_x, \]
+but $f \geq r$ on $X$, so there must be $f = r$ on $\text{supp}(S_g' \delta_x)$. This proves that $\text{supp}(S_g' \delta_x) \subset m(f)$.
+\item It suffices to show that $\{ f \leq r \} \cap \text{supp}(\mu)$ is invariant for $\mathcal{S}|_{\text{supp}(\mu)}$. Consider $h \in C(\text{supp}(\mu))$ given as $h = \max \{f,r\}$.
+\end{enumerate}
+\end{pf}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 For a given Markov operator $S$ on $C(X)$ and invariant probability measure $\mu \in Fix(S')$ we are interested in extending $S$ to the linear contractive operator on $L^2(\mu)$. Note first, that for $f \in C(X)\ (\subset L^1(\mu))$ we have
-\[ \|f\|_{L^1(\mu)} = \int \limits_{X} |f| d\mu = \langle |f|, \mu \rangle = \langle |f|, S'\mu \rangle = \langle S|f|, \mu \rangle \geq \langle |Sf|, \mu \rangle = \|Sf\|_{L^1(\mu)}.   \]
-Since $C(X)$ is dense in $L^1(\mu)$ (in $L^1$ norm), we can uniquely extend $S$ to a positive contraction $\hat{S}: L^1(\mu) \rightarrow L^1(\mu)$. Moreover, since $S\mathds{1} = \mathds{1}$, we have for $f \in L^{\infty}(\mu)$
+\[ \|f\|_{L^1(\mu)} = \int \limits_{X} |f| d\mu = \langle |f|, \mu \rangle = \langle |f|, S'\mu \rangle = \langle S|f|, \mu \rangle \geq \langle |Sf|, \mu \rangle = \|Sf\|_{L^1(\mu)},   \]
+hence $S$ is a bounded linear operator on $C(X)$ seen as a subspace of $L^1(\mu)$. Since $C(X)$ is dense in $L^1(\mu)$ (in $L^1$ norm), we can uniquely extend $S$ to a positive contraction $\hat{S}: L^1(\mu) \rightarrow L^1(\mu)$. Moreover, since $S\mathds{1} = \mathds{1}$, we have for $f \in L^{\infty}(\mu)$
 \[ \|\hat{S}f\|_{L^{\infty}(\mu)} = \||\hat{S}f|\|_{L^{\infty}(\mu)}  \leq \|\hat{S}|f| \|_{L^{\infty}(\mu)} \leq \|\hat{S}( \|f \|_{L^{\infty}(\mu)} \cdot \mathds{1}) \|_{L^{\infty}(\mu)} = = \|S( \|f \|_{L^{\infty}(\mu)} \cdot \mathds{1}) \|_{L^{\infty}(\mu)} = \]
 \[ = \|f\|_{L^{\infty}(\mu)} \|S \mathds{1} \|_{L^{\infty}(\mu)} = \|f\|_{L^{\infty}(\mu)} \|\mathds{1} \|_{L^{\infty}(\mu)} = \|f\|_{L^{\infty}},\]
-hence $\hat{S}$ is also a $\| \cdot \|_{L^{\infty}(\mu)}$-contraction (restricted to the $L^{\infty}(\mu)$. We can now make use of the following
+hence $\hat{S}$ is also a $\| \cdot \|_{L^{\infty}(\mu)}$-contraction (restricted to the $L^{\infty}(\mu)$). We can now make use of the following
 
 \begin{thm}[{\cite[thm 8.23]{eisner}}]
 Let $(X, \mathcal{A}, \mu)$ be a measure space and assume that $T:L^1(\mu) \rightarrow L^1(\mu)$ is a contraction and
@@ -1197,19 +1287,17 @@ Let $(X, \mathcal{A}, \mu)$ be a measure space and assume that $T:L^1(\mu) \righ
 Then for every $f\in L^1(\mu) \cap L^p(\mu),\ p \in (1, \infty)$ we have
 \[ \|Tf\|_{L^p(\mu)} \leq \|f\|_{L^p(\mu)}. \]
 \end{thm}\\
-In our case $(X, \mathcal{A}, \mu)$ is a probability space, so $L^p(\mu) \subset L^1(\mu)$ for every $p \in (1, \infty)$. We can conclude that $\hat{S}$ restricted to the $L^p(\mu)$ is a contraction for $L^p(\mu)$ norm. In particular, we can uniquely extend Markov operator $S$ (on $C(X)$) to the positive contraction on $L^2(\mu)$ (by extending first to $L^1(\mu)$ and then restricting to $L^2(\mu)$). Note that we made use of the invariance of the measure $\mu$.\\ \\
-In the case of invariant probability measure $\mu \in \mathbb{P}_{\mathcal{S}}$ for bounded Markovian representation $\mathcal{S}$ of semitopological semigroup $G$ on $C(X)$  we can consider semigroup of positive contractions on $L^2(\mu)$. We denote it by $\mathcal{S}_2 = \{S_{g,2}:\ g \in G \}$, where $S_{g,2}$ is the extension of $S_g$ to $L^2(\mu)$. Note that $\mathcal{S}_2$ is a bounded representation of $G$ on $L^2(\mu)$. Boundedness is obvious since all $S_{g,2}$ in $\mathcal{S}_2$ are contractions, condition $S_{g,2}S_{h,2}=S_{hg,2}$ is satisfied since it is satisfied for the semigroup $\mathcal{S}$. In order to check last condition, i.e. continuity in $L^2(\mu)$ of $G \ni g \mapsto S_{g,2}f$ for every $f \in L^2(\mu)$, let us fix $f \in L^2(\mu),\ g \in G$ and $\varepsilon > 0$. $C(X)$ is dense in $L^2(\mu)$, so there exists $f_0 \in C(X)$ with $\|f - f_0\|_{L^2(\mu)} < \varepsilon$. Since $\mathcal{S}$ is a bounded representation of $G$ on $C(X)$, there exists an open neighbourhood $U$ of $g$ such that there is $\|S_g f_0 - S_h f_0\|_{sup} < \varepsilon$ for every $h \in U$. For $h \in U$ we have now
+In our case $(X, \mathcal{A}, \mu)$ is a probability space, so $L^p(\mu) \subset L^1(\mu)$ for every $p \in (1, \infty)$. We can conclude that $\hat{S}$ restricted to the $L^p(\mu)$ is a contraction in $L^p(\mu)$ norm. In particular, we can uniquely extend Markov operator $S$ (on $C(X)$) to the positive contraction on $L^2(\mu)$ (by extending first to $L^1(\mu)$ and then restricting to $L^2(\mu)$). Note that we made use of the invariance of the measure $\mu$.\\ \\
+In the case of invariant probability measure $\mu \in \mathbb{P}_{\mathcal{S}}$ for bounded Markovian representation $\mathcal{S}$ of semitopological semigroup $G$ on $C(X)$  we can consider semigroup of positive contractions on $L^2(\mu)$. We denote it by $\mathcal{S}_2 := \{S_{g,2}:\ g \in G \}$, where $S_{g,2}$ is the extension of $S_g$ to $L^2(\mu)$. Note that $\mathcal{S}_2$ is a bounded representation of $G$ on $L^2(\mu)$. Boundedness is obvious since since $S_{g,2}$ in $\mathcal{S}_2$ is a contraction, condition $S_{g,2}S_{h,2}=S_{hg,2}$ is satisfied since it is satisfied for the semigroup $\mathcal{S}$. In order to check last condition, i.e. continuity in $L^2(\mu)$ of $G \ni g \mapsto S_{g,2}f$ for every $f \in L^2(\mu)$, let us fix $f \in L^2(\mu),\ g \in G$ and $\varepsilon > 0$. $C(X)$ is dense in $L^2(\mu)$, so there exists $f_0 \in C(X)$ with $\|f - f_0\|_{L^2(\mu)} < \varepsilon$. Since $\mathcal{S}$ is a bounded representation of $G$ on $C(X)$, there exists an open neighbourhood $U$ of $g$ such that there is $\|S_g f_0 - S_h f_0\|_{sup} < \varepsilon$ for every $h \in U$. For $h \in U$ we have now
 \[ \|S_{g,2}f - S_{h,2}f\|_{L^2(\mu)} \leq \|S_{g,2}f - S_{g,2}f_0\|_{L^2(\mu)} + \|S_{g,2}f_0 - S_{h,2}f_0\|_{L^2(\mu)} + \]
 \[ +\|S_{h,2}f_0 - S_{h,2}f\|_{L^2(\mu)}\| \leq \|S_{g,2}\| \cdot \|f - f_0\|_{L^2(\mu)} + \|S_g f_0 - S_h f_0\|_{L^2(\mu)} + \]
 \[ + \|S_{h,2}\| \cdot \|f - f_0\|_{L^2(\mu)} \leq 2\|f - f_0\|_{L^2(\mu)} + \|S_g f_0 - S_h f_0\|_{sup} < 3\varepsilon. \]
-Together with the semigroup $\mathcal{S}_2$ we will consider its Hermitian adjoint semigroup $\mathcal{S}^*_2 := \{S_{g,2}^*: g \in G \}$.
+Together with the semigroup $\mathcal{S}_2$ we will consider its Hermitian adjoint semigroup $\mathcal{S}^*_2 := \{S_{g,2}^*: g \in G \}$. Note that if $G$ is amenable, then by Corollary \ref{c:reflexivemeanergodic} we have that $\mathcal{S}_2$ is mean ergodic (even if $\mathcal{S}$ is not mean ergodic), since $L^2(\mu)$ is a Hilbert space (hence reflexive Banach space).\\ \\
+There is a natural extension of the concept of unique ergodicity to the semigroup of operators on $C(X)$:
 
-
-%There is a natural extension of the concept of unique ergodicity to the semigroup of operators
-
-%\begin{df}
-%Let $X$ be a compact Hausdorff topological space. Let $\mathcal{S}$ be a bounded representation of %semitopological semigroup $G$ on the Banach space $C(X)$. We say that $\mathcal{S}$ is %\textbf{uniquely ergodic} if there exists a probability measure $\mu \in \mathcal{M}(X)$ with $Fix ( %\mathcal{S}' ) = \mathbb{C} \cdot \mu$.
-%\end{df}
+\begin{df}
+Let $X$ be a compact Hausdorff topological space. Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$ on the Banach space $C(X)$. We say that $\mathcal{S}$ is \textbf{uniquely ergodic} if there exists a probability measure $\mu \in \mathcal{M}(X)$ with $Fix ( \mathcal{S}' ) = \mathbb{C} \cdot \mu$.
+\end{df}
 
 
 
@@ -1241,8 +1329,6 @@ hence Ceasaro averages of distorted representation are exactly Wiener-Wintner ty
 
 \bibitem[Assani, Presser]{assani_survey} I. Assani, Kimberly Presser, \textit{A Survey of the Return Times Theorem}, arXiv:1209.0856, \url{http://arxiv.org/abs/1209.0856}
 
-\bibitem[Bellow]{bellow} A. Bellow, V. Losert, \textit{The weighted pointwise ergodic theorem and the individual ergodic theorem along subsequences}, TAMS, vol. 288, no 1 (1985), p. 307 - 345.
-
 \bibitem[Einsiedler, Ward]{einsiedler} Manfred Einsiedler, Thomas Ward, \textit{Ergodic Theory with a view towards Number Theory}, Springer, Graduate Texts in Mathematics, Vol. 259
 
 \bibitem[Eisner et al]{eisner} T. Eisner, B. Farkas, M. Haase, R. Nagel, \textit{Operator Theoretic Aspects of
@@ -1255,11 +1341,15 @@ Ergodic Theory}, Graduate Texts in Mathematics, Springer, to appear, \url{http:/
 \bibitem[Robinson]{robinson} E. Arthur Robinsor, Jr., \textit{On uniform convergence in the Wiener-Wintner theorem}, J. Lond. Math. Soc. 49
 (1994), 493–501.
 
-\bibitem[Rudin]{rudin} Walter Rudin, \textit{Analiza funkcjonalna}, Wydawnictwo Naukowe PWN, second edition, 2012
+\bibitem[Rudin1]{rudin} Walter Rudin, \textit{Analiza funkcjonalna}, Wydawnictwo Naukowe PWN, second edition, 2012
+
+\bibitem[Rudin2]{rudin2} Walter Rudin, \textit{Analiza rzeczywista i zespolona}, Wydawnictwo Naukowe PWN, second edition, 2009
 
 \bibitem[Schreiber14]{schreiber14} M. Schreiber, \textit{Topological Wiener - Wintner theorems for amenable operator semigroups}, ETDS  (2014).
 
 \bibitem[Schreiber13]{schreiber13} M. Schreiber, \textit{Uniform families of ergodic operator nets},  Semigroup Forum (2013)
+
+\bibitem[Sine]{sine} R. Sine, \textit{Geometric theory of a single Markov operator}, Pacific J. Math. 27 (1968), no. 1, 155-166
 
 \bibitem[Weber]{weber} M. Weber, \textit{Dynamical Systems and Processes}, EMS Publishing House (2009)
 
