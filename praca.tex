@@ -71,7 +71,7 @@
   }
 
 % miesi¹c i~rok:
-\date{Maj 2015}
+\date{Czerwiec 2015}
 
 %Podaæ dziedzinê wg klasyfikacji Socrates-Erasmus:
 \dziedzina{ 
@@ -179,7 +179,7 @@ Twierdzenie ergodycznie Wienera-Wintnera jest bardzo wa¿ne. Bardzo bardzo wa¿ne.
 
 \chapter{Preliminaries}\label{r:prel}
 In this chapter we introduce basic notations, concepts and theorems from measure theory, topology and functional analysis which will be used through the thesis. We omit most of the proofs.\\ \\
-By $\mathbb{N}$ we will denote set of positive natural numbers, by $\mathbb{N}_0$ - set of natural numberswith zero, by $\mathbb{Z}$ - set of integers, by $\mathbb{R}$ - set of real numbers, by $\mathbb{C}$ - set of complex numbers and by $\mathbb{T}=\mathbb{S}^1=\left\{ \lambda \in \mathbb{C}: |\lambda|=1 \right\}$ - circle on a complex plane (1-dimensional torus).
+By $\mathbb{N}$ we will denote set of positive natural numbers, by $\mathbb{N}_0$ - set of natural numbers with zero, by $\mathbb{Z}$ - set of integers, by $\mathbb{R}$ - set of real numbers, by $\mathbb{C}$ - set of complex numbers and by $\mathbb{T}=\mathbb{S}^1=\left\{ \lambda \in \mathbb{C}: |\lambda|=1 \right\}$ - circle on a complex plane (1-dimensional torus).
 
 
 
@@ -314,7 +314,7 @@ Closed unit ball $\overline{B}(0,1) \subset E^*$ in a dual space of a separable 
 Let $V$ be a vector space and take $A \subset V$. Point $x \in A$ is said to be an \textbf{extremal point} of $A$ if $x$ is not a middle point of any interval with ends in $A$, i.e. if $x = \alpha y + (1-\alpha)z$ for some $y,z \in A, \alpha \in (0,1)$ then $y=z=x$. We denote set of all extreme points of $A$ by $Ext(A)$.
 \end{df}
 
-\begin{thm}[Krein-Milman theorem\ {\cite[thm. 3.23]{rudin}}]
+\begin{thm}[Krein-Milman theorem\ {\cite[thm. 3.23]{rudin}}]\label{t:krein-milman}
 Let $E$ be a locally convex topological vector space. If $K$ is a nonempty, compact and convex subset of $E$, then $K = \overline{co}(Ext(K))$, where $co(A)$ stands for a convex hull of a set $A \subset E$.
 \end{thm}
 
@@ -337,8 +337,15 @@ Let $X$ be a comapct topological space. For every continuous linear functional $
 Moreover, for every $\mu \in \mathcal{M}(X)$ the above equality defines a unique contiunous linear functional $\Lambda \in C(X)^*$ and there is $\| \Lambda \| = \| \mu \|$. Functional $\Lambda$ is positive if and only if the coressponding measure $\mu$ is non-negative.
 \end{thm}
 
-\begin{rem} Riesz-Markov theorem states that $\Phi : \mathcal{M}(X) \rightarrow C(X)^*$ given by $\Phi(\mu) (f) = \int \limits_{X} f d\mu, f \in C(X)$ is a bijective isometry. It is straightforward to check that $\Phi$ is also linear. Hence we will identify Banach spaces $\mathcal{M}(X)$ and $C(X)^*$. This identifiaction allows us also to consider weak$^*$ topology on $\mathcal{M}(X)$. Note that $\mu_n \overset{^{*}w}{\longrightarrow}\mu$ if and only if $\underset{f \in C(X)}{\forall}\ \int \limits_{X} f d\mu_n \rightarrow \int \limits_{X} f d\mu$.
+\begin{rem} Riesz-Markov theorem states that $\Phi : \mathcal{M}(X) \rightarrow C(X)^*$ given by $\Phi(\mu) (f) = \int \limits_{X} f d\mu, f \in C(X)$ is a bijective isometry. It is straightforward to check that $\Phi$ is also linear. Hence we will identify Banach spaces $\mathcal{M}(X)$ and $C(X)^*$. We will use notation $\langle f, \mu \rangle = \int \limits_X f d\mu$. This identifiaction allows us also to consider weak$^*$ topology on $\mathcal{M}(X)$. Note that $\mu_n \overset{^{*}w}{\longrightarrow}\mu$ if and only if $\underset{f \in C(X)}{\forall}\ \int \limits_{X} f d\mu_n \rightarrow \int \limits_{X} f d\mu$.
 \end{rem}
+
+\begin{f}\label{f:total_variation}
+Let $X$ be a compact topological space. For every $\mu \in \mathcal{M}(X)$ there is
+\[ \langle f, |\mu| \rangle = \sup \{ | \langle h, \mu \rangle | : h \in C(X) \text{ and } |h| \leq f  \}.\]
+For every $f \in C(X)$ there is
+\[ | \langle f, \mu \rangle | \leq \langle |f|, |\mu| \rangle. \]
+\end{f}
 
 \begin{df} Let $E$ be a normed space. Denote by $L(E)$ set of all bounded linear operators $T:E \rightarrow E$. The \textbf{strong operator topology} (s.o.t) on $L(E)$ is a topology induced by a family of seminorms $\{p_x :\ x \in E \}$, where $p_x(T) := Tx$ for $x \in E,\ T \in L(E)$.
 \end{df}
@@ -350,8 +357,13 @@ so strong operator topology is a topology of pointwise convergence on $L(E)$.
 
 \begin{df}
 Let $E,F$ be normed space. For $T \in L(E,F)$ there exists unique operator $T' \in L(F^*, E^*)$ such that
-\[ T'y^*(x) = y^*(Tx) \text{ for all } x \in E,\ y^* \in F^*. \]
+\[ T'y^*(x) = y^*(Tx)\ \ \big(\langle Tx, y^* \rangle = \langle x, T'y^* \rangle\big)\ \text{ for all } x \in E,\ y^* \in F^*. \]
 Operator $T'$ is called an \textbf{adjoint (dual) operator} of $T$.
+\end{df}
+\begin{df}
+Let $H$ be a Hilbert space and let $T:H \rightarrow H$ be a bounded linear operator. There exists unique operator $T^* : H\rightarrow H$ such that
+\[ \langle Tx, y \rangle = \langle x, T^*y \rangle \text{ for all } x,y \in H.\]
+Operator $T^*$ is called an \textbf{Hermitian adjoint operator} fo $T$.
 \end{df}
 
 \begin{df}
@@ -632,7 +644,7 @@ Under any of the above assumptions, $c(f) = \int \limits_{X} f d\mu,$ where $\mu
 \begin{df} Let $X$ be a compact topological space and take a non-negative measure $\mu \in \mathcal{M}(X)$. We define the \textbf{support of a measure} $\mu$ as $\text{supp}(\mu) = \{ x \in X: \text{ for every open set } U \text{ with } x \in U \text{ there is } \mu(U) > 0 \}$.
 \end{df}
 
-\begin{f}
+\begin{f}\label{f:supp}
 Let $(X,T)$ be a topological dynamical system. For every $\mu \in \mathcal{M}^1 (X)$
 \begin{enumerate}[(1)]
 \item $\text{supp}(\mu)$ is closed,
@@ -756,12 +768,12 @@ Let $(X, \mathcal{A}, \mu, T)$ be a measure preserving dynamical system. A funct
 \begin{lem}[Van der Corput inequality, {\cite[thm. 1.7.1]{weber}}]\label{t:vdc}
 Let $H$ be a complex Hilbert space. For every finite sequence $x_0, x_1, ..., x_{N-1} \in H$ and integer $R \in \{0,1,...,N-1\}$ the following inequality holds:
 \begin{multline*}
-\| \frac{1}{N} \sum \limits_{n=0}^{N-1} x_n \|^2 \leq \\
+\Big\| \frac{1}{N} \sum \limits_{n=0}^{N-1} x_n \Big\|^2 \leq \\
 \leq \frac{N+R}{N(R+1)}\left( \frac{1}{N} \sum \limits_{n=0}^{N-1} \|x_n \|^2 + \frac{1}{N(R+1)}\sum \limits_{c=1}^{R} (R-c+1) \sum \limits_{j=0}^{N-c-1} (\langle x_{j+c}, x_j \rangle + \langle x_j, x_{j+c} \rangle) \right).
 \end{multline*}
 If $H=\mathbb{C}$, this ineqaulity becomes
 \begin{equation*}
-| \frac{1}{N} \sum \limits_{n=0}^{N-1} x_n |^2 \leq \frac{N+R}{N(R+1)}\left( \frac{1}{N} \sum \limits_{n=0}^{N-1} |x_n |^2 + \frac{2}{N(R+1)}\sum \limits_{c=1}^{R} (R-c+1) \text{Re} \left( \sum \limits_{j=0}^{N-c-1} x_j \overline{x_{j+c}} \right) \right).
+\Big| \frac{1}{N} \sum \limits_{n=0}^{N-1} x_n \Big|^2 \leq \frac{N+R}{N(R+1)}\left( \frac{1}{N} \sum \limits_{n=0}^{N-1} |x_n |^2 + \frac{2}{N(R+1)}\sum \limits_{c=1}^{R} (R-c+1) \text{Re} \left( \sum \limits_{j=0}^{N-c-1} x_j \overline{x_{j+c}} \right) \right).
 \end{equation*}
 \end{lem}
 \begin{pf} Let's make a convention that $x_n:=0$ for $n<0$ and $n \geq N$. Observe that
@@ -1025,9 +1037,6 @@ since $|\lambda^N f(T^N x)| \leq |\lambda^N| \|f\|_{\text{sup}} = \|f\|_{\text{s
 
 
 \chapter{Ergodic theory for operator semigroups and Markov operators on $C(K)$}\label{r:ergop}
-Lattice properties of $C(K)$ and $\mathcal{M}(K)$\\
-Properties of positive and Markov operators\\
-
 This chapter contains preliminaries for the next chapter in which we will establish topological Wiener-Winter theorem for semigroups of operators. We present basics of operator theoretic approach to ergodic theory. Instead of single deterministic transformation on measure space, we will consider semigroup of bounded linear operators on Banach space. Introduction to these topics can be found in \cite{krengel}. We will follow setting presented in \cite{schreiber13} and \cite{schreiber14}. We also introduce concepts of amenable semigroups and Markov operators on $C(K)$. 
 
 \section{Operator semigroups, ergodic nets and mean ergodicity}
@@ -1069,7 +1078,7 @@ Let $\mathcal{S}$ be a bounded representation of semigroup $G$. A net $(A^{\math
 \item $(A_{\alpha}^{\mathcal{S}})$ is \textbf{strongly right (left) asymptotically invariant}, i.e.
 \[ \lim \limits_{\alpha} (A_{\alpha}^{\mathcal{S}} x - A_{\alpha}^{\mathcal{S}} S_g x) = 0\ \  \Big( \lim \limits_{\alpha} (A_{\alpha}^{\mathcal{S}} x - S_g A_{\alpha}^{\mathcal{S}} x) = 0 \Big). \]
 \end{enumerate}
-The net $(A^{\mathcal{S}}_\alpha)_{\alpha \in \Lambda}$ is called a \textbf{weak right (left) $\mathcal{S}$-ergodic net} if condition (i) holds and $(A^{\mathcal{S}}_\alpha)_{\alpha \in \Lambda}$ is \textbf{weakly right (left) asymptotically invariant}, i.e. convergence in (ii) holds in weak topology on $\mathfrak{X}$. The net $(A^{\mathcal{S}}_\alpha)_{\alpha \in \Lambda}$ is called \textbf{strong (weak) $\mathcal{S}$-ergodic net} when it is a strong (weak) right and left $\mathcal{S}$-ergodic net. We say that representation $\mathcal{S}$ admits strong (weak) right/left ergodic net if there exists at least one ergodic net with desired properties.
+The net $(A^{\mathcal{S}}_\alpha)_{\alpha \in \Lambda}$ is called a \textbf{weak right (left) $\mathcal{S}$-ergodic net} if condition (i) holds and $(A^{\mathcal{S}}_\alpha)_{\alpha \in \Lambda}$ is \textbf{weakly right (left) asymptotically invariant}, i.e. convergence in (ii) holds in weak topology on $\mathfrak{X}$. The net $(A^{\mathcal{S}}_\alpha)_{\alpha \in \Lambda}$ is called \textbf{strong (weak) $\mathcal{S}$-ergodic net} when it is a strong (weak) right and left $\mathcal{S}$-ergodic net. We say that representation $\mathcal{S}$ \textbf{admits} strong (weak) right/left ergodic net if there exists at least one ergodic net with desired properties.
 \end{df}
 
 \begin{ex}
@@ -1103,19 +1112,19 @@ Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$ o
 \end{thm}
 Operator ergodic theory is interested in convergence of net $A^{\mathcal{S}}_{\alpha}x$ for each $x \in \mathfrak{X}$. We will now introduce central theorem of the ergodic theory for operator semigroups which deals with that convergence. Our statement of the theorem is a combination of Theorem 1.7 from \cite{schreiber13} and Theorems 1.5 (p. 76) and 1.9 (p. 79) from \cite{krengel}.
 
-\begin{thm}[Abstract mean ergodic theorem]
+\begin{thm}[Abstract mean ergodic theorem]\label{t:ame_fix}
 Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$ which admits strong right ergodic net. The following conditions are equivalent:
 \begin{enumerate}[(1)]
-\item $A_{\alpha}^{\mathcal{S}} x$ converges to a fixed point of $\mathcal{S}$ for every $x \in \mathfrak{X}$ and every strong right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
-\item $A_{\alpha}^{\mathcal{S}} x$ converges weakly to a fixed point of $\mathcal{S}$ for every $x \in \mathfrak{X}$ and every right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
-\item $A_{\alpha}^{\mathcal{S}} x$ converges weakly to a fixed point of $\mathcal{S}$ for every $x \in \mathfrak{X}$ and every weak right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
-\item $A_{\alpha}^{\mathcal{S}} x$ has a weak cluster point in $Fix(\mathcal{S})$ for every $x \in \mathfrak{X}$ and every weak right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{\mathcal{S}} x$ converges to a fixed point of $\mathcal{S}$ for every $x \in \mathfrak{X}$ and some/every strong right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{\mathcal{S}} x$ converges weakly to a fixed point of $\mathcal{S}$ for every $x \in \mathfrak{X}$ and some/every strong right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{\mathcal{S}} x$ converges weakly to a fixed point of $\mathcal{S}$ for every $x \in \mathfrak{X}$ and some/every weak right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{\mathcal{S}} x$ has a weak cluster point in $Fix(\mathcal{S})$ for every $x \in \mathfrak{X}$ and some/every weak right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
 \item $\overline{co}\mathcal{S}x \cap Fix(\mathcal{S}) \neq \emptyset$ for all $x \in \mathfrak{X}$,
 \item there exists operator $P \in \overline{co}\mathcal{S}$ such that $S_g P = P S_g = P^2 = P$ for every $g \in G$,
-\item $Fix(\mathcal{S})$ separates $Fix(\mathcal{S}')$, (i.e. for every $Fix(\mathcal{S}) \ni x \neq 0$ there exists $x^* \in Fix(\mathcal{S}')$ with $\langle x, x^* \rangle \neq 0$),
+\item $Fix(\mathcal{S})$ separates $Fix(\mathcal{S}')$, (i.e. for every $Fix(\mathcal{S}') \ni x^* \neq 0$ there exists $x \in Fix(\mathcal{S})$ with $\langle x, x^* \rangle \neq 0$),
 \item $\mathfrak{X} = Fix(\mathcal{S}) \oplus \overline{span}\ rg (I - \mathcal{S}) := Fix(\mathcal{S}) \oplus \overline{span}\ \{ x - S_g x: x \in \mathfrak{X},\ g \in G \}$.
 \end{enumerate}
-The strong (weak) limit $\lim \limits_{\alpha} A_{\alpha}^{\mathcal{S}} x$ is equal for every strong (weak) right $S$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$ and is also equal to $Px$. Operator P is a $\mathcal{S}$-absorbing projection onto $Fix(\mathcal{S})$ along $\overline{span}\ rg (I - \mathcal{S})$.
+The strong (weak) limit $\lim \limits_{\alpha} A_{\alpha}^{\mathcal{S}} x$ is equal for every strong (weak) right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$ and is also equal to $Px$. Operator P is a $\mathcal{S}$-absorbing projection onto $Fix(\mathcal{S})$ along $\overline{span}\ rg (I - \mathcal{S})$.
 \end{thm}
 
 \begin{rem} Note that conditions (5) - (8) in the above theorem doesn't require the concept of $\mathcal{S}$-ergodic net. Nevertheless, proof of equivalence between them requires existence of at least one right $\mathcal{S}$-ergodic net. This is why we will introduce concept of amenable semigroup for which representations there always exists ergodic net. Motivated by the Abstract Mean Ergodic Theorem, we define mean ergodicity of semigroup $\mathcal{S}$ in terms of absorbing projection, which itself doesn't require concept of ergodic net.
@@ -1128,17 +1137,41 @@ If $\mathcal{S}$ admits even $S$-ergodic net (which is simultaneously left and r
 \begin{thm}[Abstract mean ergodic theorem]\label{t:ame_nofix}
 Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$ which admits strong ergodic net. The following conditions are equivalent:
 \begin{enumerate}[(1)]
-\item $A_{\alpha}^{\mathcal{S}} x$ converges for every $x \in \mathfrak{X}$ and every strong right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
-\item $A_{\alpha}^{\mathcal{S}} x$ converges weakly for every $x \in \mathfrak{X}$ and every right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
-\item $A_{\alpha}^{\mathcal{S}} x$ converges weakly for every $x \in \mathfrak{X}$ and every weak right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
-\item $A_{\alpha}^{\mathcal{S}} x$ has a weak cluster point for every $x \in \mathfrak{X}$ and every weak right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{\mathcal{S}} x$ converges for every $x \in \mathfrak{X}$ and some/every strong right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{\mathcal{S}} x$ converges weakly for every $x \in \mathfrak{X}$ and some/every strong right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{\mathcal{S}} x$ converges weakly for every $x \in \mathfrak{X}$ and some/every weak right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{\mathcal{S}} x$ has a weak cluster point for every $x \in \mathfrak{X}$ and some/every weak right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
 \item $\overline{co}\mathcal{S}x \cap Fix(\mathcal{S}) \neq \emptyset$ for all $x \in \mathfrak{X}$,
 \item there exists operator $P \in \overline{co}\mathcal{S}$ such that $S_g P = P S_g = P^2 = P$ for every $g \in G$,
-\item $Fix(\mathcal{S})$ separates $Fix(\mathcal{S}')$, (i.e. for every $Fix(\mathcal{S}) \ni x \neq 0$ there exists $x^* \in Fix(\mathcal{S}')$ with $\langle x, x^* \rangle \neq 0$),
-\item $\mathfrak{X} = Fix(\mathcal{S}) \oplus \overline{span}\ rg (I - \mathcal{S}) := Fix(\mathcal{S}) \oplus \overline{span}\ \{ x - S_g x: x \in \mathfrak{X},\ g \in G \}$.
+\item $Fix(\mathcal{S})$ separates $Fix(\mathcal{S}')$,
+\item $\mathfrak{X} = Fix(\mathcal{S}) \oplus \overline{span}\ rg (I - \mathcal{S}).$
 \end{enumerate}
-The strong (weak) limit $\lim \limits_{\alpha} A_{\alpha}^{\mathcal{S}} x$ is equal for every strong (weak) right $S$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$ and is also equal to $Px$. Operator P is a $\mathcal{S}$-absorbing projection onto $Fix(\mathcal{S})$ along $\overline{span}\ rg (I - \mathcal{S})$.
+The strong (weak) limit $\lim \limits_{\alpha} A_{\alpha}^{\mathcal{S}} x$ is equal for every strong (weak) right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$ and is also equal to $Px$. Operator P is a $\mathcal{S}$-absorbing projection onto $Fix(\mathcal{S})$ along $\overline{span}\ rg (I - \mathcal{S})$.
 \end{thm}
+We will make use of the following simple facts.
+
+\begin{f}\label{f:adjoint_separates}
+Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$. If $\mathcal{S}$ is mean ergodic then $Fix(\mathcal{S}')$ separaptes $Fix(\mathcal{S})$ ((i.e. for every $0 \neq x \in Fix(\mathcal{S})$ there exists $x^* \in Fix(\mathcal{S}')$ with $\langle x, x^* \rangle \neq 0$)).
+\end{f}
+\begin{pf}
+Let $x \in Fix(\mathcal{S})$ be nonzero. There exists $x^* \in \mathfrak{X}^*$ with $\langle x, x^* \rangle \neq 0$ since the dual space of the normed space always separates the space. For the absorbing projection $P$ we have $Px \in \overline{co}\mathcal{S}x = \{ x \}$, hence
+\[\langle x, P'x^* \rangle = \langle Px, x^* \rangle = \langle x, x^* \rangle \neq 0. \]
+It remains to show that $P'x^* \in Fix(\mathcal{S}')$. It follows from
+\[ \langle y, S_g'P'x^* \rangle = \langle PS_g y, x^* \rangle = \langle Py, x^* \rangle = \langle y, P'x^* \rangle \text{ for every } y \in \mathfrak{X},\]
+since $S_g P = P$ for every $g \in G.\ \square$
+\end{pf}
+
+
+\begin{f}\label{f:separate_dim}
+Let $V$ be a normed space and $E \subset V,\ F \subset V^*$ be linear subspaces. If $E$ separates $F$ then $dim F \leq dim E$ (i.e. if $dim E = k < \infty$ then $dim F \leq k$). Analogously, if $F$ separates $E$ then $dim E \leq dim F$.
+\end{f}
+\begin{pf}
+Assume that $dim E = k < \infty,\ E = span\{x_1, ..., x_k \}$ and $F$ separates $E$. Let us define the linear map $\Lambda: F \rightarrow \mathbb{C}^k$ by
+\[ \Lambda x^* = (\langle x_1, x^* \rangle, \langle x_2, x^* \rangle, ..., \langle x_k, x^* \rangle),\ x^* \in F. \]
+Note that $\Lambda$ is injective. Indeed, $\Lambda x^* = 0$ implies $\langle x, x^* \rangle = 0$ for every $x \in E$, but $E$ separates $F$, so $x^*=0$. This shows that $dim F \leq k.$ If now $F$ separates $E$ and $F = span\{x^*_1, ..., x^*_k \}$, we define $\Lambda : E \rightarrow \mathbb{C}^k$ by
+\[ \Lambda x = (\langle x, x_1^* \rangle, \langle x, x_2^* \rangle, ..., \langle x, x_k^* \rangle),\ x \in E. \]
+Again, $\Lambda$ is injective, so $dim E \leq k.\ \square$
+\end{pf}
 
 \section{Amenable semigroups}
 Let $X$ be a topological space. Denote by $C_b (X)$ the normed space of all bounded continuous complex-valued functions on X with the supremum norm.
@@ -1153,7 +1186,7 @@ $\mathbb{N}$ with discrete topology is a amenable semitopological semigroup.
 \end{ex}
 We are interested in the amenability of the semigroup, since bouned representation of amenable semigroup admits ergodic net.
 
-\begin{thm}[{\cite[prop. 1.3]{schreiber13}}]
+\begin{thm}[{\cite[prop. 1.3]{schreiber13}}]\label{t:amenable_admits}
 Let $\mathcal{S}$ be a bounded representation of $G$ on $\mathfrak{X}$. If $G$ is (right) amenable then there exists weak (right) $\mathcal{S}$-ergodic net.
 \end{thm}
 Using Theorem \ref{t:weakstrongnets} we can strengthen the previous result:
@@ -1177,7 +1210,7 @@ A bounded representation $\mathcal{S}$ of amenable semigroup $G$ on a reflexive 
 We will introduce now class of operators for which we will establish semigroup generalization of topological Wiener-Wintner theorem.
 
 \begin{df}
-Let $X$ be a compact Hausdorff topological space. Operator $S \in L(C(X))$ is called a \textbf{Markov operator} if $S\mathds{1} = \mathds{1}$ and $S$ is positive, i.e. $Sf \geq 0$ for $f \geq 0$. $\mathds{1} \in C(X)$ stands for a function with $\mathds{1}(x)=1$ for all $x \in X$.
+Let $X$ be a compact Hausdorff topological space. Operator $S \in L(C(X))$ is called a \textbf{Markov operator} if $S\mathds{1} = \mathds{1}$ and $S$ is positive, i.e. $Sf \geq 0$ for $f \geq 0$. $\mathds{1} \in C(X)$ stands for a function with $\mathds{1}(x)=1$ for all $x \in X$. We will say that bounded representation $\mathcal{S}$ of the semitopological semigroup $G$ on $C(X)$ is \textbf{Markovian} if it consists of Markov operators.
 \end{df}
 
 \begin{ex}
@@ -1189,14 +1222,15 @@ Let $S$ be a Markov operator on $C(X)$. Its dual operator $S' : \mathcal{M}(X) \
 Note that if $\mu$ is a probability measure on $X$ then $S'\mu$ is also a probability measure. This allows one to think about $S'$ as an operator describing evolution of probabilities on space $X$. In particular, if $\delta_x$ is a unit mass measure in a point $x \in X$ then $S'\delta_x$ is a probability which describes stochastic evolution of the point $x$.
 \end{rem}
 We will give now some lattice properties of Markov operator and its dual operator. For the definiton of the modulus of complex measure recall Definition \ref{d:measuremodulus}. By $\mu \leq \nu,\ \mu,\nu \in \mathcal{M}(X)$ we mean that measures $\mu$ and $\mu$ are real-valued and $\nu - \mu$ is nonnegative ($\nu(A) \geq \mu(A) $ for every $A \in \mathcal{B}(X)$).
-\begin{lem}
+\begin{lem}\label{l:lattice_properties}
 Let $X$ be a compact Hausdorff topological space. Let $S:C(X) \rightarrow C(X)$ be a Markov operator. The following holds:
 \begin{enumerate}[(1)]
 \item if $f \in C(X)$ is real-valued, then $Sf$ is also real-valued,
 \item for every $f \in C(X)$ there is $S(\text{Re} f) = \text{Re} (Sf)$ and $S(Im f) = Im (Sf)$,
-\item $|Sf| \leq S|f|$ for every $f \in C(X)$ %and $|S' \mu| \leq S' | \mu |$ for every $\mu \in \mathcal{M}(X)$,
+\item $|Sf| \leq S|f|$ for every $f \in C(X)$
+\item\label{measure_inequality} $|S' \mu| \leq S' | \mu |$ for every $\mu \in \mathcal{M}(X)$,
 \item $\|S\|=1$ and $\|S'\|=1$,
-\item for a given $0 \leq \mu \in \mathcal{M}(X)$, if $S'\mu \geq \mu$ then $S'\mu = \mu$.
+\item\label{fix_inequality} for a given $0 \leq \mu \in \mathcal{M}(X)$, if $S'\mu \geq \mu$ then $S'\mu = \mu$.
 \end{enumerate}
 \end{lem}
 \begin{pf}
@@ -1204,6 +1238,10 @@ Let $X$ be a compact Hausdorff topological space. Let $S:C(X) \rightarrow C(X)$ 
 \item We have $f = f^+ - f^-,\ f^+, f^- \geq 0$ and $Sf = Sf^+ - Sf^-$. Since $S$ is positive, we have that $Sf^+,Sf^- \geq 0$, so $Sf$ is also real-valued.
 \item We have $f = \text{Re} f + i \text{Im} f$ and $Sf = S(\text{Re} f) + S(i \text{Im} f) = S(\text{Re} f) + i S(\text{Im} f)$. From the previous point we know that $S(\text{Re}f)$ and $S(\text{Im}f)$ are real-valued. Since of course  $Sf = \text{Re}(Sf) + i \text{Im}(Sf)$ and splitting to the real and imaginary part is unique, there must be $\text{Re}(Sf) = S(\text{Re} f)$ and $\text{Im}(Sf) = S(\text{Im} f)$.
 \item Note first that for $f \in C(X)$ we have $|f|(x) = \sup \limits_{\lambda \in \mathbb{T}} \text{Re}( \lambda f(x))$.  For every $\lambda \in \mathbb{T}$ there is of course $\text{Re}( \lambda f) \leq |f|$, so also $S \text{Re}( \lambda f) = \text{Re}(\lambda Sf) \leq S|f|$. Passing to the supremum yields $|Sf| = \sup \limits_{\lambda \in \mathbb{T}} \text{Re}( \lambda Sf) \leq S|f|$.
+\item For $\mu \in \mathcal{M}(X)$ and $0 \leq f  \in C(X)$ there is by Fact \ref{f:total_variation} and the previous point
+\[ \langle f, |S'\mu| \rangle = \sup \{ | \langle h, S'\mu \rangle|: h \in C(X),\ |h| \leq f \} =  \sup \{ | \langle Sh, \mu \rangle|: h \in C(X),\ |h| \leq f \} \leq  \]
+\[ \sup \{  \langle |Sh|, |\mu| \rangle: h \in C(X),\ |h| \leq f \} \leq \sup \{  \langle S|h|, |\mu| \rangle: h \in C(X),\ |h| \leq f \} \leq \]
+\[ \leq  \langle Sf, |\mu| \rangle = \langle f, S'|\mu| \rangle. \]
 \item For $f \in C(X)$ there is $\|Sf\| = \||Sf|\| \leq \| S|f| \| \leq \| S(\|f\|\cdot \mathds{1})\| = \|f\| \|S \mathds{1}\| = \|f\| \|\mathds{1}\| = \|f\|$, so $\|S\| \leq 1$. $S\mathds{1} = \mathds{1}$ yields now that $\|S\| = 1$. Since $\|S\|=\|S'\|$, there is also $\|S'\|=1$.
 \item For every $0 \leq f \in C(X)$ there is
 \[ 0 \leq \langle f, S'\mu - \mu \rangle \leq \langle \|f\|_\text{sup} \cdot \mathds{1}, S'\mu - \mu \rangle = \langle \|f\|_\text{sup} \cdot \mathds{1}, S'\mu \rangle - \langle \|f\|_\text{sup} \cdot \mathds{1}, \mu \rangle = \]
@@ -1238,46 +1276,65 @@ hence $Fix(\mathcal{S}|_F)$ separates $Fix(\mathcal{S}|_F')$ and $\mathcal{S}|_F
 
 \end{rem}
 
-\begin{lem} Let $X$ be a compact Hausdorff topological space and let $\mathcal{S} = \{S_g: g \in G \}$ be a bounded, Markovian representation of semitopological semigroup $G$ on $C(X)$ which admits strong right ergodic net. The following conditions holds:
+\begin{lem}\label{l:markov_properties} Let $X$ be a compact Hausdorff topological space and let $\mathcal{S} = \{S_g: g \in G \}$ be a bounded, Markovian representation of semitopological semigroup $G$ on $C(X)$ which admits strong right ergodic net. The following conditions holds:
 \begin{enumerate}[(1)]
-\item $\text{supp}(\mu)$ is invariant for every $\mu \in \mathbb{P}_{\mathcal{S}}$,
+\item\label{intersection} if $F_1, F_2$ are invariant sets, then $F_1 \cap F_2$ is invariant if nonempty
+\item $\mathbb{P}_{\mathcal{S}}$ is a convex and weak$^*$ compact subset of $\mathcal{M}(X)$,
+\item\label{invariantsupport} $\text{supp}(\mu)$ is invariant for every $\mu \in \mathbb{P}_{\mathcal{S}}$,
 \item for every real-valued $f \in Fix (\mathcal{S})$ sets $M(f) := \{ x \in X: f(x) = \sup \limits_{y \in X} f(x)\}$ and $m(f):= \{ x \in X: f(x) = \inf \limits_{y \in X} f(y)\}$ are invariant,
-\item for every real-valued $f \in Fix(\mathcal{S})$ and $\mu \in \mathbb{P}_{\mathcal{S}}$ the set $\{ f \leq r \} \cap \text{supp}(\mu)$ is invariant if is nonempty
+\item\label{levelset} for every real-valued $f \in Fix(\mathcal{S})$ and $\mu \in \mathbb{P}_{\mathcal{S}}$ the set $\{ f \leq r \} \cap \text{supp}(\mu)$ is invariant if is nonempty,
+\item\label{invariantexistence} if $\mathcal{S}$ is mean ergodic, then for every invariant $F \subset X$ there exists $\mu  \in \mathbb{P}_{\mathcal{S}}$ with $\text{supp}(\mu) \subset F$,
+\item\label{constantonminimal} if $\mathcal{S}$ is mean ergodic, then for minimal set $F$ every $f \in Fix(\mathcal{S})$ is constant on $F$,
+\item\label{constant_on_minimal_support} if $\mathcal{S}$ is mean ergodic, then for $\mu \in \mathbb{P}_{\mathcal{S}}$ its support $\text{supp}(\mu)$ is minimal if and only if every $f \in Fix(\mathcal{S})$ is constant on $\text{supp}(\mu)$,
+\item\label{extremal_minimal} if $\mathcal{S}$ is mean ergodic, then $\text{supp}(\mu)$ is minimal for every $\mu \in Ext(\mathbb{P}_{\mathcal{S}})$.
 \end{enumerate}
 \end{lem}
 \begin{pf}
 \begin{enumerate}[(1)]
+\item $F_1 \cap F_2$ is closed and for $x \in F_1 \cap F_2$ we have $\text{supp}(S_g' \delta_x) \subset F_1$ by the invariance of $F_1$ and $\text{supp}(S_g' \delta_x) \subset F_2$ by the invariance of $F_2$, hence $\text{supp}(S_g' \delta_x) \subset F_1 \cap F_2$ for every $g \in G$.
+\item For a probability measure $\mu \in \mathcal{M}^1(X)$ there is $\|\mu\| = \mu(X) = 1$, so $\mathbb{P}_{\mathcal{S}} \subset \overline{B}(0,1)$. By the Banach-Alaoglu theorem $\overline{B}(0,1)$ is weak$^*$ compact, so it suffices to show that $\mathbb{P}_{\mathcal{S}}$ is weak$^*$ closed. Let $(\mu_{\alpha})_{\alpha \in \Lambda}$ be a net of measures with $\mu_\alpha \in \mathbb{P}_{\mathcal{S}}$ for every $\alpha \in \Lambda$ and suppose that $\mu_\alpha \overset{^{*}w}{\longrightarrow} \mu \in \mathcal{M}(X)$. For $0 \leq f \in C(X)$ there is
+\[ \langle f, \mu \rangle = \lim \limits_{\alpha} \langle f, \mu_\alpha \rangle \geq 0, \]
+so $\mu \geq 0$. There also is
+\[ \mu(X) = \langle \mathds{1}, \mu \rangle = \lim \limits_\alpha \langle \mathds{1}, \mu_\alpha \rangle = \lim \limits_\alpha 1 = 1, \]
+so $\mu$ is a probability measure. For any $f \in C(X)$ and $g \in G$ there is
+\[ \langle f, S_g' \mu \rangle = \langle S_g f, \mu \rangle = \lim \limits_{\alpha} \langle S_g f, \mu_\alpha \rangle = \lim \limits_{\alpha} \langle f, \mu_\alpha \rangle = \langle f, \mu \rangle, \]
+so $\mu$ is invariant, hence $\mu \in \mathbb{P}_\mathcal{S}$.
 \item Let $0 \leq f \in C(X)$ vanish on $\text{supp}(\mu)$. There is
 \[ \int \limits_{\text{supp}(\mu)} S_g f d\mu = \int \limits_X S_g f d\mu = \langle S_g f, \mu \rangle = \langle f, S_g' \mu \rangle =\langle f, \mu \rangle = \int \limits_X f d\mu = \int \limits_{\text{supp}(\mu)} f d\mu = 0.  \]
-Since $S_g f$ and $\mu$ are nonnegative, there must be $S_g f = 0$ on $\text{supp}(\mu)$. If $f$ is real-valued and vanishes on $\text{supp}(\mu)$ then both $f^+$ and $f^-$ must vanish on $\text{supp}(\mu)$, hence $Sf = Sf^+ - Sf^-$ vanish on $\text{supp}(\mu)$. Finally, if $f$ is complex-valued, then both $\text{Re} f$ and $\text{Im} f$ must vanish on $\text{supp}(\mu)$ and the same argument works.
-\item We will prove only that $m(f)$ is invariant, proof for $M(f)$ is analogous. It is obvoius that $m(f)$ is closed and nonempty. Set $r:=\inf \limits_{y \in X} f(y)$ and take $x \in m(f)$. For every $g \in G$ we have 
+Since $S_g f$ and $\mu$ are nonnegative, there must be $S_g f = 0$ on $\text{supp}(\mu)$. If $f$ is real-valued and vanishes on $\text{supp}(\mu)$ then both $f^+$ and $f^-$ must vanish on $\text{supp}(\mu)$, hence $Sf = Sf^+ - Sf^-$ vanish on $\text{supp}(\mu)$. Finally, if $f$ is complex-valued, then both $\text{Re} f$ and $\text{Im} f$ must vanish on $\text{supp}(\mu)$ and the same argument works. Note that $\text{supp}(\mu)$ is closed and $\text{supp}(\mu) \neq \emptyset$, since $\mu(\text{supp}(\mu))=1$ (Fact \ref{f:supp}).
+\item We will prove only that $m(f)$ is invariant, proof for $M(f)$ is analogous. It is clear that $m(f)$ is closed and nonempty. Set $r:=\inf \limits_{y \in X} f(y)$ and take $x \in m(f)$. For every $g \in G$ we have 
 \[ r = f(x) = S_g f(x) = \int \limits_X f dS_g' \delta_x, \]
 but $f \geq r$ on $X$, so there must be $f = r$ on $\text{supp}(S_g' \delta_x)$. This proves that $\text{supp}(S_g' \delta_x) \subset m(f)$.
-\item It suffices to show that $\{ f \leq r \} \cap \text{supp}(\mu)$ is invariant for $\mathcal{S}|_{\text{supp}(\mu)}$. Consider $h \in C(\text{supp}(\mu))$ given as $h = \max \{f,r\}$.
+\item It suffices to show that $\{ f \leq r \} \cap \text{supp}(\mu)$ is invariant for $\mathcal{S}|_{\text{supp}(\mu)}$. Consider $h \in C(X)$ given as $h = \max \{f,r\}$. We have $m(h) \cap \text{supp}(\mu) = \{ f \leq r \} \cap \text{supp}(\mu)$. There is $h \geq f$ and $h \geq r \cdot \mathds{1}$, so $S_g h \geq S_g f = f$ and $S_g h \geq S_g r \cdot \mathds{1} = r \cdot \mathds{1}$, thus $S_g h \geq \max \{ f, r \} = h$. On the other hand
+\[ \int \limits_X S_g h d \mu = \int \limits_X h d S_g'\mu = \int \limits_X h d \mu, \]
+hence $S_g h = h$ on $\text{supp}(\mu)$. Since $h$ is invariant on $\text{supp}$ and the previous point gives invariance of $m(h) \cap \text{supp}(\mu)$.
+\item We will begin with proving that $\mathbb{P}_{\mathcal{S}} \neq \emptyset$. Let $P$ be a $\mathcal{S}$-absorbing projection with $P \in \overline{co}\mathcal{S}$. Note that $P$ is a Markov operator. Indeed, let $\{ A_\alpha \}_{\alpha \in \Lambda}$ be a net of operators from $co\mathcal{S}$ with $A_\alpha \overset{s.o.t}{\longrightarrow} P$. Convex combination of Markov operators is Markovian, hence every $A_\alpha,\ \alpha \in \Lambda$ is a Markov operator. We have $P\mathds{1} = \lim \limits_{\alpha} A_\alpha \mathds{1} = \lim \limits_{\alpha} \mathds{1} = \mathds{1}$ and for $0 \leq f \in C(X)$ there is $Pf = \lim \limits_{\alpha} A_\alpha f \geq 0$, so $P$ is a Markov operator. Now the adjoint operator $P'$ takes probability measures into probability measures, so $P'\delta_x$ is a probability measure. $P'\delta_x$ is also invariant, since
+\[ \langle f, S_g' P'\delta_x \rangle = \langle P S_g f, \delta_x \rangle = \langle P f, \delta_x \rangle = \langle f, P' \delta_x \rangle, \]
+for every $f \in C(X),\ g \in G$. Let $F$ be an invariant subset of $X$. $\mathcal{S}|_F$ is mean ergodic, since $\mathcal{S}$ is mean ergodic, so there exists $\mu \in \mathbb{P}_{\mathcal{S}|_F}$. We can extend the measure $\mu \in \mathcal{M}(F)$ to the measure $\nu \in \mathcal{M}(X)$ by $\nu(A) := \mu(A \cap F)$ for $A \in \mathcal{B}(X)$. We already showed that $\nu$ is $\mathcal{S}$-invariant (remark after Proposition \ref{p:vanish}) and obviously $\nu$ is a probability measure, so $\nu \in \mathbb{P}_{\mathcal{S}}$ and there is $\text{supp}(\nu) \subset F$.
+\item Suppose that $F$ is minimal. There exists $\mu \in \mathbb{P}_{\mathcal{S}}$ with $\text{supp}(\mu) \subset F$, but there must actually be $\text{supp}(\mu) = F$, since $F$ is minimal. If there would be $f \in Fix(\mathcal{S})$ non constant on $F$, then $\text{Re}(f)$ and $\text{Im}(f)$ are both invariant and one of them must be non constant, so we can assume that $f$ is real valued. Then we have $\emptyset \neq \{ f \leq r  \} \cap F \subsetneq F$ for some $ r \in \mathbb{R}$ and by (\ref{levelset}) $\{ f \leq r \} \cap F = \{ f \leq r \} \cap \text{supp}(\mu)$ is invariant, what gives a contradiction with the minimality of $F$.
+\item If $\text{supp}(\mu)$ is minimal, then every $f \in Fix(\mathcal{S})$ is constant on $\text{supp}(\mu)$ by (\ref{invariantsupport}) and (\ref{constantonminimal}). Suppose that $\text{supp}(\mu)$ is not minimal. There exists invariant $F \subsetneq \text{supp}(\mu)$. By (\ref{invariantexistence}) there exists $\nu \in \mathbb{P}_{\mathcal{S}}$ with $\text{supp}(\nu) \subset F \subsetneq \text{supp}(\mu)$, so $\mu \neq \nu$. Since $\mathcal{S}$ is mean ergodic, there exists $f \in Fix(\mathcal{S})$ with $\langle f, \mu \rangle \neq \langle f, \nu \rangle$. $f$ cannot be constant on $\text{supp}(\mu)$, since then there would be \[ \langle f, \mu \rangle = \int \limits_X f d\mu = \int \limits_{\text{supp}(\mu)} f d\mu = c = \int \limits_{\text{supp}(\mu)} f d\nu = \int \limits_X f d\nu = \langle f, \nu \rangle,\]
+for some constant $c \in \mathbb{C}$.
+\item Suppose that $\text{supp}(\mu)$ is not minimal for some $\mu \in Ext(\mathbb{P}_\mathcal{S})$. By (\ref{constant_on_minimal_support}) there exists $f \in Fix(\mathcal{S})$ which is non constant on $\text{supp}(\mu)$. We can suppose that $f$ is real-valued. There exists $r \in \mathbb{R}$ with $0 < \mu ( \{ f \leq r \} ) < 1$. Indeed, since $f$ is non constant on $\text{supp} (\mu)$, there exist $x, y \in \text{supp}(\mu)$ with $f(x) < r < f(y)$ for some $r \in \mathbb{R}$. There is $0 < \mu (\{ f < r \}) \leq \mu (\{ f \leq r \}) = 1 - \mu (\{ f > r \}) < 1$, since $\{ f < r \}$ and $\{ f > r \}$ are open sets containing $x$ and $y$ respectively and these points are taken form the support of $\mu$. Denote $F:= \{ f \leq r \} \cap \text{supp}(\mu)$. $F$ is invariant (by (\ref{levelset})) and there is $\mu(F) = \mu(\{ f \leq r \}) \in (0,1)$.  Consider now probability measures $\nu_1, \nu_2 \in \mathcal{M}^1(X)$ given by
+\[ \nu_1 (A) := \frac{\mu(A \cap F)}{\mu(F)}\ \text{ and }\ \nu_2(A):=\frac{\mu(A \cap F')}{\mu(F')},\ A \in \mathcal{B}(X).\] 
+%We will prove that $\nu_1$ is invariant. Take any $h \in C(X),\ g \in G$ and fix $\varepsilon > 0$. By the regularity of the measure $\mu$ there exists open set $U$ with $F \subset U$ and $\mu (U \backslash F) \leq \varepsilon$. By the Tietze's extension theorem (Theorem \ref{t:tietze}) there exists function $h_0 \in C(X)$ with $h = h_0$ on $F,\ h_0 = 0$ on $U'$ and $\|h_0\|_{\text{sup}} \leq \|h\|_{\text{sup}}$. There is
+%\[ \langle h, S_g' \nu_1 \rangle = \int \limits_X S_g h d\nu_1 = \int \limits_F S_g h d\nu_1 = \frac{1}{\mu(F)} \int \limits_F S_g h d\mu = (*).\]
+%Since $h = h_0$ on $F$ and $F$ is invariant, Proposition \ref{p:vanish} yields that $S_g h = S_g h_0$ on $F$, so
+%\[ (*) = \frac{1}{\mu(F)} \int \limits_F S_g h_0 d\mu = \frac{1}{\mu(F)} \Big( \int \limits_X S_g h_0 d\mu - \int \limits_{F'} S_g h_0 d\mu \Big) = \]
+%\[ = \frac{1}{\mu(F)} \Big( \int \limits_X h_0 d\mu - \int \limits_{U \backslash F} S_g h_0 d\mu \Big) = \frac{1}{\mu(F)} \Big( \int \limits_F h_0 d\mu + \int \limits_{U \backslash F} h_0 d\mu - \int \limits_{U \backslash F} S_g h_0 d\mu  \Big) =    \]
+%\[ = \frac{1}{\mu(F)} \Big( \int \limits_F h d\mu + \int \limits_{U \backslash F} ( h_0 - S_g h_0) d\mu \Big) = \int \limits_F h d\nu_1 + \frac{1}{\mu(F)}\int \limits_{U \backslash F} ( h_0 - S_g h_0) d\mu = \]
+%\[ = \int \limits_X h d\nu_1 + \frac{1}{\mu(F)}\int \limits_{U \backslash F} ( h_0 - S_g h_0) d\mu = \langle h, \nu_1 \rangle + \frac{1}{\mu(F)}\int \limits_{U \backslash F} ( h_0 - S_g h_0) d\mu.  \]
+%Further there is
+%\[ \Big| \frac{1}{\mu(F)}\int \limits_{U \backslash F} ( h_0 - S_g h_0) d\mu \Big| \leq \frac{1}{\mu(F)} \mu(U \backslash F) (\|h_0\|_\text{sup} + \|S_g h_0\|_\text{sup}) \leq \frac{2 \varepsilon}{\mu(F)}\|h_0\|_{\text{sup}}.   \]
+%Passing with $\varepsilon$ to zero gives $ \langle h, S_g' \nu_1 \rangle = \langle h, \nu_1 \rangle$.
+$\nu_1$ is invariant (cf. proof of the theorem 1.11 in \cite{sine}). We have
+\[ \mu(A) = \mu(F) \frac{\mu(A \cap F)}{\mu(F)} + \mu(F') \frac{\mu(A \cap F')}{\mu(F')} = \mu(F) \nu_1(A) + \mu(F')\nu_2(A),\ A \in \mathcal{B}(X)\]
+and $\nu_2$ is invariant as a linear combination on invariant measures, so $\nu_1,\nu_2 \in \mathbb{P}_{\mathcal{S}}$. This contradicts the assumption that $\mu$ is an extremal point of $\mathbb{P}_{\mathcal{S}}.\ \square$
 \end{enumerate}
 \end{pf}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-For a given Markov operator $S$ on $C(X)$ and invariant probability measure $\mu \in Fix(S')$ we are interested in extending $S$ to the linear contractive operator on $L^2(\mu)$. Note first, that for $f \in C(X)\ (\subset L^1(\mu))$ we have
+For a given Markov operator $S$ on $C(X)$ and invariant probability measure $\mu \in \mathbb{P}_{\mathcal{S}}$ we are interested in extending $S$ to the linear contractive operator on $L^2(\mu)$. Note first, that for $f \in C(X)\ (\subset L^1(\mu))$ we have
 \[ \|f\|_{L^1(\mu)} = \int \limits_{X} |f| d\mu = \langle |f|, \mu \rangle = \langle |f|, S'\mu \rangle = \langle S|f|, \mu \rangle \geq \langle |Sf|, \mu \rangle = \|Sf\|_{L^1(\mu)},   \]
 hence $S$ is a bounded linear operator on $C(X)$ seen as a subspace of $L^1(\mu)$. Since $C(X)$ is dense in $L^1(\mu)$ (in $L^1$ norm), we can uniquely extend $S$ to a positive contraction $\hat{S}: L^1(\mu) \rightarrow L^1(\mu)$. Moreover, since $S\mathds{1} = \mathds{1}$, we have for $f \in L^{\infty}(\mu)$
-\[ \|\hat{S}f\|_{L^{\infty}(\mu)} = \||\hat{S}f|\|_{L^{\infty}(\mu)}  \leq \|\hat{S}|f| \|_{L^{\infty}(\mu)} \leq \|\hat{S}( \|f \|_{L^{\infty}(\mu)} \cdot \mathds{1}) \|_{L^{\infty}(\mu)} = = \|S( \|f \|_{L^{\infty}(\mu)} \cdot \mathds{1}) \|_{L^{\infty}(\mu)} = \]
+\[ \|\hat{S}f\|_{L^{\infty}(\mu)} = \||\hat{S}f|\|_{L^{\infty}(\mu)}  \leq \|\hat{S}|f| \|_{L^{\infty}(\mu)} \leq \|\hat{S}( \|f \|_{L^{\infty}(\mu)} \cdot \mathds{1}) \|_{L^{\infty}(\mu)} = \|S( \|f \|_{L^{\infty}(\mu)} \cdot \mathds{1}) \|_{L^{\infty}(\mu)} = \]
 \[ = \|f\|_{L^{\infty}(\mu)} \|S \mathds{1} \|_{L^{\infty}(\mu)} = \|f\|_{L^{\infty}(\mu)} \|\mathds{1} \|_{L^{\infty}(\mu)} = \|f\|_{L^{\infty}},\]
 hence $\hat{S}$ is also a $\| \cdot \|_{L^{\infty}(\mu)}$-contraction (restricted to the $L^{\infty}(\mu)$). We can now make use of the following
 
@@ -1288,38 +1345,135 @@ Then for every $f\in L^1(\mu) \cap L^p(\mu),\ p \in (1, \infty)$ we have
 \[ \|Tf\|_{L^p(\mu)} \leq \|f\|_{L^p(\mu)}. \]
 \end{thm}\\
 In our case $(X, \mathcal{A}, \mu)$ is a probability space, so $L^p(\mu) \subset L^1(\mu)$ for every $p \in (1, \infty)$. We can conclude that $\hat{S}$ restricted to the $L^p(\mu)$ is a contraction in $L^p(\mu)$ norm. In particular, we can uniquely extend Markov operator $S$ (on $C(X)$) to the positive contraction on $L^2(\mu)$ (by extending first to $L^1(\mu)$ and then restricting to $L^2(\mu)$). Note that we made use of the invariance of the measure $\mu$.\\ \\
-In the case of invariant probability measure $\mu \in \mathbb{P}_{\mathcal{S}}$ for bounded Markovian representation $\mathcal{S}$ of semitopological semigroup $G$ on $C(X)$  we can consider semigroup of positive contractions on $L^2(\mu)$. We denote it by $\mathcal{S}_2 := \{S_{g,2}:\ g \in G \}$, where $S_{g,2}$ is the extension of $S_g$ to $L^2(\mu)$. Note that $\mathcal{S}_2$ is a bounded representation of $G$ on $L^2(\mu)$. Boundedness is obvious since since $S_{g,2}$ in $\mathcal{S}_2$ is a contraction, condition $S_{g,2}S_{h,2}=S_{hg,2}$ is satisfied since it is satisfied for the semigroup $\mathcal{S}$. In order to check last condition, i.e. continuity in $L^2(\mu)$ of $G \ni g \mapsto S_{g,2}f$ for every $f \in L^2(\mu)$, let us fix $f \in L^2(\mu),\ g \in G$ and $\varepsilon > 0$. $C(X)$ is dense in $L^2(\mu)$, so there exists $f_0 \in C(X)$ with $\|f - f_0\|_{L^2(\mu)} < \varepsilon$. Since $\mathcal{S}$ is a bounded representation of $G$ on $C(X)$, there exists an open neighbourhood $U$ of $g$ such that there is $\|S_g f_0 - S_h f_0\|_{sup} < \varepsilon$ for every $h \in U$. For $h \in U$ we have now
+In the case of invariant probability measure $\mu \in \mathbb{P}_{\mathcal{S}}$ for bounded Markovian representation $\mathcal{S}$ of semitopological semigroup $G$ on $C(X)$  we can consider semigroup of positive contractions on $L^2(\mu)$. We denote it by $\mathcal{S}_{2, \mu} := \{S_{g,2}:\ g \in G \}$, where $S_{g,2}$ is the extension of $S_g$ to $L^2(\mu)$. Note that $\mathcal{S}_{2,\mu}$ is a bounded representation of $G$ on $L^2(\mu)$. Boundedness is obvious since since $S_{g,2}$ in $\mathcal{S}_{2,\mu}$ is a contraction, condition $S_{g,2}S_{h,2}=S_{hg,2}$ is satisfied since it is satisfied for the semigroup $\mathcal{S}$. In order to check last condition, i.e. continuity in $L^2(\mu)$ of $G \ni g \mapsto S_{g,2}f$ for every $f \in L^2(\mu)$, let us fix $f \in L^2(\mu),\ g \in G$ and $\varepsilon > 0$. $C(X)$ is dense in $L^2(\mu)$, so there exists $f_0 \in C(X)$ with $\|f - f_0\|_{L^2(\mu)} < \varepsilon$. Since $\mathcal{S}$ is a bounded representation of $G$ on $C(X)$, there exists an open neighbourhood $U$ of $g$ such that there is $\|S_g f_0 - S_h f_0\|_{sup} < \varepsilon$ for every $h \in U$. For $h \in U$ we have now
 \[ \|S_{g,2}f - S_{h,2}f\|_{L^2(\mu)} \leq \|S_{g,2}f - S_{g,2}f_0\|_{L^2(\mu)} + \|S_{g,2}f_0 - S_{h,2}f_0\|_{L^2(\mu)} + \]
 \[ +\|S_{h,2}f_0 - S_{h,2}f\|_{L^2(\mu)}\| \leq \|S_{g,2}\| \cdot \|f - f_0\|_{L^2(\mu)} + \|S_g f_0 - S_h f_0\|_{L^2(\mu)} + \]
 \[ + \|S_{h,2}\| \cdot \|f - f_0\|_{L^2(\mu)} \leq 2\|f - f_0\|_{L^2(\mu)} + \|S_g f_0 - S_h f_0\|_{sup} < 3\varepsilon. \]
-Together with the semigroup $\mathcal{S}_2$ we will consider its Hermitian adjoint semigroup $\mathcal{S}^*_2 := \{S_{g,2}^*: g \in G \}$. Note that if $G$ is amenable, then by Corollary \ref{c:reflexivemeanergodic} we have that $\mathcal{S}_2$ is mean ergodic (even if $\mathcal{S}$ is not mean ergodic), since $L^2(\mu)$ is a Hilbert space (hence reflexive Banach space).\\ \\
+Together with the semigroup $\mathcal{S}_{2, \mu}$ we will consider its Hermitian adjoint semigroup $\mathcal{S}^*_{2,\mu} := \{S_{g,2}^*: g \in G \}$. Note that if $G$ is amenable, then by Corollary \ref{c:reflexivemeanergodic} we have that $\mathcal{S}_{2,\mu}$ is mean ergodic (even if $\mathcal{S}$ is not mean ergodic), since $L^2(\mu)$ is a Hilbert space (hence reflexive Banach space).\\ \\
 There is a natural extension of the concept of unique ergodicity to the semigroup of operators on $C(X)$:
 
 \begin{df}
 Let $X$ be a compact Hausdorff topological space. Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$ on the Banach space $C(X)$. We say that $\mathcal{S}$ is \textbf{uniquely ergodic} if there exists a probability measure $\mu \in \mathcal{M}(X)$ with $Fix ( \mathcal{S}' ) = \mathbb{C} \cdot \mu$.
 \end{df}
 
-
+\begin{f}[{\cite[prop. 2.2]{schreiber14}}]
+Let $X$ be a compact Hausdorff topological space. Let $\mathcal{S}$ be a bounded Markovian representation of right amenbale semitopological semigroup $G$ on the Banach space $C(X)$. $\mathcal{S}$ is uniquely ergodic if and only if $\mathcal{S}$ is mean ergodic and $Fix(\mathcal{S}) = \mathbb{C}\cdot \mathds{1}$.
+\end{f}
+\begin{pf}
+$" \Rightarrow "$ Assume that $\mathcal{S}$ is uniquely ergodic with the unique measure $\mu$. For every $c \cdot \mu \in Fix(\mathcal{S}'),\ c \in \mathbb{C}\backslash \{ 0 \}$ there is $\langle \mathds{1}, c \cdot \mu \rangle = c \neq 0$ and $\mathds{1} \in Fix(\mathcal{S})$, so $Fix(\mathcal{S})$ separates $Fix(\mathcal{S}')$, hence $\mathcal{S}$ is mean ergodic by the Abstract mean ergodic theorem (Theorem \ref{t:ame_fix}). It follows from Fact \ref{f:adjoint_separates} that $Fix(\mathcal{S}')$ separates $Fix(\mathcal{S})$. Fact \ref{f:separate_dim} gives now $dim Fix(\mathcal{S}) \leq dim Fix(\mathcal{S}')=1$, so $\mathbb{C} \cdot \mathds{1} \subset Fix(\mathcal{S})$ yields $Fix(\mathcal{S}) = \mathbb{C} \cdot \mathds{1}$.\\
+$" \Leftarrow "$ Assume now that $\mathcal{S}$ is mean ergodic and $Fix(\mathcal{S}) = \mathbb{C} \cdot \mathds{1}$. By Lemma \ref{l:markov_properties}.\ref{invariantexistence} there exists invariant probability measure $\mu \in \mathbb{P}_{\mathcal{S}}$, so $\mathbb{C} \cdot \mu \subset Fix(\mathcal{S}')$. Mean ergodicity of $\mathcal{S}$ yields that $Fix(\mathcal{S})$ separates $Fix(\mathcal{S}')$ and by Fact \ref{f:separate_dim} there is $dim Fix(\mathcal{S}') \leq dim Fix(\mathcal{S})=1$, so in fact $\mathbb{C} \cdot \mu = Fix(\mathcal{S}').\ \square$
+\end{pf}
 
 \chapter{Wiener-Wintner theorem for semigroups of Markov operators on $C(X)$}\label{r:wwop}
-In this chapter we will establish generalization of topological Wiener-Wintner theorem to the case of Markovian bounded representation of amenable semigroup. The generalization for uniquely ergodic semigroup is due to M. Schreiber (\cite{schreiber14}).\\ \\
+In this chapter we will establish generalization the of topological Wiener-Wintner theorem to the case of Markovian bounded representation of amenable semigroup. Our starting point is the generalization for uniquely ergodic semigroup due to M. Schreiber (\cite{schreiber14}). We generalize it further without the assumption of unique ergodicity, simultaneously giving more elementary proof.\\ \\
 We begin with introducing the concept of the semigroup character.
 
 \begin{df}
 Let $G$ be a semitopological semigroup. A continuous map $\chi: G \rightarrow \mathbb{T}$ is called a \textbf{character of $G$} if it satisfies $\chi(g h) = \chi (g) \chi (h)$ for all $g,h \in G$. We denote the set of all characters of the semigroup $G$ by $\widehat{G}$.
 \end{df}
-For a given semitopological semigroup $G$, its bounded representation $\mathcal{S}$ of $G$ on the Banach space $\mathfrak{X}$ and a character $\chi$ of $G$ we will be interested in the mean ergodicity of the distorted semigroup $_{\chi}\mathcal{S} := \{\chi(g) S_g:\ g \in G \}$. Note that $_{\chi}\mathcal{S}$ is itself a bounded representation of $G$ on $\mathfrak{X}$, since
+For a given semitopological semigroup $G$, its bounded representation $\mathcal{S}$ of $G$ on the Banach space $\mathfrak{X}$ and a character $\chi$ of $G$ we will be interested in the mean ergodicity of the distorted semigroup $_{\chi}\mathcal{S} := \{\chi(g) S_g:\ g \in G \}$. Note that $_{\chi}\mathcal{S}$ is itself a bounded representation of $G$ on $\mathfrak{X}$. Indeed, there is
 \[ \chi(g_1)S_{g_1} \chi(g_2)S_{g_2} = \chi(g_2) \chi (g_1) S_{g_1} S_{g_2} = \chi (g_2 g_1) S_{g_2 g_1} \]
 and
-\[ \sup \limits_{g \in G} \| \chi(g) S_g \| = \sup \limits_{g \in G} | \chi(g)| \| S_g \| = \sup \limits_{g \in G} \|S_g \| < \infty. \]
-
+\[ \sup \limits_{g \in G} \| \chi(g) S_g \| = \sup \limits_{g \in G} | \chi(g)| \| S_g \| = \sup \limits_{g \in G} \|S_g \| < \infty\]
+Transformation $G \ni g \mapsto \chi(g)S_g x$ is continuos for a fixed $x \in \mathfrak{X}$ since
+\[ \|\chi(g)S_g x - \chi(h)S_h x \| \leq \|\chi(g)S_g x - \chi(g)S_h x\| + \|\chi(g)S_h x - \chi(h)S_h x\| = \]
+\[ = |\chi(g)| \|S_g x - S_h x\| + |\chi(g) - \chi(h)| \|S_h x\| \leq \|S_g x - S_h x\| + |\chi(g) - \chi(h)| \|x\| \sup \limits_{q \in G} \|S_q\|,  \]
+what can be made arbitrarily small when $h$ is taken from a suitable open nieghborhood of $g$, since $\chi$ and $g \mapsto S_g x$ are continous on $G$. We wil assume that $\mathcal{S}$ is mean ergodic and establish equivalent conditions for the mean ergodicity of $_{\chi}\mathcal{S}$ (in a special case of the Markovian representation on $C(X)$).
 \begin{ex}
-It is straightforward to check that a map $\chi: \mathbb{N} \rightarrow \mathbb{T}$ given by $\chi(n) := \lambda^n$ is a character of $\mathbb{N}$ for a fixed $\lambda \in \mathbb{T}$. In fact every $\chi \in \widehat{\mathbb{N}}$ is given by this formula for some $\lambda \in \mathbb{N}$ (RÓD£O!). If now $\mathcal{S} = \{T_n \}_{n \in \mathbb{N}}$ is a bounded representation of $\mathbb{N}$ on a Banach space $\mathfrak{X}$, then for $\chi \in \widehat{\mathbb{N}}$ we have $_{\chi}\mathcal{S} = \{ \lambda^n T_n:\ n \in \mathbb{N} \}$ for some $\lambda \in \mathbb{T}$. The Ceasaro averages $A_N^{_{\chi}\mathcal{S}}$ become
+It is straightforward to check that a map $\chi: \mathbb{N} \rightarrow \mathbb{T}$ given by $\chi(n) := \lambda^n$ is a character of $\mathbb{N}$ for a fixed $\lambda \in \mathbb{T}$. If now $\mathcal{S} = \{T_n \}_{n \in \mathbb{N}}$ is a bounded representation of $\mathbb{N}$ on a Banach space $\mathfrak{X}$, then we have $_{\chi}\mathcal{S} = \{ \lambda^n T_n:\ n \in \mathbb{N} \}$. The Ceasaro averages $A_N^{_{\chi}\mathcal{S}}$ become
 \[ A_N^{_{\chi}\mathcal{S}} = \frac{1}{N} \sum \limits_{n=0}^N \lambda^n T_n. \]
-In particular, if $T$ is a continuous transformation on compact Hausdorff topological space $X$, then for a distorted semigroup induced by its Koopman operator $_{\chi}\mathcal{S} = \{ \lambda^n U_T^n:\ n \in \mathbb{N} \},\ \lambda \in \mathbb{T}$ and $f \in C(X)$ we have
+In particular, if $T$ is a continuous transformation the on compact Hausdorff topological space $X$, then for the distorted semigroup $_{\chi}\mathcal{S} = \{ \lambda^n U_T^n:\ n \in \mathbb{N} \},\ \lambda \in \mathbb{T}$ induced by its Koopman operator $U_T$ we have for any $f \in C(X)$
 \[ A_N^{_{\chi}\mathcal{S}} f = \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n U_T^n f = \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f \circ T^n, \]
 hence Ceasaro averages of distorted representation are exactly Wiener-Wintner type averages. We can of course take also Koopman operator on $L^p(\mu)\ (1\leq p < \infty)$ of measure preserving transformation on measure space $(X, \mathcal{A}, \mu)$.
 \end{ex}
+\begin{rem} Let $\mathcal{S}$ be a bounded Markovian representation of the (right) amenable semitopological semigroup $G$ on $C(X)$. Given a invariant probability measure $\mu \in \mathbb{P}_{\mathcal{S}}$ we will consider the extended semigroup $\mathcal{S}_{2,\mu}$ and its distortion $\mathcal{S}_{2,\mu}$ for a given character $\chi \in \widehat{G}$. Note that $\mathcal{S},\ _{\chi}\mathcal{S},\ \mathcal{S}_{2,\mu},\ _{\chi}\mathcal{S}_{2,\mu}$ are all bounded representations of (right) amenable semigroup, hence they all admit (right) strong ergodic net (cf. Theorem \ref{t:amenable_admits}).
+\end{rem}
+Let us state now Wiener-Wintner type result for uniquely ergodic semigroups of Markov operators. It formulates necessary and sufficent condition for mean ergodicity of $_{\chi}\mathcal{S}$ in terms of the semigroup $_{\chi}\mathcal{S}_{2,\mu}$, where $\mu$ is the unique invariant probability measure. The proof, different than in \cite{schreiber14}, will be given later.
+
+\begin{thm}[{\cite[thm 2.7]{schreiber14}}]
+Let $X$ be a compact Hausdorff topological space. Let $\mathcal{S}$ be a bounded Markovian representation of a (right) amenable semitopological semigroup $G$ on $C(X)$ and assume that $\mathcal{S}$ is uniquely ergodic with invariant probability measure $\mu$. The following conditions are equivalent:
+\begin{enumerate}[(1)]
+\item $Fix(_{\chi}\mathcal{S}_{2,\mu}) \subset Fix(_{\chi}\mathcal{S})$
+\item $A_{\alpha}^{_{\chi}\mathcal{S}} x$ converges (to a fixed point of $_{\chi}\mathcal{S}$) for every $x \in \mathfrak{X}$ and some/every strong (right) $_{\chi}\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{_{\chi}\mathcal{S}} x$ converges weakly (to a fixed point of $_{\chi}\mathcal{S}$) for every $x \in \mathfrak{X}$ and some/every strong (right) $_{\chi}\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{_{\chi}\mathcal{S}} x$ converges weakly (to a fixed point of $_{\chi}\mathcal{S}$) for every $x \in \mathfrak{X}$ and some/every weak (right) $_{\chi}\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{_{\chi}\mathcal{S}} x$ has a weak cluster point (in $Fix(_{\chi}\mathcal{S})$) for every $x \in \mathfrak{X}$ and some/every weak (right) $_{\chi}\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $\overline{co}_{\chi}\mathcal{S}x \cap Fix(_{\chi}\mathcal{S}) \neq \emptyset$ for all $x \in \mathfrak{X}$,
+\item there exists operator $P_{\chi} \in \overline{co}_{\chi}\mathcal{S}$ such that $\chi(g)S_g P = P \chi(g)S_g = P^2 = P$ for every $g \in G$ (i.e. $_{\chi}\mathcal{S}$ is mean ergodic with the absorbing projection $P_{\chi}$),
+\item $Fix(_{\chi}\mathcal{S})$ separates $Fix(_{\chi}\mathcal{S})'$,
+\item $\mathfrak{X} = Fix(_{\chi}\mathcal{S}) \oplus \overline{span}\ rg (I - _{\chi}\mathcal{S}).$
+\end{enumerate}
+The strong/weak limit $\lim \limits_{\alpha} A_{\alpha}^{_{\chi}\mathcal{S}} x$ is equal for every strong/weak (right) $_{\chi}\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$ and is also equal to $Px$. Operator P is a $_{\chi}\mathcal{S}$-absorbing projection onto $Fix(_{\chi}\mathcal{S})$ along $\overline{span}\ rg (I - _{\chi}\mathcal{S})$.
+\end{thm}
+\begin{rem}The above theorem can be stated briefly: if $\mathcal{S}$ is a bounded Markovian representation of a (right) amenable semitopological semigroup $G$ on $C(X)$ then for every $\chi \in \widehat{G}$ the distorted semigroup $_{\chi}\mathcal{S}$ is mean ergodic if and only if $Fix(_{\chi}S_{2,\mu}) \subset Fix(_{\chi}\mathcal{S})$. Conditions $(2)$ to $(8)$ are equivalent formulations of the ergodicity of the semigroup $_{\chi}\mathcal{S}$ and are consequence of the Abstract ergodic theorem (Theorems \ref{t:ame_fix} and \ref{t:ame_nofix}). The inclusion $Fix(_{\chi}S_{2,\mu}) \subset Fix(_{\chi}\mathcal{S})$ is understood in $L^2(\mu)$, i.e. $Fix(_{\chi}\mathcal{S}) \subset C(X)$ can be seen as a linear subspace of $L^2(\mu)$ (after identification of functions being equal almost everywhere). The inclusion says that for every function $f \in L^2(\mu)$ satisfying $f = \chi(g)S_{g,2}f\ \mu$-a.e. for all $g \in G$, there exists function $h \in C(X)$ with $f = h\ \mu$-a.e. satisfying $h = \chi(g)S_g h$ forall $g \in G$.
+\end{rem}
+%\begin{rem}
+%Uniform topological Wiener-Wintner theorem of Robinson (Theorem \ref{t:robinson}) can be seen as a corollary from the above theorem. We can even omit the assumption of the metrizability of the phase space. Indeed, let $X$ be a compact Hausdorff space and let $T: X \rightarrow X$ be a continuous transformation. Now $\mathcal{S}:=\{ U_T^n : n \in \mathbb{N} \}$ is a bounded Markovian representation of an amenable semigroup $\mathbb{N}$ on the Banach space $C(X)$. Unique ergodicity of $T$ is exactly the unique ergodicity of the semigroup $\mathcal{S}$ ($(U_T^n)' \mu = \mu$ is equivalent to the invariance of $\mu$ under every $U_T^n,\ n \in \mathbb{N}$ which is equivalent to the invariance of $\mu$ under $U_T$). The extended semigroup $\mathcal{S}_{2,\mu}$ is the semigroup of Koopman operators on $L^2(\mu)$. If we fix 
+%\end{rem}
+For a given $\mu \in \mathbb{P}_\mathcal{S}$ and $h \in L^2(\mu)$ let us denote by $h\mu$ a measure given by
+\[ h\mu(A) := \int \limits_A hd\mu,\ A \in \mathcal{B}(X). \]
+We will use later the following
+\begin{f}[{\cite[thm 6.12]{rudin2}}]\label{measure_to_variation}
+For every complex-valued measure $\mu \in \mathcal{M}(X)$ there exists a measurable function $h: X \rightarrow \mathbb{C}$ with $|h(x)|=1$ for every $x \in X$ such that $\mu = h|\mu|$.
+\end{f}
+
+\begin{lem}[{\cite[lem. 2.5]{schreiber14}}]\label{l:fixed_functions_measures}
+Let $X$ be a compact Hausdorff topological space. Let $\mathcal{S}$ be a bounded Markovian representation of a right amenable semigroup $G$ on $C(X)$ and take $\mu \in \mathbb{P}_\mathcal{S}$. For every $h \in Fix(_{\chi}\mathcal{S}_{2,\mu})^*$ the measure $\overline{h}\mu$ is $_{\chi}\mathcal{S}$-invariant, i.e. $\overline{h}\mu \in Fix(_{\chi}\mathcal{S})'$. Conversly, if for some $h \in L^2(\mu)$ we have $\overline{h}\mu \in Fix(_{\chi}\mathcal{S})'$, then $h \in Fix(_{\chi}\mathcal{S}_{2,\mu})^*$.
+\end{lem}
+\begin{pf} Let us take $h \in Fix(_{\chi}\mathcal{S}_{2,\mu})^*$. For $f \in C(X),\ g \in G$ we have
+\[ \langle f, \chi(g) S_g' (\overline{h} \mu )\rangle = \langle \chi(g) S_gf,  \overline{h} \mu \rangle = \int \limits_X \chi(g) S_g f \overline{h} d\mu = \langle \chi(g) S_g f, h \rangle_{L^2(\mu)} = \langle \chi(g) S_{g,2} f, h \rangle_{L^2(\mu)} =\]
+\[ = \langle f, \overline{\chi(g)} S_{g,2}^*h \rangle_{L^2(\mu)} = \langle f, (\chi(g) S_{g,2})^*h \rangle_{L^2(\mu)} = \langle f, h \rangle_{L^2(\mu)} = \int \limits_X f \overline{h}d\mu = \langle f, \overline{h}\mu \rangle,  \]
+so $\overline{h}\mu \in Fix(_{\chi}\mathcal{S})'$. If we assume now that $\overline{h}\mu \in Fix(_{\chi}\mathcal{S})'$ for some $h \in L^2(\mu)$, then for $f \in C(X)$ there is
+\[ \langle f, (\chi(g) S_{g,2})^*h \rangle_{L^2(\mu)} = \langle \chi(g) S_{g,2} f, h \rangle_{L^2(\mu)} =  \int \limits_X \chi(g) S_{g,2} f \overline{h} d\mu = \int \limits_X \chi(g) S_g f \overline{h} d\mu = \]
+\[ = \langle \chi(g)S_g f, \overline{h}\mu \rangle= \langle f, \chi(g)S_g' \overline{h} \mu \rangle = \langle f, \overline{h} \mu \rangle = \langle f, h \rangle_{L^2(\mu)}.\]
+Since $C(X)$ is dense in $L^2(\mu)$, there is  $\langle f, (\chi(g) S_{g,2})^*h \rangle_{L^2(\mu)} = \langle f, h \rangle_{L^2(\mu)}$ for every $f \in L^2(\mu)$, hence $h =(\chi(g) S_{g,2})^*h $ for every $g \in G.\ \square$
+\end{pf}
+
+\begin{f}[{\cite{schreiber14}}]\label{f:adjoint_fix_space} Let $H$ be a Hilbert space. If $T \in L(H)$ is a contraction then $Fix(T) = Fix(T^*)$.
+\end{f}
+\begin{pf} Note that $\|T^*\| = \|T\| \leq 1$. For every $x \in Fix(T)$ there is
+\[ \|T^*x - x\|^2 = \langle T^*x - x, T^*x - x \rangle = \langle T^*x, T^*x \rangle - \langle T^*x, x \rangle - \langle x, T^*x \rangle + \langle x, x \rangle = \]
+\[ = \|T^*x\|^2 - \langle x, Tx \rangle - \langle Tx, x \rangle + \|x\|^2 \leq \|x\|^2 - 2 \|x\|^2 + \|x\|^2 = 0,   \]
+so $x \in Fix(T^*)$, hence $Fix(T) \subset Fix(T^*)$. Since $(T^*)^* = T$, there also is $Fix(T^*) \subset Fix(T).\ \square$
+\end{pf}
+
+\begin{rem}The above fact implies that in Lemma \ref{l:fixed_functions_measures} we can take $h$ from $Fix(_{\chi}\mathcal{S}_{2,\mu})$ instead of $Fix(_{\chi}\mathcal{S}_{2,\mu})^*$.
+\end{rem}
+We will give now two main theorems of this chapter.
+
+\begin{thm}\label{t:markov_ww}
+Let $X$ be a compact Hausdorff topological space. Let $\mathcal{S}$ be a bounded Markovian representation of a right amenbale semigroup $G$ on the Banach space $C(X)$. If $\mathcal{S}$ is mean ergodic then for any character $\chi \in \widehat{G}$ the distorted semigroup $_{\chi}\mathcal{S}$ is mean ergodic if and only if for every $\mu \in \mathbb{P}_{\mathcal{S}}$ there is $\overline{Fix(_{\chi}\mathcal{S})}^{L^2(\mu)} = Fix(_{\chi}\mathcal{S}_{2,\mu})$.
+\end{thm}
+\begin{pf}
+It follows from the Abstract mean ergodic theorem (Theorem \ref{t:ame_fix}) that it suffices to show equivalence between $(1)\ \overline{Fix(_{\chi}\mathcal{S})}^{L^2(\mu)} = Fix(_{\chi}\mathcal{S}_{2,\mu})$ and $(2)\ Fix(_{\chi}\mathcal{S})$ separates $Fix(_{\chi}\mathcal{S})'$.\\
+
+$(1) \Rightarrow (2)$ Let $\nu \in Fix(_{\chi}\mathcal{S})'$ be nonzero and assume (without loss of genrality) that $|\nu|$ is a probability measure. By Lemma \ref{l:lattice_properties}.\ref{measure_inequality} there is for every $g \in G$
+\[ S_g'|\nu| \geq |S_g'\nu| = |\overline{\chi(g)}\chi(g)S_g'\nu| = |\overline{\chi(g)}\nu| = |\nu|. \]
+Lemma \ref{l:lattice_properties}.\ref{fix_inequality} yields now $S_g ' |\nu| = |\nu|$, hence $|\nu| \in \mathbb{P}_{\mathcal{S}}$. By Fact \ref{measure_to_variation} there exists measurable function $h:X \rightarrow \mathbb{C}$ with modulus 1 such that $\nu = \overline{h}|\nu|$. Since $h$ has constant modulus, there is $h \in L^2(|\nu|)$, hence by Lemma \ref{l:fixed_functions_measures} and Fact \ref{f:adjoint_fix_space} we have $h \in Fix(_{\chi}\mathcal{S}_{2,|\nu|})$. By $(1)$ we find a sequence $h_n \in Fix(_{\chi}\mathcal{S})$ such that $h_n \overset{L^2(|\nu|)}{\longrightarrow} h$. There is now 
+\[1 = \|h\|^2_{L^2(|\nu|)} = \lim \limits_{n \rightarrow \infty} \langle h_n , h\rangle_{L^2(|\nu|)} = \lim \limits_{n \rightarrow \infty} \int \limits_X h_n \overline{h} d|\nu| = \lim \limits_{n \rightarrow \infty} \int \limits_X h_n d\nu = \lim \limits_{n \rightarrow \infty} \langle h_n, \nu \rangle,\]
+so there is $\langle h_n, \nu \rangle \neq 0$ for some $n \in \mathbb{N}$. It follows that $Fix(_{\chi}\mathcal{S})$ separates $Fix(_{\chi}\mathcal{S})'$.\\
+
+$(2) \Rightarrow (1)$ Suppose that there exists $\mu \in \mathbb{P}_{\mathcal{S}}$ such that $\overline{Fix(_{\chi}\mathcal{S})}^{L^2(\mu)} \neq Fix(_{\chi}\mathcal{S}_{2,\mu})$. There always is $Fix(_{\chi}\mathcal{S}) \subset Fix(_{\chi}\mathcal{S}_{2,\mu})$ (since $\chi(g)S_g f = f$ implies $\chi(g)S_{g,2} f = f\ \mu$-a.e.) and $Fix(_{\chi}\mathcal{S}_{2,\mu})$ is closed in $L^2(\mu)$, so there must be $\overline{Fix(_{\chi}\mathcal{S})}^{L^2(\mu)} \subsetneq Fix(_{\chi}\mathcal{S}_{2,\mu})$. Hence there exsists $0 \neq f \in Fix(_{\chi}\mathcal{S}_{2,\mu})$ with $f\ \bot\ \overline{Fix(_{\chi}\mathcal{S})}^{L^2(\mu)}$. Lemma \ref{l:fixed_functions_measures} and Fact \ref{f:adjoint_fix_space} yield again that $\overline{f}\mu \in Fix(_{\chi}\mathcal{S})'$. Since $(2)$ there exists $h \in Fix(_{\chi}\mathcal{S})$ such that $\langle g, \overline{f}\mu \rangle \neq 0$, but $\langle g, f \rangle_{L^2(\mu)} = \int \limits_X g \overline{f}d\mu = \langle g, \overline{f}\mu \rangle \neq 0,$ what contradicts $f\ \bot\ Fix(_{\chi}\mathcal{S}).\ \square$
+\end{pf}
+M. Schreiber showed in \cite{schreiber14} that if $\mathcal{S}$ if uniquely ergodic with $\mathbb{P}_{\mathcal{S}} = \{ \mu \}$, then $dim(Fix(_{\chi}\mathcal{S}_{2,\mu})) \leq 1$ , so $Fix(_\chi\mathcal{S}) \subset Fix(_{\chi}\mathcal{S}_{2,\mu}) \subset L^2(\mu)$ is closed as a finite dimensional subspace, so the $L^2(\mu)$-closure is redundant in the Theorem \ref{t:markov_ww}. We extend this fact to the case of mean ergodic Markov representations $\mathcal{S}$ with finite dimensional $Fix(\mathcal{S})$ and give more elementary proof.
+
+\begin{thm}
+Let $X$ be a compact Hausdorff topological space. Let $\mathcal{S}$ be a bounded Markovian representation of a right amenbale semigroup $G$ on the Banach space $C(X)$. If $\mathcal{S}$ is mean ergodic with $dim(Fix(\mathcal{S})) < \infty$, then then for any character $\chi \in \widehat{G}$ the distorted semigroup $_{\chi}\mathcal{S}$ is mean ergodic if and only if for every $\mu \in \mathbb{P}_{\mathcal{S}}$ there is $Fix(_{\chi}\mathcal{S}) = Fix(_{\chi}\mathcal{S}_{2,\mu})$.
+\end{thm}
+\begin{pf} If for every $\mu \in \mathbb{P}_{\mathcal{S}}$ there is $Fix(_{\chi}\mathcal{S}) = Fix(_{\chi}\mathcal{S}_{2,\mu})$, then there also is $\overline{Fix(_{\chi}\mathcal{S})}^{L^2(\mu)} = Fix(_{\chi}\mathcal{S}_{2,\mu})$, so Theorem \ref{t:markov_ww} gives that $_{\chi}\mathcal{S}$ is mean ergodic. Assume conversly that $_{\chi}\mathcal{S}$ is mean ergodic. We will show that $Fix(_{\chi}\mathcal{S})$ is a finite dimensional subspace of $L^2(\mu)$ for every $\mu \in \mathbb{P}_{\mathcal{S}}$. Mean ergodicity of $\mathcal{S}$ gives that $Fix(\mathcal{S})$ separates $Fix(\mathcal{S})'$ (Theorem \ref{t:ame_fix}) and $Fix(\mathcal{S}')$ separates $Fix(\mathcal{S})$ (Fact \ref{f:adjoint_separates}), hence $dim(Fix(\mathcal{S}')) = dim(Fix(\mathcal{S})) < \infty$ (Fact \ref{f:separate_dim}). Hence there is only finitely many extremal invariant probabilities $\mu_1, \mu_2, ... \mu_k \in Ext \mathbb{P}_{\mathcal{S}} \subset Fix(\mathcal{S}')$, since distinct extremal invariant probabilities are linearly independent. Indeed, support of the extremal invariant probability is a minimal set (Lemma \ref{l:markov_properties}.\ref{extremal_minimal}), hence any pair of distinct extremal invariant probabilities must have disjoint supports (otherwise their nonempty intersection would be a proper invariant subset of these supports (Lemma \ref{l:markov_properties}.\ref{intersection})). For $f \in Fix(_{\chi}\mathcal{S})$ we have $\chi(g)S_g f = f$, hence $S_g f = \overline{\chi(g)} f$ and further $S_g |f| \geq |S_g f | = |f|$. Integrating with respect to $\mu_j,\ j=1,2,...,k$ gives
+\[ \int \limits_X S_g |f| d\mu_j = \langle S_g |f|, \mu_j \rangle = \langle |f|, S_g' \mu_j \rangle = \langle |f|, \mu_j \rangle = \int \limits_X |f| d\mu_j, \]
+so there must be $S_g |f| = |f|,\ \mu_j$-a.e. Hence $S_g |f| = |f|$ on $\text{supp}(\mu_j)$ (Fact \ref{f:supp}) and $|f|$ is constant on every $\text{supp}(\mu_j)$ (consider function $|f||_{\text{supp}(\mu_j)}$ invariant for $\mathcal{S}|_{\text{supp}(\mu_j)}$ and apply Lemma \ref{l:markov_properties}.\ref{constantonminimal}). Let us take arbitrary $x \in \text{supp}(\mu_j)$ and $g \in G$. We have
+\[ f(x) = \langle f, \delta_x \rangle = \langle \chi(g)S_g f, \delta_x \rangle = \chi(g) \langle f, S_g'\delta_x \rangle =\chi(g)\int \limits_X f (y) dS_g'\delta_x (y) = \]
+\[ = \chi(g)\int \limits_{\text{supp}(S_g'\delta_x)} f(y) dS_g'\delta_x (y).  \]
+Since $f$ is of constant modulus on $\text{supp}(S_g' \delta_x) \subset \text{supp}(\mu_j)$, there is even $f(y) = \overline{\chi(g)}f(x)$ for every $y \in \text{supp}(S_g' \delta_x)$ (RÓD£O!). % hence $f$ is constant on $\text{supp}(\mu_j)$.%
+If we have now $f_1, f_2 \in Fix(_\chi\mathcal{S})$ such that $f_2 \neq 0$ on $\text{supp}(\mu_j)$, then for $x \in \text{supp}(\mu_j),\ g\in G$ there is
+\[ S_g \Big(\frac{f_1}{f_2}\Big) (x) = \int \limits_X S_g \Big(\frac{f_1}{f_2}\Big) (y) d \delta_x (y) = \int \limits_{\text{supp}(S_g'\delta_x)} \frac{f_1(y)}{f_2(y)} d S_g'\delta_x (y) = \frac{\overline{\chi(g)}f_1(x)}{\overline{\chi(g)}f_2(x)} = \frac{f_1}{f_2}(x), \]
+hence $\frac{f_1}{f_2}$ is constant on $\text{supp}(\mu_j)$ and $f_1 = c \cdot f_2$ on $\text{supp}(\mu_j)$ for some $c \in \mathbb{C}$.
+For every $j=1,2,...,k$ let $f_j \in Fix(_{\chi}\mathcal{S})$ be such that $f_j (x) \neq 0$ for every $x \in \text{supp}(\mu_j)$ if such $f_j$ exists. Otherwise every $f \in Fix(_{\chi})\mathcal{S}$ has $f|_{\text{supp}(\mu_j)} = 0$, since $f$ is of constant modulus on $\text{supp}(\mu_j)$) and we can take $f_j$ to be zero on $\text{supp}(\mu_j)$. Let us take now $\mu \in \mathbb{P}_{\mathcal{S}}$. Since $\mathbb{P}_{\mathcal{S}} = \overline{co}^{^{*}w}Ext\mathbb{P}_\mathcal{S}$ by Krein-Milman theorem (Theorem \ref{t:krein-milman}), there is $\text{supp}(\mu) \subset \bigcup \limits_{j=1}^k \text{supp}(\mu_j)$, so every $f \in Fix(_{\chi}\mathcal{S})$ has decomposition $f = \sum \limits_{j=1}^k f\mathds{1}_{\text{supp}(\mu_j)}$ in $L^2(\mu)$. Now $f\mathds{1}_{\text{supp}(\mu_j)} = c_j f_j \mathds{1}_{\text{supp}(\mu_j)}$ for some constant $c_j \in \mathbb{C}$, so $f = \sum \limits_{j=1}^k c_j f_j \mathds{1}_{\text{supp}(\mu_j)}$ in $L^2(\mu)$. This shows that $dim(Fix(_{\chi}\mathcal{S})) \leq k$ in $L^2(\mu)$. $\mathcal{S}$ is mean ergodic, so Theorem \ref{t:markov_ww} gives that
+\[ Fix(_{\chi}\mathcal{S}_{2,\mu}) = \overline{Fix(_{\chi}\mathcal{S})}^{L^2(\mu)} = Fix(_{\chi}\mathcal{S}), \]
+since finite dimensional subspace is always closed. $\square$
+\end{pf}
+
 
 \begin{thebibliography}{99}
 

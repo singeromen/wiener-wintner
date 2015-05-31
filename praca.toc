@@ -15,5 +15,5 @@
 \contentsline {section}{\numberline {4.1}Operator semigroups, ergodic nets and mean ergodicity}{41}{section.4.1}
 \contentsline {section}{\numberline {4.2}Amenable semigroups}{45}{section.4.2}
 \contentsline {section}{\numberline {4.3}Markov operators on $C(X)$}{46}{section.4.3}
-\contentsline {chapter}{\numberline {5}Wiener-Wintner theorem for semigroups of Markov operators on $C(X)$}{51}{chapter.5}
-\contentsline {chapter}{Bibliography}{53}{chapter*.3}
+\contentsline {chapter}{\numberline {5}Wiener-Wintner theorem for semigroups of Markov operators on $C(X)$}{55}{chapter.5}
+\contentsline {chapter}{Bibliography}{61}{chapter*.3}
