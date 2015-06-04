@@ -25,7 +25,7 @@
 \evensidemargin-1in
 \advance\evensidemargin 25mm
 \topmargin -1in
-\advance\topmargin 2cm
+\advance\topmargin 20mm
 \setlength\textheight{48\baselineskip}
 \addtolength\textheight{\topskip}
 \marginparwidth15mm

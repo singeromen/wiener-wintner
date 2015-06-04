@@ -37,7 +37,7 @@
 \newlabel{f:total_variation}{{1.2}{13}{}{f.1.2}{}}
 \citation{lemanczyk}
 \newlabel{t:kreinsmulian}{{1.10}{14}{Krein-Smulian Theorem\ {\cite [thm. G.7]{eisner}}}{thm.1.10}{}}
-\newlabel{t:tietze}{{1.11}{14}{Tietze's extension theorem\ {\cite [thm. 20.4]{rudin2}}}{thm.1.11}{}}
+\newlabel{t:urysohn}{{1.11}{14}{Urysohn's lemma\ {\cite [thm. 2.12]{rudin2}}}{thm.1.11}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {1.3}Spectral theory for isometries}{14}{section.1.3}}
 \newlabel{p:posdef}{{1.4}{14}{}{prop.1.4}{}}
 \newlabel{e:posdef}{{1.1}{14}{}{equation.1.3.1}{}}
@@ -76,14 +76,15 @@
 \newlabel{t:krylov}{{2.3}{23}{Krylov–Bogoljubov{\cite [thm. 10.2]{eisner}}}{thm.2.3}{}}
 \newlabel{t:unierg}{{2.4}{23}{\cite [thm. 10.6]{eisner}}{thm.2.4}{}}
 \newlabel{f:supp}{{2.4}{24}{}{f.2.4}{}}
+\newlabel{support_of_limit}{{7}{24}{}{Item.22}{}}
 \newlabel{e:suppreg}{{2.2}{24}{}{equation.2.2.2}{}}
 \citation{weber}
 \@writefile{toc}{\contentsline {section}{\numberline {2.3}von Neumann's Ergodic Theorem}{25}{section.2.3}}
 \newlabel{t:neumann}{{2.5}{25}{von Neumann's Ergodic Theorem {\cite [thm. 1.3.1]{weber}}}{thm.2.5}{}}
 \newlabel{c:spectr_proj}{{2.1}{25}{}{cor.2.1}{}}
-\newlabel{l:spectr}{{2.2}{25}{}{lem.2.2}{}}
-\newlabel{e:norm}{{2.3}{25}{}{equation.2.3.3}{}}
-\newlabel{e:int}{{2.4}{25}{}{equation.2.3.4}{}}
+\newlabel{l:spectr}{{2.2}{26}{}{lem.2.2}{}}
+\newlabel{e:norm}{{2.3}{26}{}{equation.2.3.3}{}}
+\newlabel{e:int}{{2.4}{26}{}{equation.2.3.4}{}}
 \newlabel{e:measure}{{2.5}{26}{}{equation.2.3.5}{}}
 \citation{ww}
 \citation{assani}
@@ -118,23 +119,24 @@
 \citation{robinson}
 \newlabel{c:wwprop-limit}{{3.2}{34}{}{cor.3.2}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.3}Uniform topological Wiener-Wintner theorem}{34}{section.3.3}}
-\newlabel{f:noinvariantset}{{3.1}{35}{}{f.3.1}{}}
-\newlabel{f:constmod}{{3.2}{35}{}{f.3.2}{}}
+\newlabel{l:noinvariantset}{{3.4}{35}{}{lem.3.4}{}}
+\newlabel{l:constmod}{{3.5}{35}{}{lem.3.5}{}}
 \citation{robinson}
 \citation{robinson}
 \citation{robinson}
-\newlabel{p:koopman_spectral}{{3.3}{36}{Uniform topological Wiener-Wintner theorem}{cor.3.3}{}}
 \newlabel{e:spectral_projection_1dim}{{3.7}{36}{Uniform topological Wiener-Wintner theorem}{equation.3.3.7}{}}
 \newlabel{t:robinson}{{3.3}{36}{Uniform topological Wiener-Wintner Theorem, {\cite [thm 1.1]{robinson}}}{thm.3.3}{}}
-\newlabel{l:robinson_spectral}{{3.4}{36}{\cite [lemma 2.1]{robinson}}{lem.3.4}{}}
+\newlabel{l:robinson_spectral}{{3.6}{36}{\cite [lemma 2.1]{robinson}}{lem.3.6}{}}
 \newlabel{e:robinson_lemma}{{3.8}{36}{\cite [lemma 2.1]{robinson}}{equation.3.3.8}{}}
-\newlabel{e:limsup_subsequence}{{3.9}{37}{}{equation.3.3.9}{}}
+\newlabel{e:limsup_subsequence}{{3.9}{36}{}{equation.3.3.9}{}}
 \newlabel{e:rhoint}{{3.10}{37}{}{equation.3.3.10}{}}
 \newlabel{e:measures_equality}{{3.11}{37}{}{equation.3.3.11}{}}
-\newlabel{e:spectral_projection1}{{3.12}{38}{}{equation.3.3.12}{}}
+\newlabel{e:spectral_projection1}{{3.12}{37}{}{equation.3.3.12}{}}
 \newlabel{e:const_projection}{{3.13}{38}{}{equation.3.3.13}{}}
 \newlabel{e:ct_limit}{{3.14}{38}{}{equation.3.3.14}{}}
+\citation{schreiber14}
 \newlabel{e:robinson_reverse}{{3.15}{39}{}{equation.3.3.15}{}}
+\newlabel{e:derndinger}{{3.1}{39}{R. Derndinger, {\cite [ex. 2.4]{schreiber14}}}{ex.3.1}{}}
 \citation{krengel}
 \citation{schreiber13}
 \citation{schreiber14}
@@ -147,6 +149,7 @@
 \citation{schreiber13}
 \citation{schreiber13}
 \citation{krengel}
+\newlabel{e:ceasaro_averages}{{4.3}{43}{}{ex.4.3}{}}
 \newlabel{t:weakstrongnets}{{4.1}{43}{\cite [thm 1.5]{schreiber13}}{thm.4.1}{}}
 \newlabel{t:ame_fix}{{4.2}{43}{Abstract mean ergodic theorem}{thm.4.2}{}}
 \newlabel{t:ame_nofix}{{4.3}{44}{Abstract mean ergodic theorem}{thm.4.3}{}}
@@ -159,36 +162,44 @@
 \newlabel{c:reflexivemeanergodic}{{4.3}{46}{}{cor.4.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.3}Markov operators on $C(X)$}{46}{section.4.3}}
 \newlabel{l:lattice_properties}{{4.1}{47}{}{lem.4.1}{}}
-\newlabel{measure_inequality}{{4}{47}{}{Item.53}{}}
-\newlabel{fix_inequality}{{6}{47}{}{Item.55}{}}
+\newlabel{measure_inequality}{{4}{47}{}{Item.57}{}}
+\newlabel{fix_inequality}{{6}{47}{}{Item.59}{}}
 \citation{sine}
 \newlabel{p:vanish}{{4.1}{48}{}{prop.4.1}{}}
 \newlabel{l:markov_properties}{{4.2}{49}{}{lem.4.2}{}}
-\newlabel{intersection}{{1}{49}{}{Item.62}{}}
-\newlabel{invariantsupport}{{3}{49}{}{Item.64}{}}
-\newlabel{levelset}{{5}{49}{}{Item.66}{}}
-\newlabel{invariantexistence}{{6}{49}{}{Item.67}{}}
-\newlabel{constantonminimal}{{7}{49}{}{Item.68}{}}
-\newlabel{constant_on_minimal_support}{{8}{49}{}{Item.69}{}}
-\newlabel{extremal_minimal}{{9}{49}{}{Item.70}{}}
-\citation{sine}
+\newlabel{intersection}{{1}{49}{}{Item.66}{}}
+\newlabel{invariant_stable}{{2}{49}{}{Item.67}{}}
+\newlabel{invariantsupport}{{4}{49}{}{Item.69}{}}
+\newlabel{levelset}{{6}{49}{}{Item.71}{}}
+\newlabel{invariantexistence}{{7}{49}{}{Item.72}{}}
+\newlabel{constantonminimal}{{8}{49}{}{Item.73}{}}
+\newlabel{constant_on_minimal_support}{{9}{49}{}{Item.74}{}}
+\newlabel{extremal_minimal}{{10}{49}{}{Item.75}{}}
 \citation{eisner}
 \citation{schreiber14}
+\newlabel{f:uniquely_mean_ergodic}{{4.3}{54}{\cite [prop. 2.2]{schreiber14}}{f.4.3}{}}
 \citation{schreiber14}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Wiener-Wintner theorem for semigroups of Markov operators on $C(X)$}{55}{chapter.5}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Wiener-Wintner theorems for semigroups of Markov operators on $C(X)$}{55}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{r:wwop}{{5}{55}{Wiener-Wintner theorem for semigroups of Markov operators on $C(X)$}{chapter.5}{}}
+\newlabel{r:wwop}{{5}{55}{Wiener-Wintner theorems for semigroups of Markov operators on $C(X)$}{chapter.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Characters and distorted semigroups}{55}{section.5.1}}
 \citation{schreiber14}
 \citation{schreiber14}
+\citation{schreiber14}
+\newlabel{e:derndinger2}{{5.2}{56}{R. Derndinger, {\cite [ex. 2.4]{schreiber14}}}{ex.5.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Mean ergodicity of the semigroup $_{\chi }\mathcal  {S}$}{56}{section.5.2}}
+\newlabel{t:schreiber}{{5.1}{56}{M. Schreiber {\cite [thm 2.7]{schreiber14}}}{thm.5.1}{}}
 \citation{rudin2}
-\citation{schreiber14}
 \citation{schreiber14}
 \newlabel{measure_to_variation}{{5.1}{57}{\cite [thm 6.12]{rudin2}}{f.5.1}{}}
 \newlabel{l:fixed_functions_measures}{{5.1}{57}{\cite [lem. 2.5]{schreiber14}}{lem.5.1}{}}
 \citation{schreiber14}
 \newlabel{f:adjoint_fix_space}{{5.2}{58}{\cite {schreiber14}}{f.5.2}{}}
 \newlabel{t:markov_ww}{{5.2}{58}{}{thm.5.2}{}}
+\citation{schreiber14}
+\newlabel{t:finite_dim_markov_ww}{{5.3}{59}{}{thm.5.3}{}}
+\newlabel{l:integral_on_circle}{{5.2}{59}{}{lem.5.2}{}}
 \bibcite{assani}{Assani}
 \bibcite{assani_survey}{Assani, Presser}
 \bibcite{einsiedler}{Einsiedler, Ward}
@@ -203,4 +214,4 @@
 \bibcite{sine}{Sine}
 \bibcite{weber}{Weber}
 \bibcite{ww}{WW}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{61}{chapter*.3}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{63}{chapter*.3}}
