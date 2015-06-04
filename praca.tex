@@ -382,6 +382,11 @@ We will also make use of the following topological theorem:
 \begin{thm}[Urysohn's lemma\ {\cite[thm. 2.12]{rudin2}}]\label{t:urysohn}
 Let $X$ be a compact Hausdorff space and let $F,G$ be compact and disjoint subsets of $X$. There exists continuous function $f: X \rightarrow [0,1]$ with $f=1$ on $F$ and $f=0$ on $G$.
 \end{thm}
+Let us state now usefull corollary from the Hahn-Banach theorem.
+
+\begin{thm}[{\cite[thm 3.5]{rudin}}]\label{t:hahn_banach}
+Let $E$ be a normed space and let $F$ be its closed linear subspace. If $x \notin F$, then there exists $x^* \in E^*$ with $\langle x, x^* \rangle = 1$ and $x^*|_F = 0$.
+\end{thm}
 
 \section{Spectral theory for isometries}
 
@@ -1059,7 +1064,7 @@ for every $i \in \mathbb{N}$. Simillary as before, there is $\underline{x}^{(i)}
 \end{ex}
 
 \chapter{Ergodic theory for operator semigroups and Markov operators on $C(K)$}\label{r:ergop}
-This chapter contains preliminaries for the next chapter in which we will establish topological Wiener-Winter theorem for semigroups of operators. We present basics of operator theoretic approach to ergodic theory. Instead of single deterministic transformation on measure space, we will consider semigroup of bounded linear operators on Banach space. Introduction to these topics can be found in \cite{krengel}. We will follow setting presented in \cite{schreiber13} and \cite{schreiber14}. We also introduce concepts of amenable semigroups and Markov operators on $C(K)$. 
+This chapter contains preliminaries for the next chapter in which we will establish topological Wiener-Winter theorem for semigroups of operators. We present basics of operator theoretic approach to ergodic theory. Instead of a single deterministic transformation on a measure space, we will consider the semigroup of bounded linear operators on Banach space. Introduction to these topics can be found in \cite{krengel}. We will follow the setting presented in \cite{schreiber13} and \cite{schreiber14}. We also introduce concepts of amenable semigroups and Markov operators on $C(K)$. 
 
 \section{Operator semigroups, ergodic nets and mean ergodicity}
 
@@ -1094,7 +1099,7 @@ For a given bounden representation $\mathcal{S}$, we would like to study its mea
 Since there is no canonical way of averaging for abstract semigroup, we need to introduce the concept of $\mathcal{S}$-ergodic net.
 
 \begin{df}
-Let $\mathcal{S}$ be a bounded representation of semigroup $G$. A net $(A^{\mathcal{S}}_\alpha)_{\alpha \in \Lambda}$ of operators in $L(\mathfrak{X})$ is called a \textbf{strong right (left) $\mathcal{S}$-ergodic net} if
+Let $\mathcal{S}$ be a bounded representation of semigroup $G$ on the Banach space $\mathfrak{X}$. A net $(A^{\mathcal{S}}_\alpha)_{\alpha \in \Lambda}$ of operators in $L(\mathfrak{X})$ is called a \textbf{strong right (left) $\mathcal{S}$-ergodic net} if
 \begin{enumerate}[(i)]
 \item $A_{\alpha}^{\mathcal{S}} \in  \overline{co}\mathcal{S}$ for all $\alpha \in \Lambda$ (closure is taken with respect to the strong operator topology),
 \item $(A_{\alpha}^{\mathcal{S}})$ is \textbf{strongly right (left) asymptotically invariant}, i.e.
@@ -1132,10 +1137,10 @@ The following fact might be surprising:
 \begin{thm}[{\cite[thm 1.5]{schreiber13}}]\label{t:weakstrongnets}
 Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$ on $\mathfrak{X}$. There exists strong (right) $\mathcal{S}$-ergodic net if and only if there exists weak (right) $\mathcal{S}$-ergodic net.
 \end{thm}
-Operator ergodic theory is interested in convergence of net $A^{\mathcal{S}}_{\alpha}x$ for each $x \in \mathfrak{X}$. We will now introduce central theorem of the ergodic theory for operator semigroups which deals with that convergence. Our statement of the theorem is a combination of Theorem 1.7 from \cite{schreiber13} and Theorems 1.5 (p. 76) and 1.9 (p. 79) from \cite{krengel}.
+Operator ergodic theory is interested in convergence of the net $A^{\mathcal{S}}_{\alpha}x$ for each $x \in \mathfrak{X}$. We will now introduce central theorem of the ergodic theory for operator semigroups which deals with that convergence. Our statement of the theorem is a combination of Theorem 1.7 from \cite{schreiber13} and Theorems 1.5 (p. 76) and 1.9 (p. 79) from \cite{krengel}.
 
 \begin{thm}[Abstract mean ergodic theorem]\label{t:ame_fix}
-Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$ which admits strong right ergodic net. The following conditions are equivalent:
+Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$ on the Banach space $\mathfrak{X}$ which admits strong right ergodic net. The following conditions are equivalent:
 \begin{enumerate}[(1)]
 \item $A_{\alpha}^{\mathcal{S}} x$ converges to a fixed point of $\mathcal{S}$ for every $x \in \mathfrak{X}$ and some/every strong right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
 \item $A_{\alpha}^{\mathcal{S}} x$ converges weakly to a fixed point of $\mathcal{S}$ for every $x \in \mathfrak{X}$ and some/every strong right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
@@ -1144,7 +1149,7 @@ Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$ w
 \item $\overline{co}\mathcal{S}x \cap Fix(\mathcal{S}) \neq \emptyset$ for all $x \in \mathfrak{X}$,
 \item there exists operator $P \in \overline{co}\mathcal{S}$ such that $S_g P = P S_g = P^2 = P$ for every $g \in G$,
 \item $Fix(\mathcal{S})$ separates $Fix(\mathcal{S}')$, (i.e. for every $Fix(\mathcal{S}') \ni x^* \neq 0$ there exists $x \in Fix(\mathcal{S})$ with $\langle x, x^* \rangle \neq 0$),
-\item $\mathfrak{X} = Fix(\mathcal{S}) \oplus \overline{span}\ rg (I - \mathcal{S}) := Fix(\mathcal{S}) \oplus \overline{span}\ \{ x - S_g x: x \in \mathfrak{X},\ g \in G \}$.
+\item $\mathfrak{X} = Fix(\mathcal{S}) \oplus \overline{span}\ rg (I - \mathcal{S}).$
 \end{enumerate}
 The strong (weak) limit $\lim \limits_{\alpha} A_{\alpha}^{\mathcal{S}} x$ is equal for every strong (weak) right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$ and is also equal to $Px$. Operator P is a $\mathcal{S}$-absorbing projection onto $Fix(\mathcal{S})$ along $\overline{span}\ rg (I - \mathcal{S})$.
 \end{thm}
@@ -1157,7 +1162,7 @@ The strong (weak) limit $\lim \limits_{\alpha} A_{\alpha}^{\mathcal{S}} x$ is eq
 If $\mathcal{S}$ admits even $S$-ergodic net (which is simultaneously left and right asymptotically invariant), then the limit $Px = \lim \limits A_{\alpha}^{\mathcal{S}} x$ is always a fixed point of $\mathcal{S}$ (if exists). It allows us to give the following variant:
 
 \begin{thm}[Abstract mean ergodic theorem]\label{t:ame_nofix}
-Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$ which admits strong ergodic net. The following conditions are equivalent:
+Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$ on the Banach space $\mathfrak{X}$ which admits strong ergodic net. The following conditions are equivalent:
 \begin{enumerate}[(1)]
 \item $A_{\alpha}^{\mathcal{S}} x$ converges for every $x \in \mathfrak{X}$ and some/every strong right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
 \item $A_{\alpha}^{\mathcal{S}} x$ converges weakly for every $x \in \mathfrak{X}$ and some/every strong right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
@@ -1170,6 +1175,25 @@ Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$ w
 \end{enumerate}
 The strong (weak) limit $\lim \limits_{\alpha} A_{\alpha}^{\mathcal{S}} x$ is equal for every strong (weak) right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$ and is also equal to $Px$. Operator P is a $\mathcal{S}$-absorbing projection onto $Fix(\mathcal{S})$ along $\overline{span}\ rg (I - \mathcal{S})$.
 \end{thm}
+Sometimes we are interested in the convergence of the ergodic nets on a fixed element $x \in \mathfrak{X}$ instead of the mean ergodicity of the semigroup $\mathcal{S}$. Let us denote $Y_x := \overline{span}\mathcal{S}x =\overline{span} \{S_g x: g \in G \} \subset \mathfrak{X}$ and $\mathcal{S}|_{Y_x} := \{ S_g|_{Y_x}: g \in G \}$ for $x \in \mathfrak{X}$. The following theorem characterizes mean ergodicity on the subspace $Y_x$.
+
+\begin{thm}[{\cite[prop. 1.11]{schreiber13}}]\label{t:ame_single}
+Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$ on the Banach space $\mathfrak{X}$ which admits strong (right) ergodic net and fix $x \in \mathfrak{X}$. The following conditions are equivalent:
+\begin{enumerate}[(1)]
+\item $A_{\alpha}^{\mathcal{S}} x$ converges (to a fixed point of $\mathcal{S}$) for some/every strong right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{\mathcal{S}} x$ converges weakly (to a fixed point of $\mathcal{S}$) for some/every strong right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{\mathcal{S}} x$ converges weakly (to a fixed point of $\mathcal{S}$) for some/every weak right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{\mathcal{S}} x$ has a weak cluster point (in $Fix(\mathcal{S})$) for some/every weak right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $\overline{co}\mathcal{S}x \cap Fix(\mathcal{S}) \neq \emptyset$,
+\item $\mathcal{S}$ is mean ergodic on $Y_x$ with absorbing projection $P$
+\item $Fix(\mathcal{S}|_{Y_x})$ separates $Fix(\mathcal{S}|_{Y_x}')$,
+\item $x \in Fix(\mathcal{S}) \oplus \overline{span}\ rg (I - \mathcal{S}).$
+\end{enumerate}
+The strong (weak) limit $\lim \limits_{\alpha} A_{\alpha}^{\mathcal{S}} x$ is equal for every strong (weak) right $\mathcal{S}$-ergodic net $(A_{\alpha}^{\mathcal{S}})_{\alpha \in \Lambda}$ and is also equal to $Px$. Operator P is a $\mathcal{S}|_{Y_x}$-absorbing projection onto $Fix(\mathcal{S}|_{Y_x})$ along $\overline{span}\ rg (I - \mathcal{S}|_{Y_x})$.
+\end{thm}
+\begin{f}[{\cite[cor. 1.7, thm. 1.9]{krengel}}]\label{f:closed_sum}$\\$
+Let $\mathcal{S}$ be a bounded representation of the semitopological semigroup $G$ on the Banach space $\mathfrak{X}$. The set $Fix(\mathcal{S}) \oplus \overline{span}\ rg (I - \mathcal{S}) := Fix(\mathcal{S}) \oplus \overline{span}\ \{ x - S_g x: x \in \mathfrak{X},\ g \in G \}$ is a closed $\mathcal{S}$-invariant linear subspace of $\mathfrak{X}$. If $A_{\alpha}^{\mathcal{S}}$ is a strong right $\mathcal{S}$-ergodic net then the sets $\{x \in \mathfrak{X}: \lim \limits_{\alpha} A_{\alpha}^{\mathcal{S}} \text{ exists} \}$ and $\{x \in \mathfrak{X}: \lim \limits_{\alpha} A_{\alpha}^{\mathcal{S}} \text{ exists and is a fixed point of } \mathcal{S} \}$ are closed $\mathcal{S}$-invariant linear subspaces of $\mathfrak{X}$.
+\end{f}
 We will make use of the following simple facts.
 
 \begin{f}\label{f:adjoint_separates}
@@ -1289,7 +1313,7 @@ since $f(y)=1$ and $y \in supp(S_g' \delta_x)$ (there must be $f > \frac{1}{2}$ 
 \end{pf}
 
 \begin{rem}
-Let $F$ be an invariant set. For every $g \in G$ and $f,h \in C(X)$ we have $S_g f = S_g h$ if $f=h$ on $F$. This allows us to consider restricted semigroup $\mathcal{S}|_F:= \{S_g|_F : g \in G \}$ of Markov operators on $C(F)$, where for $f \in C(F)$ we have $S_g |_F ( f):=(S_g h) |_F$ for any $h \in C(X)$ with $f = h$ on $F$. The previous proposition assures that this definition is correct. $\mathcal{S}|_F$ is a bounded representation of $G$ on $C(F)$. If $\mathcal{S}$ admits (right) ergodic net, then also $\mathcal{S}|_F$ admits (right) ergodic net (it's enough to restrict $\mathcal{S}$-ergodic net to $F$). If $\mathcal{S}$ is in addition mean ergodic, then $\mathcal{S}|_F$ is also mean ergodic. To see that take $0 \neq \mu \in Fix(\mathcal{S}|_F')$ and consider measure $\nu(A) := \mu(A \cap F),\ A \in \mathcal{B}(X)$. For $f \in C(X)$ there is
+Let $F$ be an invariant set. For every $g \in G$ and $f,h \in C(X)$ we have $S_g f = S_g h$ if $f=h$ on $F$. This allows us to consider restricted semigroup $\mathcal{S}|_F:= \{S_g|_F : g \in G \}$ of Markov operators on $C(F)$, where for $f \in C(F)$ we have $S_g |_F ( f):=(S_g h) |_F$ for any $h \in C(X)$ with $f = h$ on $F$ (note that this restricition of the operator $S_g$ is of different nature than the restriction $S_g|_{Y_x}$ considered before. This will not lead to misunderstandings). The previous proposition assures that this definition is correct. $\mathcal{S}|_F$ is a bounded representation of $G$ on $C(F)$. If $\mathcal{S}$ admits (right) ergodic net, then also $\mathcal{S}|_F$ admits (right) ergodic net (it's enough to restrict $\mathcal{S}$-ergodic net to $F$). If $\mathcal{S}$ is in addition mean ergodic, then $\mathcal{S}|_F$ is also mean ergodic. To see that take $0 \neq \mu \in Fix(\mathcal{S}|_F')$ and consider measure $\nu(A) := \mu(A \cap F),\ A \in \mathcal{B}(X)$. For $f \in C(X)$ there is
 \[ \langle f, S_g' \nu \rangle = \langle S_g f, \nu \rangle = \int \limits_X S_g f d\nu = \int \limits_F S_g f d\nu = \langle (S_g f) |_F, \mu \rangle = \langle S_g |_F (f |_F), \mu \rangle = \langle f|_F, \mu \rangle = \langle f, \nu \rangle, \]
 so $\nu \in Fix(\mathcal{S}')$. There exists $f \in Fix(\mathcal{S})$ with $\langle f, \nu \rangle \neq 0$, but again
 $S_g |_F (f|_F) = (S_g f) |_F = f|_F$, so $f|_F \in Fix(\mathcal{S}|_F)$ and 
@@ -1446,16 +1470,16 @@ Let us state now Wiener-Wintner type result for uniquely ergodic semigroups of M
 Let $X$ be a compact Hausdorff topological space. Let $\mathcal{S}$ be a bounded Markovian representation of a (right) amenable semitopological semigroup $G$ on $C(X)$ and assume that $\mathcal{S}$ is uniquely ergodic with invariant probability measure $\mu$. The following conditions are equivalent:
 \begin{enumerate}[(1)]
 \item $Fix(_{\chi}\mathcal{S}_{2,\mu}) \subset Fix(_{\chi}\mathcal{S})$
-\item $A_{\alpha}^{_{\chi}\mathcal{S}} x$ converges (to a fixed point of $_{\chi}\mathcal{S}$) for every $x \in \mathfrak{X}$ and some/every strong (right) $_{\chi}\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$,
-\item $A_{\alpha}^{_{\chi}\mathcal{S}} x$ converges weakly (to a fixed point of $_{\chi}\mathcal{S}$) for every $x \in \mathfrak{X}$ and some/every strong (right) $_{\chi}\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$,
-\item $A_{\alpha}^{_{\chi}\mathcal{S}} x$ converges weakly (to a fixed point of $_{\chi}\mathcal{S}$) for every $x \in \mathfrak{X}$ and some/every weak (right) $_{\chi}\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$,
-\item $A_{\alpha}^{_{\chi}\mathcal{S}} x$ has a weak cluster point (in $Fix(_{\chi}\mathcal{S})$) for every $x \in \mathfrak{X}$ and some/every weak (right) $_{\chi}\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{_{\chi}\mathcal{S}} f$ converges (to a fixed point of $_{\chi}\mathcal{S}$) for every $f \in C(X)$ and some/every strong (right) $_{\chi}\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{_{\chi}\mathcal{S}} f$ converges weakly (to a fixed point of $_{\chi}\mathcal{S}$) for every $f \in C(X)$ and some/every strong (right) $_{\chi}\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{_{\chi}\mathcal{S}} f$ converges weakly (to a fixed point of $_{\chi}\mathcal{S}$) for every $f \in C(X)$ and some/every weak (right) $_{\chi}\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{_{\chi}\mathcal{S}} f$ has a weak cluster point (in $Fix(_{\chi}\mathcal{S})$) for every $f \in C(X)$ and some/every weak (right) $_{\chi}\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$,
 \item $\overline{co}_{\chi}\mathcal{S}x \cap Fix(_{\chi}\mathcal{S}) \neq \emptyset$ for all $x \in \mathfrak{X}$,
 \item there exists operator $P_{\chi} \in \overline{co}_{\chi}\mathcal{S}$ such that $\chi(g)S_g P = P \chi(g)S_g = P^2 = P$ for every $g \in G$ (i.e. $_{\chi}\mathcal{S}$ is mean ergodic with the absorbing projection $P_{\chi}$),
 \item $Fix(_{\chi}\mathcal{S})$ separates $Fix(_{\chi}\mathcal{S})'$,
-\item $\mathfrak{X} = Fix(_{\chi}\mathcal{S}) \oplus \overline{span}\ rg (I - _{\chi}\mathcal{S}).$
+\item $C(X) = Fix(_{\chi}\mathcal{S}) \oplus \overline{span}\ rg (I - _{\chi}\mathcal{S}).$
 \end{enumerate}
-The strong/weak limit $\lim \limits_{\alpha} A_{\alpha}^{_{\chi}\mathcal{S}} x$ is equal for every strong/weak (right) $_{\chi}\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$ and is also equal to $Px$. Operator P is a $_{\chi}\mathcal{S}$-absorbing projection onto $Fix(_{\chi}\mathcal{S})$ along $\overline{span}\ rg (I - _{\chi}\mathcal{S})$.
+The strong/weak limit $\lim \limits_{\alpha} A_{\alpha}^{_{\chi}\mathcal{S}} f$ is equal for every strong/weak (right) $_{\chi}\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$ and is also equal to $Pf$. Operator P is a $_{\chi}\mathcal{S}$-absorbing projection onto $Fix(_{\chi}\mathcal{S})$ along $\overline{span}\ rg (I - _{\chi}\mathcal{S})$.
 \end{thm}
 \begin{rem}The above theorem can be stated briefly: if $\mathcal{S}$ is a bounded Markovian representation of a (right) amenable semitopological semigroup $G$ on $C(X)$ then for every $\chi \in \widehat{G}$ the distorted semigroup $_{\chi}\mathcal{S}$ is mean ergodic if and only if $Fix(_{\chi}S_{2,\mu}) \subset Fix(_{\chi}\mathcal{S})$. Conditions $(2)$ to $(8)$ are equivalent formulations of the ergodicity of the semigroup $_{\chi}\mathcal{S}$ and are consequence of the Abstract ergodic theorem (Theorems \ref{t:ame_fix} and \ref{t:ame_nofix}). The inclusion $Fix(_{\chi}S_{2,\mu}) \subset Fix(_{\chi}\mathcal{S})$ is understood in $L^2(\mu)$, i.e. $Fix(_{\chi}\mathcal{S}) \subset C(X)$ can be seen as a linear subspace of $L^2(\mu)$ (after identification of functions being equal almost everywhere). The inclusion says that for every function $f \in L^2(\mu)$ satisfying $f = \chi(g)S_{g,2}f\ \mu$-a.e. for all $g \in G$, there exists function $h \in C(X)$ with $f = h\ \mu$-a.e. satisfying $h = \chi(g)S_g h$ forall $g \in G$.
 \end{rem}
@@ -1553,6 +1577,49 @@ We can give now short proof of the Theorem \ref{t:schreiber}.
 \begin{pf} (of the Theorem \ref{t:schreiber}) If $\mathcal{S}$ is uniquely ergodic with unique invariant probability measure $\mu \in \mathbb{P}_{\mathcal{S}}$, then by Fact \ref{f:uniquely_mean_ergodic} $\mathcal{S}$ is also mean ergodic and $Fix(\mathcal{S}) = \mathbb{C} \cdot \mathds{1}$, hence $dim(Fix(\mathcal{S}))=1<\infty.$ Theorem \ref{t:finite_dim_markov_ww} states now that for every $\chi \in \widehat{G}$ the distorted semigroup $_{\chi}\mathcal{S}$ is mean ergodic if and only if $Fix(_{\chi}\mathcal{S}_{2,\mu}) = Fix(_{\chi}\mathcal{S})$. The inclusion $Fix(_{\chi}\mathcal{S}_{2,\mu}) \supset Fix(_{\chi}\mathcal{S})$ is always true, hence the condtion is equivalent to $Fix(_{\chi}\mathcal{S}_{2,\mu}) \subset Fix(_{\chi}\mathcal{S}).\ \square$
 \end{pf}
 
+\section{Convergence of the distorted ergodic net on a single function}
+Following M. Schreiber in \cite{schreiber14} we give also a characterization of the convergence of the $_{\chi}\mathcal{S}$-ergodic net $A_{\alpha}^{_{\chi}\mathcal{S}}f$ for a single function $f \in C(X)$. Our proof is a simple modification of the proof of the Theorem 2.8 in  \cite{schreiber14}.
+
+\begin{thm}\label{t:single_markov_ww}
+Let $\mathcal{S}$ be a bounded Markovian representation of a (right) amenable semitopological semigroup $G$ on the Banach space $C(X)$ and let $f \in C(X)$. The following conditions are equivalent:
+\begin{enumerate}[(1)]
+\item $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f \in Fix(_{\chi}\mathcal{S})$ for every $\mu \in \mathbb{P}_{\mathcal{S}}$, where $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}$ denotes the orthogonal projection on the subspace $Fix(_{\chi}\mathcal{S}_{2,\mu})$ in $L^2(\mu)$,
+\item $A_{\alpha}^{_{\chi}\mathcal{S}} f$ converges (to a fixed point of $_{\chi}\mathcal{S}$) for some/every strong right $\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{_{\chi}\mathcal{S}} f$ converges weakly (to a fixed point of $_{\chi}\mathcal{S}$) for some/every strong right $\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{_{\chi}\mathcal{S}} f$ converges weakly (to a fixed point of $_{\chi}\mathcal{S}$) for some/every weak right $\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $A_{\alpha}^{_{\chi}\mathcal{S}} f$ has a weak cluster point (in $Fix(_{\chi}\mathcal{S})$) for some/every weak right $\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$,
+\item $\overline{co}\mathcal{S}f \cap Fix(_{\chi}\mathcal{S}) \neq \emptyset$,
+\item $_{\chi}\mathcal{S}$ is mean ergodic on $Y_x$ with absorbing projection $P_{\chi}$
+\item $Fix(_{\chi}\mathcal{S}|_{Y_x})$ separates $Fix(_{\chi}\mathcal{S}|_{Y_x}')$,
+\item $f \in Fix(_{\chi}\mathcal{S}) \oplus \overline{span}\ rg (I - _{\chi}\mathcal{S}).$
+\end{enumerate}
+The strong (weak) limit $\lim \limits_{\alpha} A_{\alpha}^{_{\chi}\mathcal{S}} f$ is equal for every strong (weak) right $_{\chi}\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$ and is also equal to $P_{\chi}x$. Operator $P_{\chi}$ is a $_{\chi}\mathcal{S}|_{Y_x}$-absorbing projection onto $Fix(_{\chi}\mathcal{S}|_{Y_x})$ along $\overline{span}\ rg (I - _{\chi}\mathcal{S}|_{Y_x})$.
+\end{thm}
+\begin{pf} Theorem \ref{t:ame_single} yields that conditions $(2)-(9)$ are equivalent.\\
+
+$(2) \Rightarrow (1)$ $_{\chi}\mathcal{S}_{2,\mu}$ is mean ergodic by Corollary \ref{c:reflexivemeanergodic}. Note that its absorbing projection $P$ is the orthogonal projection $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}$. Indeed, there is $Ph \in Fix(_{\chi}\mathcal{S}_{2,\mu})$ for every $h \in L^2(\mu)$. Fact \ref{f:adjoint_fix_space} gives that 
+\[ \langle Ph, h - Ph \rangle = \langle (A_{\alpha}^{_{\chi}\mathcal{S}_{2,\mu}})^* Ph, h \rangle - \langle Ph, Ph \rangle = \]
+\[ = \langle  Ph, A_{\alpha}^{_{\chi}\mathcal{S}_{2,\mu}}h \rangle - \langle Ph, Ph \rangle \rightarrow \langle  Ph, Ph \rangle - \langle Ph, Ph \rangle = 0\]
+for some right $_{\chi}\mathcal{S}_{2,\mu}$-ergodic net $A_{\alpha}^{_{\chi}\mathcal{S}_{2,\mu}}$. $P^2 = P$ and $P(L^2(\mu)) = Fix(_{\chi}\mathcal{S}_{2,\mu})$ yields now that $P = P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}$.\\
+If $A_{\alpha}^{_{\chi}\mathcal{S}}$ is a right $_{\chi}\mathcal{S}$-ergodic net, then $A_{\alpha}^{_{\chi}\mathcal{S}}$ is also a right $_{\chi}\mathcal{S}_{2,\mu}$-ergodic net (since $\|\cdot\|_{L^2(\mu)} \leq \|\cdot\|_{\text{sup}}$), so $A_{\alpha}^{_{\chi}\mathcal{S}} f$ converges in $L^2(\mu)$ to $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f$. By $(2)$ we have that $A_{\alpha}^{_{\chi}\mathcal{S}} f$ converges also in $C(X)$ to $h \in Fix(_{\chi}\mathcal{S})$, so $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f = h\ \mu$-a.e., hence $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f \in Fix(_{\chi\mathcal{S}})$.\\
+
+$(1) \Rightarrow (9)$ Let $\mu \in \mathcal{M}(X)$ vanish on $Fix(_{\chi}\mathcal{S}) \oplus \overline{span}\ rg (I - _{\chi}\mathcal{S})$. It suffices to show that $\langle f, \mu \rangle = 0$, hence Theorem \ref{t:hahn_banach} gives then $f \in Fix(_{\chi}\mathcal{S}) \oplus \overline{span}\ rg (I - _{\chi}\mathcal{S})$ (this subspace is closed by Fact \ref{f:closed_sum}). For every $h \in C(X)$ there is $\langle h - \chi(g)S_g h, \mu \rangle = 0$ for every $g \in G$, so $\langle h, (\chi(g)S_g)'\mu \rangle = \langle \chi(g)S_g h, \mu \rangle = \langle h, \mu \rangle$, hence $\mu \in Fix(_{\chi}\mathcal{S})'$. We have $S_g'|\mu| \geq |S_g'\mu| = |\overline{\chi}(g)\mu| = |\mu|$, so Lemma \ref{l:lattice_properties}.\ref{fix_inequality} gives $|\mu| \in Fix(\mathcal{S}')$. We can assume without loss of generality that $|\mu|$ is a probability measure, so $|\mu| \in \mathbb{P}_{\mathcal{S}}$. By Fact \ref{measure_to_variation} there exists $h \in L^2(|\mu|)$ with $\mu = \overline{h}|\mu|$ and by Lemma \ref{l:fixed_functions_measures} there is $h \in Fix(_{\chi}\mathcal{S}_{2,|\mu|})^*$. We have
+\[ \langle f, \mu \rangle = \int \limits_X f d\mu = \int \limits_X f \overline{h}d|\mu| = \langle f, h \rangle_{L^2(|\mu|)} = \langle f, (A_{\alpha}^{_{\chi}\mathcal{S}_{2,|\mu|}} )^* h \rangle_{L^2(|\mu|)} = \langle A_{\alpha}^{_{\chi}\mathcal{S}_{2,|\mu|}} f, h \rangle_{L^2(|\mu|)} \]
+for some strong right $_{\chi}\mathcal{S}_{2, |\mu|}$-ergodic net $\chi(g) A_{\alpha}^{_{\chi}\mathcal{S}_{2,|\mu|}}$. Passing to the limit gives
+\[ \langle f, \mu \rangle = \langle P_{Fix(_{\chi}\mathcal{S}_{2,|\mu|})}f , h \rangle_{L^2(|\mu|)} =  \langle P_{Fix(_{\chi}\mathcal{S}_{2,|\mu|})}f, \mu \rangle = 0,    \]
+since $P_{Fix(_{\chi}\mathcal{S}_{2,|\mu|})}f \in Fix(_{\chi}\mathcal{S})$ by $(1).\ \square$
+\end{pf}
+
+\begin{rem}
+The Uniform topological Wiener-Wintner theorem of Robinson (Theorem \ref{t:robinson}) can be seen as a corollary from the above theorem. We can omit the assumption of the metrizability of the phase space. Let $X$ be a compact Hausdorff space and let $T: X \rightarrow X$ be a uniquely ergodic continuous transformation with unique invariant probability measure $\mu$. Now $\mathcal{S}:=\{ U_T^n : n \in \mathbb{N} \}$ is a bounded Markovian representation of an amenable semigroup $\mathbb{N}$ on the Banach space $C(X)$. $\mathcal{S}$ is uniquely ergodic, since $Fix(\mathcal{S}') = \{ \nu \in \mathcal{M}(X): (U_T')^n \nu = \nu \text{ for every } n \in \mathbb{N}\} = \{\nu \in \mathcal{M}(X): U_T' \nu = \nu \} = \mathbb{C} \cdot \mu$. Let us fix $\lambda \in \mathbb{T}$ and consider the character $\chi \in \widehat{\mathbb{N}}$ defined by $\chi(n) = \lambda^n$. The sequence $(A_N^{_{\chi}\mathcal{S}})_{N \in \mathbb{N}}$ given by $A_N^{_{\chi}\mathcal{S}}:=\frac{1}{N} \sum \limits_{n=0}^N U_T^n$ is a strong $_{\chi}\mathcal{S}$-ergodic net. Theorem \ref{t:single_markov_ww} states that for a given function $f \in C(X)$ the sequence $\frac{1}{N} \sum \limits_{n=0}^N \lambda^n f \circ T^n$ is uniformly convergent if and only if $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f \in Fix(_{\chi}\mathcal{S})$. There is $Fix(_{\chi}\mathcal{S}_{2,\mu}) = \{ h \in L^2(\mu): h = \lambda^n U_T^n h \text{ for every } n \in \mathbb{N} \} = \{ h \in L^2(\mu): \overline{\lambda} h =h \circ T \}$, so $Fix(_{\chi}\mathcal{S}_{2,\mu})$ is the one (or zero) dimensional eigenspace of $\overline{\lambda}$ in $L^2(\mu)$ and similarly $Fix(_{\chi}\mathcal{S})$ is the one (or zero) dimensional eigenspace of $\overline{\lambda}$ in $C(X)$. Now $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f = P_{\overline{\lambda}}f$ is in the $L^2(\mu)$ eigenspace of $\overline{\lambda}$, hence  $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f \in Fix(_{\chi}\mathcal{S})$ if and only if $\lambda$ is a "continuous" eigenvalue ($\lambda \in C_T$) or $P_{\overline{\lambda}}f = 0$ ($\lambda \notin M_T$). Note that this requirement does not depend on $f \in C(X)$.
+\end{rem}
+We finish the thesis with the extension of Robinson's theorem for continuous transformation which are mean ergodic, but not necessarily uniquely ergodic.
+\begin{thm}
+Let $(X,T)$ be a topological dynamical system. Assume that $T$ is mean ergodic, i.e. $\frac{1}{N}\sum\limits_{n=0}^{N-1} f \circ T^n$ is uniformly convergent for every $f \in C(X)$ and let $\lambda \in \mathbb{T}$ and $f \in C(X)$. If for every invariant probability measure $\mu \in \mathcal{M}^T(X)$ the orthogonal projection $P_{\lambda} f$ is equal $\mu$-a.e. to some continuous eigenfunction of $\lambda$ or $P_{\lambda}f = 0$, then
+\[ \frac{1}{N}\sum \limits_{n=0}^{n-1}\lambda^nf\circ T^n \text{ converges uniformly on } X. \]
+\end{thm} 
+
+
 \begin{thebibliography}{99}
 
 \addcontentsline{toc}{chapter}{Bibliography}
@@ -1570,7 +1637,7 @@ Ergodic Theory}, Graduate Texts in Mathematics, Springer, to appear, \url{http:/
 
 \bibitem[Lemañczyk]{lemanczyk} M. Lemañczyk, \textit{Teoria spektralna dla ergodyków}, 2010, script, \url{http://www-users.mat.umk.pl/~mlem/files/Teoria_spektralna_dla_ergodykow.pdf}
 
-\bibitem[Robinson]{robinson} E. Arthur Robinsor, Jr., \textit{On uniform convergence in the Wiener-Wintner theorem}, J. Lond. Math. Soc. 49
+\bibitem[Robinson]{robinson} E. Arthur Robinson, Jr., \textit{On uniform convergence in the Wiener-Wintner theorem}, J. Lond. Math. Soc. 49
 (1994), 493–501.
 
 \bibitem[Rudin1]{rudin} Walter Rudin, \textit{Analiza funkcjonalna}, Wydawnictwo Naukowe PWN, second edition, 2012
