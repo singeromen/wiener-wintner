@@ -25,6 +25,8 @@
 \usepackage{ dsfont }
 \usepackage{ hyperref }
 \usepackage{mathtools}
+\usepackage{pdfpages}
+%\usepackage{standalone}
 
 %Jesli uzywasz kodowania polskich znakow ISO-8859-2 nastepna linia powinna byc 
 %odkomentowana
@@ -156,7 +158,7 @@
 
 %tu idzie streszczenie na strone poczatkowa
 \begin{abstract}
-The Wiener-Wintner ergodic theorem (\ref{t:ww}) states that for a given ergodic dynamical system $(X, \mathcal{A}, \mu, T)$ and fixed $f \in L^1(\mu)$ there exists a set of full measure $X_f$ with $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f (T^n x )$ exists for every $x \in X_f$ and $\lambda$ from the unit circle $\mathbb{T}$ on the complex plane. We state and prove several generalizations of this theorem. Bourgain's theorem (\ref{t:bourgain}) establishes uniform convergence with respect to $\lambda \in \mathbb{T}$ and Robinson's theorem (\ref{t:robinson}) gives uniform convergence with respect to $x \in X$ in the case of uniquely ergodic topological systems (under suitable additional assumptions). Schreiber's theorem (\ref{t:schreiber}) gives condition equivalent to the mean ergodicity of distorted semigroup $\{\chi(g)S_g : g \in G \}$ for a given uniquely ergodic Markovian representation $\mathcal{S}$ of an amenable semitopological semigroup $G$ on $C(X)$ and continuous character $\chi: G \rightarrow \mathbb{T}$. This can be seen as a natural extension of Robinson's theorem to the abstract semigroup case. We finish the thesis with generalization of Schreiber's theorem to the case of mean ergodic semigroup $\mathcal{S}$ (\ref{t:markov_ww}) with finite dimensional fixed space $Fix(\mathcal{S})$ (\ref{t:finite_dim_markov_ww}), giving simultaneously more elementary proof. We present also necessary framework from measure theory, functional analysis, spectral theory for isometries on Hilbert spaces, Markov operators and ergodic theory for deterministic transformations and operator semigroups.
+The Wiener-Wintner ergodic theorem (\ref{t:ww}) states that for a given ergodic dynamical system $(X, \mathcal{A}, \mu, T)$ and fixed $f \in L^1(\mu)$ there exists a set of full measure $X_f$ such that $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f (T^n x )$ exists for every $x \in X_f$ and $\lambda$ from the unit circle $\mathbb{T}$ on the complex plane. We state and prove several generalizations of this theorem. Bourgain's theorem (\ref{t:bourgain}) establishes uniform convergence with respect to $\lambda \in \mathbb{T}$ and Robinson's theorem (\ref{t:robinson}) gives uniform convergence with respect to $x \in X$ in the case of uniquely ergodic topological systems (under suitable additional assumptions). Schreiber's theorem (\ref{t:schreiber}) gives a condition equivalent to the mean ergodicity of distorted semigroup $\{\chi(g)S_g : g \in G \}$ for a given uniquely ergodic Markovian representation $\mathcal{S}$ of an amenable semitopological semigroup $G$ on $C(X)$ and continuous character $\chi: G \rightarrow \mathbb{T}$. This can be seen as a natural extension of Robinson's theorem to the abstract semigroup case. We finish the thesis with generalization of Schreiber's theorem to the case of mean ergodic semigroup $\mathcal{S}$ (\ref{t:markov_ww}) with finite dimensional fixed space $Fix(\mathcal{S})$ (\ref{t:finite_dim_markov_ww}), giving simultaneously more elementary proof. We give also version of the theorem characterizing convergence of the ergodic nets for the single function $f \in C(X)$ (\ref{t:single_markov_ww}). We present also necessary framework from measure theory, functional analysis, spectral theory for isometries on Hilbert spaces, Markov operators and ergodic theory for deterministic transformations and operator semigroups.
 \newpage
 \end{abstract}
 
@@ -165,6 +167,18 @@ The Wiener-Wintner ergodic theorem (\ref{t:ww}) states that for a given ergodic 
 %\listoftables
 
 \chapter*{Introduction}
+
+The classical result of ergodic theory is the Birkhoff's ergodic theorem. It states, that for an ergodic dynamical system $(X, \mathcal{A},\mu, T)$ and $f \in L^1(\mu)$ there is $\lim \limits_{N \rightarrow \infty} \sum \limits_{n=0}^{N} f(T^nx) = \int \limits_X f d\mu\ \mu$-a.e. The Wiener-Wintner ergodic theorem deals with the convergence of distorted Ceasaro averages $\frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x)$ for $\lambda \in \mathbb{T}:=\{ z \in \mathbb{C}: |z| = 1 \}$. The result of N. Wiener and A. Wintner from 1941 (\cite{ww}) states that if the system is ergodic then for every $f \in L^1(\mu)$ there exsists a measurable set of full measure $X_f$ such that $\lim \limits_{N \rightarrow \infty} \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f (T^n x )$ exists for every $x \in X_f$ and every $\lambda \in \mathbb{T}$. This thesis investigates several generalizations of this result.\\
+
+Chapter 1. introduces notation and gives necessary preliminaries from measure  theory, topology, functional analysis and spectral theory for isometries on Hilbert spaces. Proof are contained only in the last section.\\
+
+Chapter 2. gives brief introduction to the ergodic theory for measure preserving and topological dynamical systems.\\
+
+Chapter 3. is the first main chapter of the thesis. We prove Wiener-Wintner theorem and give two other Wiener-Wintner type theorems. Both of them deal with the uniform convergence of the distorted averages. Bourgain's uniform Wiener-Wintner theorem (\cite{bourgain}, 1990) states that for a function $f \in L^2(\mu)$ which is orthogonal to the Kronecker factor of the system there is $\lim \limits_{N \rightarrow \infty}\  \sup \limits_{\lambda \in \mathbb{T}}\ \left| \frac{1}{N} \sum \limits_{n=0}^{N-1} \lambda^n f(T^n x) \right| = 0.$ Robinson's topological Wiener-Wintner theorem (\cite{robinson}, 1994) gives condtion under which for a uniquely ergodic topological system $(X,T)$ and fixed $\lambda \in \mathbb{T}$ the sequence $\frac{1}{N}\sum \limits_{n=0}^{N} \lambda^n f \circ T^n$ converges in $C(X)$ for every $f \in C(X)$. We prove also reverse theorems. The proofs are based on the spectral theory. Wide treatment of these issues can be found in the book \cite{assani}.\\
+
+Chapter 4. contains introduction to the ergodic theory for operator semigroups. We consider bounded representations of semitopological semigroups on Banach spaces. We introduce the concept of ergodic net, which is a generalization of the sequence of the Ceasaro averages. Following M. Schreiber in \cite{schreiber13} and \cite{schreiber14}, we state the Abstract mean ergodic theorem in this language. We introduce concepts of the amenable semigroups and Markov operators on $C(X)$, where $X$ is a compact Hausdorff topological space. We state and prove several properties of the latter.\\
+
+Chapter 5. is the second main chapter of the thesis. It is based on the article \cite{schreiber14}, which includes characterization of the mean ergodicity of the semigroup $_{\chi}\mathcal{S}:=\{ \chi(g)S_g: g \in G \}$, where $\mathcal{S}=\{S_g: g \in G \}$ is a uniquely ergodic bounded Markovian representation of (right) amenable semigroup $G$ on $C(X)$ and $\chi:G \rightarrow \mathbb{T}$ is a continous semigroup homomorphism (character). This thesis consists results from the unpublished yet paper \cite{bartoszek}, which generalizes Schreiber's results to the case of mean (not necessarily uniquely) ergodic Markovian representations. We generalize also Schreiber's result on the convergence of an $_{\chi}\mathcal{S}$-ergodic net on a single function $f \in C(X)$ to the case of the arbitrary bounded Markovian representation $\mathcal{S}$ on $C(X)$.\\
 \addcontentsline{toc}{chapter}{Introduction}
 %%% Local Variables:
 %%% mode: latex
@@ -178,7 +192,7 @@ The Wiener-Wintner ergodic theorem (\ref{t:ww}) states that for a given ergodic 
 
 
 \chapter{Preliminaries}\label{r:prel}
-In this chapter we introduce basic notations, concepts and theorems from measure theory, topology and functional analysis which will be used through the thesis. We omit most of the proofs.\\ \\
+In this chapter we introduce basic notations, concepts and theorems from measure theory, topology, functional analysis and spectral theory for isometries on Hilbert spaces which will be used through the thesis. We omit most of the proofs.\\ \\
 By $\mathbb{N}$ we will denote set of positive natural numbers, by $\mathbb{N}_0$ - set of natural numbers with zero, by $\mathbb{Z}$ - set of integers, by $\mathbb{R}$ - set of real numbers, by $\mathbb{C}$ - set of complex numbers and by $\mathbb{T}=\mathbb{S}^1=\left\{ \lambda \in \mathbb{C}: |\lambda|=1 \right\}$ - circle on a complex plane (1-dimensional torus).
 
 
@@ -363,15 +377,15 @@ Operator $T'$ is called an \textbf{adjoint (dual) operator} of $T$.
 \begin{df}
 Let $H$ be a Hilbert space and let $T:H \rightarrow H$ be a bounded linear operator. There exists unique operator $T^* : H\rightarrow H$ such that
 \[ \langle Tx, y \rangle = \langle x, T^*y \rangle \text{ for all } x,y \in H.\]
-Operator $T^*$ is called an \textbf{Hermitian adjoint operator} fo $T$.
+Operator $T^*$ is called an \textbf{Hermitian adjoint operator} of $T$.
 \end{df}
 
 \begin{df}
-We say that Banach space $E$ is reflexive if it is isometrically isomorphic to its second dual, i.e. $X \cong X^{**}$.
+We say that the Banach space $E$ is reflexive if it is isometrically isomorphic to its second dual, i.e. $X \cong X^{**}$.
 \end{df}
-Banach-Alaoglu Theorem implies the following
+The Banach-Alaoglu Theorem implies the following
 \begin{thm}
-Banach space $E$ is reflexive if and only if its closed unit ball is weakly compact.
+The Banach space $E$ is reflexive if and only if its closed unit ball is weakly compact.
 \end{thm}
 Every Hilbert space is reflexive.
 
@@ -1197,7 +1211,7 @@ Let $\mathcal{S}$ be a bounded representation of the semitopological semigroup $
 We will make use of the following simple facts.
 
 \begin{f}\label{f:adjoint_separates}
-Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$. If $\mathcal{S}$ is mean ergodic then $Fix(\mathcal{S}')$ separaptes $Fix(\mathcal{S})$ ((i.e. for every $0 \neq x \in Fix(\mathcal{S})$ there exists $x^* \in Fix(\mathcal{S}')$ with $\langle x, x^* \rangle \neq 0$)).
+Let $\mathcal{S}$ be a bounded representation of semitopological semigroup $G$ on the Banach space $\mathfrak{X}$. If $\mathcal{S}$ is mean ergodic then $Fix(\mathcal{S}')$ separaptes $Fix(\mathcal{S})$ ((i.e. for every $0 \neq x \in Fix(\mathcal{S})$ there exists $x^* \in Fix(\mathcal{S}')$ with $\langle x, x^* \rangle \neq 0$)).
 \end{f}
 \begin{pf}
 Let $x \in Fix(\mathcal{S})$ be nonzero. There exists $x^* \in \mathfrak{X}^*$ with $\langle x, x^* \rangle \neq 0$ since the dual space of the normed space always separates the space. For the absorbing projection $P$ we have $Px \in \overline{co}\mathcal{S}x = \{ x \}$, hence
@@ -1415,7 +1429,7 @@ Then for every $f\in L^1(\mu) \cap L^p(\mu),\ p \in (1, \infty)$ we have
 \[ \|Tf\|_{L^p(\mu)} \leq \|f\|_{L^p(\mu)}. \]
 \end{thm}\\
 In our case $(X, \mathcal{A}, \mu)$ is a probability space, so $L^p(\mu) \subset L^1(\mu)$ for every $p \in (1, \infty)$. We can conclude that $\hat{S}$ restricted to the $L^p(\mu)$ is a contraction in $L^p(\mu)$ norm. In particular, we can uniquely extend Markov operator $S$ (on $C(X)$) to the positive contraction on $L^2(\mu)$ (by extending first to $L^1(\mu)$ and then restricting to $L^2(\mu)$). Note that we made use of the invariance of the measure $\mu$.\\ \\
-In the case of invariant probability measure $\mu \in \mathbb{P}_{\mathcal{S}}$ for bounded Markovian representation $\mathcal{S}$ of semitopological semigroup $G$ on $C(X)$  we can consider semigroup of positive contractions on $L^2(\mu)$. We denote it by $\mathcal{S}_{2, \mu} := \{S_{g,2}:\ g \in G \}$, where $S_{g,2}$ is the extension of $S_g$ to $L^2(\mu)$. Note that $\mathcal{S}_{2,\mu}$ is a bounded representation of $G$ on $L^2(\mu)$. Boundedness is obvious since since $S_{g,2}$ in $\mathcal{S}_{2,\mu}$ is a contraction, condition $S_{g,2}S_{h,2}=S_{hg,2}$ is satisfied since it is satisfied for the semigroup $\mathcal{S}$. In order to check the last condition, i.e. continuity in $L^2(\mu)$ of $G \ni g \mapsto S_{g,2}f$ for every $f \in L^2(\mu)$, let us fix $f \in L^2(\mu),\ g \in G$ and $\varepsilon > 0$. $C(X)$ is dense in $L^2(\mu)$, so there exists $f_0 \in C(X)$ with $\|f - f_0\|_{L^2(\mu)} < \varepsilon$. Since $\mathcal{S}$ is a bounded representation of $G$ on $C(X)$, there exists an open neighbourhood $U$ of $g$ such that there is $\|S_g f_0 - S_h f_0\|_{sup} < \varepsilon$ for every $h \in U$. For $h \in U$ we have now
+In the case of invariant probability measure $\mu \in \mathbb{P}_{\mathcal{S}}$ for bounded Markovian representation $\mathcal{S}$ of semitopological semigroup $G$ on $C(X)$  we can consider semigroup of positive contractions on $L^2(\mu)$. We denote it by $\mathcal{S}_{2, \mu} := \{S_{g,2}:\ g \in G \}$, where $S_{g,2}$ is the extension of $S_g$ to $L^2(\mu)$. Note that $\mathcal{S}_{2,\mu}$ is a bounded representation of $G$ on $L^2(\mu)$. Boundedness is obvious since $S_{g,2} \in \mathcal{S}_{2,\mu}$ is a contraction, condition $S_{g,2}S_{h,2}=S_{hg,2}$ is satisfied since it is satisfied for the semigroup $\mathcal{S}$. In order to check the last condition, i.e. continuity in $L^2(\mu)$ of $G \ni g \mapsto S_{g,2}f$ for every $f \in L^2(\mu)$, let us fix $f \in L^2(\mu),\ g \in G$ and $\varepsilon > 0$. $C(X)$ is dense in $L^2(\mu)$, so there exists $f_0 \in C(X)$ with $\|f - f_0\|_{L^2(\mu)} < \varepsilon$. Since $\mathcal{S}$ is a bounded representation of $G$ on $C(X)$, there exists an open neighbourhood $U$ of $g$ such that there is $\|S_g f_0 - S_h f_0\|_{sup} < \varepsilon$ for every $h \in U$. For $h \in U$ we have now
 \[ \|S_{g,2}f - S_{h,2}f\|_{L^2(\mu)} \leq \|S_{g,2}f - S_{g,2}f_0\|_{L^2(\mu)} + \|S_{g,2}f_0 - S_{h,2}f_0\|_{L^2(\mu)} + \]
 \[ +\|S_{h,2}f_0 - S_{h,2}f\|_{L^2(\mu)}\| \leq \|S_{g,2}\| \cdot \|f - f_0\|_{L^2(\mu)} + \|S_g f_0 - S_h f_0\|_{L^2(\mu)} + \]
 \[ + \|S_{h,2}\| \cdot \|f - f_0\|_{L^2(\mu)} \leq 2\|f - f_0\|_{L^2(\mu)} + \|S_g f_0 - S_h f_0\|_{sup} < 3\varepsilon. \]
@@ -1427,7 +1441,7 @@ Let $X$ be a compact Hausdorff topological space. Let $\mathcal{S}$ be a bounded
 \end{df}
 
 \begin{f}[{\cite[prop. 2.2]{schreiber14}}]\label{f:uniquely_mean_ergodic}
-Let $X$ be a compact Hausdorff topological space. Let $\mathcal{S}$ be a bounded Markovian representation of right amenbale semitopological semigroup $G$ on the Banach space $C(X)$. $\mathcal{S}$ is uniquely ergodic if and only if $\mathcal{S}$ is mean ergodic and $Fix(\mathcal{S}) = \mathbb{C}\cdot \mathds{1}$.
+Let $X$ be a compact Hausdorff topological space. Let $\mathcal{S}$ be a bounded Markovian representation of right a amenable semitopological semigroup $G$ on the Banach space $C(X)$. $\mathcal{S}$ is uniquely ergodic if and only if $\mathcal{S}$ is mean ergodic and $Fix(\mathcal{S}) = \mathbb{C}\cdot \mathds{1}$.
 \end{f}
 \begin{pf}
 $" \Rightarrow "$ Assume that $\mathcal{S}$ is uniquely ergodic with the unique measure $\mu$. For every $c \cdot \mu \in Fix(\mathcal{S}'),\ c \in \mathbb{C}\backslash \{ 0 \}$ there is $\langle \mathds{1}, c \cdot \mu \rangle = c \neq 0$ and $\mathds{1} \in Fix(\mathcal{S})$, so $Fix(\mathcal{S})$ separates $Fix(\mathcal{S}')$, hence $\mathcal{S}$ is mean ergodic by the Abstract mean ergodic theorem (Theorem \ref{t:ame_fix}). It follows from Fact \ref{f:adjoint_separates} that $Fix(\mathcal{S}')$ separates $Fix(\mathcal{S})$. Fact \ref{f:separate_dim} gives now $dim Fix(\mathcal{S}) \leq dim Fix(\mathcal{S}')=1$, so $\mathbb{C} \cdot \mathds{1} \subset Fix(\mathcal{S})$ yields $Fix(\mathcal{S}) = \mathbb{C} \cdot \mathds{1}$.\\
@@ -1435,7 +1449,8 @@ $" \Leftarrow "$ Assume now that $\mathcal{S}$ is mean ergodic and $Fix(\mathcal
 \end{pf}
 
 \chapter{Wiener-Wintner theorems for semigroups of Markov operators on $C(X)$}\label{r:wwop}
-In this chapter we will establish generalization the of topological Wiener-Wintner theorem to the case of Markovian bounded representation of amenable semigroup. Our starting point is the generalization for uniquely ergodic semigroup due to M. Schreiber (\cite{schreiber14}). We generalize it further without the assumption of unique ergodicity, simultaneously giving more elementary proof.
+In this chapter we will establish generalization the of topological Wiener-Wintner theorem to the case of Markovian bounded representation of amenable semigroup. Our starting point is the generalization for uniquely ergodic semigroup due to M. Schreiber (\cite{schreiber14}). We generalize it further without the assumption of unique ergodicity, simultaneously giving more elementary proof. This extensions and their proofs are due to W. Bartoszek and are taken from \cite{bartoszek}. We give slightly more detailed proof. The chapter ends with another theorem inspired by \cite{schreiber14}. We give a condition equivalent to the convergence of the distorted ergodic net $A_{\alpha}^{_{\chi}\mathcal{S}} f$ on a single function $f \in C(X)$. This allows us to extend Robinson's theorem to the case of any continous transformation $T: X \rightarrow X$.
+
 \section{Characters and distorted semigroups}
 We begin with introducing the concept of the semigroup character.
 
@@ -1481,12 +1496,12 @@ Let $X$ be a compact Hausdorff topological space. Let $\mathcal{S}$ be a bounded
 \end{enumerate}
 The strong/weak limit $\lim \limits_{\alpha} A_{\alpha}^{_{\chi}\mathcal{S}} f$ is equal for every strong/weak (right) $_{\chi}\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$ and is also equal to $Pf$. Operator P is a $_{\chi}\mathcal{S}$-absorbing projection onto $Fix(_{\chi}\mathcal{S})$ along $\overline{span}\ rg (I - _{\chi}\mathcal{S})$.
 \end{thm}
-\begin{rem}The above theorem can be stated briefly: if $\mathcal{S}$ is a bounded Markovian representation of a (right) amenable semitopological semigroup $G$ on $C(X)$ then for every $\chi \in \widehat{G}$ the distorted semigroup $_{\chi}\mathcal{S}$ is mean ergodic if and only if $Fix(_{\chi}S_{2,\mu}) \subset Fix(_{\chi}\mathcal{S})$. Conditions $(2)$ to $(8)$ are equivalent formulations of the ergodicity of the semigroup $_{\chi}\mathcal{S}$ and are consequence of the Abstract ergodic theorem (Theorems \ref{t:ame_fix} and \ref{t:ame_nofix}). The inclusion $Fix(_{\chi}S_{2,\mu}) \subset Fix(_{\chi}\mathcal{S})$ is understood in $L^2(\mu)$, i.e. $Fix(_{\chi}\mathcal{S}) \subset C(X)$ can be seen as a linear subspace of $L^2(\mu)$ (after identification of functions being equal almost everywhere). The inclusion says that for every function $f \in L^2(\mu)$ satisfying $f = \chi(g)S_{g,2}f\ \mu$-a.e. for all $g \in G$, there exists function $h \in C(X)$ with $f = h\ \mu$-a.e. satisfying $h = \chi(g)S_g h$ forall $g \in G$.
+\begin{rem}The above theorem can be stated briefly: if $\mathcal{S}$ is a uniquely ergodic bounded Markovian representation of a (right) amenable semitopological semigroup $G$ on $C(X)$ then for every $\chi \in \widehat{G}$ the distorted semigroup $_{\chi}\mathcal{S}$ is mean ergodic if and only if $Fix(_{\chi}S_{2,\mu}) \subset Fix(_{\chi}\mathcal{S})$. Conditions $(2)$ to $(8)$ are equivalent formulations of the ergodicity of the semigroup $_{\chi}\mathcal{S}$ and are consequence of the Abstract ergodic theorem (Theorems \ref{t:ame_fix} and \ref{t:ame_nofix}). The inclusion $Fix(_{\chi}S_{2,\mu}) \subset Fix(_{\chi}\mathcal{S})$ is understood in $L^2(\mu)$, i.e. $Fix(_{\chi}\mathcal{S}) \subset C(X)$ can be seen as a linear subspace of $L^2(\mu)$ (after identification of functions being equal almost everywhere). The inclusion says that for every function $f \in L^2(\mu)$ satisfying $f = \chi(g)S_{g,2}f\ \mu$-a.e. for all $g \in G$, there exists function $h \in C(X)$ with $f = h\ \mu$-a.e. satisfying $h = \chi(g)S_g h$ forall $g \in G$.
 \end{rem}
 %\begin{rem}
 %Uniform topological Wiener-Wintner theorem of Robinson (Theorem \ref{t:robinson}) can be seen as a corollary from the above theorem. We can even omit the assumption of the metrizability of the phase space. Indeed, let $X$ be a compact Hausdorff space and let $T: X \rightarrow X$ be a continuous transformation. Now $\mathcal{S}:=\{ U_T^n : n \in \mathbb{N} \}$ is a bounded Markovian representation of an amenable semigroup $\mathbb{N}$ on the Banach space $C(X)$. Unique ergodicity of $T$ is exactly the unique ergodicity of the semigroup $\mathcal{S}$ ($(U_T^n)' \mu = \mu$ is equivalent to the invariance of $\mu$ under every $U_T^n,\ n \in \mathbb{N}$ which is equivalent to the invariance of $\mu$ under $U_T$). The extended semigroup $\mathcal{S}_{2,\mu}$ is the semigroup of Koopman operators on $L^2(\mu)$. If we fix 
 %\end{rem}
-For a given $\mu \in \mathbb{P}_\mathcal{S}$ and $h \in L^2(\mu)$ let us denote by $h\mu$ a measure given by
+For a given $\mu \in \mathbb{P}_\mathcal{S}$ and $h \in L^2(\mu)$ let us denote by $h\mu$ the measure given by
 \[ h\mu(A) := \int \limits_A hd\mu,\ A \in \mathcal{B}(X). \]
 We will use later the following
 \begin{f}[{\cite[thm 6.12]{rudin2}}]\label{measure_to_variation}
@@ -1498,7 +1513,7 @@ Let $X$ be a compact Hausdorff topological space. Let $\mathcal{S}$ be a bounded
 \end{lem}
 \begin{pf} Let us take $h \in Fix(_{\chi}\mathcal{S}_{2,\mu})^*$. For $f \in C(X),\ g \in G$ we have
 \[ \langle f, \chi(g) S_g' (\overline{h} \mu )\rangle = \langle \chi(g) S_gf,  \overline{h} \mu \rangle = \int \limits_X \chi(g) S_g f \overline{h} d\mu = \langle \chi(g) S_g f, h \rangle_{L^2(\mu)} = \langle \chi(g) S_{g,2} f, h \rangle_{L^2(\mu)} =\]
-\[ = \langle f, \overline{\chi(g)} S_{g,2}^*h \rangle_{L^2(\mu)} = \langle f, (\chi(g) S_{g,2})^*h \rangle_{L^2(\mu)} = \langle f, h \rangle_{L^2(\mu)} = \int \limits_X f \overline{h}d\mu = \langle f, \overline{h}\mu \rangle,  \]
+\[ = \langle f, (\chi(g) S_{g,2})^*h \rangle_{L^2(\mu)} = \langle f, h \rangle_{L^2(\mu)} = \int \limits_X f \overline{h}d\mu = \langle f, \overline{h}\mu \rangle,  \]
 so $\overline{h}\mu \in Fix(_{\chi}\mathcal{S})'$. If we assume now that $\overline{h}\mu \in Fix(_{\chi}\mathcal{S})'$ for some $h \in L^2(\mu)$, then for $f \in C(X)$ there is
 \[ \langle f, (\chi(g) S_{g,2})^*h \rangle_{L^2(\mu)} = \langle \chi(g) S_{g,2} f, h \rangle_{L^2(\mu)} =  \int \limits_X \chi(g) S_{g,2} f \overline{h} d\mu = \int \limits_X \chi(g) S_g f \overline{h} d\mu = \]
 \[ = \langle \chi(g)S_g f, \overline{h}\mu \rangle= \langle f, \chi(g)S_g' \overline{h} \mu \rangle = \langle f, \overline{h} \mu \rangle = \langle f, h \rangle_{L^2(\mu)}.\]
@@ -1517,7 +1532,7 @@ so $x \in Fix(T^*)$, hence $Fix(T) \subset Fix(T^*)$. Since $(T^*)^* = T$, there
 \end{rem}
 We will give now two main theorems of this chapter.
 
-\begin{thm}\label{t:markov_ww}
+\begin{thm}[{\cite[thm. 2.1]{bartoszek}}]\label{t:markov_ww}
 Let $X$ be a compact Hausdorff topological space. Let $\mathcal{S}$ be a bounded Markovian representation of a right amenbale semigroup $G$ on the Banach space $C(X)$. If $\mathcal{S}$ is mean ergodic then for any character $\chi \in \widehat{G}$ the distorted semigroup $_{\chi}\mathcal{S}$ is mean ergodic if and only if for every $\mu \in \mathbb{P}_{\mathcal{S}}$ there is $\overline{Fix(_{\chi}\mathcal{S})}^{L^2(\mu)} = Fix(_{\chi}\mathcal{S}_{2,\mu})$.
 \end{thm}
 \begin{pf}
@@ -1533,7 +1548,7 @@ $(2) \Rightarrow (1)$ Suppose that there exists $\mu \in \mathbb{P}_{\mathcal{S}
 \end{pf}
 M. Schreiber showed in \cite{schreiber14} that if $\mathcal{S}$ if uniquely ergodic with $\mathbb{P}_{\mathcal{S}} = \{ \mu \}$, then $dim(Fix(_{\chi}\mathcal{S}_{2,\mu})) \leq 1$ , so $Fix(_\chi\mathcal{S}) \subset Fix(_{\chi}\mathcal{S}_{2,\mu}) \subset L^2(\mu)$ is closed as a finite dimensional subspace, so the $L^2(\mu)$-closure is redundant in the Theorem \ref{t:markov_ww}. We extend this fact to the case of mean ergodic Markov representations $\mathcal{S}$ with finite dimensional $Fix(\mathcal{S})$ and give more elementary proof.
 
-\begin{thm}\label{t:finite_dim_markov_ww}
+\begin{thm}[{\cite[thm. 2.2]{bartoszek}}]\label{t:finite_dim_markov_ww}
 Let $X$ be a compact Hausdorff topological space. Let $\mathcal{S}$ be a bounded Markovian representation of a right amenbale semigroup $G$ on the Banach space $C(X)$. If $\mathcal{S}$ is mean ergodic with $dim(Fix(\mathcal{S})) < \infty$, then then for any character $\chi \in \widehat{G}$ the distorted semigroup $_{\chi}\mathcal{S}$ is mean ergodic if and only if for every $\mu \in \mathbb{P}_{\mathcal{S}}$ there is $Fix(_{\chi}\mathcal{S}) = Fix(_{\chi}\mathcal{S}_{2,\mu})$.
 \end{thm}
 For the proof of this theorem we will need the following geometrical lemma.
@@ -1574,7 +1589,7 @@ For every $j=1,2,...,k$ let $f_j \in Fix(_{\chi}\mathcal{S})$ be such that $f_j 
 since finite dimensional subspace is always closed. $\square$
 \end{pf}
 We can give now short proof of the Theorem \ref{t:schreiber}.
-\begin{pf} (of the Theorem \ref{t:schreiber}) If $\mathcal{S}$ is uniquely ergodic with unique invariant probability measure $\mu \in \mathbb{P}_{\mathcal{S}}$, then by Fact \ref{f:uniquely_mean_ergodic} $\mathcal{S}$ is also mean ergodic and $Fix(\mathcal{S}) = \mathbb{C} \cdot \mathds{1}$, hence $dim(Fix(\mathcal{S}))=1<\infty.$ Theorem \ref{t:finite_dim_markov_ww} states now that for every $\chi \in \widehat{G}$ the distorted semigroup $_{\chi}\mathcal{S}$ is mean ergodic if and only if $Fix(_{\chi}\mathcal{S}_{2,\mu}) = Fix(_{\chi}\mathcal{S})$. The inclusion $Fix(_{\chi}\mathcal{S}_{2,\mu}) \supset Fix(_{\chi}\mathcal{S})$ is always true, hence the condtion is equivalent to $Fix(_{\chi}\mathcal{S}_{2,\mu}) \subset Fix(_{\chi}\mathcal{S}).\ \square$
+\begin{pf} (of the Theorem \ref{t:schreiber}) If $\mathcal{S}$ is uniquely ergodic with unique invariant probability measure $\mu \in \mathbb{P}_{\mathcal{S}}$, then by Fact \ref{f:uniquely_mean_ergodic} $\ \mathcal{S}$ is also mean ergodic and $Fix(\mathcal{S}) = \mathbb{C} \cdot \mathds{1}$, hence $dim(Fix(\mathcal{S}))=1<\infty.$ Theorem \ref{t:finite_dim_markov_ww} states now that for every $\chi \in \widehat{G}$ the distorted semigroup $_{\chi}\mathcal{S}$ is mean ergodic if and only if $Fix(_{\chi}\mathcal{S}_{2,\mu}) = Fix(_{\chi}\mathcal{S})$. The inclusion $Fix(_{\chi}\mathcal{S}_{2,\mu}) \supset Fix(_{\chi}\mathcal{S})$ is always true, hence the condtion is equivalent to $Fix(_{\chi}\mathcal{S}_{2,\mu}) \subset Fix(_{\chi}\mathcal{S}).\ \square$
 \end{pf}
 
 \section{Convergence of the distorted ergodic net on a single function}
@@ -1597,15 +1612,15 @@ The strong (weak) limit $\lim \limits_{\alpha} A_{\alpha}^{_{\chi}\mathcal{S}} f
 \end{thm}
 \begin{pf} Theorem \ref{t:ame_single} yields that conditions $(2)-(9)$ are equivalent.\\
 
-$(2) \Rightarrow (1)$ $_{\chi}\mathcal{S}_{2,\mu}$ is mean ergodic by Corollary \ref{c:reflexivemeanergodic}. Note that its absorbing projection $P$ is the orthogonal projection $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}$. Indeed, there is $Ph \in Fix(_{\chi}\mathcal{S}_{2,\mu})$ for every $h \in L^2(\mu)$. Fact \ref{f:adjoint_fix_space} gives that 
-\[ \langle Ph, h - Ph \rangle = \langle (A_{\alpha}^{_{\chi}\mathcal{S}_{2,\mu}})^* Ph, h \rangle - \langle Ph, Ph \rangle = \]
-\[ = \langle  Ph, A_{\alpha}^{_{\chi}\mathcal{S}_{2,\mu}}h \rangle - \langle Ph, Ph \rangle \rightarrow \langle  Ph, Ph \rangle - \langle Ph, Ph \rangle = 0\]
-for some right $_{\chi}\mathcal{S}_{2,\mu}$-ergodic net $A_{\alpha}^{_{\chi}\mathcal{S}_{2,\mu}}$. $P^2 = P$ and $P(L^2(\mu)) = Fix(_{\chi}\mathcal{S}_{2,\mu})$ yields now that $P = P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}$.\\
-If $A_{\alpha}^{_{\chi}\mathcal{S}}$ is a right $_{\chi}\mathcal{S}$-ergodic net, then $A_{\alpha}^{_{\chi}\mathcal{S}}$ is also a right $_{\chi}\mathcal{S}_{2,\mu}$-ergodic net (since $\|\cdot\|_{L^2(\mu)} \leq \|\cdot\|_{\text{sup}}$), so $A_{\alpha}^{_{\chi}\mathcal{S}} f$ converges in $L^2(\mu)$ to $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f$. By $(2)$ we have that $A_{\alpha}^{_{\chi}\mathcal{S}} f$ converges also in $C(X)$ to $h \in Fix(_{\chi}\mathcal{S})$, so $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f = h\ \mu$-a.e., hence $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f \in Fix(_{\chi\mathcal{S}})$.\\
+$(2) \Rightarrow (1)$ $_{\chi}\mathcal{S}_{2,\mu}$ is mean ergodic by Corollary \ref{c:reflexivemeanergodic}. Note that its absorbing projection $P$ is the orthogonal projection $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}$. Indeed, there is $Ph \in Fix(_{\chi}\mathcal{S}_{2,\mu})$ for every $h \in L^2(\mu)$. Fact \ref{f:adjoint_fix_space} gives that for $y \in Fix(_{\chi}\mathcal{S}_{2,\mu})$
+\[ \langle y, h - Ph \rangle = \langle (A_{\alpha}^{_{\chi}\mathcal{S}_{2,\mu}})^* y, h \rangle - \langle y, Ph \rangle = \]
+\[ = \langle  y, A_{\alpha}^{_{\chi}\mathcal{S}_{2,\mu}}h \rangle - \langle y, Ph \rangle \rightarrow \langle  y, Ph \rangle - \langle y, Ph \rangle = 0\]
+for some strong right $_{\chi}\mathcal{S}_{2,\mu}$-ergodic net $A_{\alpha}^{_{\chi}\mathcal{S}_{2,\mu}}$. $h = Ph + (h-Ph)$ gives a decomposition of $h$ into $Ph \in Fix(_{\chi}\mathcal{S}_{2,\mu})$ and $(h -Ph) \in Fix(_{\chi}\mathcal{S}_{2,\mu})^{\bot}$, which is unique by the Orthogonal Projection Theorem (\ref{t:orthproj}).\\
+If $A_{\alpha}^{_{\chi}\mathcal{S}}$ is a strong right $_{\chi}\mathcal{S}$-ergodic net, then $A_{\alpha}^{_{\chi}\mathcal{S}}$ is also a strong right $_{\chi}\mathcal{S}_{2,\mu}$-ergodic net (since $\|\cdot\|_{L^2(\mu)} \leq \|\cdot\|_{\text{sup}}$), so $A_{\alpha}^{_{\chi}\mathcal{S}} f$ converges in $L^2(\mu)$ to $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f$. By $(2)$ we have that $A_{\alpha}^{_{\chi}\mathcal{S}} f$ converges also in $C(X)$ to $h \in Fix(_{\chi}\mathcal{S})$, so $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f = h\ \mu$-a.e., hence $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f \in Fix(_{\chi}\mathcal{S})$.\\
 
-$(1) \Rightarrow (9)$ Let $\mu \in \mathcal{M}(X)$ vanish on $Fix(_{\chi}\mathcal{S}) \oplus \overline{span}\ rg (I - _{\chi}\mathcal{S})$. It suffices to show that $\langle f, \mu \rangle = 0$, hence Theorem \ref{t:hahn_banach} gives then $f \in Fix(_{\chi}\mathcal{S}) \oplus \overline{span}\ rg (I - _{\chi}\mathcal{S})$ (this subspace is closed by Fact \ref{f:closed_sum}). For every $h \in C(X)$ there is $\langle h - \chi(g)S_g h, \mu \rangle = 0$ for every $g \in G$, so $\langle h, (\chi(g)S_g)'\mu \rangle = \langle \chi(g)S_g h, \mu \rangle = \langle h, \mu \rangle$, hence $\mu \in Fix(_{\chi}\mathcal{S})'$. We have $S_g'|\mu| \geq |S_g'\mu| = |\overline{\chi}(g)\mu| = |\mu|$, so Lemma \ref{l:lattice_properties}.\ref{fix_inequality} gives $|\mu| \in Fix(\mathcal{S}')$. We can assume without loss of generality that $|\mu|$ is a probability measure, so $|\mu| \in \mathbb{P}_{\mathcal{S}}$. By Fact \ref{measure_to_variation} there exists $h \in L^2(|\mu|)$ with $\mu = \overline{h}|\mu|$ and by Lemma \ref{l:fixed_functions_measures} there is $h \in Fix(_{\chi}\mathcal{S}_{2,|\mu|})^*$. We have
+$(1) \Rightarrow (9)$ Let $\mu \in \mathcal{M}(X)$ vanish on $Fix(_{\chi}\mathcal{S}) \oplus \overline{span}\ rg (I - _{\chi}\mathcal{S})$. It suffices to show that $\langle f, \mu \rangle = 0$, since Theorem \ref{t:hahn_banach} gives then $f \in Fix(_{\chi}\mathcal{S}) \oplus \overline{span}\ rg (I - _{\chi}\mathcal{S})$ (this is closed subspace of $C(X)$ by Fact \ref{f:closed_sum}). For every $h \in C(X)$ there is $\langle h - \chi(g)S_g h, \mu \rangle = 0$ for every $g \in G$, so $\langle h, (\chi(g)S_g)'\mu \rangle = \langle \chi(g)S_g h, \mu \rangle = \langle h, \mu \rangle$, hence $\mu \in Fix(_{\chi}\mathcal{S})'$. We have $S_g'|\mu| \geq |S_g'\mu| = |\overline{\chi}(g)\mu| = |\mu|$, so Lemma \ref{l:lattice_properties}.\ref{fix_inequality} gives $|\mu| \in Fix(\mathcal{S}')$. We can assume without loss of generality that $|\mu|$ is a probability measure, so $|\mu| \in \mathbb{P}_{\mathcal{S}}$. By Fact \ref{measure_to_variation} there exists $h \in L^2(|\mu|)$ with $\mu = \overline{h}|\mu|$ and by Lemma \ref{l:fixed_functions_measures} there is $h \in Fix(_{\chi}\mathcal{S}_{2,|\mu|})^*$. We have
 \[ \langle f, \mu \rangle = \int \limits_X f d\mu = \int \limits_X f \overline{h}d|\mu| = \langle f, h \rangle_{L^2(|\mu|)} = \langle f, (A_{\alpha}^{_{\chi}\mathcal{S}_{2,|\mu|}} )^* h \rangle_{L^2(|\mu|)} = \langle A_{\alpha}^{_{\chi}\mathcal{S}_{2,|\mu|}} f, h \rangle_{L^2(|\mu|)} \]
-for some strong right $_{\chi}\mathcal{S}_{2, |\mu|}$-ergodic net $\chi(g) A_{\alpha}^{_{\chi}\mathcal{S}_{2,|\mu|}}$. Passing to the limit gives
+for some strong right $_{\chi}\mathcal{S}_{2, |\mu|}$-ergodic net $A_{\alpha}^{_{\chi}\mathcal{S}_{2,|\mu|}}$. Passing to the limit gives
 \[ \langle f, \mu \rangle = \langle P_{Fix(_{\chi}\mathcal{S}_{2,|\mu|})}f , h \rangle_{L^2(|\mu|)} =  \langle P_{Fix(_{\chi}\mathcal{S}_{2,|\mu|})}f, \mu \rangle = 0,    \]
 since $P_{Fix(_{\chi}\mathcal{S}_{2,|\mu|})}f \in Fix(_{\chi}\mathcal{S})$ by $(1).\ \square$
 \end{pf}
@@ -1613,12 +1628,18 @@ since $P_{Fix(_{\chi}\mathcal{S}_{2,|\mu|})}f \in Fix(_{\chi}\mathcal{S})$ by $(
 \begin{rem}
 The Uniform topological Wiener-Wintner theorem of Robinson (Theorem \ref{t:robinson}) can be seen as a corollary from the above theorem. We can omit the assumption of the metrizability of the phase space. Let $X$ be a compact Hausdorff space and let $T: X \rightarrow X$ be a uniquely ergodic continuous transformation with unique invariant probability measure $\mu$. Now $\mathcal{S}:=\{ U_T^n : n \in \mathbb{N} \}$ is a bounded Markovian representation of an amenable semigroup $\mathbb{N}$ on the Banach space $C(X)$. $\mathcal{S}$ is uniquely ergodic, since $Fix(\mathcal{S}') = \{ \nu \in \mathcal{M}(X): (U_T')^n \nu = \nu \text{ for every } n \in \mathbb{N}\} = \{\nu \in \mathcal{M}(X): U_T' \nu = \nu \} = \mathbb{C} \cdot \mu$. Let us fix $\lambda \in \mathbb{T}$ and consider the character $\chi \in \widehat{\mathbb{N}}$ defined by $\chi(n) = \lambda^n$. The sequence $(A_N^{_{\chi}\mathcal{S}})_{N \in \mathbb{N}}$ given by $A_N^{_{\chi}\mathcal{S}}:=\frac{1}{N} \sum \limits_{n=0}^N U_T^n$ is a strong $_{\chi}\mathcal{S}$-ergodic net. Theorem \ref{t:single_markov_ww} states that for a given function $f \in C(X)$ the sequence $\frac{1}{N} \sum \limits_{n=0}^N \lambda^n f \circ T^n$ is uniformly convergent if and only if $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f \in Fix(_{\chi}\mathcal{S})$. There is $Fix(_{\chi}\mathcal{S}_{2,\mu}) = \{ h \in L^2(\mu): h = \lambda^n U_T^n h \text{ for every } n \in \mathbb{N} \} = \{ h \in L^2(\mu): \overline{\lambda} h =h \circ T \}$, so $Fix(_{\chi}\mathcal{S}_{2,\mu})$ is the one (or zero) dimensional eigenspace of $\overline{\lambda}$ in $L^2(\mu)$ and similarly $Fix(_{\chi}\mathcal{S})$ is the one (or zero) dimensional eigenspace of $\overline{\lambda}$ in $C(X)$. Now $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f = P_{\overline{\lambda}}f$ is in the $L^2(\mu)$ eigenspace of $\overline{\lambda}$, hence  $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f \in Fix(_{\chi}\mathcal{S})$ if and only if $\lambda$ is a "continuous" eigenvalue ($\lambda \in C_T$) or $P_{\overline{\lambda}}f = 0$ ($\lambda \notin M_T$). Note that this requirement does not depend on $f \in C(X)$.
 \end{rem}
-We finish the thesis with the extension of Robinson's theorem for continuous transformation which are mean ergodic, but not necessarily uniquely ergodic.
+We finish the thesis with the extension of Robinson's theorem for an arbitary topological dynamical system.
 \begin{thm}
-Let $(X,T)$ be a topological dynamical system. Assume that $T$ is mean ergodic, i.e. $\frac{1}{N}\sum\limits_{n=0}^{N-1} f \circ T^n$ is uniformly convergent for every $f \in C(X)$ and let $\lambda \in \mathbb{T}$ and $f \in C(X)$. If for every invariant probability measure $\mu \in \mathcal{M}^T(X)$ the orthogonal projection $P_{\lambda} f$ is equal $\mu$-a.e. to some continuous eigenfunction of $\lambda$ or $P_{\lambda}f = 0$, then
+Let $(X,T)$ be a topological dynamical system and let $f \in C(X),\ \lambda \in \mathbb{T}$. If for every invariant probability measure $\mu \in \mathcal{M}^T(X)$ there is $P_{\overline{\lambda}}f = g\ \mu$-a.e. for some $g \in C(X)$ with $g \circ T = \overline{\lambda} g$, then
 \[ \frac{1}{N}\sum \limits_{n=0}^{n-1}\lambda^nf\circ T^n \text{ converges uniformly on } X. \]
 \end{thm} 
 
+\appendix
+\chapter{A note on a Wiener-Wintner theorem for mean ergodic Markov amenable semigroups}
+The appendix consists of the joint paper with prof. Wojciech Bartoszek on the extension of Schreiber's theorem (\ref{t:schreiber}). Theorems \ref{t:markov_ww} and \ref{t:finite_dim_markov_ww} together with their proofs are taken from this paper. It is yet to appear.
+
+\includepdf[pages=-]{BartoszekSpiewak}
+%\includepdf[pages=-,pagecommand=]{BartoszekSpiewak.pdf}
 
 \begin{thebibliography}{99}
 
@@ -1627,6 +1648,10 @@ Let $(X,T)$ be a topological dynamical system. Assume that $T$ is mean ergodic, 
 \bibitem[Assani]{assani} I. Assani,  \textit{Wiener Wintner Ergodic Theorems}, World Scientific, River Edge (2003)
 
 \bibitem[Assani, Presser]{assani_survey} I. Assani, Kimberly Presser, \textit{A Survey of the Return Times Theorem}, arXiv:1209.0856, \url{http://arxiv.org/abs/1209.0856}
+
+\bibitem[Bartoszek, Œpiewak]{bartoszek} W. Bartoszek, A. Œpiewak \textit{A note on a Wiener-Wintner theorem for mean ergodic Markov amenable semigroups}, to appear (2015)
+
+\bibitem[Bourgian]{bourgain} J. Bourgain, \textit{Double recurrence and almost sure convergence}, Journal Fur Die Reine Und Angewandte Mathematik 01/1990 (1990)
 
 \bibitem[Einsiedler, Ward]{einsiedler} Manfred Einsiedler, Thomas Ward, \textit{Ergodic Theory with a view towards Number Theory}, Springer, Graduate Texts in Mathematics, Vol. 259
 
@@ -1644,9 +1669,9 @@ Ergodic Theory}, Graduate Texts in Mathematics, Springer, to appear, \url{http:/
 
 \bibitem[Rudin2]{rudin2} Walter Rudin, \textit{Analiza rzeczywista i zespolona}, Wydawnictwo Naukowe PWN, second edition, 2009
 
-\bibitem[Schreiber14]{schreiber14} M. Schreiber, \textit{Topological Wiener - Wintner theorems for amenable operator semigroups}, ETDS  (2014).
+\bibitem[Schreiber14]{schreiber14} M. Schreiber, \textit{Topological Wiener - Wintner theorems for amenable operator semigroups}, Ergodic Theory and Dynamical Systems 34 (2014) no. 5, 1674-1698
 
-\bibitem[Schreiber13]{schreiber13} M. Schreiber, \textit{Uniform families of ergodic operator nets},  Semigroup Forum (2013)
+\bibitem[Schreiber13]{schreiber13} M. Schreiber, \textit{Uniform families of ergodic operator nets},  Semigroup Forum 86 (2013), no. 2, 321-336
 
 \bibitem[Sine]{sine} R. Sine, \textit{Geometric theory of a single Markov operator}, Pacific J. Math. 27 (1968), no. 1, 155-166
 

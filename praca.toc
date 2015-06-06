@@ -1,4 +1,4 @@
-\contentsline {chapter}{Introduction}{5}{chapter*.2}
+\contentsline {chapter}{Introduction}{6}{chapter*.2}
 \contentsline {chapter}{\numberline {1}Preliminaries}{7}{chapter.1}
 \contentsline {section}{\numberline {1.1}Measure theory}{7}{section.1.1}
 \contentsline {section}{\numberline {1.2}Functional analysis}{10}{section.1.2}
@@ -18,5 +18,6 @@
 \contentsline {chapter}{\numberline {5}Wiener-Wintner theorems for semigroups of Markov operators on $C(X)$}{57}{chapter.5}
 \contentsline {section}{\numberline {5.1}Characters and distorted semigroups}{57}{section.5.1}
 \contentsline {section}{\numberline {5.2}Mean ergodicity of the semigroup $_{\chi }\mathcal {S}$}{58}{section.5.2}
-\contentsline {section}{\numberline {5.3}Convergence of the distorted ergodic net on a single function}{63}{section.5.3}
-\contentsline {chapter}{Bibliography}{67}{chapter*.3}
+\contentsline {section}{\numberline {5.3}Convergence of the distorted ergodic net on a single function}{64}{section.5.3}
+\contentsline {chapter}{\numberline {A}A note on a Wiener-Wintner theorem for mean ergodic Markov amenable semigroups}{67}{appendix.A}
+\contentsline {chapter}{Bibliography}{73}{appendix*.3}
