@@ -13,19 +13,19 @@
 \def\@rodzajpracy{magisterska}
 \DeclareOption{licencjacka}{\def\@rodzajpracy{licencjacka}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{\@baseclass}}
-\PassOptionsToClass{a4paper,twoside,openright,11pt}{\@baseclass}
+\PassOptionsToClass{a4paper,twoside,11pt}{\@baseclass}
 \ProcessOptions
 
 \LoadClass{\@baseclass}
 
 \textwidth\paperwidth
 \advance\textwidth -55mm
-\oddsidemargin-1in
-\advance\oddsidemargin 30mm
-\evensidemargin-1in
+\oddsidemargin 1in
+\advance\oddsidemargin 35mm
+\evensidemargin 1in
 \advance\evensidemargin 25mm
-\topmargin -1in
-\advance\topmargin 20mm
+\topmargin 1in
+\advance\topmargin 25mm
 \setlength\textheight{48\baselineskip}
 \addtolength\textheight{\topskip}
 \marginparwidth15mm

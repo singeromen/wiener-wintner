@@ -173,8 +173,8 @@ A Markovian semigroup $\mathcal{S}$ is called uniquely ergodic if $dim(Fix(\math
 \item[(1)] $Fix(_{\chi}\mathcal{S}_2 ) \subseteq Fix(_{\chi}S)$,
 \item[(2)] $_{\chi}\mathcal{S}$ is mean ergodic with mean ergodic projection $P_{\chi}$,
 \item[(3)] $Fix(\mathcal{_{\chi}S})$ separates $Fix(_{\chi}\mathcal{S}')$,
-\item[(3)] $C(K) = Fix(_{\chi}\mathcal{S})\oplus \overline{lin\ rg(I -\ _{\chi}\mathcal{S})} $,
-\item[(4)] $A_{\alpha}^{_{\chi}\mathcal{S}}f$ converges strongly (equivalently weakly) for some/every strong right $_{\chi}\mathcal{S}$-ergodic net $A_{\alpha}^{_{\chi}\mathcal{S}}$ and all $f\in C(K)$.
+\item[(4)] $C(K) = Fix(_{\chi}\mathcal{S})\oplus \overline{lin\ rg(I -\ _{\chi}\mathcal{S})} $,
+\item[(5)] $A_{\alpha}^{_{\chi}\mathcal{S}}f$ converges strongly (equivalently weakly) for some/every strong right $_{\chi}\mathcal{S}$-ergodic net $A_{\alpha}^{_{\chi}\mathcal{S}}$ and all $f\in C(K)$.
 \end{itemize}
 \end{thm}
 
@@ -240,10 +240,10 @@ Let $\mathcal{S} = \{ S_g : g\in G \}$ be a representation of a right amenable s
 
 Proof: Conditions $(2)$ and $(3)$ are equivalent by Proposition 1.11 in [11].
 
-$(2) \Rightarrow (1)$  $_{\chi}\mathcal{S}_{2,\mu}$ is mean ergodic as a contraction semigroup on Hilbert space (cf. Corollary 1.9 in [11]). Its mean ergodic projection is the orthogonal projection $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}$. If $A_{\alpha}^{_{\chi}\mathcal{S}}$ is a strong right $_{\chi}\mathcal{S}$-ergodic net, then $A_{\alpha}^{_{\chi}\mathcal{S}}$ is also a strong right $_{\chi}\mathcal{S}_{2,\mu}$-ergodic net, so $A_{\alpha}^{_{\chi}\mathcal{S}} f$ converges in $L^2(\mu)$ to $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f$. By $(2)$ we have that $A_{\alpha}^{_{\chi}\mathcal{S}} f$ converges also in $C(X)$ to $h \in Fix(_{\chi}\mathcal{S})$, hence $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f \in Fix(_{\chi}\mathcal{S})$.
+$(2) \Rightarrow (1)$  $_{\chi}\mathcal{S}_{2,\mu}$ is mean ergodic as a contraction semigroup on a Hilbert space (cf. Corollary 1.9 in [11]). Its mean ergodic projection is the orthogonal projection $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}$. If $A_{\alpha}^{_{\chi}\mathcal{S}}$ is a strong right $_{\chi}\mathcal{S}$-ergodic net, then $A_{\alpha}^{_{\chi}\mathcal{S}}$ is also a strong right $_{\chi}\mathcal{S}_{2,\mu}$-ergodic net, so $A_{\alpha}^{_{\chi}\mathcal{S}} f$ converges in $L^2(\mu)$ to $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f$. By $(2)$ we have that $A_{\alpha}^{_{\chi}\mathcal{S}} f$ converges also in $C(X)$ to $h \in Fix(_{\chi}\mathcal{S})$, hence $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f = h \in Fix(_{\chi}\mathcal{S})$.
 
 $(1) \Rightarrow (3)$ Let $\mu \in C(K)'$ vanish on $Fix(_{\chi}\mathcal{S}) \oplus \overline{span}\ rg (I - _{\chi}\mathcal{S})$. The Hahn-Banach theorem yields that it suffices to show that $\langle f, \mu \rangle = 0$, since $Fix(_{\chi}\mathcal{S}) \oplus \overline{span}\ rg (I - _{\chi}\mathcal{S})$ is a closed subspace of $C(X)$. For every $h \in C(X),\ g \in G$ there is $\langle h - \chi(g)S_g h, \mu \rangle = 0$, so $\langle h, (\chi(g)S_g)'\mu \rangle = \langle \chi(g)S_g h, \mu \rangle = \langle h, \mu \rangle$, hence $\mu \in Fix(_{\chi}\mathcal{S})'$. We have $S_g'|\mu| \geq |S_g'\mu| = |\overline{\chi}(g)\mu| = |\mu|$, so $|\mu| \in Fix(\mathcal{S}')$. We can assume that $|\mu| \in \mathbb{P}_{\mathcal{S}}$. There exists $h \in L^2(|\mu|)$ with $\mu = \overline{h}|\mu|$ and by Lemma 2.5 in [10] there is $h \in Fix(_{\chi}\mathcal{S}_{2,|\mu|})^*$. We have
-\[ \langle f, \mu \rangle = \int \limits_X f d\mu = \int \limits_X f \overline{h}d|\mu| = \langle f, h \rangle_{L^2(|\mu|)} = \]
+\[ \langle f, \mu \rangle = \int \limits_K f d\mu = \int \limits_K f \overline{h}d|\mu| = \langle f, h \rangle_{L^2(|\mu|)} = \]
 \[ = \langle f, (A_{\alpha}^{_{\chi}\mathcal{S}_{2,|\mu|}} )^* h \rangle_{L^2(|\mu|)} = \langle A_{\alpha}^{_{\chi}\mathcal{S}_{2,|\mu|}} f, h \rangle_{L^2(|\mu|)} \]
 for some strong right $_{\chi}\mathcal{S}_{2, |\mu|}$-ergodic net $A_{\alpha}^{_{\chi}\mathcal{S}_{2,|\mu|}}$. Passing to the limit gives
 \[ \langle f, \mu \rangle = \langle P_{Fix(_{\chi}\mathcal{S}_{2,|\mu|})}f , h \rangle_{L^2(|\mu|)} =  \langle P_{Fix(_{\chi}\mathcal{S}_{2,|\mu|})}f, \mu \rangle = 0,    \]
