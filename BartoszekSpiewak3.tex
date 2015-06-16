@@ -1,0 +1,375 @@
+% ----------------------------------------------------------------
+% AMS-LaTeX Paper ************************************************
+% **** -----------------------------------------------------------
+\documentclass{amsart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage[mathscr]{eucal}
+%\usepackage[active]{srcltx} % SRC Specials: DVI [Inverse] Search
+% ----------------------------------------------------------------
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+\hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+% THEOREMS -------------------------------------------------------
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{exa}[thm]{Example}
+\numberwithin{equation}{section}
+% MATH -----------------------------------------------------------
+\newcommand{\bs}{\rightline{$\blacksquare$}}
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\Real}{\mathbb R}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\BX}{\mathbf{B}(X)}
+\newcommand{\Hi}{\mathcal{H}}
+\newcommand{\Lo}{\mathcal{L}(\mathcal{H})}
+\newcommand{\Cj}{\mathcal{C}_{1}}
+\newcommand{\St}{\mathcal{S}}
+\def\Ro{{\bf R}}
+\def\Co{{\bf C}}
+\def\Io{{\bf I}}
+\def\Tr{{\rm \,Tr\,}}
+\def\c{{\check c}}
+\def\d{{\check d}}
+\def\endpage{\strut\vfill\eject\noindent}
+%\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\def\Km{K^{\rm m}}
+\def\Ks{K^{\rm s}}
+% ----------------------------------------------------------------
+\begin{document}
+\title {A note on a Wiener-Wintner theorem for mean \\ ergodic Markov amenable semigroups }
+\author {Wojciech Bartoszek$^1$ and Adam \'Spiewak$^2$ }
+\address {Department of Mathematics, Gda\'nsk University of
+Technology, \newline
+ ul. Narutowicza 11/12, 80 233 Gda\'nsk, Poland}
+\email{$^1$bartowk@mifgate.mif.pg.gda.pl, corresponding author}
+\email{$^2$adspiewak@gmail.com}
+
+%\subjclass{}%
+\keywords {amenable Markov semigroups, Wiener-Wintner ergodic theorem.}
+
+\date {9 April 2015}
+%\dedicatory{}%
+%\commby{}%
+% ----------------------------------------------------------------
+\begin{abstract}
+We prove a Wiener-Wintner ergodic type theorem for a Markov representation
+$ \mathcal{S} =  \{ S_g : g\in G \}$ of a right amenable
+semitopological semigroup $G$. We assume that $\mathcal{S}$ is mean
+ergodic as a semigroup of linear Markov operators acting on
+$(C(K), \| \cdot \|_{\sup })$, where $K$ is a fixed Hausdorff, compact space.
+The main result of the paper are necessary and sufficient conditions for
+mean ergodicity of a distorted  semigroup  $\{ \chi(g)S_g : g\in G \}$,
+where $\chi $ is a semigroup character. Such conditions were obtained before under the
+additional assumption that $\mathcal{S}$ is uniquely ergodic.
+\end{abstract}
+\maketitle
+% ----------------------------------------------------------------
+\pagestyle{myheadings}
+
+\markboth{Bartoszek \& \'Spiewak }{On Wiener-Wintner ergodic theorem}
+
+
+\section{Introduction}
+The paper contributes towards  a recently published  paper [10]
+due to M. Schreiber. To avoid redundancy and keep the format of this note
+appropriately compact we generally follow definitions and notation from [10].
+However for the convenience of the reader we give a brief summary of
+the topic we deal with. Given a compact Hausdorff
+space $K$ and the complex Banach lattice $C(K)$ of all continuous complex valued
+functions on $K$, a linear contraction operator $S : C(K) \to C(K)$ is call (strongly) mean ergodic if
+its Cesaro means $\frac{1}{n}\sum_{j=1}^n S^jf $ converge uniformly  on $K$ (i.e. in the
+$\sup $ norm $\| \cdot \|$)  to $Qf$. It is well known that the limit
+operator $Q$ is a linear projection on
+the manifold $Fix(S) = \{ f\in C(K) : Sf = f \}$ of $S$-invariant functions.
+The characterization of  mean ergodicity are today a classical part of
+operator ergodic theory and can be found in most monographs (cf. [5], [8]).
+
+Let us recall that a linear operator $S : C(K) \to C(K)$ is called Markov if
+$Sf\geq 0$ for all (real valued) nonnegative  $f\in C(K)_+$ and $S\mathbf{1} = \mathbf{1}$.
+Clearly any Markov operator has norm $1$, in particular it is a contraction.
+Given a semitopological semigroup $G$, a (bounded) representation of $G$ on $C(K)$ is
+the semigroup of operators $\mathcal{S} = \{ S_g : g\in G \}$ such that
+$S_{g_1g_2} = S_{g_2}S_{g_1}$ and $G \ni g \to S_gf \in C(K)$ is norm continuous for every
+$f\in C(K)$ and $\sup_{g\in G} \| S_g \| < \infty$. If all $S_g$ are Markovian, then the representation
+is called Markovian.
+A (complex) function $\chi : G \to \{ z\in \mathbb{C} : |z| = 1 \} = \mathbb{K} $
+is called a semigroup character if it is continuous and $\chi(g_1g_2) = \chi (g_1)\chi (g_2)$ for
+all $g_1, g_2 \in G$. A semitopological semigroup $G$ is called right amenable
+if the Banach lattice  $(C_b(G), \| \cdot \|_{\sup}) $ has a right invariant mean (i.e. there
+exists on  a positive functional $m$ such that $\langle \mathbf{1} , m \rangle  = 1, $
+and $\langle f, m \rangle = \langle f(\cdot g), m \rangle  $ for all $g\in G $ and all $f\in C_b(G)$
+cf. [3], [7]).
+
+Extending the notion of Cesaro averages (c.f. [2], [5], [6]) we say that
+a net $(A_{\alpha }^{\mathcal{S}})_{\alpha }$ of contraction operators on $C(K)$
+is called strong right $\mathcal{S}$-ergodic if
+$A_{\alpha}^{\mathcal{S}} \in \overline{conv\mathcal{S}}^{s.o.t.}$ and
+$\lim_{\alpha} \| A_{\alpha}^{\mathcal{S}}f -  A_{\alpha}^{\mathcal{S}}S_gf \|_{\sup} = 0$
+for all $g\in G$ and $f\in C(K)$. The semigroup $\mathcal{S}$ is called mean ergodic if
+$\overline{conv \mathcal{S}}^{s.o.t.}$ contains a (Markovian) zero element $Q$ (cf. [5], [8])
+We denote $Fix(\mathcal{S}) = \{ f\in C(K) : S_gf = f  $ \ for all \ $g\in G \}$ and similarly
+$Fix(\mathcal{S}') = \{ \nu\in C(K)' : S_g'\nu  = \nu  $ \ for all \ $g\in G \}$. If
+for every $\nu \in Fix(\mathcal{S}')$ there exists $f\in Fix(\mathcal{S})$
+such that $\langle f , \nu \rangle \neq 0 $ then we say that
+$Fix(\mathcal{S})$ separates $Fix(\mathcal{S}')$.
+Let us recall a characterization of strong mean ergodicity
+for contraction (linear) semigroups (cf. [8], Theorem 1.7 and Corollary 1.8).
+\begin{prop}
+Let $G$ be represented on $C(K)$ by a right amenable semigroup of contractions
+$\mathcal{S} = \{ S_g : g \in G \}$. Then the following conditions are equivalent:
+\begin{itemize}
+\item[(1)] $\mathcal{S}$ is mean ergodic with mean ergodic projection $P$,
+\item[(2)] $Fix(\mathcal{S})$ separates $Fix(\mathcal{S}')$,
+\item[(3)] $C(K) = Fix(\mathcal{S})\oplus \overline{rg(I - \mathcal{S})} $,
+\item[(4)] $A_{\alpha}^{\mathcal{S}}f$ converges strongly (equivalently weakly)
+to $Qf$ for some/every strong right $\mathcal{S}$-ergodic net
+$A_{\alpha}^{\mathcal{S}}$ and all $f\in C(K)$.
+\end{itemize}
+\end{prop}
+
+Given a semigroup character $\chi : G \to \mathbb{K} $ let $_{\chi}\mathcal{S}$
+denote the semigroup $\{ \chi(g)S_g : g\in G\}$. The question whether mean ergodicity
+of $\mathcal{S}$ is preserved when we pass to the distorted semigroup $_{\chi}\mathcal{S}$
+was addressed in several papers (cf. [1], [9], [10] and [12]).
+
+A Markovian semigroup $\mathcal{S}$ is called uniquely ergodic if
+$dim(Fix(\mathcal{S}')) = 1$ (c.f. [2]). In this case there exists a unique probability
+measure $\mu \in C(K)'$ such that $S_g'\mu = \mu $ for all $g\in G$. Clearly
+unique ergodicity implies (cf. [11] Proposition 2.2) that $\mathcal{S}$ is mean
+ergodic and $Fix(\mathcal{S}) = \mathbb{C}\mathbf{1}$. Even in this
+situation, having a markovian representation $\mathcal{S}$ which is uniquely ergodic,
+it may happen that for some characters $\chi $ the semigroup
+$_{\chi}\mathcal{S}$  is not mean ergodic (cf. [9], [12]). The necessary and sufficient
+condition guaranteeing mean ergodicity of $_{\chi}\mathcal{S}$ is formulated
+in [10] in terms of yet another semigroup $_{\chi}\mathcal{S}_2$.
+It is well known that the domain of any Markov operator $S$ may be  extended
+by ($Sg(x) = \int g(y) S'\delta_x(dy)$)  to  all bounded and Borel measurable functions.
+If $\mu $ is a $S'$ invariant probability, then this canonical extension appears to be a positive
+linear contraction once acting on $L^2(\mu)$. Following [10] let $\mathcal{S}_2$ denote
+the positive semigroup of linear contractions $S_g$ which are extended to $L^2(\mu )$.
+Similarly $_{\chi}\mathcal{S}_2$ stands for all $\chi(g)S_g$, $g\in G$ which act
+on $L^2(\mu )$. It has been recently proved in [10]
+
+\begin{thm} (M. Schreiber) Let $\mathcal{S} = \{ S_g : g\in G \}$ be a
+representation of a right amenable semigroup $G$ as Markov operators on
+$C(K)$ and assume that $\mathcal{S}$ is uniquely ergodic with invariant
+probability measure $\mu $. Then for a continuous character $\chi $ on $G$
+the following conditions are equivalent:
+\begin{itemize}
+\item[(1)] $Fix(_{\chi}\mathcal{S}_2 ) \subseteq Fix(_{\chi}S)$,
+\item[(2)] $_{\chi}\mathcal{S}$ is mean ergodic with mean ergodic projection $P_{\chi}$,
+\item[(3)] $Fix(\mathcal{_{\chi}S})$ separates $Fix(_{\chi}\mathcal{S}')$,
+\item[(3)] $C(K) = Fix(_{\chi}\mathcal{S})\oplus \overline{rg(I - \ _{\chi}\mathcal{S})} $,
+\item[(4)] $A_{\alpha}^{_{\chi}\mathcal{S}}f$ converges strongly (equivalently weakly)
+for some/every strong right $_{\chi}\mathcal{S}$-ergodic net $A_{\alpha}^{_{\chi}\mathcal{S}}$
+and all $f\in C(K)$.
+\end{itemize}
+\end{thm}
+
+\section{Result}
+
+In this section we generalize the above result to mean ergodic Markov representations
+without the unique ergodicity assumption. By $P(K)$ we denote  the
+convex and *weak compact set of all probability (regular, Borel) measures on $K$.
+We set $\mathbb{P}_{\mathcal{S}} = \{ \mu\in P(K) : S_g'\mu = \mu $ \ for all $g\in G \}$.
+If $\mu \in \mathbb{P}_{\mathcal{S}} $ then  both $\mathcal{S}$ and $_{\chi}\mathcal{S}$
+may be extended to $L^2(\mu )$. These extensions are
+denoted respectively $\mathcal{S}_{2, \mu}$  or $_{\chi}\mathcal{S}_{2,\mu}$. Clearly
+they all are contraction semigroups.   Now the version
+of the Wiener-Wintner ergodic theorem may be formulated as follows:
+
+\begin{thm}
+Let $\mathcal{S} = \{ S_g : g\in G \}$ be a
+representation of a right amenable semigroup $G$ as Markov operators on
+$C(K)$. If $\mathcal{S}$ is mean ergodic then for any continuous character $\chi $ on $G$
+the following conditions are equivalent:
+\begin{itemize}
+\item[(1)] $\overline{Fix(_{\chi}\mathcal{S})}^{L^2(\mu)} = Fix(_{\chi}\mathcal{S}_{2,\mu})$ for any
+$\mu \in \mathbb{P}_{\mathcal{S}}$,
+\item[(2)] $_{\chi}\mathcal{S}$ is mean ergodic with mean ergodic projection $Q_{\chi}$,
+\item[(3)] $Fix(\mathcal{_{\chi}S})$ separates $Fix(_{\chi}\mathcal{S}')$,
+\item[(4)] $C(K) = Fix(_{\chi}\mathcal{S})\oplus \overline{rg(I - \ _{\chi}\mathcal{S})} $,
+\item[(5)] $A_{\alpha}^{_{\chi}\mathcal{S}}f$ converges strongly (equivalently weakly) to $_{\chi}Q$
+for some/every strong right $_{\chi}\mathcal{S}$-ergodic net $A_{\alpha}^{_{\chi}\mathcal{S}}$,
+and all $f\in C(K)$.
+\end{itemize}
+\end{thm}
+Proof: It follows from the general abstract operator ergodic theorem (see Proposition 1.1)
+that it is sufficient to prove equivalence of (1) and (3).
+
+$(1) \Rightarrow (3)$ Let $\nu \in Fix(_{\chi}\mathcal{S}')$ be nonzero.
+We have  $_{\chi}S_g'\nu = \nu $ or equivalently $S_g'\nu = \overline{\chi (g)}\nu$ for all
+$g\in G$.
+Since $S_g$ are positive linear contractions on the (complex) Banach lattice
+$C(K)' = M(K)$ of regular finite (complex) measures on $K$ it follows that
+$S_g'|\nu | \geq |S_g'\nu | = |\overline{\chi(g)}\nu | = |\nu |$, where
+$|\cdot |$ denotes the lattice modulus in $M(K)$. Hence $S_g'|\nu | = |\nu |$ as $\| S_g' \| = 1$.
+Without loss of generality we may assume that $|\nu | \in \mathbb{P}_{\mathcal{S}}$.
+Clearly $\nu = \overline{g}|\nu |$ for some modulus 1 function $g$ and by Lemma 2.5 in [10]
+$g\in Fix(_{\chi}\mathcal{S}_{2,|\nu |})$ (the assumption of unique ergodicity
+is not required here). By (1) we find a sequence $g_n \in Fix(_{\chi}\mathcal{S})$ such that
+$\| g_n - g \|_{L^2(| \nu |)} \to 0$. Now $\langle g_n , \nu \rangle  = \int g_n\overline{g}d|\nu |
+\to \int g\overline{g}d|\nu | = 1$. Hence $ \langle g_n , \nu \rangle  \neq 0$ for some $n$.
+It follows that  $Fix(\mathcal{_{\chi}S})$ separates $Fix(_{\chi}\mathcal{S}')$.
+
+$(3) \Rightarrow (1)$ Suppose that there exists $\mu \in \mathbb{P}_{\mathcal{S}}$
+such that $(1)$ fails. Then there exists $f\in Fix(_{\chi}\mathcal{S}_{2,\mu })$ such
+that $f \perp Fix(_{\chi}\mathcal{S})$. Applying once again Lemma 2.5 from [10]
+we have $\overline{f}\mu \in Fix(_{\chi}\mathcal{S}')$. By (3) there
+exists $q \in Fix(_{\chi}\mathcal{S})$ such that $0 \neq \langle q, \overline{f}\mu \rangle
+ = \int_K q\overline{f}d\mu = \langle q , f \rangle_{L^2(\mu)}$, a contradiction.
+
+\bs
+
+If $\mathcal{S}$ is uniquely ergodic then by Lemma 2.6 in [10]
+$dim (Fix(_{\chi}\mathcal{S})) \leq 1 $ and therefore the closure operation
+in condition $(1)$ is redundant. We end this note by extending Theorem 2.7 from [10]
+(simultaneously simplifying its proof).
+The general results on  unique ergodicity, strict ergodicity, irreducibility
+and the structure of supports of invariant measures for
+ergodic nets of Markov operators on $C(K)$ may be found in [2].
+
+\begin{thm}
+Let $\mathcal{S} = \{ S_g : g\in G \}$ be a
+representation of a right amenable semigroup $G$ as Markov operators on
+$C(K)$. If $\mathcal{S}$ is mean ergodic with finite dimensional
+ergodic projection $Q$ then for any continuous character $\chi $ on $G$
+the following conditions are equivalent:
+\begin{itemize}
+\item[(1)] $Fix(_{\chi}\mathcal{S}) = Fix(_{\chi}\mathcal{S}_{2,\mu})$ for all
+$\mu \in \mathbb{P}_{\mathcal{S}}$,
+\item[(2)] $_{\chi}\mathcal{S}$ is mean ergodic with mean ergodic projection $Q_{\chi}$,
+\item[(3)] $Fix(\mathcal{_{\chi}S})$ separates $Fix(_{\chi}\mathcal{S}')$,
+\item[(3)] $C(K) = Fix(_{\chi}\mathcal{S})\oplus \overline{rg(I - \  _{\chi}\mathcal{S})} $,
+\item[(4)] $A_{\alpha}^{_{\chi}\mathcal{S}}f$ converges strongly (equivalently weakly) to
+$Q_{\chi }$ for some/every strong right $_{\chi}\mathcal{S}$-ergodic net
+$A_{\alpha}^{_{\chi}\mathcal{S}}$ and all $f\in C(K)$.
+\end{itemize}
+\end{thm}
+Proof: Clearly condition $(1)$ here implies condition $(1)$ in Theorem 2.1.
+Hence it is sufficient to prove:
+
+(3) $ \Rightarrow$ (1)
+Given a character $\chi $ on $G$ we shall  prove that
+$dim Fix(_{\chi}\mathcal{S}) < \infty$. We assume that $\mathcal{S}$
+is mean ergodic and that $dim Fix(\mathcal{S}) < \infty$. Hence there is
+finitely many  extremal invariant probabilities  $\mu_1, \mu_2, \dots \mu_k
+\in ex \mathbb{P}_{\mathcal{S}}$. It follows from the mean ergodicity of $\mathcal{S}$
+that topological supports of $\mu_1, \dots \mu_k$ are disjoint (closed) subsets
+of $K$. Let $C_{\mathcal{S}}$ be the union $\bigcup_{j=1}^k \ supp(\mu _j)$.
+Clearly each set $supp(\mu_j)$ is $\mathcal{S}$-invariant (i.e.
+$S'_g \delta_x (supp (\mu_j)) = 1$ for all $g\mathcal{\in G}$ and $x\in supp(\mu_j)$,
+$j =1, ... , k$). Let $\mu = \frac{1}{k}(\mu_1 + ... + \mu_k) \in \mathbb{P}_{\mathcal{S}}$.
+If $f\in Fix(_{\chi}\mathcal{S})\subseteq L^2(\mu )$ then $\chi(g)S_gf = f $ and
+therefore $S_gf = \overline{\chi(g)}f$. Considering $S_g$ as a linear contraction on $L^2(\mu )$
+we get $S_g|f| = |f| \ \mu \ a.e.$. In particular, $S_g|f| = |f|$ on  $C_{\mathcal{S}}$.
+Hence on each support $supp(\mu_j)$ the function $|f|$ is constant.
+Let us take arbitrary $x\in supp(\mu_j)$  and $g\in G$. We have
+$$
+f(x) =  \chi(g)\int_K f(y) S_g'\delta_x(dy) = \chi(g)\int_{supp(\mu_j)} f(y) S_g'\delta_x(dy) \ .
+$$
+Hence $f(y) = \overline{\chi(g)}f(x)$ for $y \in supp(S_g'\delta_x)$.
+It follows that for  any $f_1, f_2 \in Fix(_{\chi}\mathcal{S})$ such that
+$f_2 \neq 0$ on $supp(\mu_j)$ and all $x\in supp(\mu_j)$, $g\in G$ we have
+$$
+S_g\left(\frac{f_1}{f_2}\right) (x) = \int_{supp(\mu_j)} \frac{f_1(y)}{f_2(y)} S_g'\delta_x(dy) =
+\frac{\overline{\chi(g)}f_1(x)}{\overline{\chi(g)}f_2(x)} = \frac{f_1}{f_2}(x).
+$$
+Since $\mathcal{S}$-invariant functions are constant on supports of extremal
+invariant probabilities, thus $\frac{f_1}{f_2} = c$ on $supp(\mu_j)$. In other words if
+$f_1, f_2 \in Fix(_{\chi}\mathcal{S})$ then $f_1 = \alpha_j(f_1, f_2)f_2$ on $supp(\mu_j)$ or simply
+$dim Fix(_{\chi}\mathcal{S})\mathbf{1}_{supp \mu_j} = 1$ for any $j = 1, ... , k$.
+
+
+Let $f_j\in Fix(_{\chi}\mathcal{S})\mathbf{1}_{supp \mu_j}$ be nonzero (as long as such a function
+exists). Then any
+$f\in Fix(_{\chi}\mathcal{S})$ may be represented  in  $L^2(\mu)$ as
+$f = \sum_{j=1}^k f \mathbf{1}_{supp \mu_j} = \sum_{j=1}^k \alpha_jf_j\mathbf{1}_{supp \mu_j}$.
+In particular, regardless of the choice of invariant $\mu \in Fix(\mathcal{S}')$ the estimation
+$dim Fix(_{\chi}\mathcal{S}) \leq dim Fix(\mathcal{S}) = k $ in $L^2(\mu )$ holds true.
+Hence using Theorem 2.1 the condition (3) implies
+$$
+Fix(_{\chi}\mathcal{S}_{2,\mu}) = \overline{Fix(_{\chi}\mathcal{S})}^{L^2(\mu)} = Fix(_{\chi}\mathcal{S}) \
+(\mu \ a.e.)
+$$
+for all $\mu \in \mathbb{P}_{\mathcal{S}}$.
+
+\bs
+
+We end the paper characterizing (similarly as in Theorem 2.8 in [10]) the convergence of  ergodic nets $A_{\alpha}^{_{\chi}\mathcal{S}}$
+on individual functions $f \in C(K)$. 
+
+\begin{thm}
+Let $\mathcal{S} = \{ S_g : g\in G \}$ be a representation of a right amenable semigroup $G$ as Markov operators on $C(K)$. For any $f \in C(K)$ and continuous character $\chi$ on $G$ the following conditions are equivalent:
+\begin{itemize}
+\item[(1)] $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f \in Fix(_{\chi}\mathcal{S})$ for every $\mu \in \mathbb{P}_{\mathcal{S}}$, where $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}$ denotes the orthogonal projection on the subspace $Fix(_{\chi}\mathcal{S}_{2,\mu})$ in $L^2(\mu)$,
+\item[(2)] $A_{\alpha}^{_{\chi}\mathcal{S}} f$ converges uniformly to a fixed point of $_{\chi}\mathcal{S}$ for some/every strong right $\mathcal{S}$-ergodic net $(A_{\alpha}^{_{\chi}\mathcal{S}})_{\alpha \in \Lambda}$,
+\item[(3)] $f \in Fix(_{\chi}\mathcal{S}) \oplus \overline{span}\ rg (I -\ _{\chi}\mathcal{S}).$
+\end{itemize}
+\end{thm}
+
+Proof: It is well known (cf. [8] or Proposition 1.11 in [11]) that conditions $(2)$ and $(3)$ are equivalent.
+
+$(2) \Rightarrow (1)$  $_{\chi}\mathcal{S}_{2,\mu}$ is mean ergodic as a contraction semigroup on a Hilbert space,
+with the orthogonal projection $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}$. Clearly if $A_{\alpha}^{_{\chi}\mathcal{S}}$ is a strong right $_{\chi}\mathcal{S}$-ergodic net on $C(K)$ then $A_{\alpha}^{_{\chi}\mathcal{S}}$ is also a strong right $_{\chi}\mathcal{S}_{2,\mu}$-ergodic net in $L^2(\mu )$. Thus $A_{\alpha}^{_{\chi}\mathcal{S}} f$ converges in $L^2(\mu)$ to $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f$. By $(2)$  $A_{\alpha}^{_{\chi}\mathcal{S}} f$ converges in $C(X)$ to $h \in Fix(_{\chi}\mathcal{S})$. Hence $P_{Fix(_{\chi}\mathcal{S}_{2,\mu})}f = h \in Fix(_{\chi}\mathcal{S})$.
+
+$(1) \Rightarrow (3)$ It suffices to show that $\langle f, \mu \rangle = 0 $ for all
+functionals $\mu \in C(K)'$ vanishing on $Fix(_{\chi}\mathcal{S}) \oplus \overline{span}\ rg (I -\ _{\chi}\mathcal{S})$. For every $h \in C(X)$ and all $ g \in G$ we have
+$\langle h - \chi(g)S_g h, \mu \rangle = 0$, so $\langle h, (\chi(g)S_g)'\mu \rangle = \langle \chi(g)S_g h, \mu \rangle = \langle h, \mu \rangle$. It follows that  $\mu \in Fix(_{\chi}\mathcal{S})'$. We have $S_g'|\mu| \geq |S_g'\mu| = |\overline{\chi}(g)\mu| = |\mu|$, so $|\mu| \in Fix(\mathcal{S}')$. Without loss of generality 
+we may assume that $|\mu| \in \mathbb{P}_{\mathcal{S}}$. There exists (modulus $1$) $h \in L^2(|\mu|)$ 
+such that $\mu = \overline{h}|\mu|$. By Lemma 2.5 in [10] the function $h \in Fix(_{\chi}\mathcal{S}_{2,|\mu|})^*$. We get
+\[ \langle f, \mu \rangle = \int \limits_K f d\mu = \int \limits_K f \overline{h}d|\mu| = \langle f, h \rangle_{L^2(|\mu|)} = 
+\]
+\[ = \langle f, (A_{\alpha}^{_{\chi}\mathcal{S}_{2,|\mu|}} )^* h \rangle_{L^2(|\mu|)} = \langle A_{\alpha}^{_{\chi}\mathcal{S}_{2,|\mu|}} f, h \rangle_{L^2(|\mu|)}\ , \]
+for some strong right $_{\chi}\mathcal{S}_{2, |\mu|}$-ergodic net $A_{\alpha}^{_{\chi}\mathcal{S}_{2,|\mu|}}$. 
+Taking the limit we finally obtain 
+$$ \langle f, \mu \rangle = \langle P_{Fix(_{\chi}\mathcal{S}_{2,|\mu|})}f , h \rangle_{L^2(|\mu|)} =  \langle P_{Fix(_{\chi}\mathcal{S}_{2,|\mu|})}f, \mu \rangle = 0,  
+$$
+as by our condition $(1)$ $P_{Fix(_{\chi}\mathcal{S}_{2,|\mu|})}f \in Fix(_{\chi}\mathcal{S})$.
+
+\bs
+
+\begin{thebibliography}{12}
+\bibitem {} \ I. Assani, {\it Wiener Wintner Ergodic Theorems}, World Scientific,
+River Edge, NJ, 2003.
+\bibitem {} \ W. Bartoszek and N. Erkursun, {\it On quasi-compact Markov nets,}
+Erg. Th. \& Dynam. Sys. {\bf 31} (2011) 1081--1094.
+\bibitem {} \ M.M. Day, {\it Amenable semigroups}, Illinois J. Math., vol. 1 (1957),
+pp. 509--544.
+\bibitem {} \ T.Eisner, B. Farkas, M. Haase and R. Nagel, {\it Operator Theoretic Aspects
+of Ergodic Theory}, Springer (2014).
+\bibitem {} \ E.Yu Emel'yanov and N. Erkursun, {\it Generalization of Eberlein's
+and Sine's ergodic theorem to $(\mathcal{L}, \mathcal{R})$-nets}, Vladikavkaz Mat. Zh.
+{\bf 9} (3) (2007), 22-26.
+\bibitem {} \ E.Yu Emel'yanov and N. Erkursun, {\it Lotz-R\"abiger's nets of Markov
+operators on $L^1-$spaces}, J. Math. Anal. Appl. {\bf 371} (2010) no. 2, 777-783.
+\bibitem {} \ F. Greenleaf, {\it Invariant Means on Topological Groups
+and their Applications}, Van Nostrand New York (1969).
+\bibitem {} \ U. Krengel, {\it Ergodic Theorems (de Gruyter Studies
+in Mathematics, 6)}, Walter de Gruyter \& Co. Berlin, (1985).
+201--217.
+\bibitem {} \ E.A. Robinson, {\it On uniform convergence in the Wiener-Wintner theorem},
+J. Lond. Math. Soc. {\bf 49} (1994), 493--501.
+\bibitem {}  \ M. Schreiber, {\it Topological Wiener-Wintner theorems for
+amenable operator semigroups}, Ergod. Th. \& Dynam. Sys. {\bf 34}
+(2014) no. 5, 1674--1698.
+\bibitem {} \ M. Schreiber, {\it Uniform familes of ergodic operator nets}, Semigroup Forum
+{\bf 86} (2013) no. 2, 321--336.
+\bibitem {} \ P. Walters, {\it Topological Wiener-Wintner ergodic theorems
+and a random $L^2$ ergodic theorem}, Ergod. Th. \& Dynam. Sys. {\bf 16} (1996) 179--206.
+
+\end{thebibliography}
+\end{document}
