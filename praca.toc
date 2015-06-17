@@ -12,7 +12,7 @@
 \contentsline {section}{\numberline {3.1}Bourgain's uniform Wiener-Wintner theorem}{30}{section.3.1}
 \contentsline {section}{\numberline {3.2}Proof of the Wiener-Wintner ergodic theorem}{34}{section.3.2}
 \contentsline {section}{\numberline {3.3}Uniform topological Wiener-Wintner theorem}{36}{section.3.3}
-\contentsline {chapter}{\numberline {4}Ergodic theory for operator semigroups and Markov operators on $C(K)$}{43}{chapter.4}
+\contentsline {chapter}{\numberline {4}Ergodic theory of operator semigroups and Markov operators on $C(K)$}{43}{chapter.4}
 \contentsline {section}{\numberline {4.1}Operator semigroups, ergodic nets and mean ergodicity}{43}{section.4.1}
 \contentsline {section}{\numberline {4.2}Amenable semigroups}{48}{section.4.2}
 \contentsline {section}{\numberline {4.3}Markov operators on $C(X)$}{49}{section.4.3}

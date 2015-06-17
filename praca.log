@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.5)  16 JUN 2015 18:56
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.5)  17 JUN 2015 13:47
 entering extended mode
 **C:/Users/Singer/Documents/GitHub/wiener-wintner/praca.tex
 (C:/Users/Singer/Documents/GitHub/wiener-wintner/praca.tex
@@ -737,33 +737,38 @@ Underfull \hbox (badness 10000) in paragraph at lines 211--212
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 213--214
+
+ []
+
 [8]
 Chapter 1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 227--229
+Underfull \hbox (badness 10000) in paragraph at lines 229--231
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 247--251
+Underfull \hbox (badness 10000) in paragraph at lines 249--253
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 247--251
+Underfull \hbox (badness 10000) in paragraph at lines 249--253
 
  []
 
 [9
 
 ] [10] [11] [12] [13]
-Overfull \hbox (7.23224pt too wide) in paragraph at lines 376--377
+Overfull \hbox (7.23224pt too wide) in paragraph at lines 378--379
 $\OMS/plsy/m/n/10.95 k\OML/plm/m/it/10.95 \OMS/plsy/m/n/10.95 k \OT4/cmr/m/n/1
 0.95 := [] []$ $(=$
  []
 
 [14] [15] [16] [17]
-LaTeX Font Info:    Try loading font information for U+dsrom on input line 511.
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 513.
 
 
 (C:\Users\Singer\AppData\Roaming\MiKTeX\2.9\tex\latex\dstroke\udsrom.fd
@@ -774,7 +779,7 @@ File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 ]
 Chapter 2.
 [21] [22] [23] [24] [25] [26]
-Overfull \hbox (0.10732pt too wide) in paragraph at lines 746--747
+Overfull \hbox (0.10732pt too wide) in paragraph at lines 748--749
 \OT4/cmr/m/n/10.95 where $\OML/plm/m/it/10.95 Q$ \OT4/cmr/m/n/10.95 is an or-th
 og-o-nal pro-jec-tion on a sub-space $[]$$= []$$=$
  []
@@ -784,22 +789,22 @@ og-o-nal pro-jec-tion on a sub-space $[]$$= []$$=$
 ]
 Chapter 3.
 [29]
-Overfull \hbox (3.26997pt too wide) detected at line 832
+Overfull \hbox (3.26997pt too wide) detected at line 834
  []$[] \OMS/plsy/m/n/10.95 ¬ [] [] \OML/plm/m/it/10.95 :  $ 
  []
 
 [30] [31] [32] [33] [34] [35]
-Underfull \hbox (badness 10000) in paragraph at lines 974--976
+Underfull \hbox (badness 10000) in paragraph at lines 976--978
 
  []
 
 [36]
-Underfull \hbox (badness 10000) in paragraph at lines 1001--1004
+Underfull \hbox (badness 10000) in paragraph at lines 1003--1006
 
  []
 
 [37] [38] [39]
-Overfull \hbox (6.53775pt too wide) detected at line 1102
+Overfull \hbox (6.53775pt too wide) detected at line 1104
 [][] \OT4/cmr/m/n/10.95 = (\OML/plm/m/it/10.95 x[]\OT4/cmr/m/n/10.95 )[][]\OML/
 plm/m/it/10.95 i \OMS/plsy/m/n/10.95 2 \U/msb/m/n/10.95 N[]\OML/plm/m/it/10.95 
 x[] \OT4/cmr/m/n/10.95 := (\OMS/plsy/m/n/10.95  \OT4/cmr/m/n/10.95 1)[]\U/dsrom
@@ -815,24 +820,24 @@ sy/m/n/10.95 2 \U/msb/m/n/10.95 N\OML/plm/m/it/10.95 :
 Chapter 4.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1118.
+(hyperref)                removing `math shift' on input line 1120.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1118.
+(hyperref)                removing `math shift' on input line 1120.
 
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <24.88> on input line 1118.
+(Font)              <24.88> on input line 1120.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <20.74> on input line 1118.
+(Font)              <20.74> on input line 1120.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <17.28> on input line 1118.
-LaTeX Font Info:    Try loading font information for U+euf on input line 1126.
+(Font)              <17.28> on input line 1120.
+LaTeX Font Info:    Try loading font information for U+euf on input line 1128.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\ueuf.fd"
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) [43] [44]
 [45]
-Overfull \hbox (0.4232pt too wide) in paragraph at lines 1226--1227
+Overfull \hbox (0.4232pt too wide) in paragraph at lines 1228--1229
 []$\OML/plm/m/it/10.95 A[]x$ \OT4/cmr/m/it/10.95 con-verges weakly for ev-ery $
 \OML/plm/m/it/10.95 x \OMS/plsy/m/n/10.95 2 \U/euf/m/n/10.95 X$ \OT4/cmr/m/it/1
 0.95 and some/every weak right $\OMS/plsy/m/n/10.95 S$\OT4/cmr/m/it/10.95 -ergo
@@ -842,22 +847,22 @@ dic net $\OT4/cmr/m/n/10.95 (\OML/plm/m/it/10.95 A[]\OT4/cmr/m/n/10.95 )[]$\OT4
 
 [46] [47]
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <14.4> on input line 1312.
+(Font)              <14.4> on input line 1314.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <10> on input line 1312.
+(Font)              <10> on input line 1314.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <7> on input line 1312.
+(Font)              <7> on input line 1314.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1312.
+(hyperref)                removing `math shift' on input line 1314.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1312.
+(hyperref)                removing `math shift' on input line 1314.
 
 [48] [49] [50]
-Overfull \hbox (12.79738pt too wide) detected at line 1376
+Overfull \hbox (12.79738pt too wide) detected at line 1378
 \OMS/plsy/m/n/10.95 h\OML/plm/m/it/10.95 f; S[]\OMS/plsy/m/n/10.95 i \OT4/cmr/
 m/n/10.95 = \OMS/plsy/m/n/10.95 h\OML/plm/m/it/10.95 S[]f; \OMS/plsy/m/n/10.95
  i \OT4/cmr/m/n/10.95 = [] \OML/plm/m/it/10.95 S[]fd \OT4/cmr/m/n/10.95 = [] \
@@ -873,7 +878,7 @@ cmr/m/n/10.95 = \OMS/plsy/m/n/10.95 h\OML/plm/m/it/10.95 f; \OMS/plsy/m/n/10.9
  []
 
 [51] [52] [53]
-Overfull \hbox (10.24435pt too wide) detected at line 1466
+Overfull \hbox (10.24435pt too wide) detected at line 1468
 \OMS/plsy/m/n/10.95 k[]\OML/plm/m/it/10.95 f\OMS/plsy/m/n/10.95 k[] \OT4/cmr/m/
 n/10.95 = \OMS/plsy/m/n/10.95 kj[]\OML/plm/m/it/10.95 f\OMS/plsy/m/n/10.95 jk[]
  ¬ k[]j\OML/plm/m/it/10.95 f\OMS/plsy/m/n/10.95 jk[] ¬ k[]\OT4/cmr/m/n/10.95 (\
@@ -885,12 +890,12 @@ ML/plm/m/it/10.95 f\OMS/plsy/m/n/10.95 k[]  \U/dsrom/m/n/10.95 1\OT4/cmr/m/n/1
  []
 
 [54]
-Underfull \hbox (badness 10000) in paragraph at lines 1475--1478
+Underfull \hbox (badness 10000) in paragraph at lines 1477--1480
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1480--1483
+Underfull \hbox (badness 10000) in paragraph at lines 1482--1485
 
  []
 
@@ -898,33 +903,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 1480--1483
 Chapter 5.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1496.
+(hyperref)                removing `math shift' on input line 1498.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1496.
+(hyperref)                removing `math shift' on input line 1498.
 
 [57
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1528.
+(hyperref)                removing `math shift' on input line 1530.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 1528.
+(hyperref)                removing `subscript' on input line 1530.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\chi' on input line 1528.
+(hyperref)                removing `\chi' on input line 1530.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1528.
+(hyperref)                removing `math shift' on input line 1530.
 
 [58]
-Overfull \hbox (9.41438pt too wide) detected at line 1562
+Overfull \hbox (9.41438pt too wide) detected at line 1564
 \OMS/plsy/m/n/10.95 h\OML/plm/m/it/10.95 f; \OT4/cmr/m/n/10.95 (\OML/plm/m/it/
 10.95 g\OT4/cmr/m/n/10.95 )\OML/plm/m/it/10.95 S[]\OT4/cmr/m/n/10.95 ([]\OML/pl
 m/m/it/10.95 \OT4/cmr/m/n/10.95 )\OMS/plsy/m/n/10.95 i \OT4/cmr/m/n/10.95 = \O
@@ -940,22 +945,22 @@ y/m/n/10.95 h\OML/plm/m/it/10.95 \OT4/cmr/m/n/10.95 (\OML/plm/m/it/10.95 g\OT4
  []
 
 [59]
-Underfull \hbox (badness 10000) in paragraph at lines 1586--1587
+Underfull \hbox (badness 10000) in paragraph at lines 1588--1589
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1591--1593
+Underfull \hbox (badness 10000) in paragraph at lines 1593--1595
 
  []
 
 [60] [61] [62]
-Underfull \hbox (badness 10000) in paragraph at lines 1664--1666
+Underfull \hbox (badness 10000) in paragraph at lines 1666--1668
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1667--1671
+Underfull \hbox (badness 10000) in paragraph at lines 1669--1673
 
  []
 
@@ -965,31 +970,31 @@ Appendix A.
 File: BartoszekSpiewak3.pdf Graphic file (type pdf)
 
 <use BartoszekSpiewak3.pdf>
-Package pdftex.def Info: BartoszekSpiewak3.pdf used on input line 1689.
+Package pdftex.def Info: BartoszekSpiewak3.pdf used on input line 1691.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: BartoszekSpiewak3.pdf Graphic file (type pdf)
  <use BartoszekSpiewak3.pdf>
-Package pdftex.def Info: BartoszekSpiewak3.pdf used on input line 1689.
+Package pdftex.def Info: BartoszekSpiewak3.pdf used on input line 1691.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 
 <BartoszekSpiewak3.pdf, id=1023, page=1, 597.23125pt x 845.1575pt>
 File: BartoszekSpiewak3.pdf Graphic file (type pdf)
 
 <use BartoszekSpiewak3.pdf, page 1>
-Package pdftex.def Info: BartoszekSpiewak3.pdf, page1 used on input line 1689.
+Package pdftex.def Info: BartoszekSpiewak3.pdf, page1 used on input line 1691.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: BartoszekSpiewak3.pdf Graphic file (type pdf)
  <use BartoszekSpiewak3.pdf, page 1>
-Package pdftex.def Info: BartoszekSpiewak3.pdf, page1 used on input line 1689.
+Package pdftex.def Info: BartoszekSpiewak3.pdf, page1 used on input line 1691.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: BartoszekSpiewak3.pdf Graphic file (type pdf)
 
 <use BartoszekSpiewak3.pdf, page 1>
-Package pdftex.def Info: BartoszekSpiewak3.pdf, page1 used on input line 1689.
+Package pdftex.def Info: BartoszekSpiewak3.pdf, page1 used on input line 1691.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: BartoszekSpiewak3.pdf Graphic file (type pdf)
  <use BartoszekSpiewak3.pdf, page 1>
-Package pdftex.def Info: BartoszekSpiewak3.pdf, page1 used on input line 1689.
+Package pdftex.def Info: BartoszekSpiewak3.pdf, page1 used on input line 1691.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 
 [65
@@ -998,90 +1003,90 @@ Package pdftex.def Info: BartoszekSpiewak3.pdf, page1 used on input line 1689.
 File: BartoszekSpiewak3.pdf Graphic file (type pdf)
 
 <use BartoszekSpiewak3.pdf, page 2>
-Package pdftex.def Info: BartoszekSpiewak3.pdf, page2 used on input line 1689.
+Package pdftex.def Info: BartoszekSpiewak3.pdf, page2 used on input line 1691.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: BartoszekSpiewak3.pdf Graphic file (type pdf)
  <use BartoszekSpiewak3.pdf, page 2>
-Package pdftex.def Info: BartoszekSpiewak3.pdf, page2 used on input line 1689.
+Package pdftex.def Info: BartoszekSpiewak3.pdf, page2 used on input line 1691.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: BartoszekSpiewak3.pdf Graphic file (type pdf)
 
 <use BartoszekSpiewak3.pdf, page 1>
-Package pdftex.def Info: BartoszekSpiewak3.pdf, page1 used on input line 1689.
+Package pdftex.def Info: BartoszekSpiewak3.pdf, page1 used on input line 1691.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
  [66 <C:/Users/Singer/Documents/GitHub/wiener-wintner/BartoszekSpiewak3.pdf>]
 <BartoszekSpiewak3.pdf, id=1102, page=3, 597.23125pt x 845.1575pt>
 File: BartoszekSpiewak3.pdf Graphic file (type pdf)
 
 <use BartoszekSpiewak3.pdf, page 3>
-Package pdftex.def Info: BartoszekSpiewak3.pdf, page3 used on input line 1689.
+Package pdftex.def Info: BartoszekSpiewak3.pdf, page3 used on input line 1691.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: BartoszekSpiewak3.pdf Graphic file (type pdf)
  <use BartoszekSpiewak3.pdf, page 3>
-Package pdftex.def Info: BartoszekSpiewak3.pdf, page3 used on input line 1689.
+Package pdftex.def Info: BartoszekSpiewak3.pdf, page3 used on input line 1691.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: BartoszekSpiewak3.pdf Graphic file (type pdf)
 
 <use BartoszekSpiewak3.pdf, page 2>
-Package pdftex.def Info: BartoszekSpiewak3.pdf, page2 used on input line 1689.
+Package pdftex.def Info: BartoszekSpiewak3.pdf, page2 used on input line 1691.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
  [67 <C:/Users/Singer/Documents/GitHub/wiener-wintner/BartoszekSpiewak3.pdf>]
 <BartoszekSpiewak3.pdf, id=1116, page=4, 597.23125pt x 845.1575pt>
 File: BartoszekSpiewak3.pdf Graphic file (type pdf)
 
 <use BartoszekSpiewak3.pdf, page 4>
-Package pdftex.def Info: BartoszekSpiewak3.pdf, page4 used on input line 1689.
+Package pdftex.def Info: BartoszekSpiewak3.pdf, page4 used on input line 1691.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: BartoszekSpiewak3.pdf Graphic file (type pdf)
  <use BartoszekSpiewak3.pdf, page 4>
-Package pdftex.def Info: BartoszekSpiewak3.pdf, page4 used on input line 1689.
+Package pdftex.def Info: BartoszekSpiewak3.pdf, page4 used on input line 1691.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: BartoszekSpiewak3.pdf Graphic file (type pdf)
 
 <use BartoszekSpiewak3.pdf, page 3>
-Package pdftex.def Info: BartoszekSpiewak3.pdf, page3 used on input line 1689.
+Package pdftex.def Info: BartoszekSpiewak3.pdf, page3 used on input line 1691.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
  [68 <C:/Users/Singer/Documents/GitHub/wiener-wintner/BartoszekSpiewak3.pdf>]
 <BartoszekSpiewak3.pdf, id=1125, page=5, 597.23125pt x 845.1575pt>
 File: BartoszekSpiewak3.pdf Graphic file (type pdf)
 
 <use BartoszekSpiewak3.pdf, page 5>
-Package pdftex.def Info: BartoszekSpiewak3.pdf, page5 used on input line 1689.
+Package pdftex.def Info: BartoszekSpiewak3.pdf, page5 used on input line 1691.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: BartoszekSpiewak3.pdf Graphic file (type pdf)
  <use BartoszekSpiewak3.pdf, page 5>
-Package pdftex.def Info: BartoszekSpiewak3.pdf, page5 used on input line 1689.
+Package pdftex.def Info: BartoszekSpiewak3.pdf, page5 used on input line 1691.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: BartoszekSpiewak3.pdf Graphic file (type pdf)
 
 <use BartoszekSpiewak3.pdf, page 4>
-Package pdftex.def Info: BartoszekSpiewak3.pdf, page4 used on input line 1689.
+Package pdftex.def Info: BartoszekSpiewak3.pdf, page4 used on input line 1691.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
  [69 <C:/Users/Singer/Documents/GitHub/wiener-wintner/BartoszekSpiewak3.pdf>]
 File: BartoszekSpiewak3.pdf Graphic file (type pdf)
  <use BartoszekSpiewak3.pdf, page 5>
-Package pdftex.def Info: BartoszekSpiewak3.pdf, page5 used on input line 1689.
+Package pdftex.def Info: BartoszekSpiewak3.pdf, page5 used on input line 1691.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
  [70 <C:/Users/Singer/Documents/GitHub/wiener-wintner/BartoszekSpiewak3.pdf>]
 LaTeX Font Info:    Try loading font information for OT4+cmtt on input line 170
-2.
+4.
 
 (C:\Users\Singer\AppData\Roaming\MiKTeX\2.9\tex\latex\polski\ot4cmtt.fd
 File: ot4cmtt.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-Underfull \hbox (badness 2717) in paragraph at lines 1716--1718
+Underfull \hbox (badness 2717) in paragraph at lines 1718--1720
 []\OT4/cmr/m/n/10.95 T. Eis-ner, B. Farkas, M. Haase, R. Nagel, \OT4/cmr/m/it/1
 0.95 Op-er-a-tor The-o-retic As-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1716--1718
+Underfull \hbox (badness 10000) in paragraph at lines 1718--1720
 []$\OT4/cmtt/m/n/10.95 http : / / www . fan . uni-[]wuppertal . de / fileadmin 
 / mathe / reine _ mathematik /$
  []
 
 
-Underfull \hbox (badness 1097) in paragraph at lines 1727--1728
+Underfull \hbox (badness 1097) in paragraph at lines 1729--1730
 []\OT4/cmr/m/n/10.95 M. Lema«czyk, \OT4/cmr/m/it/10.95 Teo-ria spek-tralna dla 
 er-godyków\OT4/cmr/m/n/10.95 , 2010, script, []$\OT4/cmtt/m/n/10.95 http : / /$
 
@@ -1090,20 +1095,20 @@ er-godyków\OT4/cmr/m/n/10.95 , 2010, script, []$\OT4/cmtt/m/n/10.95 http : / /$
 [71
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1753.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1755.
  [72]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1753.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1755.
  (C:\Users\Singer\Documents\GitHub\wiener-wintner\praca.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1753.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1753.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1755.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1755.
 
 Package rerunfilecheck Info: File `praca.out' has not changed.
-(rerunfilecheck)             Checksum: AF4ADC7685D9ECD8AAD28A70B93D99FE;1860.
+(rerunfilecheck)             Checksum: 8F4B02AC6F2B9FA8E33082950DC4E00A;1859.
  ) 
 Here is how much of TeX's memory you used:
  9748 strings out of 493921
  138439 string characters out of 3144873
- 252485 words of memory out of 3000000
+ 252484 words of memory out of 3000000
  12467 multiletter control sequences out of 15000+200000
  30266 words of font info for 107 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
@@ -1159,7 +1164,7 @@ e1/public/pl/plti7.pfb><C:/Users/Singer/AppData/Roaming/MiKTeX/2.9/fonts/type1/
 public/pl/plti8.pfb><C:/Users/Singer/AppData/Roaming/MiKTeX/2.9/fonts/type1/pub
 lic/pl/pltt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/hoekwater/rsfs
 /rsfs10.pfb>
-Output written on praca.pdf (72 pages, 1530027 bytes).
+Output written on praca.pdf (72 pages, 1530108 bytes).
 PDF statistics:
  1345 PDF objects out of 1440 (max. 8388607)
  386 named destinations out of 1000 (max. 500000)
